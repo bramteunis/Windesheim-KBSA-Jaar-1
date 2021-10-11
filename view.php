@@ -76,12 +76,12 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <h2 class="StockItemNameViewSize StockItemName">
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
-            <div class="QuantityText"><?php print $StockItem['QuantityOnHand']; ?></div>
+            <div class="QuantityText" style="color: black;><?php print $StockItem['QuantityOnHand']; ?></div>
             <div id="StockItemHeaderLeft">
                 <div class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
                         <p class="StockItemPriceText"><b><?php print sprintf("€ %.2f", $StockItem['SellPrice']); ?></b></p>
-                        <h6> Inclusief BTW </h6>
+                        <h6 style="color: black;> Inclusief BTW </h6>
                     </div>
                 </div>
             </div>
