@@ -1,4 +1,4 @@
-<!-- dit is het bestand dat wordt geladen zodra je naar de website gaat -->
+<!-- dit is het bestand dat wordt geladen zodra je naar de website gaat en test je dit even? -->
 <?php
 include __DIR__ . "/header.php";
 ?>
