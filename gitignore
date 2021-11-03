@@ -98,6 +98,10 @@ Thumbs.db
 *.key
 *.pem
 
+# ignore these specific files
+#---------------------------------------------------------
+database.php
+
 # --------------------------------------------------------
 # BEGIN Explictly Allowed Files (i.e. do NOT ignore these)
 # --------------------------------------------------------
