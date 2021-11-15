@@ -1,3 +1,6 @@
+database.php
+README.md
+=======
 # -----------------------------------------------------------------
 # .gitignore
 # Bare Minimum Git
@@ -111,3 +114,4 @@ database.php
 !.editorconfig
 !.phpcs.xml.dist
 !.env.example
+
