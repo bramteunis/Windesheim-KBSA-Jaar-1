@@ -73,6 +73,7 @@ ul#ul-class-navigation li {
     font-size: 20px;
     text-decoration: none;
     text-decoration-color: currentcolor;
+
 }
 #Header {
     position: fixed;
@@ -478,3 +479,13 @@ ul#ul-class-price li {
     border: 1px rgb(98, 158, 255) solid;
     color: #fff;
 }
+#KnopWinkelmandje {
+    position: fixed;
+    z-index: 2;
+    width:125px;
+    height: 30px;
+    margin-left:1370px;
+    margin-bottom:100px;
+    margin-top: 65px;
+}
+

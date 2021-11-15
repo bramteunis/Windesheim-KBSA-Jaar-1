@@ -22,7 +22,7 @@ include "cartfuncties.php";
 <!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">
+    <input type="submit" name="submit" value="Winkelmandje" id="KnopWinkelmandje">
 </form>
 
 <?php
@@ -31,6 +31,7 @@ include "cartfuncties.php";
         addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         print("Product toegevoegd aan <a href='cart.php'> winkelmandje!</a>");
     }
+
 ?>
 
 </body>
