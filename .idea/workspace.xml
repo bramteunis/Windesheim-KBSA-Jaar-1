@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50dfba98-5565-48b1-b689-a657224b4981" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,16 +33,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PHP" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Windesheim/Programmeren/opdrachten" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Windesheim/Programmeren/Tentamen/semester01/Uitwerkbestanden toets IP.V21 11-11-2021" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rick Beniers\Desktop\school\Windesheim\Programmeren\Tentamen\semester01\Uitwerkbestanden toets IP.V21 11-11-2021" />
       <recent name="C:\Users\Rick Beniers\Desktop\school\Windesheim\Programmeren\opdrachten" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.huiswerkOPW8.php">
+  <component name="RunManager" selected="PHP Script.opgavenTentamen.php">
     <configuration name="huiswerkW6.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/nerdygadgets-main/huiswerkW6.php" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -60,10 +61,14 @@
     <configuration name="huiswerkOPW8.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/opdrachten/huiswerkOPW8.php">
       <method v="2" />
     </configuration>
+    <configuration name="opgavenTentamen.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/tentamenS1/opgavenTentamen.php">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHP Script.huiswerkOPW8.php" />
+        <item itemvalue="PHP Script.opgavenTentamen.php" />
         <item itemvalue="PHP Script.huiswerkOPW6.php" />
+        <item itemvalue="PHP Script.huiswerkOPW8.php" />
         <item itemvalue="JavaScript Debug.huiswerkW6.php" />
         <item itemvalue="PHP Script.Huiswerk.php" />
       </list>
@@ -81,7 +86,9 @@
       <workItem from="1633351875984" duration="4055000" />
       <workItem from="1634110735676" duration="7012000" />
       <workItem from="1635316846971" duration="4739000" />
-      <workItem from="1635926949955" duration="2262000" />
+      <workItem from="1635926949955" duration="2686000" />
+      <workItem from="1636637447221" duration="12473000" />
+      <workItem from="1636980662612" duration="756000" />
     </task>
     <servers />
   </component>
