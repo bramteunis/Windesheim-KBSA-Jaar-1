@@ -7,7 +7,7 @@ include __DIR__ . "/header.php";
         <div class="TextPrice">
             <a href="view.php?id=93">
                 <div class="TextMain">
-                    "The pandakaes 7000 ultra max for iphone 4 / 5
+                    "The pandakaes 5000 ultra max for iphone 4 / 5
                 </div>
                 <ul id="ul-class-price">
                     <li class="HomePagePrice">€69.69</li>
