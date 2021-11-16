@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50dfba98-5565-48b1-b689-a657224b4981" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +28,7 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -89,6 +91,8 @@
       <workItem from="1635926949955" duration="2686000" />
       <workItem from="1636637447221" duration="12473000" />
       <workItem from="1636980662612" duration="756000" />
+      <workItem from="1637056014711" duration="5370000" />
+      <workItem from="1637067165777" duration="218000" />
     </task>
     <servers />
   </component>
