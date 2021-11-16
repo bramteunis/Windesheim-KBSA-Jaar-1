@@ -482,10 +482,9 @@ ul#ul-class-price li {
 #KnopWinkelmand {
     position: fixed;
     z-index: 2;
-    width:125px;
-    height: 30px;
-    margin-left:1370px;
-    margin-bottom:100px;
-    margin-top: 65px;
+    width:35px;
+    height: 35px;
+    right: 150px;
+    top: 80px;
 }
 

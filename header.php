@@ -50,6 +50,11 @@ $databaseConnection = connectToDatabase();
 <!-- code voor US3: zoeken -->
         <ul id="ul-class-navigation">
             <li>
+                <a href="cart.php">
+                    <img id="KnopWinkelmand" src="public/img/shoppingcart.png" />
+                </a>
+            </li>
+            <li>
                 <a href="browse.php" class="HrefDecoration"><i class="fas fa-search search"></i> Zoeken</a>
             </li>
         </ul>

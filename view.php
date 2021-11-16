@@ -22,9 +22,9 @@ include "cartfuncties.php";
 <!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-    <input type="submit" name="submit" value="Winkelmand" id="KnopWinkelmand">
+    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">
 </form>
-cd 
+
 <?php
     if (isset($_POST["submit"])) {              // zelfafhandelend formulier
         $stockItemID = $_POST["stockItemID"];
