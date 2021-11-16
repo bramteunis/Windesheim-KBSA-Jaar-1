@@ -24,7 +24,7 @@ include "cartfuncties.php";
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
     <input type="submit" name="submit" value="Winkelmand" id="KnopWinkelmand">
 </form>
-
+cd 
 <?php
     if (isset($_POST["submit"])) {              // zelfafhandelend formulier
         $stockItemID = $_POST["stockItemID"];
