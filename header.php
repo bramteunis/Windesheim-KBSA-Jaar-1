@@ -47,7 +47,7 @@ $databaseConnection = connectToDatabase();
                 </li>
             </ul>
         </div>
-<!-- code voor US3: zoeken -->
+<!-- code voor US3: zoeken. -->
         <ul id="ul-class-navigation">
             <li>
                 <a href="cart.php">
@@ -59,7 +59,7 @@ $databaseConnection = connectToDatabase();
             </li>
         </ul>
 
-<!-- einde code voor US3 zoeken -->
+<!-- einde code voor US3 zoeken. -->
     </div>
     <div class="row" id="Content">
         <div class="col-12">

@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 <?php
-/*
- ?>
-//<!-- dit bestand bevat alle code die verbinding maakt met de database -->//
-//<?php//
-=======
+
 <!-- dit bestand bevat alle code die verbinding maakt met de database -->
 <?php
->>>>>>> 6b1a6a25689bae4b10b1604af0776d63f820e3b1
+
 
 function connectToDatabase() {
     $Connection = null;
@@ -103,6 +98,7 @@ function getStockItemImage($id, $databaseConnection) {
 
     return $R;
 } */
+
 //<!-- dit bestand bevat alle code die verbinding maakt met de database -->//
 
 
