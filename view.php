@@ -22,7 +22,7 @@ include "cartfuncties.php";
 <!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-<!--    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">-->
+    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">
 </form>
 
 <?php
@@ -31,7 +31,6 @@ include "cartfuncties.php";
         addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         print("Product toegevoegd aan <a href='cart.php'> winkelmandje!</a>");
     }
-
 ?>
 
 </body>
@@ -118,8 +117,9 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <div id="StockItemHeaderLeft">
                 <div class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
-                        <p class="StockItemPriceText"><b><?php print sprintf("€ %.2f", $StockItem['SellPrice']); ?></b></p>
-                        <h6 style="color: black";> Inclusief BTW </h6>
+                        <p class="StockItemPriceText"><b>€ 30.95</b></p>
+                        <h6 style="color: black" ;=""> Inclusief BTW </h6>
+                        <button class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1">Toevoegen Winkelmand</button>
                     </div>
                 </div>
             </div>
