@@ -18,7 +18,7 @@ print_r($cart);
 //gegevens per artikelen in $cart (naam, prijs, etc.) uit database halen
 //totaal prijs berekenen
 //mooi weergeven in html
-//etc...
+//etc....
 
 ?>
 <p><a href='view.php?id=0'>Naar artikelpagina van artikel 0</a></p>
