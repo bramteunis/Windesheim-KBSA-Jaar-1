@@ -19,6 +19,9 @@ foreach($cart as $artikelnummer => $aantalartikel){
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
+    print("
+<img src='public/stockitemimg/'.print strtolower($StockItemImage[1]['ImagePath']) >
+");
 }
 print_r($cart);
 
