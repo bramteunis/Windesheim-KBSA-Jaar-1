@@ -20,8 +20,8 @@ foreach($cart as $artikelnummer => $aantalartikel){
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
     print("
-<img src='public/stockitemimg/'.print strtolower($StockItemImage[1]['ImagePath']) >
-");
+<img src='public/stockitemimg/'".print strtolower($StockItemImage[1]['ImagePath']) >
+);
 }
 print_r($cart);
 
