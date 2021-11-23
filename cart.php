@@ -14,7 +14,7 @@ session_start();
 <?php
 $cart = getCart();
 print_r($cart);
-print($cart[93)
+print($cart[93]);
 //gegevens per artikelen in $cart (naam, prijs, etc.) uit database halen
 //totaal prijs berekenen
 //mooi weergeven in html
