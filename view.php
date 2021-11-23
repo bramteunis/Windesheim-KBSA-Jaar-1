@@ -116,7 +116,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
                                 $stockItemID = $_POST["stockItemID"];
                                 addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-                                print("Product toegevoegd aan <a href='cart.php'> winkelmandje!</a>");
+                                print("Product toegevoegd aan <a href='cart.php'> ".$stockItemID."</a>");
                             }
                         ?>
                     </div>
