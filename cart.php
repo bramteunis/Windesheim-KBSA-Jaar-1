@@ -25,7 +25,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
     print('<form method="post">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">
-    </form>')
+    </form>');
 
 
     if (isset($_POST["submit"])) {              // zelfafhandelend formulier
