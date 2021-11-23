@@ -11,7 +11,7 @@ include "cartfuncties.php";
 <h1>Inhoud Winkelwagen</h1>
 
 <?php
-include "cartfuncties.php";
+
 include __DIR__ . "/header.php";
 
 $cart = getCart();
