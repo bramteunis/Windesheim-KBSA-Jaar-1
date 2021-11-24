@@ -19,10 +19,13 @@ include "cartfuncties.php";
 ?>
 <h1>Product <?php print($stockItemID) ?></h1>
 
+
+
+
 <!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">
+<!--    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">-->
 </form>
 
 <?php
@@ -31,10 +34,10 @@ include "cartfuncties.php";
         addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         print("Product toegevoegd aan <a href='cart.php'> winkelmandje!</a>");
     }
+
 ?>
 
-</body>
-</html>
+
 <!-- dit bestand bevat alle code voor de pagina die één product laat zien -->
 <?php
 include __DIR__ . "/header.php";
@@ -117,8 +120,22 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <div id="StockItemHeaderLeft">
                 <div class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
-                        <p class="StockItemPriceText"><b><?php print sprintf("€ %.2f", $StockItem['SellPrice']); ?></b></p>
-                        <h6 style="color: black";> Inclusief BTW </h6>
+                        <p class="StockItemPriceText"><b>€ 30.95</b></p>
+                        <h6 style="color: black" ;=""> Inclusief BTW </h6>
+                        <!--<button class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1">Toevoegen Winkelmand</button>
+                         formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
+                        <form method="post">
+                            <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
+                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmandje">
+                        </form>
+
+                        <?php
+                            if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+                                $stockItemID = $_POST["stockItemID"];
+                                addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+                                print("Product toegevoegd aan <a href='cart.php'> ".$stockItemID."</a>");
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

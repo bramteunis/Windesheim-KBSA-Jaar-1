@@ -73,6 +73,7 @@ ul#ul-class-navigation li {
     font-size: 20px;
     text-decoration: none;
     text-decoration-color: currentcolor;
+
 }
 #Header {
     position: fixed;
@@ -150,6 +151,26 @@ ul#ul-class-navigation li {
     color: black;
     font-size: 15px;
 }
+.ToevoegenWinkelmandbutton {
+    border: none;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0px 50px;
+    cursor: pointer;
+    clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.ToevoegenWinkelmandbutton1 {
+    background-color: white; 
+    border: 3px solid #ffcd00;
+}
+.ToevoegenWinkelmandbutton1:hover {
+    background-color: #ffcd00;
+}
+                        
 #VideoFrame {
     width: 100%;
     height: 350px;
@@ -478,3 +499,12 @@ ul#ul-class-price li {
     border: 1px rgb(98, 158, 255) solid;
     color: #fff;
 }
+#KnopWinkelmand {
+    position: fixed;
+    z-index: 2;
+    width:35px;
+    height: 35px;
+    right: 150px;
+    top: 80px;
+}
+
