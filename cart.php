@@ -27,24 +27,13 @@ foreach($cart as $artikelnummer => $aantalartikel){
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">
     </form>');
-
-
     if (isset($_POST["submit"])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         
     }
-
-    
-
 }
 print_r($cart);
-
-
-//gegevens per artikelen in $cart (naam, prijs, etc.) uit database halen
-//totaal prijs berekenen
-//mooi weergeven in html
-//etc....
 
 ?>
 <p><a href='view.php?id=0'>Naar artikelpagina van artikel 0</a></p>
