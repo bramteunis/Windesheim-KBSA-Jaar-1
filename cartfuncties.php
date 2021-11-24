@@ -36,6 +36,7 @@ function removeProductFromCart($stockItemID){
     }
     debug_to_console("Aantal van artikel ".$stockItemID.": ".$cart[$stockItemID]);
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
+    header("Refresh:0");
 }
 function debug_to_console($data) {
     $output = $data;
