@@ -45,4 +45,7 @@ function debug_to_console($data) {
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
+function berekenVerkoopPrijs($adviesPrijs, $btw) {
+		return $btw * $adviesPrijs / 100 + $adviesPrijs;
+    }
 ?>
