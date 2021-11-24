@@ -18,7 +18,7 @@ function addProductToCart($stockItemID){
     $cart = getCart();                          // eerst de huidige cart ophalen
 
     if(array_key_exists($stockItemID, $cart)){  //controleren of $stockItemID(=key!) al in array staat
-        $cart[$stockItemID] += 1;                   //zo ja:  aantal met 1 verhogen
+        $cart[$stockItemID] + 1;                   //zo ja:  aantal met 1 verhogen
     }else{
         $cart[$stockItemID] = 1;                    //zo nee: key toevoegen en aantal op 1 zetten.
     }
