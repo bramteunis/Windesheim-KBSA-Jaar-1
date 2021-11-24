@@ -16,8 +16,8 @@ include "cartfuncties.php";
 include __DIR__ . "/header.php";
 
 $cart = getCart();
-if($aantalartikel > 0){
-    foreach($cart as $artikelnummer => $aantalartikel){
+foreach($cart as $artikelnummer => $aantalartikel){
+    if($aantalartikel > 0){
         $StockItem = getStockItem($artikelnummer, $databaseConnection);
         $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
         print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
@@ -35,9 +35,6 @@ if($aantalartikel > 0){
             removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
 
         }
-
-
-
     }
 }
 print_r($cart);
