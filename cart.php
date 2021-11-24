@@ -21,6 +21,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
     print ("<img src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
+
     
     print('<form method="post">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
@@ -35,6 +36,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
     }
 
     
+
 }
 print_r($cart);
 
