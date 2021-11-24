@@ -16,27 +16,29 @@ include "cartfuncties.php";
 include __DIR__ . "/header.php";
 
 $cart = getCart();
-foreach($cart as $artikelnummer => $aantalartikel){
-    $StockItem = getStockItem($artikelnummer, $databaseConnection);
-    $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
-    print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
-    print ("<img src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
-
-    
-    print('<form method="post">
-    <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">
-    </form>');
+if($aantalartikel > 0){
+    foreach($cart as $artikelnummer => $aantalartikel){
+        $StockItem = getStockItem($artikelnummer, $databaseConnection);
+        $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
+        print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
+        print ("<img src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
 
 
-    if (isset($_POST["submit"])) {              // zelfafhandelend formulier
-        $stockItemID = $artikelnummer;
-        removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-        
+        print('<form method="post">
+        <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
+        <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">
+        </form>');
+
+
+        if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+            $stockItemID = $artikelnummer;
+            removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+
+        }
+
+
+
     }
-
-    
-
 }
 print_r($cart);
 
