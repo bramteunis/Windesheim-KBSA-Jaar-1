@@ -22,8 +22,28 @@ function addProductToCart($stockItemID){
     }else{
         $cart[$stockItemID] = 1;                    //zo nee: key toevoegen en aantal op 1 zetten.
     }
-
+    debug_to_console("Aantal van artikel ".$stockItemID.": ".$cart[$stockItemID]);
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
+}
+
+function removeProductFromCart($stockItemID){
+    $cart = getCart();                          // eerst de huidige cart ophalen
+
+    if(array_key_exists($stockItemID, $cart)){  //controleren of $stockItemID(=key!) al in array staat
+        $cart[$stockItemID] -= 1;                   //zo ja:  aantal met 1 verhogen
+    }else{
+        $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
+    }
+    debug_to_console("Aantal van artikel ".$stockItemID.": ".$cart[$stockItemID]);
+    saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
+    header("Refresh:0");
+}
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 
 function removeProductFromCart($stockItemID){
