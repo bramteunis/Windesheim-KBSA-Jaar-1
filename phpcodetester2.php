@@ -3,8 +3,7 @@ include __DIR__ . "/header.php";
 
 
 
-print('<body>');
-print('<h1>Inhoud Winkelwagen</h1>');
+
 
 
 function debug_to_console($data) {
@@ -42,4 +41,7 @@ if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
 	    debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
    }
 }
+print('<body>');
+print('<h1>Inhoud Winkelwagen</h1>');
 ?>
+<h1>Inhoud Winkelwagen</h1>
