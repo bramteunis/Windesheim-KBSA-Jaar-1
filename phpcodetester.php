@@ -22,7 +22,7 @@ $queryBuildResult = "";
 if (isset($_GET['category_id'])) {
     $CategoryID = $_GET['category_id'];
 } else {
-    $CategoryID = "";
+    $CategoryID = "1";
 }
 if (isset($_GET['products_on_page'])) {
     $ProductsOnPage = $_GET['products_on_page'];
