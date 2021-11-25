@@ -165,7 +165,7 @@ $Query = "
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE " . $queryBuildResult . " ? IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
+           WHERE " . $queryBuildResult . " ? NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
            GROUP BY StockItemID
            ORDER BY " . $Sort . "
            LIMIT ? OFFSET ?";
