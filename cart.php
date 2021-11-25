@@ -1,9 +1,7 @@
 <?php
 include "cartfuncties.php";
 //include "browse.php";
-function berekenVerkoopPrijs($adviesPrijs, $btw) {
-    return $btw * $adviesPrijs / 100 + $adviesPrijs;
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -18,7 +16,16 @@ function berekenVerkoopPrijs($adviesPrijs, $btw) {
 <?php
 
 include __DIR__ . "/header.php";
+function berekenVerkoopPrijs($adviesPrijs, $btw) {
+    return $btw * $adviesPrijs / 100 + $adviesPrijs;
+}
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
 
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}    
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel){
     if($aantalartikel > 0){
