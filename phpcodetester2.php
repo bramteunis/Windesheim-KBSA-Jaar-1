@@ -44,6 +44,6 @@ if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
 
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel){
-	print('<h1 style='color:black;'>Inhoud Winkelwagen</h1>');
+	print("<h1 style='color:black;'>Inhoud Winkelwagen</h1>");
 ?>
 
