@@ -3,7 +3,13 @@
 <?php
 include __DIR__ . "/header.php";
 
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
 
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
 
 $ReturnableResult = null;
 $Sort = "SellPrice";
@@ -128,13 +134,13 @@ if ($CategoryID == "") {
                 ORDER BY " . $Sort . "
                 LIMIT ?  OFFSET ?";
 
-
+    debug_to_console("Eerste keer $queryBuildResult: ".$queryBuildResult);
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "ii",  $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
+    debug_to_console("Eerste keer $ReturnableResult: ".$ReturnableResult);
     $Query = "
             SELECT count(*)
             FROM stockitems SI
@@ -164,13 +170,14 @@ $Query = "
            GROUP BY StockItemID
            ORDER BY " . $Sort . "
            LIMIT ? OFFSET ?";
-
+    
+    debug_to_console("Tweede keer $queryBuildResult: ".$queryBuildResult);
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "iii", $CategoryID, $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
+    debug_to_console("Eerste keer $ReturnableResult: ".$ReturnableResult);
     $Query = "
                 SELECT count(*)
                 FROM stockitems SI
