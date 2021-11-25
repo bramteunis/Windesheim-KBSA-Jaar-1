@@ -189,6 +189,8 @@ $amount = $Result[0];
 if (isset($amount)) {
     $AmountOfPages = ceil($amount["count(*)"] / $ProductsOnPage);
 }
+
+
     function getVoorraadTekst($actueleVoorraad) {
         if ($actueleVoorraad > 1000) {
             return "Ruime voorraad beschikbaar.";
