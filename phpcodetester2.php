@@ -1,16 +1,16 @@
 <?php
 include __DIR__ . "/header.php";
-?>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Winkelwagen</title>
-    <link rel="stylesheet" href="public/css/style.css" type="text/css">
-</head>
-<body>
-<h1>Inhoud Winkelwagen</h1>
 
-<?php
+print('<head>');
+print('    <meta charset="UTF-8">');
+print('    <title>Winkelwagen</title>');
+print('    <link rel="stylesheet" href="public/css/style.css" type="text/css">');
+print('</head>');
+print('<body>');
+print('<h1>Inhoud Winkelwagen</h1>');
+
+
 function debug_to_console($data) {
     $output = $data;
     if (is_array($output))
