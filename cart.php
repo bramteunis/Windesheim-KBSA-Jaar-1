@@ -83,7 +83,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
         }
     }
 }
-
+print_r($cart);
 
 ?>
 <p><a href='view.php?id=0'>Naar artikelpagina van artikel 0</a></p>
