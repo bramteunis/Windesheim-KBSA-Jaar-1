@@ -1,6 +1,7 @@
 <?php
 include __DIR__ . "/header.php";
 $queryBuildResult = "2";
+$CategoryID = "2"
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
