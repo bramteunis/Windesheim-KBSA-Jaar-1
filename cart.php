@@ -52,6 +52,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
 
         if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
             foreach ($ReturnableResult as $row) {
+                debug_to_console($row["StockItemID"]." == ".$artikelnummer);
                 if($row["StockItemID"] == $artikelnummer){
                     //debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
                     print("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
