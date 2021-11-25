@@ -36,7 +36,8 @@ $Query = "
 if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
   foreach ($ReturnableResult as $row) {
 	    debug_to_console("Eerste keer row: ".$row["RecommendedRetailPrice"]);
-    
+  }
+}
 function berekenVerkoopPrijs($adviesPrijs, $btw) {
 		return $btw * $adviesPrijs / 100 + $adviesPrijs;
 }
