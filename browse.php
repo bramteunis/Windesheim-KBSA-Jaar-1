@@ -134,7 +134,7 @@ if ($CategoryID == "") {
                 ORDER BY " . $Sort . "
                 LIMIT ?  OFFSET ?";
 
-    debug_to_console("Eerste keer queryBuildResult: ".$queryBuildResult);
+    
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "ii",  $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
@@ -264,6 +264,7 @@ if (isset($amount)) {
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
+	    debug_to_console("Eerste keer row: ".$row);
             ?>
             <!--  coderegel 1 van User story: bekijken producten  -->
 
