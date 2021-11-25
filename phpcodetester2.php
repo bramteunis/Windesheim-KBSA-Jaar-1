@@ -41,7 +41,9 @@ if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
 	    debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
    }
 }
-print('<body>');
-print('<h1>Inhoud Winkelwagen</h1>');
+
+$cart = getCart();
+foreach($cart as $artikelnummer => $aantalartikel){
+	print('<h1 style='color:black;'>Inhoud Winkelwagen</h1>');
 ?>
-<h1>Inhoud Winkelwagen</h1>
+
