@@ -134,13 +134,13 @@ if ($CategoryID == "") {
                 ORDER BY " . $Sort . "
                 LIMIT ?  OFFSET ?";
 
-    debug_to_console("Eerste keer $queryBuildResult: ".$queryBuildResult);
+    debug_to_console("Eerste keer queryBuildResult: ".$queryBuildResult);
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "ii",  $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    debug_to_console("Eerste keer $ReturnableResult: ".$ReturnableResult);
+    debug_to_console("Eerste keer ReturnableResult: ".$ReturnableResult);
     $Query = "
             SELECT count(*)
             FROM stockitems SI
@@ -171,13 +171,13 @@ $Query = "
            ORDER BY " . $Sort . "
            LIMIT ? OFFSET ?";
     
-    debug_to_console("Tweede keer $queryBuildResult: ".$queryBuildResult);
+    debug_to_console("Tweede keer queryBuildResult: ".$queryBuildResult);
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "iii", $CategoryID, $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    debug_to_console("Eerste keer $ReturnableResult: ".$ReturnableResult);
+    debug_to_console("Eerste keer ReturnableResult: ".print_r($ReturnableResult));
     $Query = "
                 SELECT count(*)
                 FROM stockitems SI
