@@ -1,8 +1,7 @@
 <?php
 include __DIR__ . "/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <title>Winkelwagen</title>
