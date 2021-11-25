@@ -1,6 +1,6 @@
 <?php
 
-include "cartfuncties.php";
+//include "cartfuncties.php";
 include "header.php";
 
 function debug_to_console($data) {
