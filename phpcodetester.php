@@ -210,41 +210,13 @@ if (isset($amount)) {
         foreach ($ReturnableResult as $row) {
 	    print($row["RecommendedRetailPrice"]);
             ?>
-            <!--  coderegel 1 van User story: bekijken producten  -->
-
-            <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
-
-            <!-- einde coderegel 1 van User story: bekijken producten   -->
-                <div id="ProductFrame">
-                    <?php
-                    if (isset($row['ImagePath'])) { ?>
-                        <div class="ImgFrame"
-                             style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
-                    <?php } else if (isset($row['BackupImagePath'])) { ?>
-                        <div class="ImgFrame"
-                             style="background-image: url('<?php print "public/stockgroupimg/" . strtolower($row['BackupImagePath']) ?>'); background-size: cover;"></div>
-                    <?php }
-                    ?>
-
-                    <div id="StockItemFrameRight">
-                        <div class="CenterPriceLeftChild">
+            
 			<?php 
 			if($row["StockItemID"] == 187){ ?>
                             <h1 class="StockItemPriceText"><?php debug_to_console("€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"]))); ?></h1>
                             <h6>Inclusief BTW </h6>
 			<?php }; ?>
-                        </div>
-                    </div>
-                    <h1 class="StockItemID">Artikelnummer: <?php print $row["StockItemID"]; ?></h1>
-                    <p class="StockItemName"><?php print $row["StockItemName"]; ?></p>
-                    <p class="StockItemComments"><?php print $row["MarketingComments"]; ?></p>
-                    <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
-                </div>
-            <!--  coderegel 2 van User story: bekijken producten  -->
-            </a>
-
-
-            <!--  einde coderegel 2 van User story: bekijken producten  -->
+                        
         <?php } ?>
 
         <form id="PageSelector">
