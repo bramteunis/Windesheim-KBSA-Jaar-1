@@ -1,6 +1,6 @@
 <?php
 
-include "cartfuncties.php";
+//include "cartfuncties.php";
 include "header.php";
 
 function debug_to_console($data) {
@@ -18,7 +18,18 @@ function getCart(){
     }
     return $cart;                               // resulterend winkelmandje terug naar aanroeper functie
 }
+function removeProductFromCart($stockItemID){
+    $cart = getCart();                          // eerst de huidige cart ophalen
 
+    if(array_key_exists($stockItemID, $cart)){  //controleren of $stockItemID(=key!) al in array staat
+        $cart[$stockItemID] -= 1;                   //zo ja:  aantal met 1 verhogen
+    }else{
+        $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
+    }
+    
+    saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
+    
+}
 
 function berekenVerkoopPrijs($adviesPrijs, $btw) {
 		return $btw * $adviesPrijs / 100 + $adviesPrijs;
@@ -42,15 +53,40 @@ $Query = "
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 
 
-if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
-   foreach ($ReturnableResult as $row) {
-	    debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
-   }
-}
+
 
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel){
-	print("<h1 style='color:black;'>Inhoud Winkelwagen</h1>");
+    if($aantalartikel > 0){
+        
+        $StockItem = getStockItem($artikelnummer, $databaseConnection);
+        $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
+        print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
+        print ("<img src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
+        
+        //print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
+        //print($_SESSION['prijs']);
+        
+        
+        //print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
+        
+       if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
+	   foreach ($ReturnableResult as $row) {
+		   if($artikelnummer == $row["StockItemID"]){
+		    debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
+		   }
+	   }
+	}
+        print('<form method="post">');  
+        print('<input type="number" name="stockItemID" value="print($artikelnummer)" hidden>');
+        print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">');
+        print('</form>');
+
+        if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+            $stockItemID = $artikelnummer;
+            removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+        }
+    }
 }
 ?>
 
