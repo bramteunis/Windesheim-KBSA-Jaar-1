@@ -8,6 +8,9 @@ function debug_to_console($data) {
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
+function berekenVerkoopPrijs($adviesPrijs, $btw) {
+		return $btw * $adviesPrijs / 100 + $adviesPrijs;
+}
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -29,7 +32,7 @@ $Query = "
 
 if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
    foreach ($ReturnableResult as $row) {
-	    debug_to_console("Itemnummer: ".$row["StockItemID"]."/ Prijs: ".$row["RecommendedRetailPrice"]);
+	    //debug_to_console("Itemnummer: ".$row["StockItemID"]."/ Prijs: ".$row["RecommendedRetailPrice"]);
 	    debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
    }
 }else{
