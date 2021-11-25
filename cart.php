@@ -1,7 +1,9 @@
 <?php
 include "cartfuncties.php";
 //include "browse.php";
-function berekenVerkoopPrijs($adviesPrijs, $btw) {return $btw * $adviesPrijs / 100 + $adviesPrijs;}
+function berekenVerkoopPrijs($adviesPrijs, $btw) {
+    return $btw * $adviesPrijs / 100 + $adviesPrijs;
+}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
