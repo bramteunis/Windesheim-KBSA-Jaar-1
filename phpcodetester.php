@@ -281,8 +281,11 @@ if (isset($amount)) {
 
                     <div id="StockItemFrameRight">
                         <div class="CenterPriceLeftChild">
+			<?php 
+			if($row["StockItemID"] == 187){ ?>
                             <h1 class="StockItemPriceText"><?php debug_to_console("€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"]))); ?></h1>
                             <h6>Inclusief BTW </h6>
+			<?php} ?>
                         </div>
                     </div>
                     <h1 class="StockItemID">Artikelnummer: <?php print $row["StockItemID"]; ?></h1>
