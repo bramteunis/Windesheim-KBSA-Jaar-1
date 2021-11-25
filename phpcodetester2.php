@@ -2,11 +2,7 @@
 include __DIR__ . "/header.php";
 
 
-print('<head>');
-print('    <meta charset="UTF-8">');
-print('    <title>Winkelwagen</title>');
-print('    <link rel="stylesheet" href="public/css/style.css" type="text/css">');
-print('</head>');
+
 print('<body>');
 print('<h1>Inhoud Winkelwagen</h1>');
 
