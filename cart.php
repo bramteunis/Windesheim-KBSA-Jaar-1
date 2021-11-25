@@ -1,7 +1,7 @@
 <?php
 include "cartfuncties.php";
 //include "browse.php";
-
+function berekenVerkoopPrijs($adviesPrijs, $btw) {return $btw * $adviesPrijs / 100 + $adviesPrijs;}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -31,7 +31,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
         
         
         //print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
-        function berekenVerkoopPrijs($adviesPrijs, $btw) {return $btw * $adviesPrijs / 100 + $adviesPrijs;}
+        
         $Query = "
                    SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
                    ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
