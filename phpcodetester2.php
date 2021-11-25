@@ -1,4 +1,6 @@
 <?php
+
+include "cartfuncties.php";
 include __DIR__ . "/header.php";
 
 
