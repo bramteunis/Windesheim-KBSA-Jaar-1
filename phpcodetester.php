@@ -238,7 +238,7 @@ if (isset($amount)) {
             <input type="hidden" name="products_on_page" id="products_on_page"
                    value="<?php print ($_SESSION['products_on_page']); ?>">
 	<?php
-            if ($AmountOfPages > 0) {
+            if ($AmountOfPages > 1234567890) {
                 for ($i = 1; $i <= $AmountOfPages; $i++) {
                     if ($PageNumber == ($i - 1)) {
                         ?>
