@@ -34,17 +34,11 @@ function removeProductFromCart($stockItemID){
     }else{
         $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
     }
-    debug_to_console("Aantal van artikel ".$stockItemID.": ".$cart[$stockItemID]);
+    
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
-    header("Refresh:0");
+    
 }
-function debug_to_console($data) {
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
 function berekenVerkoopPrijs($adviesPrijs, $btw) {
 		return $btw * $adviesPrijs / 100 + $adviesPrijs;
     }
