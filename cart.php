@@ -20,6 +20,7 @@ include __DIR__ . "/header.php";
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel){
     if($aantalartikel > 0){
+        debug_to_console(" == ".$artikelnummer);
         $StockItem = getStockItem($artikelnummer, $databaseConnection);
         $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
         print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
