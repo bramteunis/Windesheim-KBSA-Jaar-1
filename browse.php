@@ -140,7 +140,7 @@ if ($CategoryID == "") {
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    debug_to_console("Eerste keer ReturnableResult: ".$ReturnableResult);
+    debug_to_console("Eerste keer ReturnableResult: ".print_r($ReturnableResult));
     $Query = "
             SELECT count(*)
             FROM stockitems SI
