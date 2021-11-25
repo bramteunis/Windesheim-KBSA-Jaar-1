@@ -32,5 +32,7 @@ if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
    foreach ($ReturnableResult as $row) {
 	    debug_to_console("Itemnummer".$row["StockItemID"]);
    }
+}else{
+	debug_to_console("uhm");
 }
 ?>
