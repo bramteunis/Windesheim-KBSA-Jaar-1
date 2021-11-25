@@ -518,22 +518,27 @@ ul#ul-class-price li {
 #titleCart{
     position: absolute;
     border: 2px solid black;
-    margin-left: 25px;
-    margin-right: 25px;
-    width: 1790px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 1847px;
+    height: 100px;
 }
 #titleText{
+    margin-left: 10px;
     color: black;
 }
 #verderWinkelenKnop{
+    margin-left: 10px;
     width: 150px;
     height: 30px;
     float: left;
 
 }
 #AfrekenenKnop{
+    margin-right: 10px;
     width: 150px;
     height: 30px;
     float: right;
 }
+
 
