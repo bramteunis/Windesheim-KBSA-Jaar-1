@@ -1,6 +1,6 @@
 <?php
 include "cartfuncties.php";
-//include "browse.php";
+include "browse.php";
 ?>
 <!DOCTYPE html>
 <html lang="nl">
