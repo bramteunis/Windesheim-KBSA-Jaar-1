@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . "/header.php";
+$queryBuildResult = "";
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -12,7 +13,6 @@ $Query = "
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
            WHERE " . $queryBuildResult . " ? IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
            GROUP BY StockItemID
-           ORDER BY " . $Sort . "
            LIMIT ? OFFSET ?";
     
     debug_to_console("Tweede keer queryBuildResult: ".$queryBuildResult);
