@@ -57,8 +57,10 @@ foreach($cart as $artikelnummer => $aantalartikel){
                 if($row["StockItemID"] == $artikelnummer){
                     //debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
                     print("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
-                }
+                }else{debug_to_console("fout2");}
            }
+        }else{
+        debug_to_console("fout1");
         }
 
         print('<form method="post">');  
@@ -72,7 +74,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
         }
     }
 }
-print_r($cart);
+
 
 ?>
 <p><a href='view.php?id=0'>Naar artikelpagina van artikel 0</a></p>
