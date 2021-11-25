@@ -30,6 +30,7 @@ $Query = "
 if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
    foreach ($ReturnableResult as $row) {
 	    debug_to_console("Itemnummer: ".$row["StockItemID"]."/ Prijs: ".$row["RecommendedRetailPrice"]);
+	    debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])))
    }
 }else{
 	debug_to_console("uhm");
