@@ -3,11 +3,6 @@
 include "cartfuncties.php";
 include __DIR__ . "/header.php";
 
-
-
-
-
-
 function debug_to_console($data) {
     $output = $data;
     if (is_array($output))
@@ -44,8 +39,8 @@ if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
    }
 }
 
-$cart = getCart();
-foreach($cart as $artikelnummer => $aantalartikel){
-	print("<h1 style='color:black;'>Inhoud Winkelwagen</h1>");
+//$cart = getCart();
+//foreach($cart as $artikelnummer => $aantalartikel){
+//	print("<h1 style='color:black;'>Inhoud Winkelwagen</h1>");
 ?>
 
