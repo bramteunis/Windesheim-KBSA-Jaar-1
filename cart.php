@@ -18,9 +18,9 @@ include "cartfuncties.php";
 include __DIR__ . "/header.php";
 
 
-function berekenVerkoopPrijs($adviesPrijs, $btw) {
-		return $btw * $adviesPrijs / 100 + $adviesPrijs;
-}
+//function berekenVerkoopPrijs($adviesPrijs, $btw) {
+//		return $btw * $adviesPrijs / 100 + $adviesPrijs;
+//}
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -42,7 +42,8 @@ $Query = "
 
 if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
    foreach ($ReturnableResult as $row) {
-	    debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
+	    //debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
+	   debug_to_console("test")
    }
 }
     
