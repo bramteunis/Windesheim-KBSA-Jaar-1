@@ -23,7 +23,6 @@ select {
     appearance: none;
     background: url(../img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;
 }
-
 a {
     text-decoration: none;
     position: relative;
@@ -156,12 +155,14 @@ ul#ul-class-navigation li {
     color: black;
     text-decoration: none;
     font-size: 16px;
-    margin: 0 50px;
+    margin-left: 1px;
     cursor: pointer;
     clear: both;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
+    width:100px;
+    height:40px;
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 

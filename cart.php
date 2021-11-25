@@ -20,23 +20,21 @@ include __DIR__ . "/header.php";
 <?php
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel){
-
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div class='productCart'style='border:2px solid black;margin-top:115px;width:1848px;height: 250px;'>");
-    print("<div style='border:2px solid red;float:left;width:1000px;height:250px;'>");
-    print ("<img style='float: left;width: 300px;height:300px;'src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
-    print ("<h1 style='color:black; margin-left: 15px;height: max-content;'>".$StockItem['StockItemName']."</h1>");
-    print("<h1 style='color: black; margin-left: 150px float:right;'>voorraad beschikbaarheid</h1>");
+    print("<div class='flex-container' style='border:2px solid red;float:left;width:1500px;height:250px;display:flex'>");
+    print ("<img style='float: left;width:200px;height:200px;'src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
+    print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
+    print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>voorraad beschikbaarheid</h5>");
     print("</div>");
-    print("<div style='border:2px solid red;float:right;margin-left: 800px;width: 800px;height: max-content;   '>");
+    print("<div style='border:2px solid red;float:right;width:344px;height:250px;'>");
     print('<form method="post">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">
+    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen">
     </form>');
     print("</div>");
     print("</div>");
-
     if (isset($_POST["submit"])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
