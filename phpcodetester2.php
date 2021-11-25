@@ -29,7 +29,7 @@ $Query = "
 
 if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
    foreach ($ReturnableResult as $row) {
-	    debug_to_console("Itemnummer".$row["StockItemID"]);
+	    debug_to_console("Itemnummer: ".$row["StockItemID"]."/ Prijs: ".$row["RecommendedRetailPrice"]);
    }
 }else{
 	debug_to_console("uhm");
