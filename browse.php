@@ -140,7 +140,6 @@ if ($CategoryID == "") {
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    debug_to_console("Eerste keer ReturnableResult: ".print_r($ReturnableResult));
     $Query = "
             SELECT count(*)
             FROM stockitems SI
@@ -171,13 +170,11 @@ $Query = "
            ORDER BY " . $Sort . "
            LIMIT ? OFFSET ?";
     
-    debug_to_console("Tweede keer queryBuildResult: ".$queryBuildResult);
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "iii", $CategoryID, $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    debug_to_console("Eerste keer ReturnableResult: ".print_r($ReturnableResult));
     $Query = "
                 SELECT count(*)
                 FROM stockitems SI
@@ -264,8 +261,6 @@ if (isset($amount)) {
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
-	    
-	    debug_to_console("Eerste keer row: ".$row["RecommendedRetailPrice"]);
 	    
             ?>
             <!--  coderegel 1 van User story: bekijken producten  -->
