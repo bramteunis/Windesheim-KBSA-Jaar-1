@@ -24,7 +24,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
         print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
         print ("<img src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
         
-        print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
+        //print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
         //print($_SESSION['prijs']);
         
         print('<form method="post">
