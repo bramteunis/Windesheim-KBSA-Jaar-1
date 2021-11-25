@@ -1,6 +1,6 @@
 <?php
 
-//include "cartfuncties.php";
+include "cartfuncties.php";
 include __DIR__ . "/header.php";
 
 function debug_to_console($data) {
@@ -9,14 +9,6 @@ function debug_to_console($data) {
         $output = implode(',', $output);
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
-function getCart(){
-    if(isset($_SESSION['cart'])){               //controleren of winkelmandje (=cart) al bestaat
-        $cart = $_SESSION['cart'];                  //zo ja:  ophalen
-    } else{
-        $cart = array();                            //zo nee: dan een nieuwe (nog lege) array
-    }
-    return $cart;                               // resulterend winkelmandje terug naar aanroeper functie
 }
 
 
@@ -51,5 +43,6 @@ if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel){
 	print("<h1 style='color:black;'>Inhoud Winkelwagen</h1>");
+}
 ?>
 
