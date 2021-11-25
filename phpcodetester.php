@@ -238,28 +238,7 @@ if (isset($amount)) {
             <input type="hidden" name="products_on_page" id="products_on_page"
                    value="<?php print ($_SESSION['products_on_page']); ?>">
 
-            <?php
-            if ($AmountOfPages > 0) {
-                for ($i = 1; $i <= $AmountOfPages; $i++) {
-                    if ($PageNumber == ($i - 1)) {
-                        ?>
-                        <div id="SelectedPage"><?php print $i; ?></div><?php
-                    } else { ?>
-                        <button id="page_number" class="PageNumber" value="<?php print($i - 1); ?>" type="submit"
-                                name="page_number"><?php print($i); ?></button>
-                    <?php }
-                }
-            }
-            ?>
-        </form>
-        <?php
-    } else {
-        ?>
-        <h2 id="NoSearchResults">
-            Yarr, er zijn geen resultaten gevonden.
-        </h2>
-        <?php
-    }
+            
     ?>
 </div>
 
