@@ -20,7 +20,7 @@ include __DIR__ . "/header.php";
 <?php
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel){
-<<<<<<< HEAD
+
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
@@ -34,24 +34,6 @@ foreach($cart as $artikelnummer => $aantalartikel){
     if (isset($_POST["submit"])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-=======
-    if($aantalartikel > 0){
-        $StockItem = getStockItem($artikelnummer, $databaseConnection);
-        $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
-        print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
-        print ("<img src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
-
-
-        print('<form method="post">
-        <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-        <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">
-        </form>');
-
-        if (isset($_POST["submit"])) {              // zelfafhandelend formulier
-            $stockItemID = $artikelnummer;
-            removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-        }
->>>>>>> 21a823edc87d503d90c183a57e26b2213ede83da
     }
 }
 print_r($cart);
