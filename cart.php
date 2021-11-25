@@ -27,10 +27,10 @@ foreach($cart as $artikelnummer => $aantalartikel){
         //print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
         //print($_SESSION['prijs']);
         
-        print('<form method="post">
-        <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-        <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">
-        </form>');
+        print('<form method="post">');
+        print('<input type="number" name="stockItemID" value="print($artikelnummer)" hidden>');
+        print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">');
+        print('</form>');
 
         if (isset($_POST["submit"])) {              // zelfafhandelend formulier
             $stockItemID = $artikelnummer;
