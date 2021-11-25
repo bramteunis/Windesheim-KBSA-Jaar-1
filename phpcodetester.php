@@ -208,7 +208,7 @@ if (isset($amount)) {
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
-	    print($row["RecommendedRetailPrice"]);
+	    debug_to_console("Itemnummer".$row["StockItemID"]);
             ?>
             
 			<?php 
