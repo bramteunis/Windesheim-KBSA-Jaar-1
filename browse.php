@@ -264,7 +264,7 @@ if (isset($amount)) {
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
-	    debug_to_console("Eerste keer row: ".$row);
+	    debug_to_console("Eerste keer row: ".print_r($row));
             ?>
             <!--  coderegel 1 van User story: bekijken producten  -->
 
