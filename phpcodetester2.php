@@ -1,6 +1,17 @@
 <?php
 include __DIR__ . "/header.php";
+?>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Winkelwagen</title>
+    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+</head>
+<body>
+<h1>Inhoud Winkelwagen</h1>
 
+<?php
 function debug_to_console($data) {
     $output = $data;
     if (is_array($output))
