@@ -178,7 +178,7 @@ $Query = "
     $Query = "
                 SELECT count(*)
                 FROM stockitems SI
-                WHERE " . $queryBuildResult . " ? IN (SELECT SS.StockGroupID from stockitemstockgroups SS WHERE SS.StockItemID = SI.StockItemID)";
+                WHERE " . $queryBuildResult . " ? NOT IN (SELECT SS.StockGroupID from stockitemstockgroups SS WHERE SS.StockItemID = SI.StockItemID)";
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "i", $CategoryID);
     mysqli_stmt_execute($Statement);
