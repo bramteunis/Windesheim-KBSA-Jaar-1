@@ -20,7 +20,7 @@ $queryBuildResult = "";
 
 
 if (isset($_GET['category_id'])) {
-    $CategoryID = 7;
+    $CategoryID = $_GET['category_id'];
 } else {
     $CategoryID = "";
 }
@@ -165,11 +165,11 @@ $Query = "
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE " . $queryBuildResult . " ? NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
+           WHERE " . $queryBuildResult . " ? IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
            GROUP BY StockItemID
            ORDER BY " . $Sort . "
            LIMIT ? OFFSET ?";
-    $queryBuildResult = 33;
+    
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "iii", $CategoryID, $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
@@ -212,7 +212,7 @@ if (isset($amount)) {
             ?>
             
 			<?php 
-			if($row["StockItemID"] == 16){ ?>
+			if($row["StockItemID"] == 187){ ?>
                             <h1 class="StockItemPriceText"><?php debug_to_console("€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"]))); ?></h1>
                             <h6>Inclusief BTW </h6>
 			<?php }; ?>
@@ -237,8 +237,9 @@ if (isset($amount)) {
                    value="<?php print (isset($_GET['result_page_numbers'])) ? $_GET['result_page_numbers'] : "0"; ?>">
             <input type="hidden" name="products_on_page" id="products_on_page"
                    value="<?php print ($_SESSION['products_on_page']); ?>">
-	<?php
-            if ($AmountOfPages > 1234567890) {
+
+            <?php
+            if ($AmountOfPages > 1234560) {
                 for ($i = 1; $i <= $AmountOfPages; $i++) {
                     if ($PageNumber == ($i - 1)) {
                         ?>
@@ -259,7 +260,6 @@ if (isset($amount)) {
         </h2>
         <?php
     }
-            
     ?>
 </div>
 
