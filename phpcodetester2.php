@@ -10,9 +10,6 @@ function debug_to_console($data) {
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
-function saveCart($cart){
-    $_SESSION["cart"] = $cart;                  // werk de "gedeelde" $_SESSION["cart"] bij met de meegestuurde gegevens
-}
 function getCart(){
     if(isset($_SESSION['cart'])){               //controleren of winkelmandje (=cart) al bestaat
         $cart = $_SESSION['cart'];                  //zo ja:  ophalen
@@ -78,7 +75,6 @@ foreach($cart as $artikelnummer => $aantalartikel){
 		   if($artikelnummer == $row["StockItemID"]){
 		    //debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
 		    print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
-		    //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
 		   }
 	   }
 	}
@@ -88,10 +84,10 @@ foreach($cart as $artikelnummer => $aantalartikel){
         print('</form>');
 
         if (isset($_POST["submit"])) {              // zelfafhandelend formulier
-	    
             $stockItemID = $artikelnummer;
             removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         }
     }
 }
 ?>
+

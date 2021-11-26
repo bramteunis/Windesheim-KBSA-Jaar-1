@@ -22,7 +22,7 @@ function addProductToCart($stockItemID){
     }else{
         $cart[$stockItemID] = 1;                    //zo nee: key toevoegen en aantal op 1 zetten.
     }
-
+    
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
 }
 
@@ -34,7 +34,10 @@ function removeProductFromCart($stockItemID){
     }else{
         $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
     }
-
+    
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
+    
 }
+
+
 ?>
