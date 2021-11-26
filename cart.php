@@ -10,6 +10,9 @@ function debug_to_console($data) {
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
+function saveCart($cart){
+    $_SESSION["cart"] = $cart;                  // werk de "gedeelde" $_SESSION["cart"] bij met de meegestuurde gegevens
+}
 function getCart(){
     if(isset($_SESSION['cart'])){               //controleren of winkelmandje (=cart) al bestaat
         $cart = $_SESSION['cart'];                  //zo ja:  ophalen
@@ -87,7 +90,6 @@ foreach($cart as $artikelnummer => $aantalartikel){
         if (isset($_POST["submit"])) {              // zelfafhandelend formulier
 	    
             $stockItemID = $artikelnummer;
-	    debug_to_console($cart[$stockItemID]);
             removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         }
     }
