@@ -155,14 +155,15 @@ ul#ul-class-navigation li {
     color: black;
     text-decoration: none;
     font-size: 16px;
-    margin-left: 1px;
+    margin-right: 10px;
     cursor: pointer;
-    clear: both;
+    float: right;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    width:100px;
+    width:140px;
     height:40px;
+    margin-top: 10px;
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 
@@ -510,7 +511,6 @@ ul#ul-class-price li {
 }
 #cartBackground {
     position: absolute;
-    border: 2px solid black;
     margin-left: 25px;
     margin-right: 25px;
     width: 1850px;
@@ -518,7 +518,6 @@ ul#ul-class-price li {
 }
 #titleCart{
     position: absolute;
-    border: 2px solid black;
     margin-left: 0px;
     margin-right: 0px;
     width: 1847px;
@@ -541,5 +540,13 @@ ul#ul-class-price li {
     height: 30px;
     float: right;
 }
+#rangeInputForm{
+    width: 140px;
+    height: 30px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
 
 
