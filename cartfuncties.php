@@ -45,10 +45,12 @@ function removeProductFromCart($stockItemID)
     }
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
 }
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 function testFunction()
 {
     debug_to_console("Test");
+}
+function berekenVerkoopPrijs($adviesPrijs, $btw) {
+		return $btw * $adviesPrijs / 100 + $adviesPrijs;
 }
 ?>
