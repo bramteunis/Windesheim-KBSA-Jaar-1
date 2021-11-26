@@ -1,5 +1,7 @@
 <?php
+
 //<!-- dit bestand bevat alle code die verbinding maakt met de database -->//
+
 
 
 
@@ -96,7 +98,9 @@ function getStockItemImage($id, $databaseConnection) {
     $R = mysqli_fetch_all($R, MYSQLI_ASSOC);
 
     return $R;
+
 }
+
 
 //<!-- dit bestand bevat alle code die verbinding maakt met de database -->//
 /*
@@ -195,4 +199,6 @@ function getStockItemImage($id, $databaseConnection) {
 
     return $R;
 }
+
 */
+
