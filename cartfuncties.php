@@ -12,6 +12,7 @@ function getCart(){
 
 function saveCart($cart){
     $_SESSION["cart"] = $cart;                  // werk de "gedeelde" $_SESSION["cart"] bij met de meegestuurde gegevens
+    header("Refresh:0");
 }
 
 function addProductToCart($stockItemID){
