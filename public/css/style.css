@@ -510,16 +510,17 @@ ul#ul-class-price li {
     top: 80px;
 }
 #cartBackground {
-    position: absolute;
     margin-left: 25px;
     margin-right: 25px;
-    width: 1850px;
+    width: 1800px;
     height: 700px;
+    display: flex;
+    flex-direction: column;
 }
 #titleCart{
-    position: absolute;
-    margin-left: 0px;
+    margin-left: 10px;
     margin-right: 0px;
+    margin-bottom: 10px;
     width: 1847px;
     height: 100px;
 }
@@ -547,6 +548,7 @@ ul#ul-class-price li {
     margin-top: 10px;
     margin-left: 10px;
 }
+
 
 
 
