@@ -85,6 +85,7 @@ foreach($cart as $artikelnummer => $aantalartikel){
         print('</form>');
 
         if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+	    debug_to_console($cart[$stockItemID]);
             $stockItemID = $artikelnummer;
             removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         }
