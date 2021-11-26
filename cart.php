@@ -1,7 +1,8 @@
 <?php
 
-//include "cartfuncties.php";
+include "cartfuncties.php";
 include "header.php";
+
 
 function debug_to_console($data) {
     $output = $data;
@@ -10,6 +11,7 @@ function debug_to_console($data) {
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
+/*
 function saveCart($cart){
     $_SESSION["cart"] = $cart;                  // werk de "gedeelde" $_SESSION["cart"] bij met de meegestuurde gegevens
 }
@@ -37,6 +39,7 @@ function removeProductFromCart($stockItemID){
 function berekenVerkoopPrijs($adviesPrijs, $btw) {
 		return $btw * $adviesPrijs / 100 + $adviesPrijs;
 }
+*/
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
