@@ -3,7 +3,7 @@
 //include "cartfuncties.php";
 ?>
 <?php
-include __DIR__ ."header.php";
+include "header.php";
 
 
 function debug_to_console($data) {
