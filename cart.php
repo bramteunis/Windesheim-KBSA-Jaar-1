@@ -1,12 +1,69 @@
 <?php
+include __DIR__ . "/cartfuncties.php";
+include __DIR__ . "/header.php";
+?>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Winkelwagen</title>
+    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+</head>
+<body>
+    <div id="cartBackground">
+        <div id="titleCart">
+            <h1 id="titleText">Winkelmand</h1>
+            <button id="verderWinkelenKnop">Verder winkelen</button>
+            <button id="AfrekenenKnop">Afrekenen</button>
+        </div>
+<?php
+$cart = getCart();
+foreach($cart as $artikelnummer => $aantalartikel){
+    $StockItem = getStockItem($artikelnummer, $databaseConnection);
+    $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
+    print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
+    print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
+    print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
+    print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
+    print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>voorraad beschikbaarheid</h5>");
+    print("</div>");
+    print("<div style='float:right;width:344px;height:125px;'>");
+    print('<form method="post">
+    <div style="width:344px;height:62px;">
+    <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
+    <input type="number" value="1" id="rangeInputForm">
+    <h6 style="color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;">prijs_placeholder</h6>
+    </div>
+    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen">
+    </form>');
+    print("</div>");
+    print("</div>");
+    if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+        $stockItemID = $artikelnummer;
+        removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+    }
+}
+//if cart array is NOT empty print its content in the page
+if($cart != null)
+{
+    print_r($cart);
+}else
+{
+    debug_to_console($cart);
+}
+testFunction();
+?>
+    </div>
+</body>
+</html>
 
-//include "cartfuncties.php";
-include "header.php";
-
-function debug_to_console($data) {
+function debug_to_console($data) 
+{
     $output = $data;
     if (is_array($output))
+    {
         $output = implode(',', $output);
+    }
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
@@ -55,42 +112,17 @@ $Query = "
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 
-
-
-
-$cart = getCart();
-foreach($cart as $artikelnummer => $aantalartikel){
-    if($aantalartikel > 0){
-        
-        $StockItem = getStockItem($artikelnummer, $databaseConnection);
-        $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
-        print ("<h1 style='color:black;'>".$StockItem['StockItemName']."</h1>");
-        print ("<img src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
-        
-        //print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
-        //print($_SESSION['prijs']);
-        
-        
-        //print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
-        
-       if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
-	   foreach ($ReturnableResult as $row) {
-		   if($artikelnummer == $row["StockItemID"]){
-		    //debug_to_console("Prijs van: ".$row["StockItemID"]."is: "."€".sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])));
-		    print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
-		    //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
-		   }
+if($aantalartikel > 0)
+{
+    if (isset($ReturnableResult) && count($ReturnableResult) > 0) 
+    {
+	      foreach ($ReturnableResult as $row) 
+        {
+		       if($artikelnummer == $row["StockItemID"]){
+		       print ("<h1 class='StockItemPriceText'>".'€'.sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h1>");
+		       //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
+		      }
 	   }
-	}
-        print('<form method="post">');  
-        print('<input type="number" name="stockItemID" value="print($artikelnummer)" hidden>');
-        print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen uit winkelmandje">');
-        print('</form>');
-
-        if (isset($_POST["submit"])) {              // zelfafhandelend formulier
-            $stockItemID = $artikelnummer;
-            removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-        }
-    }
 }
 ?>
+
