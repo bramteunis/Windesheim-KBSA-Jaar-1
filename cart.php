@@ -23,7 +23,7 @@ function getCart(){
 }
 function removeProductFromCart($stockItemID){
     $cart = getCart();                          // eerst de huidige cart ophalen
-
+    debug_to_console($cart[$stockItemID]);
     if(array_key_exists($stockItemID, $cart)){  //controleren of $stockItemID(=key!) al in array staat
         $cart[$stockItemID] -= 2;                   //zo ja:  aantal met 1 verhogen
     }else{
@@ -88,7 +88,6 @@ foreach($cart as $artikelnummer => $aantalartikel){
         print('</form>');
 
         if (isset($_POST["submit"])) {              // zelfafhandelend formulier
-	    
             $stockItemID = $artikelnummer;
             removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
         }
