@@ -46,6 +46,7 @@ if($aantalartikel > 0) {
             <button id="AfrekenenKnop">Afrekenen</button>
         </div>
 <?php
+$totaalprijs = 0;
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel)
 {
@@ -67,7 +68,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 //print ("<h1 class='StockItemPriceText'> €".$cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate'])) . "</h1>");
-                print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €".$cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
+                print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                 //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
             }
         }
@@ -84,6 +85,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
     }
 }
+
+print("<h1>Totaalprijs: €".$totaalprijs"</h1>");
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
