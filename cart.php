@@ -86,7 +86,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
 }
 
-print("<h1>Totaalprijs: €".$totaalprijs"</h1>");
+print("<h1>Totaalprijs: €".$totaalprijs."</h1>");
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
