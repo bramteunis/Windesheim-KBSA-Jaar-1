@@ -20,16 +20,7 @@ mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 
-if($aantalartikel > 0) {
-    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
-        foreach ($ReturnableResult as $row) {
-            if ($artikelnummer == $row["StockItemID"]) {
-                print ("<h1 class='StockItemPriceText'>" . '€' . sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate'])) . "</h1>");
-                //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
-            }
-        }
-    }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -73,7 +64,6 @@ foreach($cart as $artikelnummer => $aantalartikel)
             }
         }
     }
-    print_r($cart);
     print('</div>
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
@@ -86,7 +76,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
 }
 
-print("<h1>Totaalprijs: €".$totaalprijs."</h1>");
+print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
@@ -95,7 +85,7 @@ if($cart != null)
 {
     debug_to_console($cart);
 }
-testFunction();
+
 ?>
     </div>
 </body>
