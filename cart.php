@@ -38,6 +38,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         </div>
 <?php
 $totaalprijs = 0;
+$hoogsteverzending = 0;
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel)
 {
@@ -61,9 +62,13 @@ foreach($cart as $artikelnummer => $aantalartikel)
                 $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                 print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                 //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
+                if($row["Sendcosts"] > $hoogsteverzending){
+                      $hoogsteverzending = $row["Sendcosts"];
+                }
             }
         }
     }
+    
     print('</div>
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
@@ -77,6 +82,9 @@ foreach($cart as $artikelnummer => $aantalartikel)
 }
 
 print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+$hoogsteverzending
+print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+print("<h1 style='color:black'>Totaal: €".$totaalprijs + $hoogsteverzending."</h1>");
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
