@@ -52,10 +52,12 @@ foreach($cart as $artikelnummer => $aantalartikel)
             if ($artikelnummer == $row["StockItemID"]) {
                 if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
                       $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
+                      print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath.">");
                }else{
                       $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
+                      print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
                }
-               print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
+               
             }
     }
     print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
