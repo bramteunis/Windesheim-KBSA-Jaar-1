@@ -99,39 +99,3 @@ if($cart != null)
     </div>
 </body>
 </html>
- $row["SendCosts"] > $hoogsteverzending){
-                      $hoogsteverzending = preg_replace('/[^0-9]/[.]/', '', $row["SendCosts"]);
-                           
-                }
-            }
-        }
-    }
-    
-    print('</div>
-    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
-    </form>');
-    print("</div>");
-    print("</div>");
-    if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
-        $stockItemID = $artikelnummer;
-        removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-    }
-    }
-}
-
-print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
-print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
-print("<h1 style='color:black'>Totaal: €".$totaalprijs + $hoogsteverzending."</h1>");
-//if cart array is NOT empty print its content in the page
-if($cart != null)
-{
-    debug_to_console(print_r($cart));
-}else
-{
-    debug_to_console($cart);
-}
-
-?>
-    </div>
-</body>
-</html>
