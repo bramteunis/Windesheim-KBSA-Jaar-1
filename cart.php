@@ -62,7 +62,16 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" value="1" id="rangeInputForm">
-    <h6 style="color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;">prijs_placeholder</h6>
+    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
+        foreach ($ReturnableResult as $row) {
+            if ($artikelnummer == $row["StockItemID"]) {
+                //print ("<h1 class='StockItemPriceText'>" . '€' . sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate'])) . "</h1>");
+                <h6 style="color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;">'€' . sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))</h6>
+                //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
+            }
+        }
+    }
+    
     </div>
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen">
     </form>');
