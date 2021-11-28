@@ -39,7 +39,12 @@ function removeProductFromCart($stockItemID)
     if(array_key_exists($stockItemID, $cart))
     {  
       //controleren of $stockItemID(=key!) al in array staat
-      $cart[$stockItemID] -= 2;                   //zo ja:  aantal met 1 verhogen
+      if($cart[$stockItemID] == 1){
+      		unset($cart[$stockItemID]);
+      }else{
+	      $cart[$stockItemID] -= 1;     
+      }
+      saveCart($cart);     
     }else
     {
         $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
