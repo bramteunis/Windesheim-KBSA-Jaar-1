@@ -79,10 +79,10 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print("</div>");
     print("</div>");
     debug_to_console($_GET["aantalvanartikelen"]);
-    if (isset($_POST[$poster = ("submit".$artikelnummer)]) ) {              // zelfafhandelend formulier
+    if (isset($_POST["submit".$artikelnummer]) AND 2=1) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-    }print($poster);
+    }
     }
 }
 //if cart array is NOT empty print its content in the page
