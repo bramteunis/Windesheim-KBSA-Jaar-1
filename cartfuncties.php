@@ -17,7 +17,7 @@ function getCart()
 function saveCart($cart)
 {
     $_SESSION["cart"] = $cart;                  // werk de "gedeelde" $_SESSION["cart"] bij met de meegestuurde gegevens
-    header("Refresh:0");
+    
 }
 
 function addProductToCart($stockItemID)
@@ -39,7 +39,12 @@ function removeProductFromCart($stockItemID)
     if(array_key_exists($stockItemID, $cart))
     {  
       //controleren of $stockItemID(=key!) al in array staat
-      $cart[$stockItemID] -= 2;                   //zo ja:  aantal met 1 verhogen
+      if($cart[$stockItemID] == 1){
+      		unset($cart[$stockItemID]);
+      }else{
+	      $cart[$stockItemID] -= 1;     
+      }
+      saveCart($cart);     
     }else
     {
         $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
@@ -47,6 +52,14 @@ function removeProductFromCart($stockItemID)
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
 }
     //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+function updateProductFromCart($stockItemID, $newvalue){
+	$cart = getCart();  
+	if(array_key_exists($stockItemID, $cart))
+    	{  
+		$cart[$stockItemID] = $newvalue;
+		saveCart($cart);
+	}
+}
 function testFunction()
 {
     debug_to_console("Test");
