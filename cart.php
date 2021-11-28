@@ -49,6 +49,7 @@ if($aantalartikel > 0) {
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel)
 {
+    if($aantalartikel > 0){
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
@@ -80,6 +81,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+    }
     }
 }
 //if cart array is NOT empty print its content in the page
