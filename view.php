@@ -19,18 +19,6 @@ include "cartfuncties.php";
 ?>
 <h1>Product <?php print($stockItemID) ?></h1>
 
-
-
-
-<!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
-<form method="post">
-    <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-<!--    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">-->
-</form>
-
-
-
-
 <!-- dit bestand bevat alle code voor de pagina die één product laat zien -->
 <?php
 include __DIR__ . "/header.php";
