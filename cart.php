@@ -48,7 +48,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
-    if(str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])) == null){
+    if(str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])) == ""){
            $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['BackupImagePath']));
     }else{
            $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath']));
