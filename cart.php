@@ -72,13 +72,12 @@ foreach($cart as $artikelnummer => $aantalartikel)
             }
         }
     }
-    
+    print_r($cart);
     print('</div>
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
     print("</div>");
     print("</div>");
-    debug_to_console($_GET["aantalvanartikelen"]);
     if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
@@ -88,7 +87,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
-    print_r($cart);
+    debug_to_console(print_r($cart));
 }else
 {
     debug_to_console($cart);
