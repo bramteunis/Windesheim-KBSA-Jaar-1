@@ -50,8 +50,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
-    get_product_info($artikelnummer);
-    foreach ($artikelnummer as $row) {
+    $output = get_product_info($artikelnummer);
+    foreach ($output as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 
                 if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
@@ -72,9 +72,9 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > ');
-    get_product_info($artikelnummer);
+    
     //if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
-        foreach ($artikelnummer as $row) {
+        foreach ($output as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                 print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
