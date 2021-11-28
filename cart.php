@@ -48,10 +48,10 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
-    if(str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath']) == null){
-           $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['BackupImagePath'];
+    if(str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])) == null){
+           $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['BackupImagePath']));
     }else{
-           $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'];
+           $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath']));
     }
     print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
     print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
