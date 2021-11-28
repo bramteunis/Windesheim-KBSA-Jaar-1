@@ -82,6 +82,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
     }
+    }else{
+    unset($cart[$artikelnummer]);
     }
 }
 //if cart array is NOT empty print its content in the page
