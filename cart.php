@@ -55,7 +55,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
     print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
     print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
-    print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>voorraad beschikbaarheid</h5>");
+    print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'> Voorraad: ".$StockItem['QuantityOnHand']."</h5>");
     print("</div>");
     print("<div style='float:right;width:344px;height:125px;'>");
     print('<form method="post">
