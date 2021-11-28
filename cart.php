@@ -61,7 +61,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input type="number" value='.$cart[$artikelnummer].' id="rangeInputForm" onchange="testFunction()"> ');
+    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" onchange='updateProductFromCart($artikelnummer,$_GET["aantalvanartikelen"];'> ');
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
@@ -73,11 +73,11 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
     
     print('</div>
-    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen">
+    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit"'.$artikelnummer.' value="Verwijderen">
     </form>');
     print("</div>");
     print("</div>");
-    if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+    if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
     }
