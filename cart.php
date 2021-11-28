@@ -48,12 +48,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
-    if(str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])) == ""){
-           $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['BackupImagePath']));
-    }else{
-           $imagepath = str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath']));
-    }
-    print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
+    
     print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
     print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
     print("</div>");
@@ -65,6 +60,12 @@ foreach($cart as $artikelnummer => $aantalartikel)
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
+                if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
+                      $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
+               }else{
+                      $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
+               }
+               print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
                 $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                 print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                 //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
