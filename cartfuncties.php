@@ -52,6 +52,14 @@ function removeProductFromCart($stockItemID)
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
 }
     //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+function updateProductFromCart($stockItemID, $newvalue){
+	$cart = getCart();  
+	if(array_key_exists($stockItemID, $cart))
+    	{  
+		$cart[$stockItemID] = $newvalue;
+		saveCart($cart);
+	}
+}
 function testFunction()
 {
     debug_to_console("Test");
