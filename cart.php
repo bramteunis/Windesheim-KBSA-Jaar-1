@@ -82,7 +82,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                 if(str_replace("Verzendkosten:", "",$row["SendCosts"])  > $hoogsteverzending){
                       $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);
                            
-                }
+                //}
             }
         }
     }
