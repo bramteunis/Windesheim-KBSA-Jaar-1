@@ -81,7 +81,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     debug_to_console($_GET["aantalvanartikelen"]);
     if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
-        //removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+        removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
     }
     }
 }
