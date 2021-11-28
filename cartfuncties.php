@@ -1,6 +1,12 @@
 <?php
 session_start();                                // altijd hiermee starten als je gebruik wilt maken van sessiegegevens
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
 
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
 function getCart()
 {
     if(isset($_SESSION['cart']))
