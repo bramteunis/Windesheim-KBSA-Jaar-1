@@ -61,7 +61,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input type="number" value="1" id="rangeInputForm">');
+    <input type="number" value='.$cart[$artikelnummer].' id="rangeInputForm">');
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
