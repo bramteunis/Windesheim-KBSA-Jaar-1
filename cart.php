@@ -66,7 +66,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 //print ("<h1 class='StockItemPriceText'>" . '€' . sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate'])) . "</h1>");
-                print("<h6 style="color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;">'€' . sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))</h6>");
+                print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'>".'€'. sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                 //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
             }
         }
