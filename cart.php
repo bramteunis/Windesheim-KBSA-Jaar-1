@@ -2,7 +2,6 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
-function get_product_info($productnumber){
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -14,19 +13,13 @@ $Query = "
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE SI.stockItemID =".$productnumber." 
+           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
            GROUP BY StockItemID";
 
 $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-debug_to_console("Returnable-result: ".$ReturnableResult."Productnumber: ".$productnumber);
-return $ReturnableResult;
-foreach ($ReturnableResult as $row) {
-           debug_to_console("id= ".$row["StockItemID"]);
-}
-}
 
 ?>
 <!DOCTYPE html>
@@ -54,9 +47,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
-    $output = get_product_info($artikelnummer);
-    print($output);
-    foreach ($output as $row) {
+    
+    foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 
                 if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
@@ -78,8 +70,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > ');
     
-    //if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
-        foreach ($output as $row) {
+    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
+        foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                 print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
@@ -87,7 +79,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                 if(str_replace("Verzendkosten:", "",$row["SendCosts"])  > $hoogsteverzending){
                       $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);
                            
-                //}
+                }
             }
         }
     }
