@@ -72,27 +72,37 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> 
-    <form method="POST" action="">
-               <select name="aantalvanartikelen"'.$artikelnummer.' onchange="this.form.submit()">');
-                   for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
-                              $y = $x+ $aantalartikel;
-                              if($x>-1){
-                                         if($aantalartikel == $x){
-                                            print('<option value='.$x.' selected>'.$x.'</option>');
-                                         }else{
-                                            print('<option value='.$x.' >'.$x.'</option>');
-                                         }
-                              }
-                              
-                              }
-               print('</select>
-    </form>');
-    if(isset($_POST["aantalvanartikelen".$artikelnummer])){
-       $country=$_POST["aantalvanartikelen".$artikelnummer];
-       debug_to_console("selected aantal is => ".$country);
-       updateProductFromCart($artikelnummer,$country);
-   }
+    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> ');
+               if(isset($_POST["Test".$artikelnummer])){
+                   $country[$artikelnummer]=$_POST["Test".$artikelnummer];
+                   if($country != "") {
+                       print("selected aantal van ".$artikelnummer." is => " . $country[$artikelnummer]);
+                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                   }else{
+                       print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
+                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                   }
+               print('
+               <div class="select-editable">
+                   <form method="POST" action="">
+                       <select name='."Test".$artikelnummer.' onchange="this.nextElementSibling.value=this.value,this.form.submit()">
+                           <option value=""></option>
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                       </select>
+                       <input type="text" name="format" value=""/>
+                   </form>
+               </div>
+               <style>
+                   .select-editable {position:relative; background-color:white; border:solid grey 1px;  width:120px; height:18px;}
+                   .select-editable select {position:absolute; top:0px; left:0px; font-size:14px; border:none; width:120px; margin:0;}
+                   .select-editable input {position:absolute; top:0px; left:0px; width:100px; padding:1px; font-size:12px; border:none;}
+                   .select-editable select:focus, .select-editable input:focus {outline:none;}
+               </style>');
+
+
+           }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
