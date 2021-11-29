@@ -72,7 +72,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> ');
+    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
                if(isset($_POST["Test".$artikelnummer])){
                    $country[$artikelnummer]=$_POST["Test".$artikelnummer];
                    if($country != "") {
