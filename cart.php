@@ -107,7 +107,7 @@ if($cart != null)
            print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
 }else
 {
-    print('<h1 style='color:black'>Uw winkelmand is leeg</h1>');
+    print("<h1 style='color:black'>Uw winkelmand is leeg</h1>");
 }
 
 ?>
