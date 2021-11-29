@@ -16,7 +16,7 @@ $Query = "
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
            WHERE SI.stockItemID =".$productnumber." 
            GROUP BY StockItemID";
-
+print($Query);
 $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
