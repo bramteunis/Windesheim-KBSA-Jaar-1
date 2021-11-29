@@ -98,11 +98,11 @@ foreach($cart as $artikelnummer => $aantalartikel)
                    if($_POST["format"] == "") {
                        //print("selected aantal van ".$artikelnummer." is => " . $country[$artikelnummer]);
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                       echo("<meta http-equiv='refresh' content='1'>"); 
+                       //echo("<meta http-equiv='refresh' content='1'>"); 
                    }else{
                        //print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                       echo("<meta http-equiv='refresh' content='1'>"); 
+                       //echo("<meta http-equiv='refresh' content='1'>"); 
                    }
            }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
