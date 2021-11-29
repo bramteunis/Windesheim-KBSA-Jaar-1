@@ -14,11 +14,11 @@ $Query = "
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE SI.stockItemID = ?
+           WHERE SI.stockItemID =".$productnumber." 
            GROUP BY StockItemID";
 
 $Statement = mysqli_prepare($databaseConnection, $Query);
-mysqli_stmt_execute($Statement, $productnumber);
+mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 return $ReturnableResult;
