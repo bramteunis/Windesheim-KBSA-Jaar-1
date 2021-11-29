@@ -6,6 +6,7 @@ $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
            QuantityOnHand,
+           (CASE WHEN (RecommendedRetailPrice*(1+(TaxRate/100))) > 50 THEN 0 ELSE 6.95 END) AS SendCosts,
            (SELECT ImagePath FROM stockitemimages WHERE StockItemID = SI.StockItemID LIMIT 1) as ImagePath,
            (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockItemID = SI.StockItemID LIMIT 1) as BackupImagePath
            FROM stockitems SI
@@ -20,16 +21,7 @@ mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 
-if($aantalartikel > 0) {
-    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
-        foreach ($ReturnableResult as $row) {
-            if ($artikelnummer == $row["StockItemID"]) {
-                print ("<h1 class='StockItemPriceText'>" . '€' . sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate'])) . "</h1>");
-                //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
-            }
-        }
-    }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -42,46 +34,77 @@ if($aantalartikel > 0) {
     <div id="cartBackground">
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
-            <button id="verderWinkelenKnop">Verder winkelen</button>
+            <form action="https://kbs.bramteunis.nl/pull3/index.php">
+                       <button id="verderWinkelenKnop">Verder winkelen</button></form>
             <button id="AfrekenenKnop">Afrekenen</button>
         </div>
 <?php
+$totaalprijs = 0;
+$hoogsteverzending = 0;
 $cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel)
 {
+    if($aantalartikel > 0){
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div class='productCard'>");
     print("<div class='flex-container leftProductCard'>");
-    print ("<img class='productImage'src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
+    foreach ($ReturnableResult as $row) {
+            if ($artikelnummer == $row["StockItemID"]) {
+                if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
+                      $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
+                      print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath.">");
+               }else{
+                      $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
+                      print ("<img class='productImage'src="."public/stockitemimg/".str_replace(" ", "%20",strtolower($StockItemImage[0]['ImagePath'])).">");
+               }
+            }
+    }
     print ("<h5 class='productName'>".$StockItem['StockItemName']."</h5>");
-    print("<h5 class='productStockAmount'>voorraad beschikbaarheid</h5>");
+    print("<h5 class='productStockAmount'>".$StockItem['QuantityOnHand']."</h5>");
     print("</div>");
     print("<div class='rightProductCard'>");
     print('<form method="post">
     <div class="upperRightProductCard">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input type="number" value="1" class="rangeInputForm">
-    <h6 class="prijsWeergave">prijs_placeholder</h6>
-    </div>
-    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Verwijderen">
+    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' class="rangeInputForm" > ');
+    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
+        foreach ($ReturnableResult as $row) {
+            if ($artikelnummer == $row["StockItemID"]) {
+                $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
+                print("<h6 class="prijsWeergave"> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
+                //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
+                if(str_replace("Verzendkosten:", "",$row["SendCosts"])  > $hoogsteverzending){
+                      $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);   
+                }
+            }
+        }
+    }
+    print('</div>
+    <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
     print("</div>");
     print("</div>");
-    if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+    if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
     }
+    }
 }
+
+print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+$totaal = int($totaalprijs) + ($hoogsteverzending);
+print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
-    print_r($cart);
+    debug_to_console(print_r($cart));
 }else
 {
     debug_to_console($cart);
 }
-testFunction();
+
 ?>
     </div>
 </body>

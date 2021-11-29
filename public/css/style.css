@@ -78,7 +78,7 @@ ul#ul-class-navigation li {
     position: fixed;
     top:0;
     background-color: #ffaeae;
-    width: 100%;
+    width: 101%;
     height: 160px;
     z-index: 1;
     border-bottom: 3px solid rgb(255, 38, 38);
