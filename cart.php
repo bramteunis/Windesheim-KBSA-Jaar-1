@@ -72,7 +72,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
-                print("<h6 class="prijsWeergave"> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
+                print("<h6 class='prijsWeergave'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                 //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
                 if(str_replace("Verzendkosten:", "",$row["SendCosts"])  > $hoogsteverzending){
                       $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);   
