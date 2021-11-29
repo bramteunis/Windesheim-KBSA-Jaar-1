@@ -99,17 +99,17 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
 }
 
-print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
-print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
-$totaal = int($totaalprijs) + ($hoogsteverzending);
-print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
-//if cart array is NOT empty print its content in the page
+
 if($cart != null)
 {
-    debug_to_console(print_r($cart));
+           print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+           print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+           $totaal = int($totaalprijs) + ($hoogsteverzending);
+           print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
+           //if cart array is NOT empty print its content in the page
 }else
 {
-    debug_to_console($cart);
+    print('<h1>Uw winkelmand is leeg</h1>')
 }
 
 ?>
