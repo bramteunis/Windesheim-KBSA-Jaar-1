@@ -33,11 +33,13 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 </head>
 <body>
     <div id="cartBackground">
+        <?php if($winkelmandjevol != "leeg"){ ?>
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
             <button id="verderWinkelenKnop">Verder winkelen</button>
             <button id="AfrekenenKnop">Afrekenen</button>
         </div>
+        <?php } ?>
 <?php
 $totaalprijs = 0;
 $hoogsteverzending = 0;
@@ -105,9 +107,11 @@ if($cart != null)
            print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
            $totaal = int($totaalprijs) + ($hoogsteverzending);
            print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
+           $winkelmandjevol = "niet leeg";
 }else
 {
     print("<h1 style='color:black'>Uw winkelmand is leeg</h1>");
+           $winkelmandjevol = "leeg";
 }
 
 ?>
