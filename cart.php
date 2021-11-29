@@ -2,6 +2,8 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
+function runquery(){
+
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -20,7 +22,7 @@ $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -47,7 +49,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
-    
+    runquery();
     foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 
