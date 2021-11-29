@@ -19,22 +19,32 @@ include "cartfuncties.php";
 ?>
 <h1>Product <?php print($stockItemID) ?></h1>
 
-
-
-
-<!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
-<form method="post">
-    <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-<!--    <input type="submit" name="submit" value="Voeg toe aan winkelmandje">-->
-</form>
-
-
-
-
 <!-- dit bestand bevat alle code voor de pagina die één product laat zien -->
 <?php
 include __DIR__ . "/header.php";
 
+$Query = "
+       SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
+       ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
+       QuantityOnHand,
+       (SELECT ImagePath FROM stockitemimages WHERE StockItemID = SI.StockItemID LIMIT 1) as ImagePath,
+       (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockItemID = SI.StockItemID LIMIT 1) as BackupImagePath
+       FROM stockitems SI
+       JOIN stockitemholdings SIH USING(stockitemid)
+       JOIN stockitemstockgroups USING(StockItemID)
+       JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
+       WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
+       GROUP BY StockItemID";
+
+$Statement = mysqli_prepare($databaseConnection, $Query);
+mysqli_stmt_execute($Statement);
+$ReturnableResult = mysqli_stmt_get_result($Statement);
+$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+
+
+
+
+    
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
 ?>
@@ -113,7 +123,15 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <div id="StockItemHeaderLeft">
                 <div class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
-                        <p class="StockItemPriceText"><b>€ 30.95</b></p>
+                        <?php
+                        if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
+                            foreach ($ReturnableResult as $row) {
+                                if ($StockItem["StockItemID"] == $row["StockItemID"]) {
+                                    print("<p class='StockItemPriceText'><b>€". sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</b></p>"); 
+                                }
+                            }
+                        }
+                        ?>
                         <h6 style="color: black" ;=""> Inclusief BTW </h6>
                         <!--<button class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1">Toevoegen Winkelmand</button>
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
