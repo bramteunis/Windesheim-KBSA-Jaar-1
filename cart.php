@@ -81,8 +81,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
                    <option value="66666">Mark James</option>
                </select>
     </form>');
-    if(isset($_POST["country"])){
-       $country=$_POST["country"];
+    if(isset($_POST["aantallen"])){
+       $country=$_POST["aantallen"];
        debug_to_console("select country is => ".$country);
    }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
