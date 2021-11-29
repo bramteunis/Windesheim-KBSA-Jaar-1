@@ -16,12 +16,12 @@ $Query = "
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
            WHERE SI.stockItemID =".$productnumber." 
            GROUP BY StockItemID";
-print($Query);
+
 $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-debug_to_console("Returnable-result: ".$ReturnableResult."Productnumber: ".$productnumber."Statement: ".$Query);
+debug_to_console("Returnable-result: ".$ReturnableResult."Productnumber: ".$productnumber);
 return $ReturnableResult;
 }
 
@@ -52,6 +52,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
     $output = get_product_info($artikelnummer);
+    print($output);
     foreach ($output as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 
