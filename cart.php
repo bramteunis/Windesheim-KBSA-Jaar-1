@@ -69,11 +69,20 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
     print("</div>");
     print("<div style='float:right;width:344px;height:125px;'>");
+    function OnSelectionChange(){
+           debug_to_console("test is geslaagd");
+    }
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > ');
-    
+    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > 
+    <select onchange="OnSelectionChange()">
+        <option value="" disabled selected>Assign Driver</option>
+        <option value="4353">Steve Jobs</option>
+        <option value="3333">Ian Wright</option>
+        <option value="66666">Mark James</option>
+    </select>');
+               
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
