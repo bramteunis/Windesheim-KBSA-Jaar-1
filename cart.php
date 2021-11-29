@@ -91,6 +91,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     if(isset($_POST["aantalvanartikelen".$artikelnummer])){
        $country=$_POST["aantalvanartikelen".$artikelnummer];
        debug_to_console("selected aantal is => ".$country);
+       updateProductFromCart($artikelnummer,$country);
    }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
