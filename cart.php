@@ -35,7 +35,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
             <form action="https://kbs.bramteunis.nl/pull3/index.php">
-                <button id="verderWinkelenKnop">Verder winkelen</button</form>
+                       <button id="verderWinkelenKnop">Verder winkelen</button></form>
             <button id="AfrekenenKnop">Afrekenen</button>
         </div>
 <?php
