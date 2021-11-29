@@ -98,9 +98,11 @@ foreach($cart as $artikelnummer => $aantalartikel)
                    if($_POST["format"] == "") {
                        print("selected aantal van ".$artikelnummer." is => " . $country[$artikelnummer]);
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                       print_r($cart);
                    }else{
                        print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                       print_r($cart);
                    }
            }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
