@@ -67,6 +67,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             if (isset($StockItemImage)) {
                 // één plaatje laten zien
                 if (count($StockItemImage) == 1) {
+                    debug_to_console("wtf");
                     ?>
                     <div id="ImageFrame"
                          style="background-image: url('public/stockitemimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
