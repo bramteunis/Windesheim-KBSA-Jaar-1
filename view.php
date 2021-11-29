@@ -91,7 +91,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                                     ?>
                                     <div class="carousel-item <?php print ($i == 0) ? 'active' : ''; ?>">
                                         <?php
-                                        if(strtolower($StockItemImage[$i]['ImagePath']) == "" OR $StockItemImage[$i]['ImagePath']) == null){
+                                        if(strtolower($StockItemImage[$i]['ImagePath']) == "" OR strtolower($StockItemImage[$i]['ImagePath']) == null){
                                             print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]['BackupImagePath']).">"');
                                         }else{
                                             print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]['ImagePath']).">"');
