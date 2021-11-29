@@ -23,6 +23,9 @@ $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 debug_to_console("Returnable-result: ".$ReturnableResult."Productnumber: ".$productnumber);
 return $ReturnableResult;
+foreach ($ReturnableResult as $row) {
+           debug_to_console("id= ".$ReturnableResult["StockItemID"]);
+}
 }
 
 ?>
