@@ -96,13 +96,13 @@ foreach($cart as $artikelnummer => $aantalartikel)
                if(isset($_POST["Test".$artikelnummer])){
                    $country[$artikelnummer]=$_POST["Test".$artikelnummer];
                    if($_POST["format"] == "") {
-                       print("selected aantal van ".$artikelnummer." is => " . $country[$artikelnummer]);
+                       //print("selected aantal van ".$artikelnummer." is => " . $country[$artikelnummer]);
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                       print_r($cart);
+                       header("Refresh:0");
                    }else{
-                       print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
+                       //print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                       print_r($cart);
+                       header("Refresh:0");
                    }
            }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
