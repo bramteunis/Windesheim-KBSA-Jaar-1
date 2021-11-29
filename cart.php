@@ -144,7 +144,7 @@ if($cart != null)
 {
            print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
            print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
-           $totaal = int($totaalprijs) + ($hoogsteverzending);
+           $totaal = $totaalprijs + $hoogsteverzending;
            print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
            $winkelmandjevol = "niet leeg";
 }else
