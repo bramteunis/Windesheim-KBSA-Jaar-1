@@ -100,7 +100,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                    }else{
                        print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
-                       //updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                    }
            }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
