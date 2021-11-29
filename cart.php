@@ -77,12 +77,19 @@ foreach($cart as $artikelnummer => $aantalartikel)
                print('
                <div class="select-editable">
                    <form method="POST" action="">
-                       <select name='."Test".$artikelnummer.' onchange="this.nextElementSibling.value=this.value,this.form.submit()">
-                           <option value=""></option>
-                           <option value="1">1</option>
-                           <option value="2">2</option>
-                           <option value="3">3</option>
-                       </select>
+                       <select name='."Test".$artikelnummer.' onchange="this.nextElementSibling.value=this.value,this.form.submit()">');
+                           for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
+                              $y = $x+ $aantalartikel;
+                              if($x>-1){
+                                         if($aantalartikel == $x){
+                                            print('<option value='.$x.' selected>'.$x.'</option>');
+                                         }else{
+                                            print('<option value='.$x.' >'.$x.'</option>');
+                                         }
+                              }
+                              
+                              }
+                       print('</select>
                        <input type="text" name="format" value=""/>
                    </form>
                </div>
