@@ -72,9 +72,9 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
-    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > 
+    <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> 
     <form method="POST" action="">
-               <select name="aantallen" onchange="this.form.submit()">');
+               <select name="aantalvanartikelen".$artikelnummer onchange="this.form.submit()">');
                    for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
                               $y = $x+ $aantalartikel;
                               if($x>-1){
@@ -88,8 +88,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
                               }
                print('</select>
     </form>');
-    if(isset($_POST["aantallen"])){
-       $country=$_POST["aantallen"];
+    if(isset($_POST["aantalvanartikelen".$artikelnummer])){
+       $country=$_POST["aantalvanartikelen".$artikelnummer];
        debug_to_console("selected aantal is => ".$country);
    }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
