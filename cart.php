@@ -76,8 +76,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <form method="POST" action="">
                <select name="aantallen" onchange="this.form.submit()">
                    <option value="" disabled selected>Assign Driver</option>');
-                   $z = $aantalartikel
-                   for($x =$z-2; $x<10; $x++){
+                   for($x =$aantalartikel-2; $x<10; $x++){
                               $y = $x+ $aantalartikel
                               if($y>-1){
                               print('<option value='.$y.'>'.$y.'</option>');
