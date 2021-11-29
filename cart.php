@@ -22,6 +22,7 @@ $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+return $ReturnableResult;
 }
 ?>
 <!DOCTYPE html>
@@ -49,8 +50,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
-    runquery();
-    foreach ($ReturnableResult as $row) {
+    
+    foreach (runquery() as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 
                 if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
@@ -72,8 +73,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > ');
     
-    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
-        foreach ($ReturnableResult as $row) {
+    if (isset(runquery()) && count(runquery()) > 0) {
+        foreach (runquery() as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
                 $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                 print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
