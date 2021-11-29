@@ -77,11 +77,11 @@ foreach($cart as $artikelnummer => $aantalartikel)
                <select name="aantallen" onchange="this.form.submit()">');
                    for($x =$aantalartikel-2; $x<10; $x++){
                               $y = $x+ $aantalartikel;
-                              if($y>-1){
-                                         if($aantalartikel == $y){
-                                            print('<option value='.$y.'>'.$y.'</option>');
+                              if($x>-1){
+                                         if($aantalartikel == $x){
+                                            print('<option value='.$x.' selected>'.$x.'</option>');
                                          }else{
-                                            print('<option value='.$y.' selected>'.$y.'</option>');
+                                            print('<option value='.$x.' >'.$x.'</option>');
                                          }
                               }
                               
