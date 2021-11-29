@@ -73,13 +73,18 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > 
-    <select onchange="OnSelectionChange()">
-        <option value="" disabled selected>Assign Driver</option>
-        <option value="4353">Steve Jobs</option>
-        <option value="3333">Ian Wright</option>
-        <option value="66666">Mark James</option>
-    </select>');
-               
+    <form method="POST" action="">
+               <select name="aantallen" onchange="this.form.submit()">
+                   <option value="" disabled selected>Assign Driver</option>
+                   <option value="4353">Steve Jobs</option>
+                   <option value="3333">Ian Wright</option>
+                   <option value="66666">Mark James</option>
+               </select>
+    </form>');
+    if(isset($_POST["country"])){
+       $country=$_POST["country"];
+       debug_to_console("select country is => ".$country);
+   }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
