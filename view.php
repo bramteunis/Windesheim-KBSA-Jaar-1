@@ -114,7 +114,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     </div>
                     <?php
                 }
-            } else {
+            } else {debug_to_console("wtf2");
                 ?>
                 <div id="ImageFrame"
                      style="background-image: url('public/stockgroupimg/<?php print strtolower($StockItem['BackupImagePath']); ?>'); background-size: cover;"></div>
