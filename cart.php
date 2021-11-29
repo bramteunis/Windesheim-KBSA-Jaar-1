@@ -109,7 +109,7 @@ if($cart != null)
            //if cart array is NOT empty print its content in the page
 }else
 {
-    print('<h1>Uw winkelmand is leeg</h1>')
+    print('<h1>Uw winkelmand is leeg</h1>');
 }
 
 ?>
