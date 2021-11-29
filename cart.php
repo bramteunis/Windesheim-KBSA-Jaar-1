@@ -74,13 +74,17 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > 
     <form method="POST" action="">
-               <select name="aantallen" onchange="this.form.submit()">
-                   <option value="" disabled selected>Assign Driver</option>');
+               <select name="aantallen" onchange="this.form.submit()">');
                    for($x =$aantalartikel-2; $x<10; $x++){
                               $y = $x+ $aantalartikel;
                               if($y>-1){
-                              print('<option value='.$y.'>'.$y.'</option>');
+                                         if($aantalartikel == $y){
+                                            print('<option value='.$y.'>'.$y.'</option>');
+                                         }else{
+                                            print('<option value='.$y.' selected>'.$y.'</option>');
+                                         }
                               }
+                              
                               }
                print('</select>
     </form>');
