@@ -74,7 +74,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> 
     <form method="POST" action="">
-               <select name="aantalvanartikelen".$artikelnummer onchange="this.form.submit()">');
+               <select name="aantalvanartikelen"'.$artikelnummer.' onchange="this.form.submit()">');
                    for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
                               $y = $x+ $aantalartikel;
                               if($x>-1){
