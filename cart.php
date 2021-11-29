@@ -75,15 +75,19 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" > 
     <form method="POST" action="">
                <select name="aantallen" onchange="this.form.submit()">
-                   <option value="" disabled selected>Assign Driver</option>
-                   <option value="4353">Steve Jobs</option>
-                   <option value="3333">Ian Wright</option>
-                   <option value="66666">Mark James</option>
-               </select>
+                   <option value="" disabled selected>Assign Driver</option>');
+                   $z = $aantalartikel
+                   for($x =$z-2; $x<10; $x++){
+                              $y = $x+ $aantalartikel
+                              if($y>-1){
+                              print('<option value='.$y.'>'.$y.'</option>');
+                              }
+                              }
+               print('</select>
     </form>');
     if(isset($_POST["aantallen"])){
        $country=$_POST["aantallen"];
-       debug_to_console("select country is => ".$country);
+       debug_to_console("selected aantal is => ".$country);
    }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
