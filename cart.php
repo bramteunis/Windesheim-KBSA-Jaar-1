@@ -69,9 +69,6 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
     print("</div>");
     print("<div style='float:right;width:344px;height:125px;'>");
-    function OnSelectionChange(){
-           debug_to_console("test is geslaagd");
-    }
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
