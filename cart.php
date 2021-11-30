@@ -151,8 +151,11 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print("</div>");
     print("</div>");
     if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
+        debug_to_console('verwijderen word geprobeerd');
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+    }else{
+           debug_to_console('verwijderen word geprobeerd maar valt onder else');
     }
     }
 }
