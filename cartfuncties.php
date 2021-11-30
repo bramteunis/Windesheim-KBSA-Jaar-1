@@ -51,7 +51,7 @@ function removeProductFromCart($stockItemID)
       if($cart[$stockItemID] == 1){
       		unset($cart[$stockItemID]);
       }else{
-	      $cart[$stockItemID] -= 1;     
+	      unset($cart[$stockItemID]);   
       }
       saveCart($cart);     
     }else
