@@ -97,7 +97,10 @@ foreach($cart as $artikelnummer => $aantalartikel)
                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                       echo("<meta http-equiv='refresh' content='1'>"); 
             }else{
-                      debug_to_console("Aantal is boven voorraad");
+                      print('<div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='."none".';">&times;</span> 
+                        <strong>Error!</strong> Je wilt meer bestellen dan er voorraad is
+                      </div>'); 
             }
 
         }
