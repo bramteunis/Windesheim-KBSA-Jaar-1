@@ -90,7 +90,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                               
                               }
                        print('</select>
-                       <input type="text" name="format" value="'.(isset($country[$artikelnummer]))?$country[$artikelnummer]:''.'"/>
+                       <input type="text" name="format" value=""/>
                    </form>
                </div>
                <style>
