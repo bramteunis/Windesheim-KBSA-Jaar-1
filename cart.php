@@ -43,7 +43,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                  $cart = getCart();
                  foreach($cart as $artikelnummer => $aantalartikel){
                             $StockItem = getStockItem($artikelnummer, $databaseConnection);
-                            $nieuwevoorraad = $StockItem['QuantityOnHand'] - $aantalartikel;
+                            $nieuwevoorraad = ($StockItem['QuantityOnHand'] - $aantalartikel);
                             //$Query2 = "
                             //     UPDATE stockitemholdings set qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
 
