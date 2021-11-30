@@ -12,7 +12,6 @@ body {
     src: url(/public/fonts/mmrtext.ttf);
 }
 .selectopmaak {
-    margin: 50px;
     width: 100%;
     padding: 5px 35px 5px 5px;
     font-size: 16px;
