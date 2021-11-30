@@ -46,12 +46,13 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             $currentvoorraad = $StockItem['QuantityOnHand'];
                             
                             $nieuwevoorraad = $currentvoorraad."-".$aantalartikel;
+                            $p = eval('return '.$nieuwevoorraad.';')
                             //$Query2 = "
                             //     UPDATE stockitemholdings set qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
 
                             //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
                             //mysqli_stmt_execute($Statement2);     
-                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".eval('return '.$nieuwevoorraad.';'));
+                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$p);
                             }
                  }
             ?>
