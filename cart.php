@@ -73,7 +73,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
-               
+    print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
+    if(isset($_POST["aanpassensubmit".$artikelnummer])){
                print('
                <div class="select-editable">
                    <form method="POST" action="">
@@ -125,6 +126,9 @@ foreach($cart as $artikelnummer => $aantalartikel)
                        
                    }
            }
+    }else{
+           print('<h6>'."Aantal: ".$aantalartikel.'</h6>');
+    }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
