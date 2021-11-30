@@ -145,7 +145,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
         }
     }
     
-    print('</div>
+    print('</div><form method="POST" action="">
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
     print("</div>");
