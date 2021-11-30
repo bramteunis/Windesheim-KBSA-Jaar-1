@@ -104,13 +104,22 @@ foreach($cart as $artikelnummer => $aantalartikel)
                    $country[$artikelnummer]=$_POST["Test".$artikelnummer];
                    if($_POST["format"] == "") {
                        //print("selected aantal van ".$artikelnummer." is => " . $country[$artikelnummer]);
-                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                       echo("<meta http-equiv='refresh' content='1'>"); 
+                       if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
+                                  updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                                  echo("<meta http-equiv='refresh' content='1'>"); 
+                       }else{
+                                 debug_to_console("Aantal is boven voorraad");
+                       }
                    }else{
                        //print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
                        $country[$artikelnummer]=$_POST["format"];
-                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                       echo("<meta http-equiv='refresh' content='1'>"); 
+                       if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
+                                  updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                                 echo("<meta http-equiv='refresh' content='1'>"); 
+                       }else{
+                                 debug_to_console("Aantal is boven voorraad");
+                       }
+                       
                    }
            }
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
