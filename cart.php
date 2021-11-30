@@ -38,7 +38,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
             <h1 id="titleText">Winkelmand</h1>
             <button id="verderWinkelenKnop">Verder winkelen</button>
             <?php
-            print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen">');
+            print('<form method="post"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen"></form>');
             if(isset($_POST["afrekenensubmit"])){      
                  $cart = getCart();
                  foreach($cart as $artikelnummer => $aantalartikel){
