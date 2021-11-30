@@ -37,7 +37,22 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
             <button id="verderWinkelenKnop">Verder winkelen</button>
-            <button id="AfrekenenKnop">Afrekenen</button>
+            <?php
+            print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen">');
+            if(isset($_POST["afrekenensubmit"])){      
+                 $cart = getCart();
+                 foreach($cart as $artikelnummer => $aantalartikel){
+                            $StockItem = getStockItem($artikelnummer, $databaseConnection);
+                            $nieuwevoorraad = $StockItem['QuantityOnHand'] - $aantalartikel;
+                            //$Query2 = "
+                            //     UPDATE stockitemholdings set qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
+
+                            //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
+                            //mysqli_stmt_execute($Statement2);     
+                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad);
+                            }
+                 }
+            ?>
         </div>
         <?php } ?>
 <?php
