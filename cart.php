@@ -108,6 +108,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                               $y = $x+ $aantalartikel;
                               if($x>-1){
                                          if($aantalartikel == $x){
+                                            $b = $x; 
                                             print('<option value='.$x.' selected>'.$x.'</option>');
                                          }else{
                                             print('<option value='.$x.' >'.$x.'</option>');
@@ -116,7 +117,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                               
                               }
                        print('</select>
-                       <input type="text" name="format" value='.$country[$artikelnummer].'/>
+                       <input type="text" name="format" value='.$b.'/>
                    </form>
                </div>
                <style>
