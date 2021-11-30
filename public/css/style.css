@@ -11,7 +11,7 @@ body {
     font-family: MmrText;
     src: url(/public/fonts/mmrtext.ttf);
 }
-.products_on_page {
+.selectopmaak {
     margin: 50px;
     width: 100%;
     padding: 5px 35px 5px 5px;
@@ -23,18 +23,7 @@ body {
     appearance: none;
     background: url(../img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;
 }
-.sort {
-    margin: 50px;
-    width: 100%;
-    padding: 5px 35px 5px 5px;
-    font-size: 16px;
-    border: 1px solid #CCC;
-    height:50px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url(../img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;
-}
+
 a {
     text-decoration: none;
     position: relative;
@@ -61,13 +50,16 @@ a:hover span {
     text-transform: uppercase;
     font-weight: bold;
 }
-input {
+.input {
     font-family: pt-sans, sans-serif;
     height: 50px;
     font-size: 20px;
     width: 100%;
     padding: 0 10px;
 }
+
+
+
 table tr th,
 table tr td {
     padding: 10px;
