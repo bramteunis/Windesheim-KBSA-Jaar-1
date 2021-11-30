@@ -83,10 +83,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                        echo("<meta http-equiv='refresh' content='1'>"); 
             }else{
-                      print('<div class="alert">
-                        <span class="closebtn" onclick="this.parentElement.style.display='."none".';">&times;</span> 
-                        <strong>Error!</strong> Je wilt meer bestellen dan er voorraad is
-                      </div>'); 
+                      updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                       echo("<meta http-equiv='refresh' content='1'>"); 
 
             }
         }else{
@@ -97,10 +95,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                       echo("<meta http-equiv='refresh' content='1'>"); 
             }else{
-                      print('<div class="alert">
-                        <span class="closebtn" onclick="this.parentElement.style.display='."none".';">&times;</span> 
-                        <strong>Error!</strong> Je wilt meer bestellen dan er voorraad is
-                      </div>'); 
+                      updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                       echo("<meta http-equiv='refresh' content='1'>"); 
             }
 
         }
