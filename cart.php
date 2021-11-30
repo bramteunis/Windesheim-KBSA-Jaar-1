@@ -84,7 +84,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                        echo("<meta http-equiv='refresh' content='1'>"); 
             }else{
                       print('<div class="alert">
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        <span class="closebtn" onclick="this.parentElement.style.display='."none".';">&times;</span> 
                         <strong>Error!</strong> Je wilt meer bestellen dan er voorraad is
                       </div>'); 
 
