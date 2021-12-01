@@ -191,7 +191,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
 }
 print('</div>');
-
+print('</div>');
 if($cart != null)
 {
            print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
