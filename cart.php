@@ -92,7 +92,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
         }
     }
 }
-//if cart array is NOT empty print its content in the page
+//if cart array is NOT empty print its content in the page.
 if($cart != null)
 {
     print("<h1 style='color:black;margin-top:3%;'>Totaalprijs: €".$totaalprijs."</h1>");
@@ -101,9 +101,9 @@ if($cart != null)
     print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
 }else
 {
-    print('<h1 style = "font-size:2.5vw;position:fixed; left:600px;color:Black;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
+    print('<h1 style = "font-size:2.5vw;width:30%;color:Black;margin-left:37%;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
     print('<form style = "method="get" action="index.php"> 
-           <button style= "font-size:1vw;position:relative; left:720px;top:60px;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
+           <button style= "font-size:1vw;color:Black;width:10%;margin-left:45%;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
 }
 ?>
     </div>
