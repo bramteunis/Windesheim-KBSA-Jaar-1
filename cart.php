@@ -190,7 +190,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
     }
 }
-
+print('</div>');
 
 if($cart != null)
 {
@@ -206,6 +206,6 @@ if($cart != null)
 
 }
 ?>
-    </div>
+    
 </body>
 </html>
