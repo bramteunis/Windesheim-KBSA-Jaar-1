@@ -20,8 +20,6 @@ $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -91,15 +89,13 @@ foreach($cart as $artikelnummer => $aantalartikel)
     if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-    }
+        }
     }
 }
-
-//
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
-    print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+    print("<h1 style='color:black;margin-top:3%;'>Totaalprijs: €".$totaalprijs."</h1>");
     print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
     $totaal = int($totaalprijs) + ($hoogsteverzending);
     print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
@@ -109,3 +105,7 @@ if($cart != null)
     print('<form style = "method="get" action="index.php"> 
            <button style= "font-size:1vw;position:relative; left:720px;top:60px;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
 }
+?>
+    </div>
+</body>
+</html>
