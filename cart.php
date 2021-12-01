@@ -44,7 +44,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                  foreach($cart as $artikelnummer => $aantalartikel){
                             $StockItem = getStockItem($artikelnummer, $databaseConnection);
                             $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
-                            $Query2 = "stockitemholdings set qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
+                            $Query2 = "UPDATE stockitemholdings SET qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
                             $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                             mysqli_stmt_execute($Statement2);     
                             //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
