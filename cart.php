@@ -86,8 +86,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
-    //print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
-    if(isset($_POST["Test".$artikelnummer]) OR 1==1){
+    print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
+    if(isset($_POST["Test".$artikelnummer])){
         $country[$artikelnummer]=$_POST["Test".$artikelnummer];
         if($_POST["format"] == "") {
             //print("selected aantal van ".$artikelnummer." is => " . (isset($variable))?$variable:'');
