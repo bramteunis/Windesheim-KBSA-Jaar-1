@@ -44,7 +44,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                  foreach($cart as $artikelnummer => $aantalartikel){
                             $StockItem = getStockItem($artikelnummer, $databaseConnection);
                             $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
-                            $Query2 = "UPDATE stockitemholdings SET qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
+                            $Query2 = "UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
                             $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                             mysqli_stmt_execute($Statement2);     
                             //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
@@ -86,8 +86,8 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
-    print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
-    if(isset($_POST["Test".$artikelnummer])){
+    //print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
+    if(isset($_POST["Test".$artikelnummer]) OR 1=1){
         $country[$artikelnummer]=$_POST["Test".$artikelnummer];
         if($_POST["format"] == "") {
             //print("selected aantal van ".$artikelnummer." is => " . (isset($variable))?$variable:'');
