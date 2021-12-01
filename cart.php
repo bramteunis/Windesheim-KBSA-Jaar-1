@@ -50,8 +50,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             mysqli_stmt_execute($Statement2);     
                             //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
                             }
-                          $_SESSION['afrekenensubmit'] = $_POST;
-                          unset($_POST);
+                          header("Refresh:0");
                  }
             ?>
         </div>
