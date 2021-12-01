@@ -43,7 +43,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                  $cart = getCart();
                  foreach($cart as $artikelnummer => $aantalartikel){
                             $StockItem = getStockItem($artikelnummer, $databaseConnection);
-                            $currentvoorraad43 = print $StockItem['QuantityOnHand'];
+                            $currentvoorraad43 = debug_to_console("43".$StockItem['QuantityOnHand']);
                             
                             $nieuwevoorraad34 = 1 - $currentvoorraad43;
                             //$Query2 = "
