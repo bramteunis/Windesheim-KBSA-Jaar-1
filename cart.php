@@ -63,6 +63,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 
 $totaalprijs = 0;
 $hoogsteverzending = 0;
+$cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel)
 {
     if($aantalartikel > 0){
