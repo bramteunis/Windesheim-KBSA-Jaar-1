@@ -52,7 +52,6 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             }
                           $_SESSION['afrekenensubmit'] = $_POST;
                           unset($_POST);
-                          exit;
                  }
             ?>
         </div>
