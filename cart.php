@@ -32,16 +32,19 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 </head>
 <body>
     <div id="cartBackground">
-        <div id="titleCart">
-            <h1 id="titleText">Winkelmand</h1>
-            <form action="https://kbs.bramteunis.nl/pull3/index.php">
-                       <button id="verderWinkelenKnop">Verder winkelen</button></form>
-            <button id="AfrekenenKnop">Afrekenen</button>
-        </div>
-<?php
+  <?php
+$cart = getCart();
+if ($cart != null) {
+    print('<div id="titleCart">');          //Als de winkelmand is gevuld, show dan button verder winkelen en afrekenen
+    print('<h1 id="titleText">Winkelmand</h1>');
+    print('<form action="index.php">');
+    print('<button id="verderWinkelenKnop">Verder winkelen</button></form>');
+    print('<button id="AfrekenenKnop">Afrekenen</button>');
+    print('</div>');
+}
+
 $totaalprijs = 0;
 $hoogsteverzending = 0;
-$cart = getCart();
 foreach($cart as $artikelnummer => $aantalartikel)
 {
     if($aantalartikel > 0){
@@ -58,7 +61,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                       $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
                       print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
                }
-               
+
             }
     }
     print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
@@ -77,12 +80,12 @@ foreach($cart as $artikelnummer => $aantalartikel)
                 //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
                 if(str_replace("Verzendkosten:", "",$row["SendCosts"])  > $hoogsteverzending){
                       $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);
-                           
+
                 }
             }
         }
     }
-    
+
     print('</div>
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
@@ -95,20 +98,17 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
 }
 
-print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
-print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
-$totaal = int($totaalprijs) + ($hoogsteverzending);
-print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
+//
 //if cart array is NOT empty print its content in the page
 if($cart != null)
 {
-    debug_to_console(print_r($cart));
+    print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+    print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+    $totaal = int($totaalprijs) + ($hoogsteverzending);
+    print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
 }else
 {
-    debug_to_console($cart);
+    print('<h1 style = "font-size:2.5vw;position:fixed; left:600px;color:Black;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
+    print('<form style = "method="get" action="index.php"> 
+           <button style= "font-size:1vw;position:relative; left:720px;top:60px;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
 }
-
-?>
-    </div>
-</body>
-</html>
