@@ -11,8 +11,7 @@ body {
     font-family: MmrText;
     src: url(/public/fonts/mmrtext.ttf);
 }
-select {
-    margin: 50px;
+.selectopmaak {
     width: 100%;
     padding: 5px 35px 5px 5px;
     font-size: 16px;
@@ -22,6 +21,26 @@ select {
     -moz-appearance: none;
     appearance: none;
     background: url(../img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
 a {
     text-decoration: none;
@@ -49,13 +68,16 @@ a:hover span {
     text-transform: uppercase;
     font-weight: bold;
 }
-input {
+.input {
     font-family: pt-sans, sans-serif;
     height: 50px;
     font-size: 20px;
     width: 100%;
     padding: 0 10px;
 }
+
+
+
 table tr th,
 table tr td {
     padding: 10px;

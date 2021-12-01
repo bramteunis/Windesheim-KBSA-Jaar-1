@@ -1,5 +1,8 @@
 <?php
 session_start();                                // altijd hiermee starten als je gebruik wilt maken van sessiegegevens
+function OnSelectionChange(){
+           debug_to_console("test is geslaagd");
+    }
 function debug_to_console($data) {
     $output = $data;
     if (is_array($output))
@@ -48,7 +51,7 @@ function removeProductFromCart($stockItemID)
       if($cart[$stockItemID] == 1){
       		unset($cart[$stockItemID]);
       }else{
-	      $cart[$stockItemID] -= 1;     
+	      unset($cart[$stockItemID]);   
       }
       saveCart($cart);     
     }else

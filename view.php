@@ -67,6 +67,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             if (isset($StockItemImage)) {
                 // één plaatje laten zien
                 if (count($StockItemImage) == 1) {
+                    debug_to_console("wtf");
                     ?>
                     <div id="ImageFrame"
                          style="background-image: url('public/stockitemimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
@@ -90,7 +91,14 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                                 <?php for ($i = 0; $i < count($StockItemImage); $i++) {
                                     ?>
                                     <div class="carousel-item <?php print ($i == 0) ? 'active' : ''; ?>">
-                                        <img src="public/stockitemimg/<?php print strtolower($StockItemImage[$i]['ImagePath']) ?>">
+                                        <?php
+                                        debug_to_console("test: ".strtolower($StockItemImage[$i]['ImagePath']));
+                                        if(strtolower($StockItemImage[$i]['ImagePath']) == "" OR strtolower($StockItemImage[$i]['ImagePath']) == null){
+                                            print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]["BackupImagePath"]).">"');
+                                        }else{
+                                            print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]["ImagePath"]).">"');
+                                            }
+                                        ?>
                                     </div>
                                 <?php } ?>
                             </div>
@@ -106,7 +114,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     </div>
                     <?php
                 }
-            } else {
+            } else {debug_to_console("wtf2");
                 ?>
                 <div id="ImageFrame"
                      style="background-image: url('public/stockgroupimg/<?php print strtolower($StockItem['BackupImagePath']); ?>'); background-size: cover;"></div>
