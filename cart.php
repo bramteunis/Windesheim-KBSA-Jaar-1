@@ -43,15 +43,15 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                  $cart = getCart();
                  foreach($cart as $artikelnummer => $aantalartikel){
                             $StockItem = getStockItem($artikelnummer, $databaseConnection);
-                            $currentvoorraad43 = debug_to_console("43".$StockItem['QuantityOnHand']);
+                            $currentvoorraad43 = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']);
                             
-                            $nieuwevoorraad34 = 1 - $currentvoorraad43;
+                            $nieuwevoorraad34 = $currentvoorraad43 - $aantalartikel;
                             //$Query2 = "
                             //      stockitemholdings set qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
 
                             //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
                             //mysqli_stmt_execute($Statement2);     
-                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34."$current voorraad is: ".$currentvoorraad43);
+                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
                             }
                  }
             ?>
