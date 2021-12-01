@@ -45,7 +45,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             $StockItem = getStockItem($artikelnummer, $databaseConnection);
                             $currentvoorraad = $StockItem['QuantityOnHand'];
                             
-                            $nieuwevoorraad = $currentvoorraad - 1;
+                            $nieuwevoorraad = 1 - $currentvoorraad ;
                             //$Query2 = "
                             //     UPDATE stockitemholdings set qualityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
 
