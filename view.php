@@ -68,10 +68,16 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 // één plaatje laten zien
                 if (count($StockItemImage) == 1) {
                     debug_to_console("wtf");
+                    if(strtolower($StockItemImage[0]['ImagePath']); ?>') == 'chocolate.jpg' OR strtolower($StockItemImage[0]['ImagePath']); ?>') == 'toys.jpg'){
+                        print('<div id="ImageFrame"
+                         style="background-image: url('public/stockgroupimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
+                        ');
+                    }else{ 
                     ?>
                     <div id="ImageFrame"
                          style="background-image: url('public/stockitemimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
                     <?php
+                       }
                 } else if (count($StockItemImage) >= 2) { ?>
                     <!-- meerdere plaatjes laten zien -->
                     <div id="ImageFrame">
