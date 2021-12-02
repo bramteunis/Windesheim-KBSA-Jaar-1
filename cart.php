@@ -36,7 +36,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         <?php if($winkelmandjevol != "leeg"){ ?>
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
-            <form action="https://kbs.bramteunis.nl/pull3/index.php">
+            <form action="index.php">
                 <button id="verderWinkelenKnop">Verder winkelen</button></form>
             <?php
             function testinconsole(){
