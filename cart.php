@@ -33,7 +33,8 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 </head>
 <body>
     <div id="cartBackground">
-        <?php if($winkelmandjevol != "leeg"){ ?>
+        $cart = getCart();
+        <?php if ($cart != null) { ?>
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
             <form action="index.php">
