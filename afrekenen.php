@@ -70,7 +70,7 @@
                            ValidFrom, ValidTo) VALUES (".$voornaam.' '.$tussenvoegsel.' '.$achternaam.", '1062', '0', '0', '0', '0', '3', ".$postcode.", ".$plaats.", '100000', ".$date.", '0', '0', 
                            '0', '7', ".$telefoonnummer.", ".$telefoonnummer.", 'null', 'null', 'null', ".$huisnummer.", ".$straatnaam.", ".$postcode.", 'null', 'null', 'null', 'null', 
                            0, ".$date.", '9999-12-31');";
-                debug_to_console($Query2);
+                debug_to_console("test".$Query2);
                 //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
                 //mysqli_stmt_execute($Statement2);     
             }
