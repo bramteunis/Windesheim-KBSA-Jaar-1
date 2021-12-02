@@ -110,11 +110,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 ?>
                 <div id="ImageFrame"
                      style="background-image: url('public/stockgroupimg/<?php print strtolower($StockItem['BackupImagePath']); ?>'); background-size: cover;"></div>
-                <?php
-            }
-            ?>
-
-
+                <?php } ?>
             <h1 class="StockItemID">Artikelnummer: <?php print $StockItem["StockItemID"]; ?></h1>
             <h2 class="StockItemNameViewSize StockItemName">
                 <?php print $StockItem['StockItemName']; ?>
@@ -137,8 +133,23 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
                         <form method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
+                            <input onclick="promptFunction()" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
                         </form>
+                        <script>
+                            function promptFunction()
+                            {
+                                var promptBox = prompt("wilt u direct afrekenen? Y/N", "Yes");
+                                switch (promptBox){
+                                    case "Yes":
+                                        location.href = "cart.php";
+                                        console.log("redirect");
+                                        break;
+                                    case "No":
+                                        console.log("stay");
+                                        break;
+                                }
+                            }
+                        </script>
 
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
