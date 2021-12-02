@@ -35,7 +35,17 @@
             <input class="no-outline" type="text" name="achternaam" required>
         </div>
             <span class="underline"></span>
+        </form>
+    </div>
         <?php
+            function debug_to_console($data) {
+                $output = $data;
+                if (is_array($output))
+                    $output = implode(',', $output);
+
+                echo "<script>console.log(': " . $output . "' );</script>";
+            }
+        
             function testinconsole(){
                 debug_to_console("Test is geslaagd");
             }
@@ -51,7 +61,7 @@
                 $huisnummer = $_POST["huisnummer"];
                 $plaats = $_POST["plaats"];
                 $date = date('Y-m-d H:i:s');
-                
+                debug_to_console($voornaam." / ".$tussenvoegsel." / ".$achternaam." / ".$postcode." / ".$straatnaam." / ".$email." / ".$telefoonnummer." / ".$huisnummer." / ".$plaats. " / ".$date);
                 $Query2 = "INSERT INTO nerdygadgets.customers (CustomerName, BillToCustomerID, CustomerCategoryID, BuyingGroupID, PrimaryContactPersonID, 
                            AlternateContactPersonID, DeliveryMethodID, DeliveryCityID, PostalCityID, CreditLimit, AccountOpenedDate, StandardDiscountPercentage, 
                            IsStatementSent, IsOnCreditHold, PaymentDays, PhoneNumber, FaxNumber, DeliveryRun, RunPosition, WebsiteURL, DeliveryAddressLine1, 
@@ -59,13 +69,12 @@
                            ValidFrom, ValidTo) VALUES (".$voornaam.' '.$tussenvoegsel.' '.$achternaam.", '1062', '0', '0', '0', '0', '3', ".$postcode.", ".$plaats.", '100000', ".$date.", '0', '0', 
                            '0', '7', ".$telefoonnummer.", ".$telefoonnummer.", 'null', 'null', 'null', ".$huisnummer.", ".$straatnaam.", ".$postcode.", 'null', 'null', 'null', 'null', 
                            0, ".$date.", '9999-12-31');";
-                
-                $Statement2 = mysqli_prepare($databaseConnection, $Query2);
-                mysqli_stmt_execute($Statement2);     
+                debug_to_console($Query2);
+                //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
+                //mysqli_stmt_execute($Statement2);     
             }
         ?>
-    </form>
-    </div>
+    
 </body>
 </html>
 <?php
