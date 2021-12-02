@@ -57,6 +57,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             }
                           header("Refresh:0");
                  }
+                 header("Location: WinkemandCreateAccount.php");
             ?>
         </div>
         <?php } ?>
