@@ -34,17 +34,17 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 <body>
     <div id="cartBackground">
 
-        <?php if($winkelmandjevol != "leeg"){ ?>
+        <?php 
+        $cart = getCart();
+        if($winkelmandjevol != "leeg"){ ?>
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
             <button id="verderWinkelenKnop">Verder winkelen</button>
-            <?php
             function testinconsole(){
             debug_to_console("Test is geslaagd");
             }
             print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen"></form>');
-            if(isset($_POST["afrekenensubmit"])){      
-                 $cart = getCart();
+            if(isset($_POST["afrekenensubmit"])){
                  foreach($cart as $artikelnummer => $aantalartikel){
                             $StockItem = getStockItem($artikelnummer, $databaseConnection);
                             $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
@@ -109,7 +109,6 @@ foreach($cart as $artikelnummer => $aantalartikel)
             }else{
                       updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
                        echo("<meta http-equiv='refresh' content='1'>"); 
-
             }
         }else{
             //print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
@@ -125,7 +124,6 @@ foreach($cart as $artikelnummer => $aantalartikel)
 
         }
 }
-    
                print('
                <div class="select-editable">
                    <form method="POST" action="">
@@ -152,12 +150,6 @@ foreach($cart as $artikelnummer => $aantalartikel)
                    .select-editable input {position:absolute; top:0px; left:0px; width:100px; padding:1px; font-size:12px; border:none;}
                    .select-editable select:focus, .select-editable input:focus {outline:none;}
                </style>');
-
-              
-    
-    
-               
-
 
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
