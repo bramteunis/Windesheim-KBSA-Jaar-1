@@ -100,7 +100,7 @@ button:hover {
     <input type="naam" placeholder="Volledige naam" name="uname" required> </td>
   </tr>
   <tr>
-        <form method="post">
+        <form method="post" action="">
 	<td style='color:black'> <button type="submit" name='Inloggen'>Inloggen</button> </td>
 	<td style='color:black'> <button type="submit" name='Aanmelden'>Aanmelden</button> </td>
 	<td style='color:black'> <button type="submit" mame='Gast'>Verder gaan</button> </td>
