@@ -33,8 +33,8 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 </head>
 <body>
     <div id="cartBackground">
-        $cart = getCart();
-        <?php if ($cart != null) { ?>
+        <?php$cart = getCart();
+        if ($cart != null) { ?>
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
             <form action="index.php">
