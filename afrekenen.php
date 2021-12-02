@@ -63,9 +63,9 @@
                 $plaats = $_POST["plaats"];
                 $date = date('Y-m-d H:i:s');
                 if($tussenvoegsel == ""){
-                    $volledigenaam = $voornaam.' '.$achternaam
+                    $volledigenaam = $voornaam.' '.$achternaam;
                 }else{
-                    $volledigenaam = $voornaam.' '.$tussenvoegsel.' '.$achternaam
+                    $volledigenaam = $voornaam.' '.$tussenvoegsel.' '.$achternaam;
                 }
                 debug_to_console($voornaam." / ".$tussenvoegsel." / ".$achternaam." / ".$postcode." / ".$straatnaam." / ".$email." / ".$telefoonnummer." / ".$huisnummer." / ".$plaats. " / ".$date);
                 $Query2 = "INSERT INTO nerdygadgets.customers (CustomerName, BillToCustomerID, CustomerCategoryID, PrimaryContactPersonID, 
