@@ -70,7 +70,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
-    print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
+    print("<div style='border:2px solid black;margin-top:100px;width:1848px;height:125px;'>");
     //print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
     
 
