@@ -76,7 +76,7 @@ button:hover {
 <body>
 
 <h2 style='color:black'>Winkelmand</h2>
-<h3><button type="submit" style="float: right">Verder winkelen</button></h3>
+<h3><button onclick="window.location.href='index.php'">Verder winkelen</button></h3>
 <table>
   <tr>
     <th>Bestaande klant</th>
