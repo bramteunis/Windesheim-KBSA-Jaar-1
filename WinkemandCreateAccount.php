@@ -100,18 +100,14 @@ button:hover {
     <input type="naam" placeholder="Volledige naam" name="uname" required> </td>
   </tr>
   <tr>
-        <form method="post" action="">
+        
 	<td style='color:black'> <button type="submit" name='Inloggen'>Inloggen</button> </td>
 	<td style='color:black'> <button type="submit" name='Aanmelden'>Aanmelden</button> </td>
 	<td style='color:black'> <button onclick="window.location.href='/afrekenen.php'">Verder gaan</button></td>
-	</form>
+	
 </table>
 <div class="vl"></div>
 <div class="vl2"></div>
 </body>
 </html>
-<?php
-if(isset($_POST["Gast"])){
-	header("Location: https://kbs.bramteunis.nl/pull4/afrekenen.php");
-}
-?>
+
