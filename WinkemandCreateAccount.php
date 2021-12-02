@@ -75,7 +75,7 @@ button:hover {
 </head>
 <body>
 
-<h2>Winkelmand</h2>
+<h2 style='color:black'>Winkelmand</h2>
 <h3><button type="submit" style="float: right">Verder winkelen</button></h3>
 <table>
   <tr>
