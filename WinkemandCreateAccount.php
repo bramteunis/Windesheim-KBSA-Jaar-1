@@ -112,6 +112,6 @@ button:hover {
 </html>
 <?php
 if(isset($_POST["Gast"])){
-	header("Location: afrekenen.php");
+	header("Location: https://kbs.bramteunis.nl/pull4/afrekenen.php");
 }
 ?>
