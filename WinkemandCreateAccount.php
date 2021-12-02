@@ -100,11 +100,18 @@ button:hover {
     <input type="naam" placeholder="Volledige naam" name="uname" required> </td>
   </tr>
   <tr>
-	<td> <button type="submit">Inloggen</button> </td>
-	<td> <button type="submit">Aanmelden</button> </td>
-	<td> <button type="submit">Verder gaan</button> </td>
+        <form method="post">
+	<td style='color:black'> <button type="submit" name='Inloggen'>Inloggen</button> </td>
+	<td style='color:black'> <button type="submit" name='Aanmelden'>Aanmelden</button> </td>
+	<td style='color:black'> <button type="submit" mame='Gast'>Verder gaan</button> </td>
+	</form>
 </table>
 <div class="vl"></div>
 <div class="vl2"></div>
 </body>
 </html>
+<?php
+if(isset($_POST["Gast"])){
+	header("Location: afrekenen.php");
+}
+?>
