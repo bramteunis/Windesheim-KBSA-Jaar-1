@@ -13,7 +13,7 @@
             <label class="font">Voornaam</label>
             <input class="no-outline" type="text" name="voornaam" required><br><br>
             <label class="font">Postcode</label>
-            <input class="no-outline" type="text" name="postcode" required><br><br>
+            <input class="no-outline" type="number" name="postcode" required><br><br>
             <label class="font">Straatnaam</label>
             <input class="no-outline" type="text" name="straatnaam" required><br><br>
             <label class="font">E-mail</label>
@@ -62,14 +62,19 @@
                 $huisnummer = $_POST["huisnummer"];
                 $plaats = $_POST["plaats"];
                 $date = date('Y-m-d H:i:s');
+                if($tussenvoegsel == ""){
+                    $volledigenaam = $voornaam.' '.$achternaam
+                }else{
+                    $volledigenaam = $voornaam.' '.$tussenvoegsel.' '.$achternaam
+                }
                 debug_to_console($voornaam." / ".$tussenvoegsel." / ".$achternaam." / ".$postcode." / ".$straatnaam." / ".$email." / ".$telefoonnummer." / ".$huisnummer." / ".$plaats. " / ".$date);
-                $Query2 = "INSERT INTO nerdygadgets.customers (CustomerName, BillToCustomerID, CustomerCategoryID, BuyingGroupID, PrimaryContactPersonID, 
-                           AlternateContactPersonID, DeliveryMethodID, DeliveryCityID, PostalCityID, CreditLimit, AccountOpenedDate, StandardDiscountPercentage, 
-                           IsStatementSent, IsOnCreditHold, PaymentDays, PhoneNumber, FaxNumber, DeliveryRun, RunPosition, WebsiteURL, DeliveryAddressLine1, 
-                           DeliveryAddressLine2, DeliveryPostalCode, DeliveryLocation, PostalAddressLine1, PostalAddressLine2, PostalPostalCode, LastEditedBy, 
-                           ValidFrom, ValidTo) VALUES (".$voornaam.' '.$tussenvoegsel.' '.$achternaam.", '1062', '0', '0', '0', '0', '3', ".$postcode.", ".$plaats.", '100000', ".$date.", '0', '0', 
-                           '0', '7', ".$telefoonnummer.", ".$telefoonnummer.", 'null', 'null', 'null', ".$huisnummer.", ".$straatnaam.", ".$postcode.", 'null', 'null', 'null', 'null', 
-                           0, ".$date.", '9999-12-31')";
+                $Query2 = "INSERT INTO nerdygadgets.customers (CustomerName, BillToCustomerID, CustomerCategoryID, PrimaryContactPersonID, 
+                           DeliveryMethodID, DeliveryCityID, PostalCityID, AccountOpenedDate, StandardDiscountPercentage, 
+                           IsStatementSent, IsOnCreditHold, PaymentDays, PhoneNumber, FaxNumber, WebsiteURL, DeliveryAddressLine1, 
+                           DeliveryAddressLine2, DeliveryPostalCode, PostalAddressLine1, PostalPostalCode, LastEditedBy, 
+                           ValidFrom, ValidTo) VALUES ('".$volledigenaam."', 1062, 0, 0, 3, ".$postcode.", ".$postcode.", '".$date."', 0, 0, 
+                           0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
+                           0, '".$date."', '9999-12-31')";
                 print($Query2);
                 //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
                 //mysqli_stmt_execute($Statement2);     
