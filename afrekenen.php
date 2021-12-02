@@ -33,6 +33,7 @@
         <div class="wrapper3">
             <label class="font">Achternaam</label>
             <input class="no-outline" type="text" name="achternaam" required>
+            <input type="submit" name="afrekenensubmit2" value="Afrekenen">
         </div>
             <span class="underline"></span>
         </form>
@@ -49,7 +50,7 @@
             function testinconsole(){
                 debug_to_console("Test is geslaagd");
             }
-            print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
+            //print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
             if(isset($_POST["afrekenensubmit2"])){  
                 $voornaam = $_POST["voornaam"];
                 $achternaam = $_POST["achternaam"];
