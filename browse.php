@@ -270,10 +270,19 @@ if (isset($amount)) {
             <!-- einde coderegel 1 van User story: bekijken producten   -->
                 <div id="ProductFrame">
                     <?php
-                    if (isset($row['ImagePath'])) { ?>
-                        <div class="ImgFrame"
-                             style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
-                    <?php } else if (isset($row['BackupImagePath'])) { ?>
+                    if (isset($row['ImagePath'])) { 
+			
+                        if(strtolower($StockItemImage[0]['ImagePath']) == 'chocolate.jpg' OR strtolower($StockItemImage[0]['ImagePath']) == 'toys.jpg'){
+                         ?><div class="ImgFrame"
+                             style="background-image: url('<?php print "public/stockgroupimg/" . strtolower($row['BackupImagePath']) ?>'); background-size: cover;"></div>
+                        <?php
+                    }else{ 
+                    ?>
+                    <div class="ImgFrame"
+                             style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['BackupImagePath']) ?>'); background-size: cover;"></div>
+                    <?php
+                       }
+		 } else if (isset($row['BackupImagePath'])) { ?>
                         <div class="ImgFrame"
                              style="background-image: url('<?php print "public/stockgroupimg/" . strtolower($row['BackupImagePath']) ?>'); background-size: cover;"></div>
                     <?php }
