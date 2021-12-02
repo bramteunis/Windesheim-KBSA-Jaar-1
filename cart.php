@@ -71,7 +71,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
-    print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
+    //print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
     
 
     print("<div class='productCard'>");
@@ -190,7 +190,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     }
     }
 }
-print('</div>');
+//print('</div>');
 print('</div>');
 if($cart != null)
 {
