@@ -194,9 +194,9 @@ if($cart != null)
            $winkelmandjevol = "niet leeg";
 }else
 {
-    print('<h1 style = "font-size:2.5vw;position:fixed; width:30%; margin-left:37%; color:Black;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
+    print('<h1 style = "font-size:2.5vw;position:fixed; width:30%; margin-left:37%; color:Black; margin-top:15%;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
     print('<form style = "method="get" action="index.php"> 
-           <button style= "font-size:1vw;position:fixed; width:10%; margin-left:45%;bottom:550px;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
+           <button style= "font-size:1.5vw;position:fixed; width:10%; margin-left:45%;margint-top:23%;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
 }
 
 ?>
