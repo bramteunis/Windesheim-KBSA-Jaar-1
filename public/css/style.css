@@ -99,11 +99,11 @@ ul#ul-class-navigation li {
 #Header {
     position: fixed;
     top:0;
-    background-color: #ffaeae;
+    background-color: rgba(0, 135, 255, 0.54);
     width: 101%;
     height: 160px;
     z-index: 1;
-    border-bottom: 3px solid rgb(255, 38, 38);
+    border-bottom: 3px solid rgba(7, 0, 132, 1);
 }
 #Content {
     margin-top: 200px;
