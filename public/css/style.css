@@ -194,7 +194,18 @@ ul#ul-class-navigation li {
 .ToevoegenWinkelmandbutton1:hover {
     background-color: #ffcd00;
 }
-                        
+.Hovershadowbutton{
+    font-size:1.5vw;
+    position:fixed; 
+    width:10%; 
+    margin-left:45%;
+    margin-top:23%;
+    color:Black; 
+}   
+.Hovershadowbutton:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}  
+
 #VideoFrame {
     width: 100%;
     height: 350px;
