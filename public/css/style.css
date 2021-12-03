@@ -137,6 +137,7 @@ ul#ul-class-navigation li {
     width: 230px;
     height: 230px;
     float: left;
+    background-color: rgba(255, 0, 0,0.2);
     margin-left: 10px;
     margin-top: 10px;
     margin-right: 10px
