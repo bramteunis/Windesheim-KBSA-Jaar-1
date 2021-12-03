@@ -111,13 +111,14 @@ ul#ul-class-navigation li {
 #FilterFrame {
     position: fixed;
     width: 19%;
-    background-color: rgba(35, 40, 47, 0.8);
+    background-color: rgba(0, 135, 255, 0.34);
     float: left;
     top:216px;
     border: 1px solid #fff;
     margin-left: 5px;
     margin-top: 10px;
     padding: 20px;
+    color:black;
 }
 #ResultsArea.Browse  {
     width: 78%;
