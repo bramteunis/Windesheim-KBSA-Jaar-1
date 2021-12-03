@@ -99,7 +99,7 @@ ul#ul-class-navigation li {
 #Header {
     position: fixed;
     top:0;
-    background-color: rgba(0, 135, 255, 0.54);
+    background-color: rgba(0, 135, 255, 0.34);
     width: 101%;
     height: 160px;
     z-index: 1;
@@ -320,7 +320,7 @@ ul#ul-class-price li {
 }
 
 .HrefDecoration i.search {
-    color: #dc3545;
+    color: rgba(7, 0, 132, 1);
 }
 
 .HrefDecoration:hover, .HrefDecoration:active {
@@ -437,7 +437,7 @@ ul#ul-class-price li {
 }
 .StockItemPriceText {
     font-family: vortice-concept, sans-serif;
-    color: #676EFF;
+    color: rgba(7, 0, 132, 1);
     font-size: 22px;
     text-transform: uppercase;
     font-weight: bold;
@@ -448,7 +448,7 @@ ul#ul-class-price li {
 }
 .StockItemID {
     font-family: vortice-concept, sans-serif;
-    color: #676EFF;
+    color: rgba(7, 0, 132, 1);
     font-size: 10px;
     text-transform: uppercase;
     font-weight: bold;
