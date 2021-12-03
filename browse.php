@@ -77,8 +77,8 @@ switch ($SortOnPage) {
     }
     default:
     {
-        $Sort = "SellPrice";
-        $SortName = "price_low_high";
+        $Sort = "SellPrice DESC";
+        $SortName = "price_high_low";
     }
 }
 $searchValues = explode(" ", $SearchString);
