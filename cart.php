@@ -123,6 +123,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                       debug_to_console($country[$artikelnummer]);
                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                       echo("<meta http-equiv='refresh' content='1'>"); 
+                      debug_to_console($cart);
                       }
             }else{
                       updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
