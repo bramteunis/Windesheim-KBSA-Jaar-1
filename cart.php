@@ -140,6 +140,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                        if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) < $aantalartikel){
                                  $aantalartikel = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']);
                                  updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                                 echo("<meta http-equiv='refresh' content='1'>"); 
                        }
                        for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
                               $y = $x+ $aantalartikel;
