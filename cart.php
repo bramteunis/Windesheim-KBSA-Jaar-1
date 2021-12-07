@@ -34,7 +34,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 <body>
     <div id="cartBackground">
         <?php $cart = getCart();
-        if ($cart != null) { ?>
+        if ($cart != null AND $totaalprijs != 0) { ?>
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
             <form action="index.php">
