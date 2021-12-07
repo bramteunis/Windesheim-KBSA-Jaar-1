@@ -34,7 +34,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 <body>
     <div id="cartBackground">
         <?php $cart = getCart();
-        $value = max($cart)
+        $value = max($cart);
         if ($cart != null AND $value > 0) { ?>
         <div id="titleCart">
             <h1 id="titleText">Winkelmand</h1>
