@@ -101,13 +101,10 @@ foreach($cart as $artikelnummer => $aantalartikel)
         if($_POST["format"] == "") {
             //print("selected aantal van ".$artikelnummer." is => " . (isset($variable))?$variable:'');
             if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
-                       if((str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $country[$artikelnummer]) < 1){
-                                 removeProductFromCart($artikelnummer);          
-                       }else{
+                       
                        debug_to_console($country[$artikelnummer]);
                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                        echo("<meta http-equiv='refresh' content='1'>"); 
-                       }
             }else{
                        updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
                        echo("<meta http-equiv='refresh' content='1'>"); 
@@ -117,14 +114,11 @@ foreach($cart as $artikelnummer => $aantalartikel)
             //print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
             $country[$artikelnummer]=$_POST["format"];
             if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
-                      if((str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $country[$artikelnummer]) < 1){
-                                 removeProductFromCart($artikelnummer);          
-                      }else{
+                      
                       debug_to_console($country[$artikelnummer]);
                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                       echo("<meta http-equiv='refresh' content='1'>"); 
                       debug_to_console($cart);
-                      }
             }else{
                       updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
                        echo("<meta http-equiv='refresh' content='1'>"); 
