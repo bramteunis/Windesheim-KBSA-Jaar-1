@@ -137,7 +137,11 @@ foreach($cart as $artikelnummer => $aantalartikel)
                <div class="select-editable">
                    <form method="POST" action="">
                        <select name='."Test".$artikelnummer.' onchange="this.nextElementSibling.value=this.value,this.form.submit()">');
-                           for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
+                       if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) < $aantalartikel){
+                                 $aantalartikel = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']);
+                                 updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                       }
+                       for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
                               $y = $x+ $aantalartikel;
                               if($x>-1){
                                          if($aantalartikel == $x){
