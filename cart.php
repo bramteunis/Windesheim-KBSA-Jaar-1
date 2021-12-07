@@ -62,7 +62,12 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                  
             ?>
         </div>
-        <?php } ?>
+        <?php }else{
+                   
+                   $cart = array();
+                   debug_to_console("testover array legen");
+                    
+                    } ?>
 <?php
 $totaalprijs = 0;
 $hoogsteverzending = 0;
