@@ -96,7 +96,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             <div class="carousel-inner">
                                 <?php for ($i = 0; $i < count($StockItemImage); $i++) {
                                     ?>
-                                    <div class="carousel-item<?php print ($i == 0) ? 'active' : ''; ?>">
+                                    <div class="carousel-item <?php print ($i == 0) ? 'active' : ''; ?>">
                                         <?php
                                         debug_to_console("test: ".strtolower($StockItemImage[$i]['ImagePath']));
                                         if(strtolower($StockItemImage[$i]['ImagePath']) == "" OR strtolower($StockItemImage[$i]['ImagePath']) == null){
