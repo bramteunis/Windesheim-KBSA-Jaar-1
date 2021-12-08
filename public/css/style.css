@@ -475,7 +475,8 @@ ul#ul-class-price li {
 }
 .carousel-inner img {
     width: 100%;
-    height: 100%;
+    height: 300px;
+    
 }
 #ImageCarousel {
     width: 300px;
