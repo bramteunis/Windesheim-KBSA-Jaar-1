@@ -116,6 +116,14 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             <a class="carousel-control-next" href="#ImageCarousel" data-slide="next">
                                 <span class="carousel-control-next-icon"></span>
                             </a>
+                            <a class="carousel-control-next" href="google.nl" data-slide="next" style="
+                                left: 50%;
+                                top: 0px;
+                                transform: rotate(270deg);
+                                bottom: 80%;
+                            ">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
                         </div>
                     </div>
                     <?php
