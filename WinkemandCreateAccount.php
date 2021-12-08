@@ -41,20 +41,20 @@ input[type=naam] {
 
 .vl {
   border-left: 3px solid black;
-  height: 60%;
+  height: 59%;
   position: absolute;
   left: 29%;
   margin-left: -3px;
-  top: 40%;
+  top: 41%;
 }
 
 .vl2 {
   border-left: 3px solid black;
-  height: 60%;
+  height: 59%;
   position: absolute;
   left: 60%;
   margin-left: -3px;
-  top: 40%;
+  top: 41%;
 }
 
 button {
