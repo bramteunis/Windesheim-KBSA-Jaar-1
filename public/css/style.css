@@ -99,7 +99,7 @@ ul#ul-class-navigation li {
 #Header {
     position: fixed;
     top:0;
-    background-color: rgba(0, 135, 255, 0.34);
+    background-color: #9fd2ff;
     width: 101%;
     height: 160px;
     z-index: 1;
