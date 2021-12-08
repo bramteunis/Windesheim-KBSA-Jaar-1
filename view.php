@@ -100,9 +100,9 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                                         <?php
                                         debug_to_console("test: ".strtolower($StockItemImage[$i]['ImagePath']));
                                         if(strtolower($StockItemImage[$i]['ImagePath']) == "" OR strtolower($StockItemImage[$i]['ImagePath']) == null){
-                                            print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]["BackupImagePath"]).">"');
+                                            print('<img src="public/stockitemimg/"'.strtolower($StockItemImage[$i]["BackupImagePath"]).'">"');
                                         }else{
-                                            print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]["ImagePath"]).">"');
+                                            print('<img src="public/stockitemimg/"'.strtolower($StockItemImage[$i]["ImagePath"]).'">"');
                                             }
                                         ?>
                                     </div>
