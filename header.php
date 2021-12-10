@@ -25,7 +25,7 @@ $databaseConnection = connectToDatabase();
 <body>
 <div class="Background">
     <div class="row" id="Header">
-        <div class="col-2"><a href="index.php" id="LogoA">
+        <div class="col-2"><a href="index.php" id="LogoA" aria-label="Home">
                 <div id="LogoImage"></div>
             </a></div>
         <div class="col-8" id="CategoriesBar">
