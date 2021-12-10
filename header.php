@@ -51,7 +51,7 @@ $databaseConnection = connectToDatabase();
         <ul id="ul-class-navigation">
             <li>
                 <a href="cart.php">
-                    <img id="KnopWinkelmand" src="public/img/shoppingcart.png" />
+                    <img id="KnopWinkelmand" src="public/img/shoppingcart.png" alt="Afrekenen" />
                 </a>
             </li>
             <li>
