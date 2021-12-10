@@ -77,8 +77,8 @@ switch ($SortOnPage) {
     }
     default:
     {
-        $Sort = "SellPrice";
-        $SortName = "price_low_high";
+        $Sort = "SellPrice DESC";
+        $SortName = "price_high_low";
     }
 }
 $searchValues = explode(" ", $SearchString);
@@ -270,7 +270,7 @@ if (isset($amount)) {
             <!-- einde coderegel 1 van User story: bekijken producten   -->
                 <div id="ProductFrame">
                     <?php
-                    if (isset($row['ImagePath'])) { ?>
+                    if (isset($row['ImagePath']) AND $row['ImagePath'] != 'chocolate.jpg') { ?>
                         <div class="ImgFrame"
                              style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
                     <?php } else if (isset($row['BackupImagePath'])) { ?>
