@@ -109,7 +109,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                                                     transform: rotate(270deg);
                                                     bottom: 80%;
                                                 ">
-                                                    <span class="carousel-control-next-icon"></span>
+                                                    <span class="carousel-control-enlarge-icon"></span>
                                                 </a>');
                                             }
                                         ?>
