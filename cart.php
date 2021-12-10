@@ -206,10 +206,10 @@ foreach($cart as $artikelnummer => $aantalartikel)
 if($cart != null AND $totaalprijs != 0)
 
 {
-    print("<h1 style='color:black;margin-top:3%;'>Totaalprijs: €".$totaalprijs."</h1>");
-    print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
-    $totaal = int($totaalprijs) + ($hoogsteverzending);
-    print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
+           print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+           print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+           $totaal = $totaalprijs + $hoogsteverzending;
+           print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
 }else
 {
 
