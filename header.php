@@ -25,7 +25,7 @@ $databaseConnection = connectToDatabase();
 <body>
 <div class="Background">
     <div class="row" id="Header">
-        <div class="col-2"><a href="index.php" id="LogoA">
+        <div class="col-2"><a href="index.php" id="LogoA" aria-label="Home">
                 <div id="LogoImage"></div>
             </a></div>
         <div class="col-8" id="CategoriesBar">
@@ -51,7 +51,7 @@ $databaseConnection = connectToDatabase();
         <ul id="ul-class-navigation">
             <li>
                 <a href="cart.php">
-                    <img id="KnopWinkelmand" src="public/img/shoppingcart.png" />
+                    <img id="KnopWinkelmand" src="public/img/shoppingcart.png" alt="Afrekenen" />
                 </a>
             </li>
             <li>

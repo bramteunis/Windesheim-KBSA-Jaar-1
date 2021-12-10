@@ -77,8 +77,8 @@ switch ($SortOnPage) {
     }
     default:
     {
-        $Sort = "SellPrice";
-        $SortName = "price_low_high";
+        $Sort = "SellPrice DESC";
+        $SortName = "price_high_low";
     }
 }
 $searchValues = explode(" ", $SearchString);
@@ -209,14 +209,14 @@ if (isset($amount)) {
     <form>
         <div id="FilterOptions">
             <h4 class="FilterTopMargin"><i class="fas fa-search"></i> Zoeken</h4>
-            <input class="input" type="text" name="search_string" id="search_string"
+            <input type="text" name="search_string" id="search_string"
                    value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
                    class="form-submit">
             <h4 class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</h4>
 
-            <input class="input" type="hidden" name="category_id" id="category_id"
+            <input type="hidden" name="category_id" id="category_id"
                    value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
-            <select class="selectopmaak" name="products_on_page" id="products_on_page" onchange="this.form.submit()">>
+            <select name="products_on_page" id="products_on_page" onchange="this.form.submit()">>
                 <option value="25" <?php if ($_SESSION['products_on_page'] == 25) {
                     print "selected";
                 } ?>>25
@@ -231,7 +231,7 @@ if (isset($amount)) {
                 </option>
             </select>
             <h4 class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</h4>
-            <select class="selectopmaak" name="sort" id="sort" onchange="this.form.submit()">>
+            <select name="sort" id="sort" onchange="this.form.submit()">>
                 <option value="price_low_high" <?php if ($_SESSION['sort'] == "price_low_high") {
                     print "selected";
                 } ?>>Prijs oplopend
@@ -270,7 +270,7 @@ if (isset($amount)) {
             <!-- einde coderegel 1 van User story: bekijken producten   -->
                 <div id="ProductFrame">
                     <?php
-                    if (isset($row['ImagePath'])) { ?>
+                    if (isset($row['ImagePath']) AND $row['ImagePath'] != 'chocolate.jpg') { ?>
                         <div class="ImgFrame"
                              style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
                     <?php } else if (isset($row['BackupImagePath'])) { ?>

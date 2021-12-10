@@ -1,0 +1,78 @@
+.font {
+    font-family: pt-sans, sans-serif;
+    color: #676EFF;
+}
+
+.mainDiv {
+    /*border: 1px solid red;*/
+    width: 850px;
+    height: 400px;
+}
+
+.wrapper1 {
+    float: left;
+    /*border: 1px solid black;*/
+    width: 275px;
+    height: 300px;
+}
+
+.wrapper2 {
+    float: left;
+    /*border: 1px solid black;*/
+    width: 275px;
+    height: 300px;
+}
+
+.wrapper3 {
+    float: left;
+    /*border: 1px solid black;*/
+    width: 275px;
+    height: 100px;
+}
+
+input {
+    height: 35px;
+    width: 250px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-bottom-color: black;
+    font-size: 1.25rem;
+}
+
+.no-outline:focus {
+    outline: none;
+}
+input::-webkit-input-placeholder {
+    color: #AAA;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: dodgerblue;
+    font-size: .75em;
+    position: relative;
+    top: -20px;
+    transition: 0.2s ease-out;
+    pointer-events: none;
+}
+
+.input:focus+.underline {
+    transform: scale(1);
+}
+
+
+.underline {
+    background-color: dodgerblue;
+    display: inline-block;
+    height: 2px;
+    left: 50px;
+    margin-top: -4px;
+    position: absolute;
+    top: 185px;
+    -webkit-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    width: 202px;
+}

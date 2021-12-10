@@ -68,10 +68,16 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 // één plaatje laten zien
                 if (count($StockItemImage) == 1) {
                     debug_to_console("wtf");
+                    if(strtolower($StockItemImage[0]['ImagePath']) == 'chocolate.jpg' OR strtolower($StockItemImage[0]['ImagePath']) == 'toys.jpg'){
+                         ?><div id="ImageFrame"
+                         style="background-image: url('public/stockgroupimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
+                        <?php
+                    }else{ 
                     ?>
                     <div id="ImageFrame"
                          style="background-image: url('public/stockitemimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
                     <?php
+                       }
                 } else if (count($StockItemImage) >= 2) { ?>
                     <!-- meerdere plaatjes laten zien -->
                     <div id="ImageFrame">
@@ -94,9 +100,17 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                                         <?php
                                         debug_to_console("test: ".strtolower($StockItemImage[$i]['ImagePath']));
                                         if(strtolower($StockItemImage[$i]['ImagePath']) == "" OR strtolower($StockItemImage[$i]['ImagePath']) == null){
-                                            print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]["BackupImagePath"]).">"');
+                                            print('<img src="public/stockitemimg/'.strtolower($StockItemImage[$i]["BackupImagePath"]).'"">"');
                                         }else{
-                                            print('<img src="public/stockitemimg/".strtolower($StockItemImage[$i]["ImagePath"]).">"');
+                                            print('<img src="public/stockitemimg/'.strtolower($StockItemImage[$i]["ImagePath"]).'"">"');
+                                            print('<a class="carousel-control-next" href="public/stockitemimg/'.strtolower($StockItemImage[$i]["ImagePath"]).'" data-slide="next" style="
+                                                    left: 50%;
+                                                    top: 0px;
+                                                    transform: rotate(270deg);
+                                                    bottom: 80%;
+                                                ">
+                                                    <span class="carousel-control-enlarge-icon"></span>
+                                                </a>');
                                             }
                                         ?>
                                     </div>
@@ -110,6 +124,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             <a class="carousel-control-next" href="#ImageCarousel" data-slide="next">
                                 <span class="carousel-control-next-icon"></span>
                             </a>
+                            
                         </div>
                     </div>
                     <?php
@@ -145,7 +160,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
                         <form method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmandje">
+                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
                         </form>
 
                         <?php
