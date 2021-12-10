@@ -438,7 +438,7 @@ ul#ul-class-price li {
 }
 .StockItemPriceText {
     font-family: vortice-concept, sans-serif;
-    color: rgba(0, 135, 255, 0.84);
+    color: rgba(0, 135, 255, 1);
     font-size: 22px;
     text-transform: uppercase;
     font-weight: bold;
