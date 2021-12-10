@@ -2,8 +2,6 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
-
-
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -22,7 +20,6 @@ $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -33,6 +30,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 </head>
 <body>
     <div id="cartBackground">
+
         <?php $cart = getCart();
         $value = max($cart);
         if ($cart != null AND $value > 0) { ?>
@@ -69,6 +67,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                     
                     } ?>
 <?php
+
 $totaalprijs = 0;
 $hoogsteverzending = 0;
 $cart = getCart();
@@ -77,12 +76,13 @@ foreach($cart as $artikelnummer => $aantalartikel)
     if($aantalartikel > 0){
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
+
     print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
     
+
     foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
-                
                 if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
                       $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
                       print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath.">");
@@ -100,6 +100,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     print('<form method="post">
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
+
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
     //print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
     if(isset($_POST["Test".$artikelnummer])){
@@ -169,6 +170,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     
     
                
+
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             if ($artikelnummer == $row["StockItemID"]) {
@@ -182,16 +184,18 @@ foreach($cart as $artikelnummer => $aantalartikel)
             }
         }
     }
+
     
     print('</div><form method="POST" action="">
+
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
     print("</div>");
     print("</div>");
     if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
-        debug_to_console('verwijderen word geprobeerd');
         $stockItemID = $artikelnummer;
         removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+
     }else{
            debug_to_console('verwijderen word geprobeerd maar valt onder else');
     }
@@ -200,18 +204,20 @@ foreach($cart as $artikelnummer => $aantalartikel)
 
 
 if($cart != null AND $totaalprijs != 0)
+
 {
-           print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
-           print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
-           $totaal = $totaalprijs + $hoogsteverzending;
-           print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
-           $winkelmandjevol = "niet leeg";
+    print("<h1 style='color:black;margin-top:3%;'>Totaalprijs: €".$totaalprijs."</h1>");
+    print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+    $totaal = int($totaalprijs) + ($hoogsteverzending);
+    print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
 }else
 {
+
     $cart = array();
     print('<h1 style = "font-size:2.5vw;position:fixed; width:30%; margin-left:37%; color:Black; margin-top:15%;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
     print('<form style = "method="get" action="index.php"> 
            <button style="font-size:1.5vw;position:fixed; width:10%; margin-left:45%;margin-top:23%; color:Black; " class="Hovershadowbutton" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
+
 }
 
 ?>
