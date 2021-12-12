@@ -10,6 +10,7 @@ body {
 @font-face {
     font-family: MmrText;
     src: url(/public/fonts/mmrtext.ttf);
+    font-display: swap;
 }
 .selectopmaak {
     width: 100%;
