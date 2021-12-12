@@ -1,14 +1,15 @@
 <!-- dit is het bestand dat wordt geladen zodra je naar de website gaat en test je dit even? -->
-<?php
-include __DIR__ . "/header.php";
-?>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Nerdygadgets">
   <meta name="keywords" content="Webshop, ICT, nerdygadgets">
   <meta name="author" content="Bram Teunis, Jorg Veerman, Rick Beniers, Kristof Raams, Thomas Pham, Owen Bremer">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<?php
+include __DIR__ . "/header.php";
+?>
+
 <div class="IndexStyle">
     <div class="col-11">
         <div class="TextPrice">
