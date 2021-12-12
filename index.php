@@ -5,7 +5,7 @@ include __DIR__ . "/header.php";
 <div class="IndexStyle">
     <div class="col-11">
         <div class="TextPrice">
-            <a href="view.php?id=93">
+            <a href="view.php?id=93" aria-label="Product">
                 <div class="TextMain">
                     "The pandakaes 5000 ultra max for iphone 4 / 5
                 </div>
