@@ -22,6 +22,12 @@ $databaseConnection = connectToDatabase();
     <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="public/css/typekit.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <meta charset="UTF-8">
+      <meta name="description" content="Nerdygadgets">
+      <meta name="keywords" content="Webshop, ICT, nerdygadgets">
+      <meta name="author" content="Bram Teunis, Jorg Veerman, Rick Beniers, Kristof Raams, Thomas Pham, Owen Bremer">
+
 </head>
 <body>
 <div class="Background">
