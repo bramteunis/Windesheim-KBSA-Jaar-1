@@ -18,7 +18,6 @@ $databaseConnection = connectToDatabase();
 
     <!-- Style sheets-->
     <link rel="stylesheet" href="public/css/style.css" type="text/css">
-    <link rel="stylesheet" href="public/css/mijn.css" type="text/css">
     <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="public/css/typekit.css">
     <meta charset="UTF-8">
