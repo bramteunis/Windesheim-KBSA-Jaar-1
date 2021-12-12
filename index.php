@@ -1,10 +1,4 @@
 <!-- dit is het bestand dat wordt geladen zodra je naar de website gaat en test je dit even? -->
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Nerdygadgets">
-  <meta name="keywords" content="Webshop, ICT, nerdygadgets">
-  <meta name="author" content="Bram Teunis, Jorg Veerman, Rick Beniers, Kristof Raams, Thomas Pham, Owen Bremer">
-</head>
 
 <?php
 include __DIR__ . "/header.php";
