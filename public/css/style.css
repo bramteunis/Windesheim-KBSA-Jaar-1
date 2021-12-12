@@ -299,12 +299,13 @@ ul#ul-class-navigation li {
 }
 ul#ul-class li {
     display: inline;
-    color: white;
+    color: black;
     margin-right: 1em;
     font-size: 18px;
     text-decoration: none;
     line-height: 200px;
 }
+
 ul#ul-class-price li {
     display: inline;
 }
