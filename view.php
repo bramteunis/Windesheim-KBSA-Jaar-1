@@ -66,7 +66,6 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
         <div id="ArticleHeader">
             <?php
             if (isset($StockItemImage)) {
-               
                 // één plaatje laten zien
                 if (count($StockItemImage) == 1) {
                     debug_to_console("wtf");
