@@ -18,9 +18,12 @@ $databaseConnection = connectToDatabase();
 
     <!-- Style sheets-->
     <link rel="stylesheet" href="public/css/style.css" type="text/css">
-    <link rel="stylesheet" href="public/css/mijn.css" type="text/css">
     <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="public/css/typekit.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Nerdygadgets">
+    <meta name="keywords" content="Webshop, ICT, nerdygadgets">
+    <meta name="author" content="Bram Teunis, Jorg Veerman, Rick Beniers, Kristof Raams, Thomas Pham, Owen Bremer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>

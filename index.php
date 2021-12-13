@@ -1,7 +1,9 @@
 <!-- dit is het bestand dat wordt geladen zodra je naar de website gaat en test je dit even? -->
+
 <?php
 include __DIR__ . "/header.php";
 ?>
+
 <div class="underHeadDiv">
     <i class="fas fa-check" style="color: green"></i>
     <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen gratis bezorgd</p>
@@ -15,6 +17,7 @@ include __DIR__ . "/header.php";
     <div class="col-11">
         <div class="TextPrice">
             <a href="view.php?id=138">
+
                 <div class="TextMain">
                     FURRY ANIMAL SOCKS (PINK) S
                 </div>

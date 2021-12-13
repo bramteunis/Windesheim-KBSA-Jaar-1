@@ -10,6 +10,7 @@ body {
 @font-face {
     font-family: MmrText;
     src: url(/public/fonts/mmrtext.ttf);
+    font-display: swap;
 }
 .selectopmaak {
     width: 100%;
@@ -296,12 +297,13 @@ ul#ul-class-navigation li {
 }
 ul#ul-class li {
     display: inline;
-    color: white;
+    color: black;
     margin-right: 1em;
     font-size: 18px;
     text-decoration: none;
     line-height: 100px;
 }
+
 ul#ul-class-price li {
     display: inline;
 }
