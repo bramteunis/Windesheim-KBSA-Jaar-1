@@ -16,7 +16,7 @@ include __DIR__ . "/header.php";
 <div class="IndexStyle">
     <div class="col-11">
         <div class="TextPrice">
-            <a href="view.php?id=138">
+            <a href="view.php?id=138" aria-label="product 1">
 
                 <div class="TextMain">
                     FURRY ANIMAL SOCKS (PINK) S
@@ -33,7 +33,7 @@ include __DIR__ . "/header.php";
 <div class="IndexStyle">
     <div class="col-11">
         <div class="TextPrice">
-            <a href="view.php?id=23">
+            <a href="view.php?id=23" aria-label="Product 2">
                 <div class="TextMain">
                     DBA JOKE MUG<br>- IT DEPENDS (BLACK)
                 </div>
