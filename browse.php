@@ -1,7 +1,19 @@
 <!-- dit bestand bevat alle code voor het productoverzicht -->
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'></a>
 <?php
 include __DIR__ . "/header.php";
+
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
 
 $ReturnableResult = null;
 $Sort = "SellPrice";
@@ -69,8 +81,8 @@ switch ($SortOnPage) {
     }
     default:
     {
-        $Sort = "SellPrice";
-        $SortName = "price_low_high";
+        $Sort = "SellPrice DESC";
+        $SortName = "price_high_low";
     }
 }
 $searchValues = explode(" ", $SearchString);
@@ -92,11 +104,6 @@ if ($SearchString != "") {
 }
 
 
-
-// <einde van de code voor zoekcriteria>
-// einde code deel 1 van User story: Zoeken producten
-
-
 $Offset = $PageNumber * $ProductsOnPage;
 
 if ($CategoryID != "") { 
@@ -105,8 +112,6 @@ if ($CategoryID != "") {
     }
 }
 
-// code deel 2 van User story: Zoeken producten
-// <voeg hier de code in waarin het zoekresultaat opgehaald wordt uit de database>
 if ($CategoryID == "") {
     if ($queryBuildResult != "") {
         $queryBuildResult = "WHERE " . $queryBuildResult;
@@ -126,13 +131,12 @@ if ($CategoryID == "") {
                 ORDER BY " . $Sort . "
                 LIMIT ?  OFFSET ?";
 
-
+    
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "ii",  $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
     $Query = "
             SELECT count(*)
             FROM stockitems SI
@@ -144,8 +148,6 @@ if ($CategoryID == "") {
 }
 
 
-// <einde van de code voor zoekresultaat>
-// einde deel 2 van User story: Zoeken producten
 
 if ($CategoryID !== "") {
 $Query = "
@@ -162,13 +164,12 @@ $Query = "
            GROUP BY StockItemID
            ORDER BY " . $Sort . "
            LIMIT ? OFFSET ?";
-
+    
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "iii", $CategoryID, $ProductsOnPage, $Offset);
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
     $Query = "
                 SELECT count(*)
                 FROM stockitems SI
@@ -197,8 +198,6 @@ if (isset($amount)) {
     }
 ?>
 
-<!-- code deel 3 van User story: Zoeken producten : de html -->
-<!-- de zoekbalk links op de pagina  -->
 <div id="FilterFrame"><h2 class="FilterText"><i class="fas fa-filter"></i> Filteren </h2>
     <form>
         <div id="FilterOptions">
@@ -248,22 +247,17 @@ if (isset($amount)) {
 </div>
 
 
-<!-- einde zoekresultaten die links van de zoekbalk staan -->
-<!-- einde code deel 3 van User story: Zoeken producten  -->
-
 <div id="ResultsArea" class="Browse">
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
+	    
             ?>
-            <!--  coderegel 1 van User story: bekijken producten  -->
-
             <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
 
-            <!-- einde coderegel 1 van User story: bekijken producten   -->
                 <div id="ProductFrame">
                     <?php
-                    if (isset($row['ImagePath'])) { ?>
+                    if (isset($row['ImagePath']) AND $row['ImagePath'] != 'chocolate.jpg') { ?>
                         <div class="ImgFrame"
                              style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
                     <?php } else if (isset($row['BackupImagePath'])) { ?>
@@ -283,16 +277,12 @@ if (isset($amount)) {
                     <p class="StockItemComments"><?php print $row["MarketingComments"]; ?></p>
                     <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
                 </div>
-            <!--  coderegel 2 van User story: bekijken producten  -->
             </a>
 
-
-            <!--  einde coderegel 2 van User story: bekijken producten  -->
         <?php } ?>
 
         <form id="PageSelector">
 		
-<!-- code deel 4 van User story: Zoeken producten  -->
 
             <input type="hidden" name="search_string" id="search_string"
                    value="<?php if (isset($_GET['search_string'])) {
@@ -300,7 +290,6 @@ if (isset($amount)) {
                    } ?>">
             <input type="hidden" name="sort" id="sort" value="<?php print ($_SESSION['sort']); ?>">
 
-<!-- einde code deel 4 van User story: Zoeken producten  -->
             <input type="hidden" name="category_id" id="category_id" value="<?php if (isset($_GET['category_id'])) {
                 print ($_GET['category_id']);
             } ?>">
