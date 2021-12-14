@@ -52,8 +52,9 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             $Query2 = "UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
                             $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                             mysqli_stmt_execute($Statement2);     
-                            //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                            } echo("<script>location.href = 'WinkemandCreateAccount.php';</script>");
+                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
+                            echo("<script>location.href = 'WinkemandCreateAccount.php';</script>");
+                            } 
                           header("Refresh:0");
                        
                  }
