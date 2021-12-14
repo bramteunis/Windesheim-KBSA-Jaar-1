@@ -22,7 +22,7 @@ function get_query()
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    return $ReturnableResult;
+    
 }
 
 ?>
@@ -76,7 +76,7 @@ function get_query()
     $totaalprijs = 0;
     $hoogsteverzending = 0;
     $cart = getCart();
-    $ReturnableResult = get_query();
+    get_query();
     foreach($cart as $artikelnummer => $aantalartikel)
     {
         if($aantalartikel > 0){
