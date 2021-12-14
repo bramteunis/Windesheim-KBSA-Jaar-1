@@ -2,8 +2,7 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
-function get_query()
-{
+
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -22,8 +21,7 @@ function get_query()
     mysqli_stmt_execute($Statement);
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    
-}
+
 
 ?>
 <!DOCTYPE html>
@@ -76,7 +74,6 @@ function get_query()
     $totaalprijs = 0;
     $hoogsteverzending = 0;
     $cart = getCart();
-    get_query();
     foreach($cart as $artikelnummer => $aantalartikel)
     {
         if($aantalartikel > 0){
