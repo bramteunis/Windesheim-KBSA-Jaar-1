@@ -10,8 +10,9 @@ body {
 @font-face {
     font-family: MmrText;
     src: url(/public/fonts/mmrtext.ttf);
+    font-display: swap;
 }
-.selectopmaak {
+#sort {
     width: 100%;
     padding: 5px 35px 5px 5px;
     font-size: 16px;
@@ -68,7 +69,7 @@ a:hover span {
     text-transform: uppercase;
     font-weight: bold;
 }
-.input {
+#search_string{
     font-family: pt-sans, sans-serif;
     height: 50px;
     font-size: 20px;
@@ -76,15 +77,13 @@ a:hover span {
     padding: 0 10px;
 }
 
-
-
 table tr th,
 table tr td {
     padding: 10px;
 }
 ul#ul-class-navigation {
     right: 10px;
-    line-height: 200px;
+    line-height: 100px;
     position: absolute;
 }
 ul#ul-class-navigation li {
@@ -101,12 +100,12 @@ ul#ul-class-navigation li {
     top:0;
     background-color: #9fd2ff;
     width: 101%;
-    height: 160px;
+    height: 110px;
     z-index: 1;
     border-bottom: 3px solid rgba(7, 0, 132, 1);
 }
 #Content {
-    margin-top: 200px;
+    margin-top: 150px;
 }
 #FilterFrame {
     position: fixed;
@@ -282,7 +281,7 @@ ul#ul-class-navigation li {
 .Background {
     background-color: white;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     position: absolute;
 }
 #LogoA {
@@ -291,24 +290,25 @@ ul#ul-class-navigation li {
     position: absolute;
 }
 #LogoImage {
-    background-image: url("../productimghighres/nerdygadgetslogo.png");
-    width: 250px;
-    height: 90px;
-    margin: 55px 55px 55px 10%;
+    background-image: url("../productimghighres/nerdygadgetslogo1.png");
+    width: 188px;
+    height: 68px;
+    margin: 20px 20px 20px 25%;
 }
 ul#ul-class li {
     display: inline;
-    color: white;
+    color: black;
     margin-right: 1em;
     font-size: 18px;
     text-decoration: none;
-    line-height: 200px;
+    line-height: 100px;
 }
+
 ul#ul-class-price li {
     display: inline;
 }
 .TextPrice {
-    margin-top: 16%;
+    /*margin-top: 16%;*/
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -346,13 +346,22 @@ ul#ul-class-price li {
     margin-left: 7%;
 }
 .HomePageStockItemPicture {
-    background-image: url("../productimghighres/580b57fbd9996e24bc43bf55.png");
-    background-size: 100% 100%;
+    background-image: url("../stockitemimg/dinosaur battery powered slippers.png");
+    background-size: 75% 75%;
     width: 477px;
     height: 477px;
     background-repeat: no-repeat;
-    margin-left: 55%;
-    margin-top: -30%;
+    margin-left: 70%;
+    margin-top: -25%;
+}
+.HomePageStockItemPicture2 {
+    background-image: url("../stockitemimg/dba mug.png");
+    background-size: 55% 55%;
+    width: 477px;
+    height: 477px;
+    background-repeat: no-repeat;
+    margin-left: 70%;
+    margin-top: -27%;
 }
 #Wrap {
     width: 100%;
@@ -503,7 +512,9 @@ ul#ul-class-price li {
 }
 .IndexStyle {
     margin: 0 auto;
-    width: 1400px;
+    width: 1200px;
+    height: 300px;
+    /*border: 1px solid red;*/
 }
 .FilterTopMargin {
     margin-top: 20px;
@@ -533,14 +544,6 @@ ul#ul-class-price li {
     background: rgb(36, 41, 143);
     border: 1px rgb(98, 158, 255) solid;
     color: #fff;
-}
-#KnopWinkelmand {
-    position: fixed;
-    z-index: 2;
-    width:35px;
-    height: 35px;
-    right: 150px;
-    top: 80px;
 }
 #cartBackground {
     margin-left: 1%;
@@ -655,4 +658,23 @@ ul#ul-class-price li {
     margin-right:2%;
 }
 
+.underHeadText {
+    color: black;
+    text-align: center;
+    display: inline-block;
+}
 
+.underHeadDiv {
+    display: table;
+    margin: 0 auto;
+    margin-top: -85px;
+}
+
+p {
+    margin-right: 10px;
+}
+
+hr {
+    background-color: black;
+    width: 75%;
+}

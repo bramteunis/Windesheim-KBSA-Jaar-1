@@ -1,4 +1,8 @@
 <!-- dit bestand bevat alle code voor het productoverzicht -->
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'></a>
 <?php
 include __DIR__ . "/header.php";
@@ -100,11 +104,6 @@ if ($SearchString != "") {
 }
 
 
-
-// <einde van de code voor zoekcriteria>
-// einde code deel 1 van User story: Zoeken producten
-
-
 $Offset = $PageNumber * $ProductsOnPage;
 
 if ($CategoryID != "") { 
@@ -113,8 +112,6 @@ if ($CategoryID != "") {
     }
 }
 
-// code deel 2 van User story: Zoeken producten
-// <voeg hier de code in waarin het zoekresultaat opgehaald wordt uit de database>
 if ($CategoryID == "") {
     if ($queryBuildResult != "") {
         $queryBuildResult = "WHERE " . $queryBuildResult;
@@ -151,8 +148,6 @@ if ($CategoryID == "") {
 }
 
 
-// <einde van de code voor zoekresultaat>
-// einde deel 2 van User story: Zoeken producten
 
 if ($CategoryID !== "") {
 $Query = "
@@ -203,8 +198,6 @@ if (isset($amount)) {
     }
 ?>
 
-<!-- code deel 3 van User story: Zoeken producten : de html -->
-<!-- de zoekbalk links op de pagina  -->
 <div id="FilterFrame"><h2 class="FilterText"><i class="fas fa-filter"></i> Filteren </h2>
     <form>
         <div id="FilterOptions">
@@ -216,7 +209,7 @@ if (isset($amount)) {
 
             <input type="hidden" name="category_id" id="category_id"
                    value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
-            <select name="products_on_page" id="products_on_page" onchange="this.form.submit()">>
+            <select name="products_on_page" id="sort" onchange="this.form.submit()">>
                 <option value="25" <?php if ($_SESSION['products_on_page'] == 25) {
                     print "selected";
                 } ?>>25
@@ -254,20 +247,14 @@ if (isset($amount)) {
 </div>
 
 
-<!-- einde zoekresultaten die links van de zoekbalk staan -->
-<!-- einde code deel 3 van User story: Zoeken producten  -->
-
 <div id="ResultsArea" class="Browse">
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
 	    
             ?>
-            <!--  coderegel 1 van User story: bekijken producten  -->
-
             <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
 
-            <!-- einde coderegel 1 van User story: bekijken producten   -->
                 <div id="ProductFrame">
                     <?php
                     if (isset($row['ImagePath']) AND $row['ImagePath'] != 'chocolate.jpg') { ?>
@@ -290,16 +277,12 @@ if (isset($amount)) {
                     <p class="StockItemComments"><?php print $row["MarketingComments"]; ?></p>
                     <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
                 </div>
-            <!--  coderegel 2 van User story: bekijken producten  -->
             </a>
 
-
-            <!--  einde coderegel 2 van User story: bekijken producten  -->
         <?php } ?>
 
         <form id="PageSelector">
 		
-<!-- code deel 4 van User story: Zoeken producten  -->
 
             <input type="hidden" name="search_string" id="search_string"
                    value="<?php if (isset($_GET['search_string'])) {
@@ -307,7 +290,6 @@ if (isset($amount)) {
                    } ?>">
             <input type="hidden" name="sort" id="sort" value="<?php print ($_SESSION['sort']); ?>">
 
-<!-- einde code deel 4 van User story: Zoeken producten  -->
             <input type="hidden" name="category_id" id="category_id" value="<?php if (isset($_GET['category_id'])) {
                 print ($_GET['category_id']);
             } ?>">
