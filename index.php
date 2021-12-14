@@ -19,7 +19,9 @@ include __DIR__ . "/header.php";
             <a href="view.php?id=138" aria-label="product 1">
 
                 <div class="TextMain">
+
                     FURRY ANIMAL SOCKS (PINK) S
+
                 </div>
                 <ul id="ul-class-price">
                     <li class="HomePagePrice">€69.69</li>
