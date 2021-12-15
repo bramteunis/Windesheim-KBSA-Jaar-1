@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-for($x=1;$x<200;$x++){
+for($x=1;$x<2;$x++){
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -18,19 +18,16 @@ for($x=1;$x<200;$x++){
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
+           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = ".$x."
            GROUP BY StockItemID";
 
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_execute($Statement);
-    if($x == 1){
+    
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    debug_to_console($ReturnableResult);
-    }else{
-    $ReturnableResult = mysqli_stmt_get_result($Statement);
-    $ReturnableResult[] = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    debug_to_console(print_r($ReturnableResult)."test");
+    foreach ($ReturnableResult as $row) {
+        debug_to_console($row["StockItemID"]);
     }
 }
 
