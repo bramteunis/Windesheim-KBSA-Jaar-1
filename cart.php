@@ -24,13 +24,17 @@ for($x=1;$x<5;$x++){
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_execute($Statement);
     
+    if($x==1){
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    foreach ($ReturnableResult as $row) {
-        debug_to_console($row["StockItemID"]);
+    }else{
+    $ReturnableResult3 = mysqli_stmt_get_result($Statement);
+    $ReturnableResult[] = mysqli_fetch_all($ReturnableResult3, MYSQLI_ASSOC);
     }
 }
-
+foreach ($ReturnableResult as $row) {
+        debug_to_console($row["StockItemID"]);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="nl">
