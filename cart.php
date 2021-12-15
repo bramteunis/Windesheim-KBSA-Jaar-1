@@ -18,7 +18,7 @@ $Querypart1 = "
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
            WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)"; 
 for($x=1;$x<5;$x++){
-    
+    debug_to_console($querypart1);
     $querypart1 = $Querypart1."OR SI.StockItemID = ".$x;
     $query = $querypart1." GROUP BY StockItemID";
            debug_to_console($query);
