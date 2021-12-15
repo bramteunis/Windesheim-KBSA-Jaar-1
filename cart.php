@@ -108,7 +108,7 @@ if($cart != null)
     print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
 }else
 {
-    print('<h1 style = "font-size:2.5vw;position:fixed; left:600px;color:Black;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
+    print('<h1 style = "font-size:2.5vw;position:fixed; width:30%; margin-left:37%; color:Black;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
     print('<form style = "method="get" action="index.php"> 
-           <button style= "font-size:1vw;position:relative; left:720px;top:60px;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
+           <button style= "font-size:1vw;position:fixed; width:10%; margin-left:45%;bottom:600px;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
 }
