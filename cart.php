@@ -52,8 +52,11 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             $Query2 = "UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
                             $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                             mysqli_stmt_execute($Statement2);     
-                            //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                            } echo("<script>location.href = 'WinkemandCreateAccount.php';</script>");
+
+                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
+                            echo("<script>location.href = 'WinkemandCreateAccount.php';</script>");
+                            } 
+
                           header("Refresh:0");
                        
                  }
@@ -77,7 +80,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
-    print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
+    print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;border-radius: 10px;'>");
     print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
     
 
