@@ -62,7 +62,7 @@ function removeProductFromCart($stockItemID)
 function updateProductFromCart($stockItemID, $newvalue){
 	$cart = getCart();  
 	if(array_key_exists($stockItemID, $cart))
-    	{  
+    {
 		$cart[$stockItemID] = $newvalue;
 		saveCart($cart);
 	}
@@ -73,5 +73,9 @@ function testFunction()
 }
 function berekenVerkoopPrijs($adviesPrijs, $btw) {
 		return $btw * $adviesPrijs / 100 + $adviesPrijs;
+}
+function promptBoxView(){
+    print("<div id='promptBox'> wilt u doorgaan naar afrekenen? Y/N </div>");
+    debug_to_console("view.php test");
 }
 ?>
