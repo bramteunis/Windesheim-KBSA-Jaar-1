@@ -6,6 +6,7 @@ include "cartfuncties.php";
 <head>
     <meta charset="UTF-8">
     <title>Artikelpagina (geef ?id=.. mee)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -67,10 +68,17 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             if (isset($StockItemImage)) {
                 // één plaatje laten zien
                 if (count($StockItemImage) == 1) {
+                    debug_to_console("wtf");
+                    if(strtolower($StockItemImage[0]['ImagePath']) == 'chocolate.jpg' OR strtolower($StockItemImage[0]['ImagePath']) == 'toys.jpg'){
+                         ?><div id="ImageFrame"
+                         style="background-image: url('public/stockgroupimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
+                        <?php
+                    }else{ 
                     ?>
                     <div id="ImageFrame"
                          style="background-image: url('public/stockitemimg/<?php print strtolower($StockItemImage[0]['ImagePath']); ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
                     <?php
+                       }
                 } else if (count($StockItemImage) >= 2) { ?>
                     <!-- meerdere plaatjes laten zien -->
                     <div id="ImageFrame">
@@ -90,7 +98,22 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                                 <?php for ($i = 0; $i < count($StockItemImage); $i++) {
                                     ?>
                                     <div class="carousel-item <?php print ($i == 0) ? 'active' : ''; ?>">
-                                        <img src="public/stockitemimg/<?php print strtolower($StockItemImage[$i]['ImagePath']) ?>">
+                                        <?php
+                                        debug_to_console("test: ".strtolower($StockItemImage[$i]['ImagePath']));
+                                        if(strtolower($StockItemImage[$i]['ImagePath']) == "" OR strtolower($StockItemImage[$i]['ImagePath']) == null){
+                                            print('<img src="public/stockitemimg/'.strtolower($StockItemImage[$i]["BackupImagePath"]).'"">"');
+                                        }else{
+                                            print('<img src="public/stockitemimg/'.strtolower($StockItemImage[$i]["ImagePath"]).'"">"');
+                                            print('<a class="carousel-control-next" href="public/stockitemimg/'.strtolower($StockItemImage[$i]["ImagePath"]).'" data-slide="next" style="
+                                                    left: 50%;
+                                                    top: 0px;
+                                                    transform: rotate(270deg);
+                                                    bottom: 80%;
+                                                ">
+                                                    <span class="carousel-control-enlarge-icon"></span>
+                                                </a>');
+                                            }
+                                        ?>
                                     </div>
                                 <?php } ?>
                             </div>
@@ -102,19 +125,16 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             <a class="carousel-control-next" href="#ImageCarousel" data-slide="next">
                                 <span class="carousel-control-next-icon"></span>
                             </a>
+                            
                         </div>
                     </div>
                     <?php
                 }
-            } else {
+            } else {debug_to_console("wtf2");
                 ?>
                 <div id="ImageFrame"
                      style="background-image: url('public/stockgroupimg/<?php print strtolower($StockItem['BackupImagePath']); ?>'); background-size: cover;"></div>
-                <?php
-            }
-            ?>
-
-
+                <?php } ?>
             <h1 class="StockItemID">Artikelnummer: <?php print $StockItem["StockItemID"]; ?></h1>
             <h2 class="StockItemNameViewSize StockItemName">
                 <?php print $StockItem['StockItemName']; ?>
@@ -137,9 +157,16 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
                         <form method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
+<<<<<<< HEAD
                             <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
                         </form>
+=======
+>>>>>>> 1f0bd45e880d58df7a9425b2703eadfa53bbdee8
 
+                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
+
+                        </form>
+                        
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
                                 $stockItemID = $_POST["stockItemID"];

@@ -10,9 +10,9 @@ body {
 @font-face {
     font-family: MmrText;
     src: url(/public/fonts/mmrtext.ttf);
+    font-display: swap;
 }
-select {
-    margin: 50px;
+#sort {
     width: 100%;
     padding: 5px 35px 5px 5px;
     font-size: 16px;
@@ -22,6 +22,26 @@ select {
     -moz-appearance: none;
     appearance: none;
     background: url(../img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
 a {
     text-decoration: none;
@@ -49,20 +69,21 @@ a:hover span {
     text-transform: uppercase;
     font-weight: bold;
 }
-input {
+#search_string{
     font-family: pt-sans, sans-serif;
     height: 50px;
     font-size: 20px;
     width: 100%;
     padding: 0 10px;
 }
+
 table tr th,
 table tr td {
     padding: 10px;
 }
 ul#ul-class-navigation {
     right: 10px;
-    line-height: 200px;
+    line-height: 100px;
     position: absolute;
 }
 ul#ul-class-navigation li {
@@ -77,25 +98,26 @@ ul#ul-class-navigation li {
 #Header {
     position: fixed;
     top:0;
-    background-color: #ffaeae;
+    background-color: #9fd2ff;
     width: 101%;
-    height: 160px;
+    height: 110px;
     z-index: 1;
-    border-bottom: 3px solid rgb(255, 38, 38);
+    border-bottom: 3px solid rgba(7, 0, 132, 1);
 }
 #Content {
-    margin-top: 200px;
+    margin-top: 80px;
 }
 #FilterFrame {
     position: fixed;
     width: 19%;
-    background-color: rgba(35, 40, 47, 0.8);
+    background-color: rgba(0, 135, 255, 0.34);
     float: left;
     top:216px;
     border: 1px solid #fff;
     margin-left: 5px;
     margin-top: 10px;
     padding: 20px;
+    color:black;
 }
 #ResultsArea.Browse  {
     width: 78%;
@@ -114,7 +136,6 @@ ul#ul-class-navigation li {
 .ImgFrame {
     width: 230px;
     height: 230px;
-    background-color: rgb(36, 41, 143);
     float: left;
     margin-left: 10px;
     margin-top: 10px;
@@ -167,12 +188,25 @@ ul#ul-class-navigation li {
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 
-    border: 3px solid #ffcd00;
+    border: 3px solid red;
+    border-radius: 10px;
 }
 .ToevoegenWinkelmandbutton1:hover {
-    background-color: #ffcd00;
+    background-color: red;
+    color: white;
 }
-                        
+.Hovershadowbutton {
+    font-size:1.5vw;
+    position:fixed; 
+    width:10%; 
+    margin-left:45%;
+    margin-top:23%;
+    color:Black; 
+}   
+.Hovershadowbutton:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}  
+
 #VideoFrame {
     width: 100%;
     height: 350px;
@@ -187,7 +221,6 @@ ul#ul-class-navigation li {
 #ImageFrame {
     width: 300px;
     height: 300px;
-    background-color: rgb(36, 41, 143);
     float: left;
     margin-right: 10px;
 }
@@ -250,7 +283,7 @@ ul#ul-class-navigation li {
 .Background {
     background-color: white;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     position: absolute;
 }
 #LogoA {
@@ -259,24 +292,25 @@ ul#ul-class-navigation li {
     position: absolute;
 }
 #LogoImage {
-    background-image: url("../productimghighres/nerdygadgetslogo.png");
-    width: 250px;
-    height: 90px;
-    margin: 55px 55px 55px 10%;
+    background-image: url("../productimghighres/nerdygadgetslogo1.png");
+    width: 188px;
+    height: 68px;
+    margin: 20px 20px 20px 25%;
 }
 ul#ul-class li {
     display: inline;
-    color: white;
+    color: black;
     margin-right: 1em;
     font-size: 18px;
     text-decoration: none;
-    line-height: 200px;
+    line-height: 100px;
 }
+
 ul#ul-class-price li {
     display: inline;
 }
 .TextPrice {
-    margin-top: 16%;
+    /*margin-top: 16%;*/
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -289,7 +323,7 @@ ul#ul-class-price li {
 }
 
 .HrefDecoration i.search {
-    color: #dc3545;
+    color: rgba(7, 0, 132, 1);
 }
 
 .HrefDecoration:hover, .HrefDecoration:active {
@@ -314,13 +348,22 @@ ul#ul-class-price li {
     margin-left: 7%;
 }
 .HomePageStockItemPicture {
-    background-image: url("../productimghighres/580b57fbd9996e24bc43bf55.png");
-    background-size: 100% 100%;
+    background-image: url("../stockitemimg/dinosaur battery powered slippers.png");
+    background-size: 75% 75%;
     width: 477px;
     height: 477px;
     background-repeat: no-repeat;
-    margin-left: 55%;
-    margin-top: -30%;
+    margin-left: 70%;
+    margin-top: -25%;
+}
+.HomePageStockItemPicture2 {
+    background-image: url("../stockitemimg/dba mug.png");
+    background-size: 55% 55%;
+    width: 477px;
+    height: 477px;
+    background-repeat: no-repeat;
+    margin-left: 70%;
+    margin-top: -27%;
 }
 #Wrap {
     width: 100%;
@@ -406,7 +449,7 @@ ul#ul-class-price li {
 }
 .StockItemPriceText {
     font-family: vortice-concept, sans-serif;
-    color: #676EFF;
+    color: rgba(0, 135, 255, 1);
     font-size: 22px;
     text-transform: uppercase;
     font-weight: bold;
@@ -417,7 +460,7 @@ ul#ul-class-price li {
 }
 .StockItemID {
     font-family: vortice-concept, sans-serif;
-    color: #676EFF;
+    color: #114e93;
     font-size: 10px;
     text-transform: uppercase;
     font-weight: bold;
@@ -443,7 +486,8 @@ ul#ul-class-price li {
 }
 .carousel-inner img {
     width: 100%;
-    height: 100%;
+    height: 300px;
+    
 }
 #ImageCarousel {
     width: 300px;
@@ -470,7 +514,9 @@ ul#ul-class-price li {
 }
 .IndexStyle {
     margin: 0 auto;
-    width: 1400px;
+    width: 1200px;
+    height: 300px;
+    /*border: 1px solid red;*/
 }
 .FilterTopMargin {
     margin-top: 20px;
@@ -501,52 +547,137 @@ ul#ul-class-price li {
     border: 1px rgb(98, 158, 255) solid;
     color: #fff;
 }
-#KnopWinkelmand {
-    position: fixed;
-    z-index: 2;
-    width:35px;
-    height: 35px;
-    right: 150px;
-    top: 80px;
-}
 #cartBackground {
-    margin-left: 25px;
-    margin-right: 25px;
-    width: 1800px;
-    height: 700px;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
 }
 #titleCart{
-    margin-left: 10px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-    width: 1847px;
-    height: 100px;
+    margin-left: 1%;
+    margin-right: 0%;
+    margin-bottom: 1%;
+    margin-top: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    width: 98%;
+    height: 20%;
 }
 #titleText{
-    margin-left: 10px;
+    margin-left: 0%;
+    margin-bottom: 1%;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
     color: black;
 }
 #verderWinkelenKnop{
-    margin-left: 10px;
-    width: 150px;
-    height: 30px;
+    margin-left: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    width: 10%;
+    height: 35%;
     float: left;
 
 }
 #AfrekenenKnop{
-    margin-right: 10px;
-    width: 150px;
-    height: 30px;
+    margin-right: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    width: 10%;
+    height: 35%;
     float: right;
 }
-#rangeInputForm{
+.productCard{
+    border:2px solid black;
+    margin-top:1%;
+    margin-left:1%;
+    margin-right:1%;
+    width:98%;
+    height:30%;
+}
+.leftProductCard{
+    float:left;
+    width:70%;
+    height:100%;
+    display:flex;
+}
+.rightProductCard{
+    float:right;
+    width:30%;
+    height:100%;
+}
+.upperRightProductCard{
+    width:344px;
+    height:62px;
+}
+.rangeInputForm{
     width: 140px;
     height: 30px;
     float: left;
     margin-top: 10px;
     margin-left: 10px;
 }
+.productName{
+    color:black;
+    margin-left:50px;
+    margin-top:15px;
+    width:500px;
+    height:50px;
+}
+.productStockAmount{
+    color:black;
+    margin-left:50px;
+    margin-top:15px;
+    float:right;
+}
+.productImage{
+    float:left;
+    width:110px;
+    height:110px;
+    margin-top:5px;
+    margin-left:5px;
+}
+.prijsWeergave{
+    color:black;
+    width:140px;
+    height:30px;
+    float:right;
+    margin-top:10px;
+    margin-right:10px;
+}
+#SubContent{
+    width: 98%;
+    margin-right:2%;
+}
 
+.underHeadText {
+    color: black;
+    text-align: center;
+    display: inline-block;
+}
 
+.underHeadDiv {
+    display: table;
+    margin: 0 auto;
+    margin-top: -85px;
+}
+
+p {
+    margin-right: 10px;
+}
+
+hr {
+    background-color: black;
+    width: 75%;
+}
