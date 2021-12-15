@@ -2,7 +2,11 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+for($x=1;$x<200;$x++){
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -19,9 +23,14 @@ include __DIR__ . "/header.php";
 
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_execute($Statement);
+    if($x == 1){
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
+    }else{
+    $ReturnableResult = mysqli_stmt_get_result($Statement);
+    $ReturnableResult[] = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+    }
+}
 
 ?>
 <!DOCTYPE html>
