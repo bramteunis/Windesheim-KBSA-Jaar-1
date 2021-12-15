@@ -141,7 +141,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             </h2>
             <div class="QuantityText" style="color: black";><?php print $StockItem['QuantityOnHand']; ?></div>
             <div id="StockItemHeaderLeft">
-                <div class="CenterPriceLeft">
+                <div id="centerPriceLeftId" class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
                         <?php
                         if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
@@ -155,18 +155,16 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                         <h6 style="color: black" ;=""> Inclusief BTW </h6>
                         <!--<button class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1">Toevoegen Winkelmand</button>
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
-                        <form method="post">
+                        <form id="formInsideView" method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-
                             <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
-
                         </form>
-                        
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
                                 $stockItemID = $_POST["stockItemID"];
-                                addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-                                
+                                addProductToCart($stockItemID);
+                                promptBoxView();
+                                // maak gebruik van geïmporteerde functie uit cartfuncties.php
                             }
                         ?>
                     </div>
