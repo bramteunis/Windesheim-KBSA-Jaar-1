@@ -188,10 +188,11 @@ ul#ul-class-navigation li {
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 
-    border: 3px solid #ffcd00;
+    border: 3px solid red;
+    border-radius: 10px;
 }
 .ToevoegenWinkelmandbutton1:hover {
-    background-color: #ffcd00;
+    background-color: red;
 }
 .Hovershadowbutton {
     font-size:1.5vw;
