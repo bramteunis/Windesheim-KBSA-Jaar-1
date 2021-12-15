@@ -26,9 +26,11 @@ for($x=1;$x<200;$x++){
     if($x == 1){
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+    debug_to_console($ReturnableResult);
     }else{
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult[] = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+    debug_to_console(print_r($ReturnableResult));
     }
 }
 
