@@ -105,9 +105,25 @@ function getCart()
 
         $ReturnableResult = mysqli_stmt_get_result($Statement);
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-        debug_to_console("SELECT CustomerID FROM customers WHERE customername = ".$volledigenaam." AND deliveryPostalCode = ".$postcode);
         foreach ($ReturnableResult as $row) {
-            debug_to_console("1:".$row["CustomerID"]);
+            $customerID = $row["CustomerID"];
+        }
+        
+        $Query4 =   "INSERT INTO nerdygadgets.orders (CustomerID, SalespersonPersonID, ContactPersonID, OrderDate, ExpectedDeliveryDate, IsUndersupplyBackordered, LastEditedBy, LastEditedWhen) 
+                    VALUES (".$customerID.", 0, 0, '".$date."', '".$date."', 1, 0, '".$date."')";
+        
+        $Statement = mysqli_prepare($databaseConnection, $Query3);
+        mysqli_stmt_execute($Statement);
+        
+        $Query5 = "SELECT OrderID FROM orders WHERE CustomerID = '".$customerID."' AND OrderDate = '".$date."'";
+        $Statement = mysqli_prepare($databaseConnection, $Query3);
+        mysqli_stmt_execute($Statement);
+
+        $ReturnableResult = mysqli_stmt_get_result($Statement);
+        $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+        foreach ($ReturnableResult as $row) {
+            $OrderID = $row["OrderID"];
+            debug_to_console("Order_id: ".$OrderID);
         }
         
         $cart = getCart();
