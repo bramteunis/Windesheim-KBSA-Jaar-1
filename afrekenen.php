@@ -107,7 +107,7 @@ function getCart()
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         debug_to_console("SELECT CustomerID FROM customers WHERE customername = ".$volledigenaam." AND deliveryPostalCode = ".$postcode);
         foreach ($ReturnableResult as $row) {
-            debug_to_console("1:".$row["StockItemID"]);
+            debug_to_console("1:".$row["CustomerID"]);
         }
         
         $cart = getCart();
