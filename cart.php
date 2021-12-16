@@ -31,7 +31,7 @@ function Get_information($databaseConnection,$artikelnummer){
     }
     return $ReturnableResult;
 }
-$query = "SELECT Temperature FROM coldroomtemperatures";
+$Query = "SELECT Temperature FROM coldroomtemperatures";
 $Statement = mysqli_prepare($databaseConnection2, $Query);
 mysqli_stmt_execute($Statement);
 
