@@ -112,11 +112,11 @@ function getCart()
         $Query4 =   "INSERT INTO nerdygadgets.orders (CustomerID, SalespersonPersonID, ContactPersonID, OrderDate, ExpectedDeliveryDate, IsUndersupplyBackordered, LastEditedBy, LastEditedWhen) 
                     VALUES (".$customerID.", 0, 0, '".$date."', '".$date."', 1, 0, '".$date."')";
         
-        $Statement = mysqli_prepare($databaseConnection, $Query3);
+        $Statement = mysqli_prepare($databaseConnection, $Query4);
         mysqli_stmt_execute($Statement);
         
         $Query5 = "SELECT OrderID FROM orders WHERE CustomerID = '".$customerID."' AND OrderDate = '".$date."'";
-        $Statement = mysqli_prepare($databaseConnection, $Query3);
+        $Statement = mysqli_prepare($databaseConnection, $Query5);
         mysqli_stmt_execute($Statement);
 
         $ReturnableResult = mysqli_stmt_get_result($Statement);
