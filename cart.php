@@ -7,7 +7,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 function Get_information(){
-    $x = 1;
+    
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -19,7 +19,7 @@ function Get_information(){
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = ".$x."
+           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = 1
            GROUP BY StockItemID";
 
     $Statement = mysqli_prepare($databaseConnection, $Query);
