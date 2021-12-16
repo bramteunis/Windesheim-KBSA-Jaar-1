@@ -130,7 +130,12 @@ function getCart()
         $cart = getCart();
         foreach($cart as $artikelnummer => $aantalartikel)
         {
-            print($artikelnummer."=>".$aantalartikel);
+        $Query6 =   "INSERT INTO `nerdygadgets`.`orderlines` (`OrderID`, `StockItemID`, `Description`, `PackageTypeID`, `Quantity`, `UnitPrice`, `TaxRate`,
+                    `PickedQuantity`, `LastEditedBy`, `LastEditedWhen`) VALUES (".$OrderID.", ".$artikelnummer.",
+                    '32 mm Anti stabic bubble wrap (Blue) 10m', 7, ".$aantalartikel.", 250.00, 15.000, 10, 9, '".$date."');";
+        
+        $Statement = mysqli_prepare($databaseConnection, $Query6);
+        mysqli_stmt_execute($Statement);
         }
         //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement2);
