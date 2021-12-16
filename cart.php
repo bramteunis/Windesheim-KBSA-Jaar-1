@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function Get_information($databaseConnection,$x){
+function Get_information($databaseConnection,$artikelnummer){
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -18,7 +18,7 @@ function Get_information($databaseConnection,$x){
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = ".$x."
+           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = ".$artikelnummer."
            GROUP BY StockItemID";
 
     $Statement = mysqli_prepare($databaseConnection, $Query);
@@ -29,10 +29,10 @@ function Get_information($databaseConnection,$x){
     foreach ($ReturnableResult as $row) {
         debug_to_console($row["StockItemID"]);
     }
-    
+    return $ReturnableResult;
 }
-
-Get_information($databaseConnection,3);
+$ReturnableResult = Get_information($databaseConnection,1);
+debug_to_console("Test".Get_information($databaseConnection,3));
 
 ?>
 <!DOCTYPE html>
