@@ -105,7 +105,7 @@ ul#ul-class-navigation li {
     border-bottom: 3px solid rgba(7, 0, 132, 1);
 }
 #Content {
-    margin-top: 150px;
+    margin-top: 80px;
 }
 #FilterFrame {
     position: fixed;
@@ -189,10 +189,12 @@ ul#ul-class-navigation li {
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 
-    border: 3px solid #ffcd00;
+    border: 3px solid red;
+    border-radius: 10px;
 }
 .ToevoegenWinkelmandbutton1:hover {
-    background-color: #ffcd00;
+    background-color: red;
+    color: white;
 }
 .Hovershadowbutton {
     font-size:1.5vw;
@@ -554,6 +556,7 @@ ul#ul-class-price li {
     height: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
 }
 #titleCart{
     margin-left: 1%;

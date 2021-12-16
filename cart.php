@@ -1,6 +1,7 @@
 <?php
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
+
 $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -14,6 +15,7 @@ $Query = "
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
            WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
            GROUP BY StockItemID";
+
 $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
@@ -37,8 +39,9 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                 <button id="verderWinkelenKnop">Verder winkelen</button></form>
             <?php
             function testinconsole(){
-            debug_to_console("Test is geslaagd");
+                debug_to_console("Test is geslaagd");
             }
+
             print('<form method="POST" action="" onsubmit="testinconsole()"><input id="AfrekenenKnop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen"></form>');
             if(isset($_POST["afrekenensubmit"])){      
                  $cart = getCart();
@@ -49,17 +52,36 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                             $Query2 = "UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
                             $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                             mysqli_stmt_execute($Statement2);     
-                            //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                            }header("Location: WinkemandCreateAccount.php");
+
+                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
+                            echo("<script>location.href = 'WinkemandCreateAccount.php';</script>");
+                            } 
+
                           header("Refresh:0");
                  }
+
+                 
+
             ?>
         </div>
-        <?php }else{
-                   $cart = array();
-                   debug_to_console("testover array legen");
-                    } ?>
-<?php
+    <?php }else{
+
+        $cart = array();
+        debug_to_console("testover array legen");
+
+    } ?>
+    <?php
+
+    $totaalprijs = 0;
+    $hoogsteverzending = 0;
+    $cart = getCart();
+    foreach($cart as $artikelnummer => $aantalartikel)
+    {
+        if($aantalartikel > 0){
+            $StockItem = getStockItem($artikelnummer, $databaseConnection);
+            $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
+
+
 $totaalprijs = 0;
 $hoogsteverzending = 0;
 $cart = getCart();
@@ -68,6 +90,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
     if($aantalartikel > 0){
     $StockItem = getStockItem($artikelnummer, $databaseConnection);
     $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
+
 
     print("<div class='productCard' '>");
     print("<div class='flex-container leftProductCard' display:flex;'>");
@@ -81,6 +104,7 @@ foreach($cart as $artikelnummer => $aantalartikel)
                       print ("<img class='productImage' 'src="."public/stockitemimg/".$imagepath.">");
                }
                
+
             }
     }
     print ("<h5 class='productName'>".$StockItem['StockItemName']."</h5>");
@@ -91,36 +115,38 @@ foreach($cart as $artikelnummer => $aantalartikel)
     <div style="width:344px;height:62px;">
     <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
+            //print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
+            if(isset($_POST["Test".$artikelnummer])){
+                $country[$artikelnummer]=$_POST["Test".$artikelnummer];
+                if($_POST["format"] == "") {
+                    //print("selected aantal van ".$artikelnummer." is => " . (isset($variable))?$variable:'');
+                    if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
 
-    //print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
+                        debug_to_console($country[$artikelnummer]);
+                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                        echo("<meta http-equiv='refresh' content='1'>");
+                    }else{
+                        updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                        echo("<meta http-equiv='refresh' content='1'>");
 
-    if(isset($_POST["Test".$artikelnummer])){
-        $country[$artikelnummer]=$_POST["Test".$artikelnummer];
-        if($_POST["format"] == "") {
-            //print("selected aantal van ".$artikelnummer." is => " . (isset($variable))?$variable:'');
-            if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
-                       
-                       debug_to_console($country[$artikelnummer]);
-                       updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                       echo("<meta http-equiv='refresh' content='1'>"); 
-            }else{
-                       updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
-                       echo("<meta http-equiv='refresh' content='1'>"); 
+                    }
+                }else{
+                    //print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
+                    $country[$artikelnummer]=$_POST["format"];
+                    if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
 
+                        debug_to_console($country[$artikelnummer]);
+                        updateProductFromCart($artikelnummer,$country[$artikelnummer]);
+                        echo("<meta http-equiv='refresh' content='1'>");
+                        debug_to_console($cart);
+                    }else{
+                        updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                        echo("<meta http-equiv='refresh' content='1'>");
+                    }
+
+                }
             }
-        }else{
-            //print("selected aantal ".$artikelnummer." is => " . $country[$artikelnummer]=$_POST["format"]);
-            $country[$artikelnummer]=$_POST["format"];
-            if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
-                      
-                      debug_to_console($country[$artikelnummer]);
-                      updateProductFromCart($artikelnummer,$country[$artikelnummer]);
-                      echo("<meta http-equiv='refresh' content='1'>"); 
-                      debug_to_console($cart);
-            }else{
-                      updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
-                       echo("<meta http-equiv='refresh' content='1'>"); 
-            }
+
 
         }
 }
@@ -128,24 +154,24 @@ foreach($cart as $artikelnummer => $aantalartikel)
                <div class="select-editable">
                    <form method="POST" action="">
                        <select name='."Test".$artikelnummer.' onchange="this.nextElementSibling.value=this.value,this.form.submit()">');
-                       if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) < $aantalartikel){
-                                 $aantalartikel = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']);
-                                 updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
-                                 echo("<meta http-equiv='refresh' content='1'>"); 
-                       }
-                       for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
-                              $y = $x+ $aantalartikel;
-                              if($x>-1){
-                                         if($aantalartikel == $x){
-                                            $b = $x; 
-                                            print('<option value='.$x.' selected>'.$x.'</option>');
-                                         }else{
-                                            print('<option value='.$x.' >'.$x.'</option>');
-                                         }
-                              }
-                              
-                              }
-                       print('</select>
+            if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) < $aantalartikel){
+                $aantalartikel = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']);
+                updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                echo("<meta http-equiv='refresh' content='1'>");
+            }
+            for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
+                $y = $x+ $aantalartikel;
+                if($x>-1){
+                    if($aantalartikel == $x){
+                        $b = $x;
+                        print('<option value='.$x.' selected>'.$x.'</option>');
+                    }else{
+                        print('<option value='.$x.' >'.$x.'</option>');
+                    }
+                }
+
+            }
+            print('</select>
                        <input type="text" name="format" value='.$b.'>
                    </form>
                </div>
