@@ -82,7 +82,7 @@ function getCart()
         $tussenvoegsel = $_POST["tussenvoegsel"];
         $huisnummer = $_POST["huisnummer"];
         $plaats = $_POST["plaats"];
-        $date = date('Y-m-d H:i:s');
+        $date = date('Y-m-d');
         if($tussenvoegsel == ""){
             $volledigenaam = $voornaam.' '.$achternaam;
         }else{
