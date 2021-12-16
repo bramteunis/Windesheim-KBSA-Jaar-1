@@ -1,8 +1,6 @@
 <?php
 include __DIR__ . "/header.php";
-include __DIR__ . "/cartfuncties.php";
 ?>
-
     <div class="mainDiv">
         <h2>Persoonlijke gegevens</h2>
         <form method="post">
