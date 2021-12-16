@@ -83,8 +83,8 @@ error_reporting(E_ALL);
                            ValidFrom, ValidTo) VALUES ('".$volledigenaam."', 1062, 0, 0, 3, ".$postcode.", ".$postcode.", '".$date."', 0, 0, 
                            0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
                            0, '".$date."', '9999-12-31')";
-        //$Statement = mysqli_prepare($databaseConnection, $Query2);
-        //mysqli_stmt_execute($Statement);
+        $Statement = mysqli_prepare($databaseConnection, $Query2);
+        mysqli_stmt_execute($Statement);
 
         //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement2);
