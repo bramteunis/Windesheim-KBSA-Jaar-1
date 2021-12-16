@@ -118,7 +118,8 @@ function getCart()
         $Query5 = "SELECT OrderID FROM orders WHERE CustomerID = '".$customerID."' AND OrderDate = '".$date."'";
         $Statement = mysqli_prepare($databaseConnection, $Query5);
         mysqli_stmt_execute($Statement);
-
+        
+        debug_to_console("SELECT OrderID FROM orders WHERE CustomerID = ".$customerID." AND OrderDate = ".$date);
         $ReturnableResult = mysqli_stmt_get_result($Statement);
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         foreach ($ReturnableResult as $row) {
