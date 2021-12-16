@@ -6,7 +6,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-for($x=1;$x<2;$x++){
+function Get_information(){
+    $x = 1;
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -30,6 +31,7 @@ for($x=1;$x<2;$x++){
         debug_to_console($row["StockItemID"]);
     }
 }
+Get_information();
 ?>
 <!DOCTYPE html>
 <html lang="nl">
