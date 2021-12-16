@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
 ini_set('display_errors', 1);
@@ -85,7 +86,11 @@ error_reporting(E_ALL);
                            0, '".$date."', '9999-12-31')";
         $Statement = mysqli_prepare($databaseConnection, $Query2);
         mysqli_stmt_execute($Statement);
-
+        
+        $cart = getCart();
+        foreach($cart as $artikelnummer => $aantalartikel)
+        {
+        
         //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement2);
     }
@@ -93,6 +98,7 @@ error_reporting(E_ALL);
 
     </body>
     </html>
+
 <?php
 
 
