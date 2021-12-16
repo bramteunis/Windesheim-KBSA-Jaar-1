@@ -105,7 +105,7 @@ function getCart()
 
         $ReturnableResult = mysqli_stmt_get_result($Statement);
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-        debug_to_console("Result: ".$ReturnableResult);
+        debug_to_console("Result: ".$ReturnableResult["CustomerID"]);
         
         $cart = getCart();
         foreach($cart as $artikelnummer => $aantalartikel)
