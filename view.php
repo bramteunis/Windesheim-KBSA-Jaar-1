@@ -147,12 +147,12 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <?php 
         
                     $Query = "SELECT Temperature FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
-                    $Statement = mysqli_prepare($databaseConnection2, $Query);
-                    mysqli_stmt_execute($Statement);
+                    $Statement2 = mysqli_prepare($databaseConnection2, $Query);
+                    mysqli_stmt_execute($Statement2);
 
-                    $ReturnableResult = mysqli_stmt_get_result($Statement);
-                    $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-                    foreach ($ReturnableResult as $row) {
+                    $ReturnableResult2 = mysqli_stmt_get_result($Statement2);
+                    $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
+                    foreach ($ReturnableResult2 as $row) {
                         print("Temperatuur: ".$row["Temperature"]);
                     }
 
