@@ -31,8 +31,7 @@ function Get_information($databaseConnection,$artikelnummer){
     }
     return $ReturnableResult;
 }
-$ReturnableResult = Get_information($databaseConnection,1);
-debug_to_console("Test".Get_information($databaseConnection,3));
+
 
 ?>
 <!DOCTYPE html>
@@ -94,7 +93,7 @@ debug_to_console("Test".Get_information($databaseConnection,3));
             print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
             print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
 
-
+            $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
             foreach ($ReturnableResult as $row) {
                 if ($artikelnummer == $row["StockItemID"]) {
                     if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
