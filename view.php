@@ -7,7 +7,6 @@ include "cartfuncties.php";
     <meta charset="UTF-8">
     <title>Artikelpagina</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="3" >
 </head>
 <body>
 
@@ -144,6 +143,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <?php 
             if($StockItem["StockItemID"] >= 220){
             ?>
+            <head> <meta http-equiv="refresh" content="3" > </head>
             <div class="QuantityText" style="color: red; top:80%";>
                 <?php 
         
