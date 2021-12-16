@@ -78,7 +78,7 @@ button:hover {
 <h2 style='color:black'>Winkelmand</h2>
 <h3><button onclick="window.location.href='index.php'">Verder winkelen</button></h3>
 <table>
-  <tr>
+  <tr style='color:black;'>
     <th>Bestaande klant</th>
     <th>Nieuwe klant</th>
 	<th>Bestellen als gast</th>
