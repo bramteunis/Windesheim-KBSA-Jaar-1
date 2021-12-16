@@ -157,7 +157,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
                         <form method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-                            <?php if($StockItem['QuantityOnHand'] 1= 0){ ?>
+                            <?php if($StockItem['QuantityOnHand'] != 0){ ?>
                             <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
                             <?php } ?>
                         </form>
