@@ -31,8 +31,15 @@ function Get_information($databaseConnection,$artikelnummer){
     }
     return $ReturnableResult;
 }
+$query = "SELECT Temperature FROM coldroomtemperatures";
+$Statement = mysqli_prepare($databaseConnection2, $Query);
+mysqli_stmt_execute($Statement);
 
-
+$ReturnableResult = mysqli_stmt_get_result($Statement);
+$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+foreach ($ReturnableResult as $row) {
+    debug_to_console("Temperatuur: ".$row["Temperature"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
