@@ -6,8 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function Get_information(){
-    
+function Get_information($databaseConnection){
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
@@ -31,7 +30,7 @@ function Get_information(){
         debug_to_console($row["StockItemID"]);
     }
 }
-Get_information();
+Get_information($databaseConnection);
 ?>
 <!DOCTYPE html>
 <html lang="nl">
