@@ -31,7 +31,8 @@ function Get_information($databaseConnection,$artikelnummer){
     }
     return $ReturnableResult;
 }
-$Query = "SELECT Temperature FROM coldroomtemperatures";
+
+$Query = "SELECT Temperature FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
 $Statement = mysqli_prepare($databaseConnection2, $Query);
 mysqli_stmt_execute($Statement);
 
@@ -40,6 +41,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 foreach ($ReturnableResult as $row) {
     debug_to_console("Temperatuur: ".$row["Temperature"]);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -47,6 +49,7 @@ foreach ($ReturnableResult as $row) {
     <meta charset="UTF-8">
     <title>Winkelwagen</title>
     <link rel="stylesheet" href="public/css/style.css" type="text/css">
+    <meta http-equiv="refresh" content="3" >
 </head>
 <body>
 <div id="cartBackground">
