@@ -47,7 +47,7 @@ include __DIR__ . "/cartfuncties.php";
     function testinconsole(){
         debug_to_console("Test is geslaagd");
     }
-    print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
+    //print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
     if(isset($_POST["afrekenensubmit2"])){
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
