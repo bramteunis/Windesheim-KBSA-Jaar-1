@@ -1,6 +1,19 @@
 <?php
 include __DIR__ . "/header.php";
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Afreken</title>
+        <link rel="stylesheet" href="public/css/gegevens.css">
+    </head>
+    <body>
     <div class="mainDiv">
         <h2>Persoonlijke gegevens</h2>
         <form method="post">
@@ -45,7 +58,7 @@ include __DIR__ . "/header.php";
     function testinconsole(){
         debug_to_console("Test is geslaagd");
     }
-    //print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
+    print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
     if(isset($_POST["afrekenensubmit2"])){
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
@@ -70,8 +83,8 @@ include __DIR__ . "/header.php";
                            ValidFrom, ValidTo) VALUES ('".$volledigenaam."', 1062, 0, 0, 3, ".$postcode.", ".$postcode.", '".$date."', 0, 0, 
                            0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
                            0, '".$date."', '9999-12-31')";
-        $Statement = mysqli_prepare($databaseConnection, $Query2);
-        mysqli_stmt_execute($Statement);
+        //$Statement = mysqli_prepare($databaseConnection, $Query2);
+        //mysqli_stmt_execute($Statement);
 
         //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement2);
