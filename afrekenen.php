@@ -93,7 +93,7 @@ function getCart()
                            DeliveryMethodID, DeliveryCityID, PostalCityID, AccountOpenedDate, StandardDiscountPercentage, 
                            IsStatementSent, IsOnCreditHold, PaymentDays, PhoneNumber, FaxNumber, WebsiteURL, DeliveryAddressLine1, 
                            DeliveryAddressLine2, DeliveryPostalCode, PostalAddressLine1, PostalPostalCode, LastEditedBy, 
-                           ValidFrom, ValidTo) VALUES ('".$volledigenaam."', 1062, 0, 0, 3, ".$postcode.", ".$postcode.", '".$date."', 0, 0, 
+                           ValidFrom, ValidTo) VALUES ('".$volledigenaam."', 1062, 0, 0, 3, '".$postcode."', '".$postcode."', '".$date."', 0, 0, 
                            0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
                            0, '".$date."', '9999-12-31')";
         $Statement = mysqli_prepare($databaseConnection, $Query2);
