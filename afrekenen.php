@@ -21,7 +21,7 @@ error_reporting(E_ALL);
                 <label class="font">Voornaam</label>
                 <input class="no-outline" type="text" name="voornaam" required><br><br>
                 <label class="font">Postcode</label>
-                <input class="no-outline" type="number" name="postcode" required><br><br>
+                <input class="no-outline" type="text" name="postcode" required><br><br>
                 <label class="font">Straatnaam</label>
                 <input class="no-outline" type="text" name="straatnaam" required><br><br>
                 <label class="font">E-mail</label>
