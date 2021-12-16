@@ -71,7 +71,7 @@ function getCart()
     function testinconsole(){
         debug_to_console("Test is geslaagd");
     }
-    print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
+    //print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
     if(isset($_POST["afrekenensubmit2"])){
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
@@ -105,7 +105,7 @@ function getCart()
 
         $ReturnableResult = mysqli_stmt_get_result($Statement);
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-        debug_to_console("Result: ".$ReturnableResult["CustomerID"]);
+        debug_to_console("Result: ".$ReturnableResult["CustomerID"].$Query3);
         
         $cart = getCart();
         foreach($cart as $artikelnummer => $aantalartikel)
