@@ -101,9 +101,9 @@ button:hover {
   </tr>
   <tr>
         
-	<td style='color:black'> <button type="submit" name='Inloggen'>Inloggen</button> </td>
-	<td style='color:black'> <button type="submit" name='Aanmelden'>Aanmelden</button> </td>
-	<td style='color:black'> <button onclick="window.location.href='afrekenen.php'">Verder gaan</button></td>
+	<td style='color:black'> <button type="submit" name='Inloggen' style='color:black;'>Inloggen</button> </td>
+	<td style='color:black'> <button type="submit" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
+	<td style='color:black'> <button onclick="window.location.href='afrekenen.php'" style='color:black;'>Verder gaan</button></td>
 	
 </table>
 <div class="vl"></div>
