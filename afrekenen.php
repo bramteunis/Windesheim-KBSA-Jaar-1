@@ -90,7 +90,8 @@ error_reporting(E_ALL);
         $cart = getCart();
         foreach($cart as $artikelnummer => $aantalartikel)
         {
-        
+            print($artikelnummer."=>".$aantalartikel);
+        }
         //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement2);
     }
