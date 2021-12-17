@@ -144,7 +144,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             if($StockItem["StockItemID"] >= 220){
             ?>
             <head> <meta http-equiv="refresh" content="3" > </head>
-            <div class="QuantityText" style="color: red; top:80%";>
+            <div class="QuantityText" style="color: red; top:80%; font-size: 150%;";>
                 <?php 
         
                     $Query = "SELECT Temperature FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
@@ -154,7 +154,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     $ReturnableResult2 = mysqli_stmt_get_result($Statement2);
                     $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
                     foreach ($ReturnableResult2 as $row) {
-                        print("Temperatuur: ".$row["Temperature"]);
+                        print("Actuele Temperatuur: ".$row["Temperature"]);
                     }
 
                 ?>
