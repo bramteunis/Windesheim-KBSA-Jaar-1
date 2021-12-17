@@ -183,7 +183,7 @@ ul#ul-class-navigation li {
     overflow: hidden;
     white-space: nowrap;
     width:80%;
-    height:70%;
+    height:40%;
     margin-top: 10px;
     float: right;
 }
@@ -217,7 +217,6 @@ ul#ul-class-navigation li {
 #ArticleHeader {
     width: 100%;
     height: 60%;
-    border: solid 2px black;
 }
 #ImageFrame {
     width: 300px;
@@ -247,9 +246,6 @@ ul#ul-class-navigation li {
 .CenterPriceLeftChild {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    width: 100%;
-    height: 100%;
-    border: solid 2px black;
 }
 #StockItemDescription {
     background-color: rgba(35, 40, 47, 0.8);
@@ -454,7 +450,7 @@ ul#ul-class-price li {
     margin-top: 5px;
     margin-bottom: 5px;
     width: 10%;
-    float: right;
+    float: left;
 }
 .StockItemPriceText:hover {
     text-decoration: none;
@@ -665,15 +661,17 @@ ul#ul-class-price li {
     margin-right:2%;
 }
 #promptBox{
-    border: 2px solid black;
+    border: solid 2px black;
     height: 100%;
-    width: 30%;
+    width: 50%;
     float: left;
     color: black;
+    margin-right: 3%;
+    margin-left: 3%;
+    background-color: #d3d3d345;
 }
 #formInsideView{
-    border: 2px solid red;
-    width: 30%;
+    width: 50%;
     height: 100%;
     float: right;
     align-content: center;
@@ -681,11 +679,10 @@ ul#ul-class-price li {
 #centerPriceLeftId{
     width: 100%;
     height: 50%;
-    border: solid 2px red;
 }
 #promptboxDiv{
     width: 30%;
-    height: 50%;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     float: right;
@@ -697,4 +694,10 @@ ul#ul-class-price li {
     float: right;
     width: 15%;
     height: 50%;
+}
+#promptBoxKnop{
+    width: 25%;
+    height: 25%;
+    color: black;
+    margin-left: 25%;
 }

@@ -17,9 +17,10 @@ $databaseConnection = connectToDatabase();
     <script src="public/js/resizer.js"></script>
 
     <!-- Style sheets-->
-    <link rel="stylesheet" href="public/css/style.css?version=2" type="text/css">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css?version=2" type="text/css">
-    <link rel="stylesheet" href="public/css/typekit.css?version=2">
+    //change the "version" of a stylesheet when it is not loading.
+    <link rel="stylesheet" href="public/css/style.css?version=3" type="text/css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css?version=3" type="text/css">
+    <link rel="stylesheet" href="public/css/typekit.css?version=3">
     <meta charset="UTF-8">
     <meta name="theme-color" content="#999999" />
     <meta name="description" content="Nerdygadgets">

@@ -166,7 +166,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                                 $stockItemID = $_POST["stockItemID"];
                                 addProductToCart($stockItemID);
                                 promptBoxView();
-                                // maak gebruik van geïmporteerde functie uit cartfuncties.php
+                                //maak gebruik van geïmporteerde functie uit cartfuncties.php
                             }
                         ?>
                     </div>
