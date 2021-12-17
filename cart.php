@@ -2,7 +2,14 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
-$Query = "
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+function Get_information($databaseConnection,$artikelnummer){
+    $Query = "
+
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
            ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
            QuantityOnHand,
@@ -13,13 +20,22 @@ $Query = "
            JOIN stockitemholdings SIH USING(stockitemid)
            JOIN stockitemstockgroups USING(StockItemID)
            JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
+           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = ".$artikelnummer."
            GROUP BY StockItemID";
 
-$Statement = mysqli_prepare($databaseConnection, $Query);
-mysqli_stmt_execute($Statement);
-$ReturnableResult = mysqli_stmt_get_result($Statement);
-$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    mysqli_stmt_execute($Statement);
+    
+    $ReturnableResult = mysqli_stmt_get_result($Statement);
+    $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+    foreach ($ReturnableResult as $row) {
+        debug_to_console($row["StockItemID"]);
+    }
+    return $ReturnableResult;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -27,6 +43,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <title>Winkelwagen</title>
     <link rel="stylesheet" href="public/css/style.css" type="text/css">
+    
 </head>
 <body>
     <div id="cartBackground">
@@ -42,22 +59,20 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
                 debug_to_console("Test is geslaagd");
             }
 
-            print('<form method="POST" action="" onsubmit="testinconsole()"><input id="AfrekenenKnop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen"></form>');
-            if(isset($_POST["afrekenensubmit"])){      
-                 $cart = getCart();
-                 foreach($cart as $artikelnummer => $aantalartikel){
-                            $StockItem = getStockItem($artikelnummer, $databaseConnection);
-                            $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
-                            
-                            $Query2 = "UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
-                            $Statement2 = mysqli_prepare($databaseConnection, $Query2);
-                            mysqli_stmt_execute($Statement2);     
+            print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen"></form>');
+            if(isset($_POST["afrekenensubmit"])){
+                $cart = getCart();
+                foreach($cart as $artikelnummer => $aantalartikel){
+                    $StockItem = getStockItem($artikelnummer, $databaseConnection);
+                    $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
 
-                            debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                            echo("<script>location.href = 'WinkemandCreateAccount.php';</script>");
-                            } 
+                    $Query2 = "UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
+                    $Statement2 = mysqli_prepare($databaseConnection, $Query2);
+                    mysqli_stmt_execute($Statement2);
+                    //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
+                }print('<meta http-equiv="refresh" content="0; url=WinkemandCreateAccount.php" />');
+                //header("Refresh:0");
 
-                          header("Refresh:0");
                  }
 
                  
@@ -82,28 +97,20 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
 
-$totaalprijs = 0;
-$hoogsteverzending = 0;
-$cart = getCart();
-foreach($cart as $artikelnummer => $aantalartikel)
-{
-    if($aantalartikel > 0){
-    $StockItem = getStockItem($artikelnummer, $databaseConnection);
-    $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
+            print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
+            print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
 
+            $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
+            foreach ($ReturnableResult as $row) {
+                if ($artikelnummer == $row["StockItemID"]) {
+                    if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
+                        $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
+                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath.">");
+                    }else{
+                        $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
+                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
+                    }
 
-    print("<div class='productCard' '>");
-    print("<div class='flex-container leftProductCard' display:flex;'>");
-    foreach ($ReturnableResult as $row) {
-            if ($artikelnummer == $row["StockItemID"]) {
-                if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
-                      $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
-                      print ("<img class='productImage' 'src="."public/stockgroupimg/".$imagepath.">");
-               }else{
-                      $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
-                      print ("<img class='productImage' 'src="."public/stockitemimg/".$imagepath.">");
-               }
-               
 
             }
     }

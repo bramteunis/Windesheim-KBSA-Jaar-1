@@ -5,7 +5,7 @@ include "cartfuncties.php";
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Artikelpagina (geef ?id=.. mee)</title>
+    <title>Artikelpagina</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -140,6 +140,28 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
             <div class="QuantityText" style="color: black";><?php print $StockItem['QuantityOnHand']; ?></div>
+            <?php 
+            if($StockItem["StockItemID"] >= 220){
+            ?>
+            <head> <meta http-equiv="refresh" content="3" > </head>
+            <div class="QuantityText" style="color: red; top:80%; font-size: 150%;";>
+                <?php 
+        
+                    $Query = "SELECT Temperature FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
+                    $Statement2 = mysqli_prepare($databaseConnection2, $Query);
+                    mysqli_stmt_execute($Statement2);
+
+                    $ReturnableResult2 = mysqli_stmt_get_result($Statement2);
+                    $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
+                    foreach ($ReturnableResult2 as $row) {
+                        print("Actuele Temperatuur: ".$row["Temperature"]);
+                    }
+
+                ?>
+            
+            </div>
+            <?php }
+            ?>
             <div id="StockItemHeaderLeft">
                 <div id="centerPriceLeftId" class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
@@ -157,7 +179,11 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
                         <form id="formInsideView" method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
+
+                            <?php if($StockItem['QuantityOnHand'] != "Voorraad: 0"){ ?>
                             <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
+                            <?php } ?>
+
                         </form>
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
