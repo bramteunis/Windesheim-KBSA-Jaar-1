@@ -185,7 +185,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             <?php if($StockItem['QuantityOnHand'] != "Voorraad: 0"){ ?>
                             <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
                             <?php } ?>
-                            
+
                         </form>
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
