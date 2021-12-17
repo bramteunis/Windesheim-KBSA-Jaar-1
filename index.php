@@ -18,7 +18,8 @@ foreach ($ReturnableResult as $row) {
 }
 ?>
 
-<div class="underHeadDiv">
+<div class="underHeadDiv" style="
+    margin-top: 50px;">
     <i class="fas fa-check" style="color: green"></i>
     <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen gratis bezorgd</p>
     <i class="fas fa-check" style="color: green"></i>

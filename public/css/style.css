@@ -105,7 +105,7 @@ ul#ul-class-navigation li {
     border-bottom: 3px solid rgba(7, 0, 132, 1);
 }
 #Content {
-    margin-top: 150px;
+    margin-top: 80px;
 }
 #FilterFrame {
     position: fixed;
@@ -182,16 +182,18 @@ ul#ul-class-navigation li {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    width:190px;
-    height:40px;
+    width:30%;
+    height:25%;
     margin-top: 10px;
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 
-    border: 3px solid #ffcd00;
+    border: 3px solid red;
+    border-radius: 10px;
 }
 .ToevoegenWinkelmandbutton1:hover {
-    background-color: #ffcd00;
+    background-color: red;
+    color: white;
 }
 .Hovershadowbutton {
     font-size:1.5vw;
@@ -212,7 +214,7 @@ ul#ul-class-navigation li {
     margin-bottom: 10px;
 }
 #ArticleHeader {
-    width: 100%;
+    width: 90%;
     height: 300px;
     position: relative
 }
@@ -548,10 +550,11 @@ ul#ul-class-price li {
 #cartBackground {
     margin-left: 1%;
     margin-right: 1%;
-    width: 100%;
+    width: 95%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
 }
 #titleCart{
     margin-left: 1%;
@@ -583,7 +586,6 @@ ul#ul-class-price li {
     width: 10%;
     height: 35%;
     float: left;
-
 }
 #AfrekenenKnop{
     margin-right: 0%;
@@ -627,21 +629,23 @@ ul#ul-class-price li {
 }
 .productName{
     color:black;
-    margin-left:50px;
+    margin-left:5px;
     margin-top:15px;
-    width:500px;
-    height:50px;
+    width:30%;
+    height:90%;
 }
 .productStockAmount{
     color:black;
-    margin-left:50px;
+    margin-left:5px;
     margin-top:15px;
+    width: 20%;
+    height: 90%;
     float:right;
 }
 .productImage{
     float:left;
     width:110px;
-    height:110px;
+    height:90%;
     margin-top:5px;
     margin-left:5px;
 }
@@ -657,24 +661,18 @@ ul#ul-class-price li {
     width: 98%;
     margin-right:2%;
 }
-
-.underHeadText {
-    color: black;
-    text-align: center;
-    display: inline-block;
+#promptBox{
+    border: 2px solid black;
+    height: 5%;
+    margin-top: 30%;
+    margin-right: 50%;
 }
-
-.underHeadDiv {
-    display: table;
-    margin: 0 auto;
-    margin-top: -85px;
+#formInsideView{
+    border: 2px solid red;
+    width: 50%;
+    height: 50%;
 }
-
-p {
-    margin-right: 10px;
-}
-
-hr {
-    background-color: black;
-    width: 75%;
+#centerPriceLeftId{
+    width: 100%;
+    height: 100%;
 }
