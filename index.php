@@ -17,7 +17,32 @@ foreach ($ReturnableResult as $row) {
     $BST = ($row["StockItemID"]);
 }
 
+function Get_information($databaseConnection,$artikelnummer){
+    $Query = "
+           SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
+           ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
+           QuantityOnHand,
+           (CASE WHEN (RecommendedRetailPrice*(1+(TaxRate/100))) > 50 THEN 0 ELSE 6.95 END) AS SendCosts,
+           (SELECT ImagePath FROM stockitemimages WHERE StockItemID = SI.StockItemID LIMIT 1) as ImagePath,
+           (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockItemID = SI.StockItemID LIMIT 1) as BackupImagePath
+           FROM stockitems SI
+           JOIN stockitemholdings SIH USING(stockitemid)
+           JOIN stockitemstockgroups USING(StockItemID)
+           JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
+           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = ".$artikelnummer."
+           GROUP BY StockItemID";
 
+
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    mysqli_stmt_execute($Statement);
+    
+    $ReturnableResult = mysqli_stmt_get_result($Statement);
+    $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+    foreach ($ReturnableResult as $row) {
+        debug_to_console($row["StockItemID"]);
+    }
+    return $ReturnableResult;
+}
 ?>
 
 <div class="underHeadDiv" style="
@@ -38,7 +63,8 @@ foreach ($ReturnableResult as $row) {
                 <div class="TextMain">
 
                     FURRY ANIMAL SOCKS (PINK) S
-
+$StockItem = getStockItem($artikelnummer, $databaseConnection);
+            $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
                 </div>
                 <ul id="ul-class-price">
                     <li class="HomePagePrice">€69.69</li>
