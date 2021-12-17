@@ -14,8 +14,10 @@ mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 foreach ($ReturnableResult as $row) {
-    print(($row["StockItemID"]));
+    $BST = ($row["StockItemID"]);
 }
+
+
 ?>
 
 <div class="underHeadDiv" style="
@@ -31,7 +33,7 @@ foreach ($ReturnableResult as $row) {
 <div class="IndexStyle">
     <div class="col-11">
         <div class="TextPrice">
-            <a href="view.php?id=138" aria-label="product 1">
+            <a href="view.php?id=<?php print $BST ?>" aria-label="product 1">
 
                 <div class="TextMain">
 
