@@ -24,6 +24,25 @@ function connectToDatabase() {
     return $Connection;
 }
 
+function connectToDatabase2() {
+    $Connection = null;
+
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
+    try {
+        $Connection = mysqli_connect("eu-cdbr-west-02.cleardb.net", "baee1a3b703273", "c1b9e4bf", "heroku_6a4996>
+        mysqli_set_charset($Connection, 'latin1');
+        $DatabaseAvailable = true;
+    } catch (mysqli_sql_exception $e) {
+        $DatabaseAvailable = false;
+    }
+    if (!$DatabaseAvailable) {
+        ?><h2>Website wordt op dit moment onderhouden.</h2><?php
+        die();
+    }
+
+    return $Connection;
+}
+
 function getHeaderStockGroups($databaseConnection) {
     $Query = "
                 SELECT StockGroupID, StockGroupName, ImagePath
