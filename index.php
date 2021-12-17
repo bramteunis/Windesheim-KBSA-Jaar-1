@@ -1,25 +1,10 @@
 <!-- dit is het bestand dat wordt geladen zodra je naar de website gaat en test je dit even? -->
 
 <?php
-include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
-$bestverkocht = "SELECT StockItemID, SUM(Quantity) AS TotalQuantity FROM orderlines GROUP BY StockItemID ORDER BY SUM(Quantity) DESC LIMIT 1";
-$Statement = mysqli_prepare($databaseConnection, $bestverkocht);
-mysqli_stmt_execute($Statement);
-$ReturnableResult = mysqli_stmt_get_result($Statement);
-$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-foreach ($ReturnableResult as $row) {
-    print(($row["StockItemID"]));
-}
 ?>
 
-<div class="underHeadDiv" style="
-    margin-top: 50px;">
+<div class="underHeadDiv">
     <i class="fas fa-check" style="color: green"></i>
     <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen gratis bezorgd</p>
     <i class="fas fa-check" style="color: green"></i>
@@ -66,4 +51,3 @@ foreach ($ReturnableResult as $row) {
 <?php
 include __DIR__ . "/footer.php";
 ?>
-
