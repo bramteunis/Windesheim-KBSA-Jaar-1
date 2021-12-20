@@ -231,7 +231,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 print("
                 <style>
                 .".$artikelnummer." {
-                border: blue;
+                border: yellow;
                 margin-top:10px;
                 width:100%;
                 height: 20%;
