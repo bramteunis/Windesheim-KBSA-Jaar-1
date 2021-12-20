@@ -238,7 +238,7 @@ function Get_information($databaseConnection,$artikelnummer){
         print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
         $totaal = $totaalprijs + $hoogsteverzending;
         print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
-        printf("Testing [%s] : %d decimals\n", $totaalprijs, numberOfDecimals($totaalprijs));
+        printf("<h1 style='color:black'>Testing [%s] : %d decimals </h1>", $totaalprijs, numberOfDecimals($totaalprijs));
         
     }else
     {
