@@ -216,7 +216,7 @@ function Get_information($databaseConnection,$artikelnummer){
     }else{
            debug_to_console('verwijderen word geprobeerd maar valt onder else');
     }
-    }
+
 }
         
 function numberOfDecimals($value)
