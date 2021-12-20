@@ -245,7 +245,7 @@ function Get_information($databaseConnection,$artikelnummer){
         print("</div>");
         
         print("<div id='Totaalprijs-prijs'>");
-        print("€".$totaalprijs);
+        print($totaalprijs);
         print("</div>");
         
         print("<br>");
