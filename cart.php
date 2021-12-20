@@ -106,9 +106,9 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
             
-            print("<div id='product".$artikelnummer."' >");
-            print("<div id='itemcartcards' class='".$artikelnummer."'>");
             
+            print("<div id='itemcartcards' class='itemcartcards'>");
+            print("<div id='product".$artikelnummer."' >");
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
