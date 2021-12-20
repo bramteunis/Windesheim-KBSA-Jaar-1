@@ -216,6 +216,22 @@ function Get_information($databaseConnection,$artikelnummer){
     }
 
 
+    function numberOfDecimals($value)
+    {
+        if ((int)$value == $value)
+        {
+            return 0;
+        }
+        else if (! is_numeric($value))
+        {
+            // throw new Exception('numberOfDecimals: ' . $value . ' is not a number!');
+            return false;
+        }
+
+        return strlen($value) - strrpos($value, '.') - 1;
+    }
+
+
     if($cart != null AND $totaalprijs != 0)
 
     {
@@ -223,6 +239,7 @@ function Get_information($databaseConnection,$artikelnummer){
         print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
         $totaal = $totaalprijs + $hoogsteverzending;
         print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
+        printf("<h1 style='color:black'>Testing [%s] : %d decimals </h1>", $totaalprijs, numberOfDecimals($totaalprijs));
     }else
     {
 
