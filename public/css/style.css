@@ -54,11 +54,11 @@ body {
 }
 #CardItems{
     border-bottom: solid rgba(7, 0, 132, 1);
-    padding: 5px;
+    padding: 6px;
     width: 80%;
+    display: inline;
 }
 #CardItemsAmount{
-    border-bottom: solid rgba(7, 0, 132, 1);
     width: 20%;
     float: right;
 }
