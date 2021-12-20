@@ -107,8 +107,7 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
             
             
-            print("<div id='itemcartcards' class='itemcartcards'>");
-            print("<div id='product".$artikelnummer."' >");
+            print("<div id='product".$artikelnummer."' class='itemcartcards'>");
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
@@ -248,7 +247,6 @@ function Get_information($databaseConnection,$artikelnummer){
             }else{
                 debug_to_console('verwijderen word geprobeerd maar valt onder else');
             }
-            print("</div>");
             print("</div>");
         }
     }
