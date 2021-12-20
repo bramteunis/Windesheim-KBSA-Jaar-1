@@ -82,7 +82,7 @@ function Get_information($databaseConnection,$artikelnummer){
     <?php
 
     $totaalprijs = 0;
-    $hoogsteverzending = 0;
+    $hoogsteverzending = 7;
     $cart = getCart();
     foreach($cart as $artikelnummer => $aantalartikel)
     {
@@ -190,7 +190,7 @@ function Get_information($databaseConnection,$artikelnummer){
                         $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                         print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                         //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
-                        if(str_replace("Verzendkosten:", "",$row["SendCosts"])  > $hoogsteverzending){
+                        if(str_replace("Verzendkosten:", "",$row["SendCosts"])  < $hoogsteverzending){
                             $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);
 
                         }
