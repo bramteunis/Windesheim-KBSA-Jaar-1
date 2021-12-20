@@ -107,6 +107,7 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
             print("<div id='itemcartcards'>");
+            print("<div id='".$artikelnummer."'>");
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
@@ -222,6 +223,7 @@ function Get_information($databaseConnection,$artikelnummer){
 
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
+            print("</div>");
             print("</div>");
             print("</div>");
             if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
