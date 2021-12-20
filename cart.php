@@ -73,6 +73,23 @@ function Get_information($databaseConnection,$artikelnummer){
             }
             print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen" style="margin-top: -60px;"></form>');
             if(isset($_POST["afrekenensubmit"])){
+                ?>
+                <style>
+                #SubContent {
+                width: 98%;
+                margin-left: -110%;
+                animation-name: example2;
+                animation-duration: 1.5s;
+                }
+                
+                @keyframes example2 {
+                  from {margin-left:0%;}
+                  to {margin-left:-110%;}
+                  animation-fill-mode: forwards;
+                }
+                </style>
+                <?php
+                
                 $cart = getCart();
                 foreach($cart as $artikelnummer => $aantalartikel){
                     $StockItem = getStockItem($artikelnummer, $databaseConnection);
@@ -82,7 +99,7 @@ function Get_information($databaseConnection,$artikelnummer){
                     $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                     mysqli_stmt_execute($Statement2);
                     //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                }print('<meta http-equiv="refresh" content="0; url=WinkemandCreateAccount.php" />');
+                }print('<meta http-equiv="refresh" content="2; url=WinkemandCreateAccount.php" />');
                 //header("Refresh:0");
 
             }
