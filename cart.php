@@ -231,14 +231,14 @@ function Get_information($databaseConnection,$artikelnummer){
                 print("
                 <style>
                 #product".$artikelnummer." {
-                margin-left:0px;
+                margin-left:0%;
                 animation-name: example;
                 animation-duration: 4s;
                 }
                 
                 @keyframes example {
-                  from {margin-left:0px;}
-                  to {margin-left:2500px;}
+                  from {margin-left:0%;}
+                  to {margin-left:-110%;}
                 }
                 </style>
                 ");
