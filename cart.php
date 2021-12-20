@@ -237,11 +237,11 @@ function Get_information($databaseConnection,$artikelnummer){
     {
         if(numberOfDecimals($totaalprijs) == 1){$totaalprijs = $totaalprijs."0";}
         print("<div id='Totaalprijs'>");
-        print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+        print("Totaalprijs: €".$totaalprijs);
         if($totaalprijs > 50){$hoogsteverzending=0;}
-        print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+        print(Verzendkosten: €".$hoogsteverzending);
         $totaal = $totaalprijs + $hoogsteverzending;
-        print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
+        print("Totaal: €".$totaal.");
         print("</div>");
     }else
     {
