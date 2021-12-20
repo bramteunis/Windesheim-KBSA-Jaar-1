@@ -90,7 +90,7 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
-            print("<div style='border:2px solid black;margin-top:10px;width:100%;height:125px;'>");
+            print("<div style='border: blue;margin-top:10px;width:100%;height: 20%;border-style: double;border-radius: 10px;padding: 7px;'>");
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
@@ -175,7 +175,7 @@ function Get_information($databaseConnection,$artikelnummer){
                <style>
                    .select-editable {position:relative; background-color:white; border:solid grey 1px;  width:120px; height:18px;}
                    .select-editable select {position:absolute; top:0px; left:0px; font-size:14px; border:none; width:120px; margin:0;}
-                   .select-editable input {position:absolute; top:0px; left:0px; width:100px; padding:1px; font-size:12px; border:none;}
+                   .select-editable input {position:absolute; top:2.5px; left:1px; width:95px; height:99%; padding:1px; font-size:12px; border:none;}
                    .select-editable select:focus, .select-editable input:focus {outline:none;}
                </style>');
 
