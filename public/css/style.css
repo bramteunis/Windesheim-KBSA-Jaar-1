@@ -217,6 +217,7 @@ ul#ul-class-navigation li {
     background-color: aliceblue;
     font-size: 140%;
     box-shadow: 5px 10px 18px #888888;
+    margin-bottom: 50px;
 }
 #Totaalprijs-prijs {
     display: inline;
