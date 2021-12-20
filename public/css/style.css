@@ -28,7 +28,7 @@ body {
   background-color: #f44336;
   color: white;
 }
-#itemcartcards{
+.itemcartcards{
     border: blue;
     margin-top:10px;
     width:100%;
