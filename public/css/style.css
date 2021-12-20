@@ -41,6 +41,13 @@ body {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%);
 }
 
+#Pricediv{
+    border: blue;
+    border-style: double;
+    border-radius: 10px;
+    width:20%;
+    height: 20%;
+}
 
 .closebtn {
   margin-left: 15px;
