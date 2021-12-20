@@ -90,8 +90,8 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
-            print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
-            print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
+            print("<div style='border:2px solid black;margin-top:10px;width:100%;height:125px;'>");
+            print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
             foreach ($ReturnableResult as $row) {
@@ -106,8 +106,8 @@ function Get_information($databaseConnection,$artikelnummer){
 
                 }
             }
-            print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
-            print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
+            print ("<h5 style='color:black; margin-left: 3%;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
+            print("<h5 style='color: black; margin-left: 3%;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
             print("</div>");
             print("<div style='float:right;width:344px;height:125px;'>");
             print('<form method="post">
