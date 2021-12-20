@@ -107,7 +107,7 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
             print("<div id='itemcartcards'>");
-            print("<div id='".$artikelnummer."'>");
+            print("<div id='".$artikelnummer."' >");
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
@@ -230,6 +230,11 @@ function Get_information($databaseConnection,$artikelnummer){
                 $stockItemID = $artikelnummer;
                 print("
                 <style>
+                #".$artikelnummer." {
+                animation-name: example;
+                animation-duration: 4s;
+                }
+                
                 @keyframes example {
                   from {padding: 7px;}
                   to {padding: 187px;}
