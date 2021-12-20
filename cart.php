@@ -106,7 +106,7 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
-            print("<div style='border: blue;margin-top:10px;width:100%;height: 20%;border-style: double;border-radius: 10px;padding: 7px; box-shadow: 5px 10px 18px #888888; margin-bottom: 1%; background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%)'>");
+            print("<div id='itemcartcards'>");
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
@@ -226,7 +226,23 @@ function Get_information($databaseConnection,$artikelnummer){
             print("</div>");
             if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
                 $stockItemID = $artikelnummer;
-                removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+                print("
+                <style>
+                #itemcartcards{
+                    border: green;
+                    margin-top:10px;
+                    width:100%;
+                    height: 20%;
+                    border-style: double;
+                    border-radius: 10px;
+                    padding: 7px; 
+                    box-shadow: 5px 10px 18px #888888; 
+                    margin-bottom: 1%; 
+                    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%)
+                }
+                </style>
+                ");
+                //removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
 
             }else{
                 debug_to_console('verwijderen word geprobeerd maar valt onder else');
