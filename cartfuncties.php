@@ -60,7 +60,7 @@ function removeProductFromCart($stockItemID)
         $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
     }
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
-     echo "<meta http-equiv='refresh' content='2'>";
+     echo "<meta http-equiv='refresh' content='1.5'>";
 }
     //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 function updateProductFromCart($stockItemID, $newvalue){
