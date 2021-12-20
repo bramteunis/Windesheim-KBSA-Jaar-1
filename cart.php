@@ -229,11 +229,11 @@ function Get_information($databaseConnection,$artikelnummer){
             if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
                 $stockItemID = $artikelnummer;
                 
-                sleep(3);
-                removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-                print("
+                
+                
+                ?>
                 <style>
-                #product".$artikelnummer." {
+                #product<?php print($artikelnummer); ?> {
                 margin-left:-110%;
                 animation-name: example;
                 animation-duration: 1.5s;
@@ -245,7 +245,7 @@ function Get_information($databaseConnection,$artikelnummer){
                   animation-fill-mode: forwards;
                 }
                 </style>
-                ");
+                <?php
 
             }else{
                 debug_to_console('verwijderen word geprobeerd maar valt onder else');
