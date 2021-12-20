@@ -235,6 +235,7 @@ function Get_information($databaseConnection,$artikelnummer){
     if($cart != null AND $totaalprijs != 0)
 
     {
+        if(numberOfDecimals($totaalprijs) == 1){$totaalprijs = int($totaalprijs."0")}
         print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
         print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
         $totaal = $totaalprijs + $hoogsteverzending;
