@@ -237,6 +237,7 @@ function Get_information($databaseConnection,$artikelnummer){
     {
         if(numberOfDecimals($totaalprijs) == 1){$totaalprijs = $totaalprijs."0";}
         print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+        if($totaalprijs > 50){$hoogsteverzending=0;}
         print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
         $totaal = $totaalprijs + $hoogsteverzending;
         print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
