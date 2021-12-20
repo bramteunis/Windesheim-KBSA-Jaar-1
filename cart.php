@@ -99,7 +99,7 @@ function Get_information($databaseConnection,$artikelnummer){
                     $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                     mysqli_stmt_execute($Statement2);
                     //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                }print('<meta http-equiv="refresh" content="2; url=WinkemandCreateAccount.php" />');
+                }print('<meta http-equiv="refresh" content="0.5; url=WinkemandCreateAccount.php" />');
                 //header("Refresh:0");
 
             }
