@@ -231,9 +231,9 @@ function Get_information($databaseConnection,$artikelnummer){
                 print("
                 <style>
                 #product".$artikelnummer." {
-                margin-left:-50%;
+                margin-left:-110%;
                 animation-name: example;
-                animation-duration: 2s;
+                animation-duration: 1.5s;
                 }
                 
                 @keyframes example {
@@ -243,7 +243,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 }
                 </style>
                 ");
-                //removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+                removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
 
             }else{
                 debug_to_console('verwijderen word geprobeerd maar valt onder else');
