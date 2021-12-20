@@ -50,13 +50,13 @@ function Get_information($databaseConnection,$artikelnummer){
         <div id="titleCart">
             
             <form action="index.php">
-                <button id="verderWinkelenKnop">Verder winkelen</button></form>
+                <button id="verderWinkelenKnop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" style="padding: 8px;margin-top: 1px;">Verder winkelen</button></form>
             <h1 id="titleText">Winkelmand</h1>
             <?php
             function testinconsole(){
                 debug_to_console("Test is geslaagd");
             }
-            print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen"></form>');
+            print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen" style="margin-top: -60px;></form>');
             if(isset($_POST["afrekenensubmit"])){
                 $cart = getCart();
                 foreach($cart as $artikelnummer => $aantalartikel){
