@@ -231,7 +231,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 print("
                 <style>
                 #product".$artikelnummer." {
-                margin-left:0%;
+                margin-left:-50%;
                 animation-name: example;
                 animation-duration: 2s;
                 }
