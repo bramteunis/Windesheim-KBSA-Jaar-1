@@ -240,21 +240,21 @@ function Get_information($databaseConnection,$artikelnummer){
         
         print("Totaalprijs: €");
         print("<div id='Totaalprijs-prijs'>");
-        print($totaalprijs);
+        print("€".$totaalprijs);
         print("</div>");
         
         print("<br>");
         if($totaalprijs > 50){$hoogsteverzending=0;}
         print("Verzendkosten: €");
         print("<div id='Totaalprijs-prijs'>");
-        print($hoogsteverzending);
+        print("€".$hoogsteverzending);
         print("</div>");
         
         print("<br>");
         $totaal = $totaalprijs + $hoogsteverzending;
-        print("Totaal: €");
+        print("Totaal: ");
         print("<div id='Totaalprijs-prijs'>");
-        print($totaal);
+        print("€".$totaal);
         print("</div>");
         print("</div>");
     }else
