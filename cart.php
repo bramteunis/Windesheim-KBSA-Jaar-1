@@ -91,7 +91,7 @@ function Get_information($databaseConnection,$artikelnummer){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
 
-            print("<div style='border: blue;margin-top:10px;width:100%;height: 20%;border-style: double;border-radius: 10px;padding: 7px; box-shadow: 5px 10px 18px #888888; margin-bottom: 1%; background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, rgba(0,9,164,0.4) 100%)'>");
+            print("<div style='border: blue;margin-top:10px;width:100%;height: 20%;border-style: double;border-radius: 10px;padding: 7px; box-shadow: 5px 10px 18px #888888; margin-bottom: 1%; background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%)'>");
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
@@ -189,7 +189,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 foreach ($ReturnableResult as $row) {
                     if ($artikelnummer == $row["StockItemID"]) {
                         $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
-                        print("<h6 style='color:white;width:140px;height:30px;float:right;margin-right:1%;align-content:center;font-size: 140%;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
+                        print("<h6 style='color:black;width:140px;height:30px;float:right;margin-right:1%;align-content:center;font-size: 140%;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                         //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
                         if(str_replace("Verzendkosten:", "",$row["SendCosts"])  < $hoogsteverzending){
                             $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);
