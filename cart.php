@@ -105,9 +105,10 @@ function Get_information($databaseConnection,$artikelnummer){
         if($aantalartikel > 0){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
-
-            print("<div id='itemcartcards' class='".$artikelnummer."'>");
+            
             print("<div id='product".$artikelnummer."' >");
+            print("<div id='itemcartcards' class='".$artikelnummer."'>");
+            
             print("<div class='flex-container' style='float:left;width:592px;height:125px;display:flex;'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
@@ -231,14 +232,14 @@ function Get_information($databaseConnection,$artikelnummer){
                 print("
                 <style>
                 #product".$artikelnummer." {
-                padding: 40px;
+                margin-left:0px;
                 animation-name: example;
                 animation-duration: 4s;
                 }
                 
                 @keyframes example {
-                  from {padding: 7px;}
-                  to {padding: 187px;}
+                  from {margin-left:0px;}
+                  to {margin-left:2500px;}
                 }
                 </style>
                 ");
