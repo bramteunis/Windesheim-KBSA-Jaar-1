@@ -243,6 +243,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 }
                 </style>
                 ");
+                sleep(3);
                 removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
 
             }else{
