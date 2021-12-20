@@ -59,6 +59,9 @@ function getCart()
             <span class="underline"></span>
         </form>
     </div>
+    <div id="Pricediv">
+            <h1>Test</h1>
+    </div>
     <?php
     function debug_to_console($data) {
         $output = $data;
