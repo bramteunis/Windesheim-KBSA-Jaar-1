@@ -233,12 +233,13 @@ function Get_information($databaseConnection,$artikelnummer){
                 #product".$artikelnummer." {
                 margin-left:0%;
                 animation-name: example;
-                animation-duration: 4s;
+                animation-duration: 2s;
                 }
                 
                 @keyframes example {
                   from {margin-left:0%;}
                   to {margin-left:-110%;}
+                  animation-fill-mode: forwards;
                 }
                 </style>
                 ");
