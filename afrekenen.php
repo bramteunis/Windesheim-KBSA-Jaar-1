@@ -67,6 +67,7 @@ function getCart()
             print("<div id='CardItems'>");
                 print($StockItem['StockItemName']);
             print("</div>");
+        }
     print("</div>");
       
         
