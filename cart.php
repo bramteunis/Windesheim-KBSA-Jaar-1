@@ -48,9 +48,10 @@ function Get_information($databaseConnection,$artikelnummer){
     $value = max($cart);
     if ($cart != null AND $value > 0) { ?>
         <div id="titleCart">
-            <h1 id="titleText">Winkelmand</h1>
+            
             <form action="index.php">
                 <button id="verderWinkelenKnop">Verder winkelen</button></form>
+            <h1 id="titleText">Winkelmand</h1>
             <?php
             function testinconsole(){
                 debug_to_console("Test is geslaagd");
