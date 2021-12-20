@@ -241,7 +241,7 @@ function Get_information($databaseConnection,$artikelnummer){
         if($totaalprijs > 50){$hoogsteverzending=0;}
         print("Verzendkosten: €".$hoogsteverzending);
         $totaal = $totaalprijs + $hoogsteverzending;
-        print("Totaal: €".$totaal.");
+        print("Totaal: €".$totaal);
         print("</div>");
     }else
     {
