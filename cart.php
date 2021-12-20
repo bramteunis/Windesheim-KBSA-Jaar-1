@@ -259,9 +259,9 @@ function Get_information($databaseConnection,$artikelnummer){
             }
         }else{
             if($totaalprijs<99){
-                print("€         ".$hoogsteverzending);
-            }else{
                 print("€          ".$hoogsteverzending);
+            }else{
+                print("€           ".$hoogsteverzending);
             }
         }
             
