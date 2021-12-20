@@ -248,7 +248,8 @@ function Get_information($databaseConnection,$artikelnummer){
         
         
         print("<div id='Totaalprijs-prijs'>");
-        print("€  ".$totaalprijs);
+        $totaalprijs2 = str_replace(".",",",$totaalprijs);
+        print("€  ".$totaalprijs2);
         print("</div>");
         
         print("<br>");
@@ -259,19 +260,25 @@ function Get_information($databaseConnection,$artikelnummer){
         print("<div id='Totaalprijs-prijs'>");
         if($hoogsteverzending  != 0){
             if($totaalprijs<100){
-                print("€    ".$hoogsteverzending);
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€    ".$hoogsteverzending2);
             }elseif($totaalprijs>999){
-                print("€      ".$hoogsteverzending);
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€      ".$hoogsteverzending2);
             }else{
-                print("€     ".$hoogsteverzending);
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€     ".$hoogsteverzending2);
             }
         }else{
             if($totaalprijs<99){
-                print("€         ".$hoogsteverzending);
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€         ".$hoogsteverzending2);
             }elseif($totaalprijs>999){
-                print("€             ".$hoogsteverzending);
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€             ".$hoogsteverzending2);
             }else{
-                print("€           ".$hoogsteverzending);
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€           ".$hoogsteverzending2);
             }
         }
             
@@ -285,6 +292,7 @@ function Get_information($databaseConnection,$artikelnummer){
         
         print("<div id='Totaalprijs-prijs' style='font-weight: bold;'>");
         if(numberOfDecimals($totaal) == 1){$totaal = $totaal."0";}
+        $totaal = str_replace(".",",",$totaal);
         print("€ ".$totaal);
         print("</div>");
         print("</div>");
