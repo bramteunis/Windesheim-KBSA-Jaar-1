@@ -40,6 +40,9 @@ body {
     margin-bottom: 1%; 
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%);
 }
+#16{
+padding: 40px;
+}
 
 .closebtn {
   margin-left: 15px;
