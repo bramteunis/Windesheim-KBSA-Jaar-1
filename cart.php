@@ -238,23 +238,38 @@ function Get_information($databaseConnection,$artikelnummer){
         if(numberOfDecimals($totaalprijs) == 1){$totaalprijs = $totaalprijs."0";}
         print("<div id='Totaalprijs'>");
         
-        print("Totaalprijs: €");
+        print("Totaalprijs: ");
+        
+        print("<div id='Totaalprijs-euroteken'>");
+        print("€");
+        print("</div>");
+        
         print("<div id='Totaalprijs-prijs'>");
         print("€".$totaalprijs);
         print("</div>");
         
         print("<br>");
         if($totaalprijs > 50){$hoogsteverzending=0;}
-        print("Verzendkosten: €");
+        print("Verzendkosten: ");
+        
+        print("<div id='Totaalprijs-euroteken'>");
+        print("€");
+        print("</div>");
+        
         print("<div id='Totaalprijs-prijs'>");
-        print("€".$hoogsteverzending);
+        print($hoogsteverzending);
         print("</div>");
         
         print("<br>");
         $totaal = $totaalprijs + $hoogsteverzending;
         print("Totaal: ");
+        
+        print("<div id='Totaalprijs-euroteken'>");
+        print("€");
+        print("</div>");
+        
         print("<div id='Totaalprijs-prijs'>");
-        print("€".$totaal);
+        print($totaal);
         print("</div>");
         print("</div>");
     }else
