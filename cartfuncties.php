@@ -44,6 +44,7 @@ function addProductToCart($stockItemID)
 }
 function removeProductFromCart($stockItemID)
 {
+    sleep(1);
     $cart = getCart();                          // eerst de huidige cart ophalen
     if(array_key_exists($stockItemID, $cart))
     {  
