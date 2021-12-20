@@ -231,16 +231,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 print("
                 <style>
                 #".$artikelnummer." {
-                    border: green;
-                    margin-top:10px;
-                    width:100%;
-                    height: 20%;
-                    border-style: double;
-                    border-radius: 10px;
-                    padding: 7px; 
-                    box-shadow: 5px 10px 18px #888888; 
-                    margin-bottom: 1%; 
-                    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%)
+                    color:green;
                 }
                 </style>
                 ");
