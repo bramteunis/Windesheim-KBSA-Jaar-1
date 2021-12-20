@@ -242,7 +242,10 @@ function Get_information($databaseConnection,$artikelnummer){
                     margin-bottom: 1%; 
                     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%)
                 }
-
+                @keyframes example {
+                  from {padding: 7px;}
+                  to {padding: 87px;}
+                }
                 </style>
                 ");
                 //removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
