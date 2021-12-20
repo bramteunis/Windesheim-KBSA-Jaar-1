@@ -230,7 +230,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 $stockItemID = $artikelnummer;
                 print("
                 <style>
-                .".$artikelnummer." {
+                #itemcartcards {
                 border: yellow;
                 margin-top:10px;
                 width:100%;
