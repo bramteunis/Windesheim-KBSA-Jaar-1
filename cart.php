@@ -224,8 +224,8 @@ function Get_information($databaseConnection,$artikelnummer){
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
             print("</div>");
-            print("</div>");
-            print("</div>");
+            
+            
             if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
                 $stockItemID = $artikelnummer;
                 print("
@@ -240,9 +240,11 @@ function Get_information($databaseConnection,$artikelnummer){
             }else{
                 debug_to_console('verwijderen word geprobeerd maar valt onder else');
             }
+            print("</div>");
+            print("</div>");
         }
     }
-
+    
 
     
 
