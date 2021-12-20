@@ -222,6 +222,7 @@ ul#ul-class-navigation li {
     display: inline;
     float: right;
     margin-right: 3%;
+    white-space: pre;
 }
 #VideoFrame {
     width: 100%;
