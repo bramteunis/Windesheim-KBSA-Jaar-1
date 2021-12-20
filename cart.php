@@ -206,6 +206,7 @@ function Get_information($databaseConnection,$artikelnummer){
                         $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                         $prijs = $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
                         if(numberOfDecimals($prijs) == 1){$prijs = $prijs."0";}
+                        $prijs = str_replace(".",",",$prijs);
                         print("<h6 style='color:black;width:140px;height:30px;float:right;margin-right:1%;align-content:center;font-size: 140%;'> € ".$prijs."</h6>");
                         //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
                         if(str_replace("Verzendkosten:", "",$row["SendCosts"])  < $hoogsteverzending){
