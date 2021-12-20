@@ -71,7 +71,7 @@ function Get_information($databaseConnection,$artikelnummer){
             function testinconsole(){
                 debug_to_console("Test is geslaagd");
             }
-            print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen" style="margin-top: -60px;"></form>');
+            print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen" style="@media only screen and (min-width: 750px) {margin-top: -60px;} @media only screen and (max-width: 750px) {margin-top: 20px;} "></form>');
             if(isset($_POST["afrekenensubmit"])){
                 ?>
                 <style>
