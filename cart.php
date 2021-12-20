@@ -242,11 +242,7 @@ function Get_information($databaseConnection,$artikelnummer){
         
         
         print("<div id='Totaalprijs-prijs'>");
-        if($totaalprijs <100){
-            print("€  ".$totaalprijs);
-        }else{
-            print("€ ".$totaalprijs);
-        }
+        print("€  ".$totaalprijs);
         print("</div>");
         
         print("<br>");
