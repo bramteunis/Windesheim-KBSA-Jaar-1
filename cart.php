@@ -6,6 +6,21 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+function numberOfDecimals($value)
+    {
+        if ((int)$value == $value)
+        {
+            return 0;
+        }
+        else if (! is_numeric($value))
+        {
+            // throw new Exception('numberOfDecimals: ' . $value . ' is not a number!');
+            return false;
+        }
+
+        return strlen($value) - strrpos($value, '.') - 1;
+    }
+
 function Get_information($databaseConnection,$artikelnummer){
     $Query = "
            SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
@@ -189,7 +204,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 foreach ($ReturnableResult as $row) {
                     if ($artikelnummer == $row["StockItemID"]) {
                         $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
-                        print("<h6 style='color:black;width:140px;height:30px;float:right;margin-right:1%;align-content:center;font-size: 140%;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
+                        print("<h6 style='color:black;width:140px;height:30px;float:right;margin-right:1%;align-content:center;font-size: 140%;'> € ". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
                         //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
                         if(str_replace("Verzendkosten:", "",$row["SendCosts"])  < $hoogsteverzending){
                             $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);
@@ -217,20 +232,7 @@ function Get_information($databaseConnection,$artikelnummer){
     }
 
 
-    function numberOfDecimals($value)
-    {
-        if ((int)$value == $value)
-        {
-            return 0;
-        }
-        else if (! is_numeric($value))
-        {
-            // throw new Exception('numberOfDecimals: ' . $value . ' is not a number!');
-            return false;
-        }
-
-        return strlen($value) - strrpos($value, '.') - 1;
-    }
+    
 
 
     if($cart != null AND $totaalprijs != 0)
