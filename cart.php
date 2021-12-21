@@ -193,7 +193,9 @@ function Get_information($databaseConnection,$artikelnummer){
 
             }
             print('</select>
-                       <input type="text" name="format" value='.$b.'>
+                        <label for="fname">
+                            <input type="text" name="format" value='.$b.'>
+                        </label>
                    </form>
                </div>
                <style>
