@@ -64,7 +64,7 @@ $databaseConnection2 = connectToDatabase2();
                 -->
             </li>
             <li>
-                <a href="browse.php" class="HrefDecoration"><i class="fas fa-search search" style="color: black"></i> Zoeken</a>
+                <a href="browse.php" class="HrefDecoration"><i class="fas fa-search search" style="color: black"></i> </a>
             </li>
         </ul>
 <!-- einde code voor US3 zoeken. -->
