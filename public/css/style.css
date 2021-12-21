@@ -63,6 +63,19 @@ body {
     float: right;
 }
 
+@media only screen and (min-width: 750px) {
+    #afrekenenknop{
+        margin-top: -60px;
+    }
+} 
+
+@media only screen and (max-width: 750px) {
+    #afrekenenknop{
+        margin-top: 20px;
+    }
+}
+
+
 .closebtn {
   margin-left: 15px;
   color: white;
