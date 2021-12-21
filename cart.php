@@ -65,7 +65,7 @@ function Get_information($databaseConnection,$artikelnummer){
         <div id="titleCart">
             
             <form action="index.php">
-                <button id="verderWinkelenKnop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" style="padding: 8px;margin-top: 1px;">Verder winkelen</button></form>
+                <button id="verderWinkelenKnop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" >Verder winkelen</button></form>
             <h1 id="titleText">Winkelmand</h1>
             <?php
             function testinconsole(){
