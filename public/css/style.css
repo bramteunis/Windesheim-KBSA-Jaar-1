@@ -63,14 +63,14 @@ body {
     float: right;
 }
 
-@media only screen and (min-width: 750px) {
-    #afrekenenknop{
+@media (min-width: 750px) {
+    #Afrekenenknop{
         margin-top: -60px;
     }
 } 
 
-@media only screen and (max-width: 750px) {
-    #afrekenenknop{
+@media(max-width: 750px) {
+    #Afrekenenknop{
         margin-top: 20px;
     }
 }
