@@ -114,6 +114,10 @@ body {
         height: 68px; 
         margin: 20px 20px 20px 25%; 
     }
+    #CategoriesBar {
+        position: absolute;
+        left: 280px;
+    }
 } 
 
 @media(max-width: 750px) {
@@ -154,6 +158,10 @@ body {
     }
     #LogoImage {
         width: 0px;
+    }
+    #CategoriesBar {
+        position: absolute;
+        left: -25px;
     }
 }
 
@@ -666,10 +674,7 @@ ul#ul-class-price li {
 #ProductFrame h6 {
     color: white;
 }
-#CategoriesBar {
-    position: absolute;
-    left: 280px;
-}
+
 #PageSelector {
     text-align: center;
     margin: 20px;
