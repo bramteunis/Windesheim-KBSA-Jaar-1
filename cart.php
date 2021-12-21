@@ -41,9 +41,7 @@ function Get_information($databaseConnection,$artikelnummer){
     
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    foreach ($ReturnableResult as $row) {
-        debug_to_console($row["StockItemID"]);
-    }
+    
     return $ReturnableResult;
 }
 
@@ -69,7 +67,8 @@ function Get_information($databaseConnection,$artikelnummer){
             <h1 id="titleText">Winkelmand</h1>
             <?php
             function testinconsole(){
-                debug_to_console("Test is geslaagd");
+                //debug_to_console("Test is geslaagd");
+                $variable = 1;
             }
             print('<form method="POST" action="" onsubmit="testinconsole()"><input id="Afrekenenknop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen" ></form>');
             if(isset($_POST["afrekenensubmit"])){
@@ -109,7 +108,6 @@ function Get_information($databaseConnection,$artikelnummer){
     <?php }else{
 
         $cart = array();
-        debug_to_console("testover array legen");
 
     } ?>
     <?php
@@ -156,7 +154,6 @@ function Get_information($databaseConnection,$artikelnummer){
                     //print("selected aantal van ".$artikelnummer." is => " . (isset($variable))?$variable:'');
                     if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
 
-                        debug_to_console($country[$artikelnummer]);
                         updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                         echo("<meta http-equiv='refresh' content='1'>");
                     }else{
@@ -169,10 +166,8 @@ function Get_information($databaseConnection,$artikelnummer){
                     $country[$artikelnummer]=$_POST["format"];
                     if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
 
-                        debug_to_console($country[$artikelnummer]);
                         updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                         echo("<meta http-equiv='refresh' content='1'>");
-                        debug_to_console($cart);
                     }else{
                         updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
                         echo("<meta http-equiv='refresh' content='1'>");
@@ -265,7 +260,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 <?php
                 removeProductFromCart($stockItemID);
             }else{
-                debug_to_console('verwijderen word geprobeerd maar valt onder else');
+                $variable233444=1;
             }
             print("</div>");
         }
