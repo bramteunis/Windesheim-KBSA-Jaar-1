@@ -21,7 +21,7 @@ $databaseConnection2 = connectToDatabase2();
 
 <?php
   
-  $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID ASC LIMIT 1";
+  $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 4";
   $Statement2 = mysqli_prepare($databaseConnection2, $Query);
   mysqli_stmt_execute($Statement2);
 
@@ -31,10 +31,11 @@ $databaseConnection2 = connectToDatabase2();
       print("Actuele Temperatuur: ".$row["Temperature"]);
       $temp = $row["Temperature"];
       $percentage1 = round(abs(((33.4 - $temp)/33.4)*100),2);
+    
       if($temp < 33.4){
-        print("<div><span>Progressive</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class='icon icon-chevron-down'></em>".$percentage1."%</strong><a href='#'>SELECT</a></div>");
+        print("<div><span>".$row["ValidFrom"]." / ".$row["ValidTo"]."</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class='icon icon-chevron-down'></em>".$percentage1."%</strong><a href='#'>SELECT</a></div>");
       }else{
-        print("<div><span>Progressive</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class='icon icon-down icon-chevron-up'></em>".$percentage1."%</strong><a href='#'>SELECT</a></div>");
+        print("<div><span>".$row["ValidFrom"]." / ".$row["ValidTo"]."</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class='icon icon-down icon-chevron-up'></em>".$percentage1."%</strong><a href='#'>SELECT</a></div>");
       }
   }
   
