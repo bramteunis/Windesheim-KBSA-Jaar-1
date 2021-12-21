@@ -126,10 +126,10 @@ function Get_information($databaseConnection,$artikelnummer){
                 if ($artikelnummer == $row["StockItemID"]) {
                     if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
                         $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
-                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath.">");
+                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath." alt='ProductImage'>");
                     }else{
                         $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
-                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
+                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath." alt='ProductImage'>");
                     }
 
                 }
