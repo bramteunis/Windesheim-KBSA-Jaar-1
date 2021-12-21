@@ -2,10 +2,6 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 function numberOfDecimals($value)
     {
         if ((int)$value == $value)
@@ -144,7 +140,6 @@ function Get_information($databaseConnection,$artikelnummer){
             print("<div style='float:right;width:344px;height:125px;'>");
             print('<form method="post">
     <div style="width:344px;height:62px;">
-    <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
 
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
             //print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
