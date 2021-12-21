@@ -321,6 +321,7 @@ function Get_information($databaseConnection,$artikelnummer){
         
         print("<div id='Totaalprijs-prijs' style='font-weight: bold;'>");
         if(numberOfDecimals($totaal) == 1){$totaal = $totaal."0";}
+        if(numberOfDecimals($totaal) == 0){$totaal = $totaal.",00";}
         $totaal = str_replace(".",",",$totaal);
         print("€ ".$totaal);
         print("</div>");
