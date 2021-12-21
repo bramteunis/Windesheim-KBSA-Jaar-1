@@ -31,6 +31,7 @@ $databaseConnection2 = connectToDatabase2();
       print("Actuele Temperatuur: ".$row["Temperature"]);
       $temp = $row["Temperature"];
       $percentage1 = ((33.4 - $temp)/33.4)*100;
+      $percentage1 = -1 * abs($percentage1)
       if($temp < 33.4){
         print("<div><span>Progressive</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class='icon icon-chevron-down'></em>".$percentage1."%</strong><a href='#'>SELECT</a></div>");
       }else{
