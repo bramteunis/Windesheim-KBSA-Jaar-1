@@ -30,9 +30,9 @@ include __DIR__ . "/header.php";
       $temp = $row["Temperature"];
       $percentage1 = ((33.4 - $temp)/33.4)*100;
       if($temp < 33.4){
-        print("<div><span>Progressive</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class="icon icon-chevron-down"></em>".$percentage1."%</strong><a href="#">SELECT</a></div>");
+        print("<div><span>Progressive</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class='icon icon-chevron-down'></em>".$percentage1."%</strong><a href='#'>SELECT</a></div>");
       }else{
-        print("<div><span>Progressive</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class="icon icon-down icon-chevron-up"></em>".$percentage1."%</strong><a href="#">SELECT</a></div>");
+        print("<div><span>Progressive</span><b><i>$</i>74</b><small><i>$</i>354</small><strong><em class='icon icon-down icon-chevron-up'></em>".$percentage1."%</strong><a href='#'>SELECT</a></div>");
       }
   }
   
