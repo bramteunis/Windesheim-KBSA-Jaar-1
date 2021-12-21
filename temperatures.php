@@ -21,7 +21,7 @@ $databaseConnection2 = connectToDatabase2();
 
 <?php
   
-  $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 4";
+  $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 400";
   $Statement2 = mysqli_prepare($databaseConnection2, $Query);
   mysqli_stmt_execute($Statement2);
 
