@@ -63,16 +63,83 @@ body {
     float: right;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 810px) {
     #Afrekenenknop{
         margin-top: -60px;
     }
 } 
 
-@media(max-width: 750px) {
+@media(max-width: 810px) {
     #Afrekenenknop{
         margin-top: 20px;
     }
+}
+
+@media (min-width: 750px) {
+    #titleCart {
+        margin-left: 1%;
+        margin-right: 0%;
+        margin-bottom: 1%;
+        margin-top: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 98%;
+        height: 20%;
+    }
+    #verderWinkelenKnop {
+        margin-left: 0%;
+        width: 10%;
+        height: 35%;
+        float: left;
+        padding: 8px;
+        margin-top: 1px;
+    }
+    #titleText {
+        margin-left: 45%;
+        margin-bottom: 1%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        color: black;
+    }
+} 
+
+@media(max-width: 750px) {
+    #titleCart {
+        margin-left: 1%;
+        margin-right: 0%;
+        margin-bottom: 1%;
+        margin-top: 14px;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 98%;
+        height: 20%;
+    }
+    
+    #verderWinkelenKnop {
+        margin-left: 0%;
+        width: 190px;
+        height: 40px;
+        float: left;
+        padding: 8px;
+        margin-top: 24px;
+    }
+    
+    #titleText {
+        margin-bottom: 6px;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-bottom: 0%;
+        color: black;
+        text-align: center;
+        margin-top: -49px;
+    }
+    
 }
 
 
@@ -647,8 +714,8 @@ ul#ul-class-price li {
     padding-right: 0%;
     padding-top: 0%;
     padding-bottom: 0%;
-    width: 10%;
-    height: 35%;
+    width: 190px;
+    height: 40px;
     float: left;
 
 }
