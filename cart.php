@@ -178,7 +178,7 @@ function Get_information($databaseConnection,$artikelnummer){
             if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) < $aantalartikel){
                 $aantalartikel = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']);
                 updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
-                echo("<meta http-equiv='refresh' content='0'>");
+                echo("<meta http-equiv='refresh' content='1'>");
             }
             for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
                 $y = $x+ $aantalartikel;
