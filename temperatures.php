@@ -28,7 +28,6 @@ $databaseConnection2 = connectToDatabase2();
   $ReturnableResult2 = mysqli_stmt_get_result($Statement2);
   $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
   foreach ($ReturnableResult2 as $row) {
-      print("Actuele Temperatuur: ".$row["Temperature"]);
       $temp = $row["Temperature"];
       $percentage1 = round(abs(((33.4 - $temp)/33.4)*100),2);
     
