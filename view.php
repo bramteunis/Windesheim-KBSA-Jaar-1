@@ -161,7 +161,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             mysqli_stmt_execute($Statement2);
                         }
                         catch(Exception $e){
-                            print("test".$e);
+                            $testtest = 1;
                         }
                         
                     }
