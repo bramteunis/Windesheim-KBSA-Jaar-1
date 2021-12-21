@@ -123,7 +123,7 @@ body {
     
     #verderWinkelenKnop {
         margin-left: 0%;
-        width: 190px;
+        width: 170px;
         height: 40px;
         float: left;
         padding: 8px;
@@ -138,6 +138,10 @@ body {
         color: black;
         text-align: center;
         margin-top: -49px;
+    }
+    
+    #Afrekenenknop {
+        width: 170px;
     }
     
 }
