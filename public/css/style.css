@@ -131,6 +131,7 @@ body {
     }
     
     #titleText {
+        margin-left:0px;
         margin-bottom: 6px;
         padding-left: 0%;
         padding-right: 0%;
