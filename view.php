@@ -160,6 +160,9 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             $Statement2 = mysqli_prepare($databaseConnection2, $Query);
                             mysqli_stmt_execute($Statement2);
                         }
+                        catch(Exception $e){
+                            print("test");
+                        }
                         
                     }
 
