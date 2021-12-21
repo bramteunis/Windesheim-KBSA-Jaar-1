@@ -156,7 +156,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     foreach ($ReturnableResult2 as $row) {
                         print("Actuele Temperatuur: ".$row["Temperature"]);
                         try{
-                            $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ColdRoomSensorNumber, RecordedWhen, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', 1, '2021-12-12', "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
+                            $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ColdRoomSensorNumber, RecordedWhen, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', 1, "2021-12-12", "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
                             //$Statement2 = mysqli_prepare($databaseConnection2, $Query);
                             //mysqli_stmt_execute($Statement2);
                             debug_to_console($Query);
