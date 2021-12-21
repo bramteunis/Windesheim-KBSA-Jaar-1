@@ -157,8 +157,9 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                         print("Actuele Temperatuur: ".$row["Temperature"]);
                         try{
                             $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
-                            $Statement2 = mysqli_prepare($databaseConnection2, $Query);
-                            mysqli_stmt_execute($Statement2);
+                            //$Statement2 = mysqli_prepare($databaseConnection2, $Query);
+                            //mysqli_stmt_execute($Statement2);
+                            debug_to_console($Query);
                         }
                         catch(Exception $e){
                             print("test");
