@@ -18,5 +18,5 @@ print($Tempnummer);
 $Query = "DELETE FROM coldroomtemperatures WHERE ColdRoomTemperatureID = ".$Tempnummer;
 $Statement2 = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement2);
-
+print($Query);
 ?>
