@@ -19,6 +19,8 @@ $databaseConnection2 = connectToDatabase2();
 <script type="text/javascript" src="//use.typekit.net/uvs8amk.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+<a href='#'>Nieuwste</a>
+
 <?php
   
    
