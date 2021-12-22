@@ -701,3 +701,33 @@ ul#ul-class-price li {
     color: black;
     margin-left: 25%;
 }
+#relatedProductsOuterDiv{
+    width: 49%;
+    border: solid black 2px;
+    margin: 10px;
+    padding: 10px;
+    float: right;
+}
+.relatedProduct{
+    width: 98%;
+    height: 50px;
+    border: solid black 2px;
+    margin: 1%;
+}
+.imgRelatedProductDiv{
+    height: 48px;
+    width: 15%;
+    float: left;
+    color: black;
+    border: solid black 1px;
+    text-align: center;
+    padding: 2%;
+}
+.relatedProductsInfo{
+    height: 100%;
+    width: 60%;
+    float: left;
+}
+.textColor{
+    color: black;
+}

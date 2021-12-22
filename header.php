@@ -19,7 +19,7 @@ $databaseConnection2 = connectToDatabase();//change connectToDatabase to "connec
 
     <!-- Style sheets-->
     //change the "version" of a stylesheet when it is not loading.
-    <link rel="stylesheet" href="public/css/style.css?version=3" type="text/css">
+    <link rel="stylesheet" href="public/css/style.css?version=4" type="text/css">
     <link rel="stylesheet" href="public/css/bootstrap.min.css?version=3" type="text/css">
     <link rel="stylesheet" href="public/css/typekit.css?version=3">
     <meta charset="UTF-8">

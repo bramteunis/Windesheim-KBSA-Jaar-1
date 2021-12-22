@@ -216,8 +216,6 @@ function Get_information($databaseConnection,$artikelnummer){
     }else{
            debug_to_console('verwijderen word geprobeerd maar valt onder else');
     }
-    }
-}
 if($cart != null AND $totaalprijs != 0)
 {
            print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");

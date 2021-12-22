@@ -199,7 +199,6 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 </div>
             </div>
         </div>
-
         <div id="StockItemDescription">
             <h3>Artikel beschrijving</h3>
             <p><?php print $StockItem['SearchDetails']; ?></p>
@@ -235,11 +234,42 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <?php } ?>
                 </table><?php
             } else { ?>
-
                 <p><?php print $StockItem['CustomFields']; ?>.</p>
                 <?php
             }
             ?>
+            //add php foreach function
+            //based on data in the database
+        </div>
+        <div id="relatedProductsOuterDiv">
+            <div class='relatedProduct'>
+                <div class="imgRelatedProductDiv">IMG</div>
+                <div class='relatedProductsInfo'>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="textColor">Artikelnummer</td>
+                                <td class="textColor">Titel</td>
+                                <td class="textColor">Vooraad</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class='relatedProduct'>
+                <div class="imgRelatedProductDiv">IMG</div>
+                <div class='relatedProductsInfo'>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="textColor">Artikelnummer</td>
+                            <td class="textColor">Titel</td>
+                            <td class="textColor">Vooraad</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <?php
     } else {
