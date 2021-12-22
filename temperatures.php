@@ -41,9 +41,9 @@ $databaseConnection2 = connectToDatabase2();
       $percentage1 = round(abs(((33.4 - $temp)/33.4)*100),2);
     
       if($temp < 33.4){
-        print("<div><span>".$row["ValidFrom"]." / ".$row["ValidTo"]."</span><b><i>°</i>".$temp2."</b><small><i>°</i>33,4</small><strong><em class='icon icon-chevron-down'></em>".$percentage1."%</strong><a href='deletetemp.php?nummer='.$row["ColdRoomTemperatureID"];>DELETE</a></div>");
+        print("<div><span>".$row["ValidFrom"]." / ".$row["ValidTo"]."</span><b><i>°</i>".$temp2."</b><small><i>°</i>33,4</small><strong><em class='icon icon-chevron-down'></em>".$percentage1."%</strong><a href='deletetemp.php?nummer='".$row["ColdRoomTemperatureID"];".>DELETE</a></div>");
       }else{
-        print("<div><span>".$row["ValidFrom"]." / ".$row["ValidTo"]."</span><b><i>°</i>".$temp2."</b><small><i>°</i>33,4</small><strong><em class='icon icon-down icon-chevron-up'></em>".$percentage1."%</strong><a href='deletetemp.php?nummer='.$row["ColdRoomTemperatureID"];>DELETE</a></div>");
+        print("<div><span>".$row["ValidFrom"]." / ".$row["ValidTo"]."</span><b><i>°</i>".$temp2."</b><small><i>°</i>33,4</small><strong><em class='icon icon-down icon-chevron-up'></em>".$percentage1."%</strong><a href='deletetemp.php?nummer='".$row["ColdRoomTemperatureID"];".>DELETE</a></div>");
       }
   }
   
