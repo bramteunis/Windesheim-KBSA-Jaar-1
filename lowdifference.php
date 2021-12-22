@@ -24,7 +24,9 @@ $databaseConnection2 = connectToDatabase2();
 <a href='oudstetemperatuur.php' style='float:none'>Oudste</a>
 <a href='highdifference.php' style='float:none'>Hoogste afwijking</a>
 <a href='lowdifference.php' style='float:none;background:#03625a;'>Kleinste afwijking</a>
-
+<br>
+<a href='positivelowdifference.php' style='float:none;margin-top:10px;'>Positieve afwijking</a>
+<a href='negativelowdifference.php' style='float:none;margin-top:10px;'>Negatieve afwijking</a>
 <?php
   
    
