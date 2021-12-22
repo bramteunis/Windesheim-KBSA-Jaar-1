@@ -25,8 +25,8 @@ $databaseConnection2 = connectToDatabase2();
 <a href='highdifference.php' style='float:none;background:#03625a;'>Hoogste afwijking</a>
 <a href='lowdifference.php' style='float:none;'>Kleinste afwijking</a>
 <br>
-<a href='positivehighdifference.php' style='float:none'>Positieve afwijking</a>
-<a href='negativelowdifference.php' style='float:none;'>Negatieve afwijking</a>
+<a href='positivehighdifference.php' style='float:none;margin-top:10px;'>Positieve afwijking</a>
+<a href='negativelowdifference.php' style='float:none;margin-top:10px;'>Negatieve afwijking</a>
 <?php
   
    
