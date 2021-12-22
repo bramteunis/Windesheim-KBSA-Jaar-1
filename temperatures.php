@@ -20,10 +20,10 @@ $databaseConnection2 = connectToDatabase2();
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   
-<a href='#' style='float:none;'>Nieuwste</a>
-<a href='#' style='float:none;'>Oudste</a>
-<a href='#' style='float:none;'>Hoogste afwijking</a>
-<a href='#' style='float:none;'>Kleinste afwijking</a>
+<a href='temperatures.php' style='float:none;background:#03625a;'>Nieuwste</a>
+<a href='oudstetemperatuur.php' style='float:none;'>Oudste</a>
+<a href='highdifference.php' style='float:none;'>Hoogste afwijking</a>
+<a href='lowdifference.php' style='float:none;'>Kleinste afwijking</a>
 
 <?php
   
