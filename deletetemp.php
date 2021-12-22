@@ -16,7 +16,7 @@ if (isset($_GET["nummer"])) {
 print($Tempnummer);
 
 $Query = "DELETE FROM coldroomtemperatures WHERE ColdRoomTemperatureID = ".$Tempnummer;
-$Statement2 = mysqli_prepare($databaseConnection, $Query);
+$Statement2 = mysqli_prepare($databaseConnection2, $Query);
 mysqli_stmt_execute($Statement2);
 print($Query);
 ?>
