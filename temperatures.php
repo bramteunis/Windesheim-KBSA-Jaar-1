@@ -21,6 +21,40 @@ $databaseConnection2 = connectToDatabase2();
 
 <?php
   
+   print('
+               <div class="select-editable">
+                   <form method="POST" action="">
+                       <select name='."Test".$artikelnummer.' onchange="this.nextElementSibling.value=this.value,this.form.submit()">');
+            if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) < $aantalartikel){
+                $aantalartikel = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']);
+                updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
+                echo("<meta http-equiv='refresh' content='1'>");
+            }
+            for($x =$aantalartikel-2; $x<$aantalartikel+6; $x++){
+                $y = $x+ $aantalartikel;
+                if($x>-1){
+                    if($aantalartikel == $x){
+                        $b = $x;
+                        print('<option value='.$x.' selected>'.$x.'</option>');
+                    }else{
+                        print('<option value='.$x.' >'.$x.'</option>');
+                    }
+                }
+
+            }
+            print('</select>
+                        
+                            <input type="text" name="format" value='.$b.'>
+                        
+                   </form>
+               </div>
+               <style>
+                   .select-editable {position:relative; background-color:white; border:solid grey 1px;  width:120px; height:18px;}
+                   .select-editable select {position:absolute; top:0px; left:0px; font-size:14px; border:none; width:120px; margin:0;}
+                   .select-editable input {position:absolute; top:2.5px; left:1px; width:95px; height:99%; padding:1px; font-size:12px; border:none;}
+                   .select-editable select:focus, .select-editable input:focus {outline:none;}
+               </style>');
+  
   $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 400";
   $Statement2 = mysqli_prepare($databaseConnection2, $Query);
   mysqli_stmt_execute($Statement2);
