@@ -26,7 +26,7 @@ $databaseConnection2 = connectToDatabase2();
 <a href='lowdifference.php' style='float:none;'>Kleinste afwijking</a>
 <br>
 <a href='positivehighdifference.php' style='float:none;margin-top:10px;'>Positieve afwijking</a>
-<a href='negativelowdifference.php' style='float:none;margin-top:10px;'>Negatieve afwijking</a>
+<a href='negativehighdifference.php' style='float:none;margin-top:10px;'>Negatieve afwijking</a>
 <?php
   
    
