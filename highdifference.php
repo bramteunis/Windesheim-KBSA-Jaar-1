@@ -29,7 +29,7 @@ $databaseConnection2 = connectToDatabase2();
   
    
   
-  $Query = "SELECT * FROM coldroomtemperatures ORDER BY (Temperature - 33.4) DESC";
+  $Query = "SELECT * FROM coldroomtemperatures ORDER BY abs(Temperature - 33.4) DESC";
   $Statement2 = mysqli_prepare($databaseConnection2, $Query);
   mysqli_stmt_execute($Statement2);
 
