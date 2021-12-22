@@ -13,6 +13,7 @@ if (isset($_GET["nummer"])) {
         $Tempnummer = "Onbekend";
     }
 
+print($Tempnummer);
 
 $Query = "DELETE FROM coldroomtemperatures WHERE ColdRoomTemperatureID = ".$Tempnummer;
 $Statement2 = mysqli_prepare($databaseConnection, $Query);
