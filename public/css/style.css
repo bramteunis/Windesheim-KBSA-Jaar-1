@@ -76,6 +76,12 @@ body {
 }
 
 @media (min-width: 750px) {
+    #artikelnaam{
+        width:90%
+    }
+    #Artikelcartprijs{
+        margin-left: 3%
+    }
     #titleCart {
         margin-left: 1%;
         margin-right: 0%;
@@ -121,6 +127,12 @@ body {
 } 
 
 @media(max-width: 750px) {
+    #artikelnaam{
+        width:190%
+    }
+    #Artikelcartprijs{
+        margin-left: 53%
+    }
     #titleCart {
         margin-left: 1%;
         margin-right: 0%;
