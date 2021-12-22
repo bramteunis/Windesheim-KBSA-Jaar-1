@@ -16,5 +16,5 @@ strong{float:left; display:inline-block; background:#ededed; padding:4px 6px; bo
 .icon{color:#54afa3; font-size:14px; display:inline-block; margin:0 3px 0 0;}
 .icon-down{color:#b14739;}
 
-div{background:#fff; width:662px; margin:0 auto; text-align:left; padding:20px; box-shadow:1px 1px 1px rgba(0,0,0,0.05); height:45px; margin-bottom:3px; border-radius:1px;}
+div{background:#fff; width:700px; margin:0 auto; text-align:left; padding:20px; box-shadow:1px 1px 1px rgba(0,0,0,0.05); height:45px; margin-bottom:3px; border-radius:1px;}
 div:nth-child(even){background:#fafafa}
