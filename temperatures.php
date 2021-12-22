@@ -19,8 +19,11 @@ $databaseConnection2 = connectToDatabase2();
 <script type="text/javascript" src="//use.typekit.net/uvs8amk.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+  
 <a href='#' style='float:none;'>Nieuwste</a>
+<a href='#' style='float:none;'>Oudste</a>
 <a href='#' style='float:none;'>Hoogste afwijking</a>
+<a href='#' style='float:none;'>Kleinste afwijking</a>
 
 <?php
   
