@@ -240,6 +240,7 @@ ul#ul-class-navigation li {
     display: inline;
     font-family: pt-sans, sans-serif;
     font-size: 20px;
+    margin-right: 1em;
     text-decoration: none;
     text-decoration-color: currentcolor;
 
@@ -686,6 +687,7 @@ ul#ul-class-price li {
 #ProductFrame h6 {
     color: white;
 }
+
 
 #PageSelector {
     text-align: center;
