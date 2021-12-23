@@ -13,7 +13,7 @@ function debug_to_console($data) {
 function getCart()
 {
     if(isset($_SESSION['cart']))
-    {               
+    {
       //controleren of winkelmandje (=cart) al bestaat
       $cart = $_SESSION['cart'];                  //zo ja:  ophalen
     } else
@@ -26,14 +26,14 @@ function getCart()
 function saveCart($cart)
 {
     $_SESSION["cart"] = $cart;                  // werk de "gedeelde" $_SESSION["cart"] bij met de meegestuurde gegevens
-    
+
 }
 
 function addProductToCart($stockItemID)
 {
     $cart = getCart();                          // eerst de huidige cart ophalen
     if(array_key_exists($stockItemID, $cart))
-    {  
+    {
       //controleren of $stockItemID(=key!) al in array staat
       $cart[$stockItemID] += 1;                   //zo ja:  aantal met 1 verhogen
     }else
@@ -44,28 +44,31 @@ function addProductToCart($stockItemID)
 }
 function removeProductFromCart($stockItemID)
 {
+    
     $cart = getCart();                          // eerst de huidige cart ophalen
     if(array_key_exists($stockItemID, $cart))
-    {  
+    {
       //controleren of $stockItemID(=key!) al in array staat
       if($cart[$stockItemID] == 1){
       		unset($cart[$stockItemID]);
       }else{
-	      unset($cart[$stockItemID]);   
+	      unset($cart[$stockItemID]);
       }
-      saveCart($cart);     
+      saveCart($cart);
     }else
     {
         $cart[$stockItemID] = 0;                    //zo nee: key toevoegen en aantal op 1 zetten.
     }
     saveCart($cart);                            // werk de "gedeelde" $_SESSION["cart"] bij met de bijgewerkte cart
-     echo "<meta http-equiv='refresh' content='0'>";
+     echo "<meta http-equiv='refresh' content='0.7'>";
 }
     //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 function updateProductFromCart($stockItemID, $newvalue){
-	$cart = getCart();  
+	$cart = getCart();
 	if(array_key_exists($stockItemID, $cart))
+
     {
+
 		$cart[$stockItemID] = $newvalue;
 		saveCart($cart);
 	}

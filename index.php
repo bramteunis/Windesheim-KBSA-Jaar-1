@@ -1,12 +1,8 @@
-<!-- dit is het bestand dat wordt geladen zodra je naar de website gaat en test je dit even? -->
-
 <?php
-include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 $bestverkocht = "SELECT StockItemID, SUM(Quantity) AS TotalQuantity FROM orderlines GROUP BY StockItemID ORDER BY SUM(Quantity) DESC LIMIT 1";
 $Statement = mysqli_prepare($databaseConnection, $bestverkocht);
 mysqli_stmt_execute($Statement);
@@ -16,13 +12,12 @@ foreach ($ReturnableResult as $row) {
     print(($row["StockItemID"]));
 }
 ?>
-
 <div class="underHeadDiv" style="
-    margin-top: 50px;">
+    margin-top: 30px;">
     <i class="fas fa-check" style="color: green"></i>
-    <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen gratis bezorgd</p>
+    <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen bezorgd</p>
     <i class="fas fa-check" style="color: green"></i>
-    <p class="underHeadText"><strong>&nbspGratis</strong> verzending vanaf 20,-</p>
+    <p class="underHeadText"><strong>&nbspGratis</strong> verzending vanaf 50,-</p>
     <i class="fas fa-check" style="color: green"></i>
     <p class="underHeadText"><strong>&nbspGratis</strong> retourneren</p>
 </div>
@@ -31,11 +26,8 @@ foreach ($ReturnableResult as $row) {
     <div class="col-11">
         <div class="TextPrice">
             <a href="view.php?id=138" aria-label="product 1">
-
                 <div class="TextMain">
-
                     FURRY ANIMAL SOCKS (PINK) S
-
                 </div>
                 <ul id="ul-class-price">
                     <li class="HomePagePrice">€69.69</li>
@@ -65,4 +57,3 @@ foreach ($ReturnableResult as $row) {
 <?php
 include __DIR__ . "/footer.php";
 ?>
-

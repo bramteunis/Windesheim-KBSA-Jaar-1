@@ -141,7 +141,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <div class="QuantityText" style="color: red; top:80%; font-size: 150%;";>
                 <?php 
         
-                    $Query = "SELECT Temperature FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
+                    $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
                     $Statement2 = mysqli_prepare($databaseConnection2, $Query);
                     mysqli_stmt_execute($Statement2);
 
@@ -149,6 +149,15 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
                     foreach ($ReturnableResult2 as $row) {
                         print("Actuele Temperatuur: ".$row["Temperature"]);
+                        try{
+                            $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ColdRoomSensorNumber, RecordedWhen, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', 1, "2021-12-12", "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
+                            $Statement2 = mysqli_prepare($databaseConnection, $Query);
+                            mysqli_stmt_execute($Statement2);
+                        }
+                        catch(Exception $e){
+                            $testtest = 1;
+                        }
+                        
                     }
 
                 ?>
@@ -157,8 +166,10 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <?php }
             ?>
             <div id="StockItemHeaderLeft">
+
                 <div id="centerPriceLeftId" >
                     <div id="leftPriceDiv">
+
                         <?php
                         if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
                             foreach ($ReturnableResult as $row) {
@@ -171,22 +182,25 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                         <h6 style="color: black; float: right;margin-top: 1%"=""> Inclusief BTW </h6>
                         <!--<button class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1">Toevoegen Winkelmand</button>
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
+
                     </div>
                     <div id="promptboxDiv">
                         <form id="formInsideView" method="post">
-                            <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
 
+                            <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
                             <?php if($StockItem['QuantityOnHand'] != "Voorraad: 0"){ ?>
                             <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen">
                             <?php } ?>
-
                         </form>
+                        
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
                                 $stockItemID = $_POST["stockItemID"];
+
                                 addProductToCart($stockItemID);
                                 promptBoxView();
                                 //maak gebruik van geïmporteerde functie uit cartfuncties.php
+
                             }
                         ?>
                     </div>

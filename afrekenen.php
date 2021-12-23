@@ -59,6 +59,20 @@ function getCart()
         </form>
     </div>
     <?php
+    $cart = getCart();
+    print("<div id='Pricediv'>");
+        foreach($cart as $artikelnummer => $aantalartikel){
+            $StockItem = getStockItem($artikelnummer, $databaseConnection);
+            print("<div id='CardItems'>");
+                print($StockItem['StockItemName']);
+            print("</div>");
+            print("<div id='CardItemsAmount'>");
+                print($aantalartikel."x");
+            print("</div>");
+        }
+    print("</div>");
+      
+        
     function debug_to_console($data) {
         $output = $data;
         if (is_array($output))
@@ -95,6 +109,7 @@ function getCart()
                            ValidFrom, ValidTo) VALUES ('".$volledigenaam."', 1062, 0, 0, 3, '".$postcode."', '".$postcode."', '".$date."', 0, 0, 
                            0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
                            0, '".$date."', '9999-12-31')";
+
         $Statement = mysqli_prepare($databaseConnection, $Query2);
         mysqli_stmt_execute($Statement);
         
