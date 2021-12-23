@@ -91,6 +91,7 @@ ul#ul-class-navigation li {
     display: inline;
     font-family: pt-sans, sans-serif;
     font-size: 20px;
+    margin-right: 1em;
     text-decoration: none;
     text-decoration-color: currentcolor;
 
@@ -293,7 +294,7 @@ ul#ul-class-navigation li {
     background-image: url("../productimghighres/nerdygadgetslogo1.png");
     width: 188px;
     height: 68px;
-    margin: 20px 20px 20px 25%;
+    margin: 20px 20px 20px 10%;
 }
 ul#ul-class li {
     display: inline;
@@ -524,7 +525,7 @@ ul#ul-class-price li {
 }
 #CategoriesBar {
     position: absolute;
-    left: 280px;
+    left: 200px;
 }
 #PageSelector {
     text-align: center;

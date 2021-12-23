@@ -79,8 +79,8 @@ include __DIR__ . "/header.php";
                            0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
                            0, '".$date."', '9999-12-31')";
                 print($Query2);
-                //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
-                //mysqli_stmt_execute($Statement2);     
+//                $Statement2 = mysqli_prepare($databaseConnection, $Query2);
+//                mysqli_stmt_execute($Statement2);
             }
         ?>
     

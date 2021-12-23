@@ -3,13 +3,12 @@
 <?php
 include __DIR__ . "/header.php";
 ?>
-
 <div class="underHeadDiv" style="
-    margin-top: 50px;">
+    margin-top: 30px;">
     <i class="fas fa-check" style="color: green"></i>
-    <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen gratis bezorgd</p>
+    <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen bezorgd</p>
     <i class="fas fa-check" style="color: green"></i>
-    <p class="underHeadText"><strong>&nbspGratis</strong> verzending vanaf 20,-</p>
+    <p class="underHeadText"><strong>&nbspGratis</strong> verzending vanaf 50,-</p>
     <i class="fas fa-check" style="color: green"></i>
     <p class="underHeadText"><strong>&nbspGratis</strong> retourneren</p>
 </div>
