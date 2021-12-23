@@ -74,5 +74,7 @@ function testFunction()
 {
     debug_to_console("Test");
 }
-
+function berekenVerkoopPrijs($adviesPrijs, $btw) {
+		return $btw * $adviesPrijs / 100 + $adviesPrijs;
+}
 ?>
