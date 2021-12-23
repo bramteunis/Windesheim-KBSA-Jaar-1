@@ -60,6 +60,20 @@ function getCart()
         </form>
     </div>
     <?php
+    $cart = getCart();
+    print("<div id='Pricediv'>");
+        foreach($cart as $artikelnummer => $aantalartikel){
+            $StockItem = getStockItem($artikelnummer, $databaseConnection);
+            print("<div id='CardItems'>");
+                print($StockItem['StockItemName']);
+            print("</div>");
+            print("<div id='CardItemsAmount'>");
+                print($aantalartikel."x");
+            print("</div>");
+        }
+    print("</div>");
+      
+        
     function debug_to_console($data) {
         $output = $data;
         if (is_array($output))

@@ -2,9 +2,20 @@
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+function numberOfDecimals($value)
+    {
+        if ((int)$value == $value)
+        {
+            return 0;
+        }
+        else if (! is_numeric($value))
+        {
+            // throw new Exception('numberOfDecimals: ' . $value . ' is not a number!');
+            return false;
+        }
+
+        return strlen($value) - strrpos($value, '.') - 1;
+    }
 
 function Get_information($databaseConnection,$artikelnummer){
     $Query = "
@@ -26,9 +37,7 @@ function Get_information($databaseConnection,$artikelnummer){
     
     $ReturnableResult = mysqli_stmt_get_result($Statement);
     $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-    foreach ($ReturnableResult as $row) {
-        debug_to_console($row["StockItemID"]);
-    }
+    
     return $ReturnableResult;
 }
 
@@ -48,15 +57,34 @@ function Get_information($databaseConnection,$artikelnummer){
     $value = max($cart);
     if ($cart != null AND $value > 0) { ?>
         <div id="titleCart">
-            <h1 id="titleText">Winkelmand</h1>
+            
             <form action="index.php">
-                <button id="verderWinkelenKnop">Verder winkelen</button></form>
+                <button id="verderWinkelenKnop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" >Verder winkelen</button></form>
+            <h1 id="titleText">Winkelmand</h1>
             <?php
             function testinconsole(){
-                debug_to_console("Test is geslaagd");
+                //debug_to_console("Test is geslaagd");
+                $variable = 1;
             }
-            print('<form method="POST" action="" onsubmit="testinconsole()"><input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen"></form>');
+            print('<form method="POST" action="" onsubmit="testinconsole()"><input id="Afrekenenknop" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="afrekenensubmit" value="Afrekenen" ></form>');
             if(isset($_POST["afrekenensubmit"])){
+                ?>
+                <style>
+                #SubContent {
+                width: 98%;
+                margin-left: -110%;
+                animation-name: example2;
+                animation-duration: 1.5s;
+                }
+                
+                @keyframes example2 {
+                  from {margin-left:0%;}
+                  to {margin-left:-110%;}
+                  animation-fill-mode: forwards;
+                }
+                </style>
+                <?php
+                
                 $cart = getCart();
                 foreach($cart as $artikelnummer => $aantalartikel){
                     $StockItem = getStockItem($artikelnummer, $databaseConnection);
@@ -66,7 +94,7 @@ function Get_information($databaseConnection,$artikelnummer){
                     $Statement2 = mysqli_prepare($databaseConnection, $Query2);
                     mysqli_stmt_execute($Statement2);
                     //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                }print('<meta http-equiv="refresh" content="0; url=WinkemandCreateAccount.php" />');
+                }print('<meta http-equiv="refresh" content="0.8; url=WinkemandCreateAccount.php" />');
                 //header("Refresh:0");
 
             }
@@ -76,43 +104,42 @@ function Get_information($databaseConnection,$artikelnummer){
     <?php }else{
 
         $cart = array();
-        debug_to_console("testover array legen");
 
     } ?>
     <?php
 
     $totaalprijs = 0;
-    $hoogsteverzending = 0;
+    $hoogsteverzending = 7;
     $cart = getCart();
     foreach($cart as $artikelnummer => $aantalartikel)
     {
         if($aantalartikel > 0){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $StockItemImage = getStockItemImage($artikelnummer, $databaseConnection);
-
-            print("<div style='border:2px solid black;margin-top:10px;width:1848px;height:125px;'>");
-            print("<div class='flex-container' style='float:left;width:1500px;height:125px;display:flex;'>");
+            
+            
+            print("<div id='product".$artikelnummer."' class='itemcartcards'>");
+            print("<div class='flex-container' style='float:left;width:40%;height:125px;display:flex; margin-bottom:15px'>");
 
             $ReturnableResult = Get_information($databaseConnection,$artikelnummer);
             foreach ($ReturnableResult as $row) {
                 if ($artikelnummer == $row["StockItemID"]) {
                     if(str_replace(" ", "%20",strtolower($row['ImagePath'])) == "" OR str_replace(" ", "%20",strtolower($row['ImagePath'])) == null){
                         $imagepath = str_replace(" ", "%20",strtolower($row['BackupImagePath']));
-                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath.">");
+                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockgroupimg/".$imagepath." alt='ProductImage'>");
                     }else{
                         $imagepath = str_replace(" ", "%20",strtolower($row['ImagePath']));
-                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath.">");
+                        print ("<img style='float:left;width:110px;height:110px;margin-top:5px;margin-left:5px;'src="."public/stockitemimg/".$imagepath." alt='ProductImage'>");
                     }
 
                 }
             }
-            print ("<h5 style='color:black; margin-left: 50px;margin-top:15px;width:500px;height:50px'>".$StockItem['StockItemName']."</h5>");
-            print("<h5 style='color: black; margin-left: 50px;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
+            print ("<a href='https://kbs.bramteunis.nl/pull4/view.php?id=".$artikelnummer."'><h5 id='Artikelnaam' style='color:black; margin-left: 3%;margin-top:15px;height:50px'>".$StockItem['StockItemName']."</h5>");
+            print("</a><h5 id='Artikelcartprijs' style='color: black;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
             print("</div>");
             print("<div style='float:right;width:344px;height:125px;'>");
             print('<form method="post">
     <div style="width:344px;height:62px;">
-    <input type="number" name="stockItemID" value="print($artikelnummer)" hidden>
 
     <input type="number" name="aantalvanartikelen" value='.$cart[$artikelnummer].' id="rangeInputForm" hidden> </form>');
             //print('<input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."aanpassensubmit".$artikelnummer.' value="Aanpassen">');
@@ -122,7 +149,6 @@ function Get_information($databaseConnection,$artikelnummer){
                     //print("selected aantal van ".$artikelnummer." is => " . (isset($variable))?$variable:'');
                     if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
 
-                        debug_to_console($country[$artikelnummer]);
                         updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                         echo("<meta http-equiv='refresh' content='1'>");
                     }else{
@@ -135,10 +161,8 @@ function Get_information($databaseConnection,$artikelnummer){
                     $country[$artikelnummer]=$_POST["format"];
                     if(str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) >= $country[$artikelnummer]){
 
-                        debug_to_console($country[$artikelnummer]);
                         updateProductFromCart($artikelnummer,$country[$artikelnummer]);
                         echo("<meta http-equiv='refresh' content='1'>");
-                        debug_to_console($cart);
                     }else{
                         updateProductFromCart($artikelnummer,str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']));
                         echo("<meta http-equiv='refresh' content='1'>");
@@ -169,13 +193,15 @@ function Get_information($databaseConnection,$artikelnummer){
 
             }
             print('</select>
-                       <input type="text" name="format" value='.$b.'>
+                        
+                            <input type="text" name="format" value='.$b.'>
+                        
                    </form>
                </div>
                <style>
                    .select-editable {position:relative; background-color:white; border:solid grey 1px;  width:120px; height:18px;}
                    .select-editable select {position:absolute; top:0px; left:0px; font-size:14px; border:none; width:120px; margin:0;}
-                   .select-editable input {position:absolute; top:0px; left:0px; width:100px; padding:1px; font-size:12px; border:none;}
+                   .select-editable input {position:absolute; top:2.5px; left:1px; width:95px; height:99%; padding:1px; font-size:12px; border:none;}
                    .select-editable select:focus, .select-editable input:focus {outline:none;}
                </style>');
 
@@ -188,9 +214,12 @@ function Get_information($databaseConnection,$artikelnummer){
                 foreach ($ReturnableResult as $row) {
                     if ($artikelnummer == $row["StockItemID"]) {
                         $totaalprijs += $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
-                        print("<h6 style='color:black;width:140px;height:30px;float:right;margin-top:10px;margin-right:10px;align-content:center;'> €". $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']))."</h6>");
+                        $prijs = $cart[$artikelnummer] * sprintf('%0.2f', berekenVerkoopPrijs($row['RecommendedRetailPrice'], $row['TaxRate']));
+                        if(numberOfDecimals($prijs) == 1){$prijs = $prijs."0";}
+                        $prijs = str_replace(".",",",$prijs);
+                        print("<h6 style='color:black;width:140px;height:30px;float:right;margin-right:1%;align-content:center;font-size: 140%;'> € ".$prijs."</h6>");
                         //print("<h1 style='color:black;'>".$row['MarketingComments']."</h1>");
-                        if(str_replace("Verzendkosten:", "",$row["SendCosts"])  > $hoogsteverzending){
+                        if(str_replace("Verzendkosten:", "",$row["SendCosts"])  < $hoogsteverzending){
                             $hoogsteverzending = str_replace("Verzendkosten:", "",$row["SendCosts"]);
 
                         }
@@ -204,17 +233,37 @@ function Get_information($databaseConnection,$artikelnummer){
     <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name='."submit".$artikelnummer.' value="Verwijderen">
     </form>');
             print("</div>");
-            print("</div>");
+            
+            
             if (isset($_POST["submit".$artikelnummer])) {              // zelfafhandelend formulier
                 $stockItemID = $artikelnummer;
-                removeProductFromCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-
+                
+                
+                
+                ?>
+                <style>
+                #product<?php print($artikelnummer); ?> {
+                margin-left:-110%;
+                animation-name: example;
+                animation-duration: 1.5s;
+                }
+                
+                @keyframes example {
+                  from {margin-left:0%;}
+                  to {margin-left:-110%;}
+                  animation-fill-mode: forwards;
+                }
+                </style>
+                <?php
+                removeProductFromCart($stockItemID);
             }else{
-                debug_to_console('verwijderen word geprobeerd maar valt onder else');
+                $variable233444=1;
             }
+            print("</div>");
         }
     }
     
+
     function numberOfDecimals($value)
     {
         if ((int)$value == $value)
@@ -231,15 +280,69 @@ function Get_information($databaseConnection,$artikelnummer){
     }
 
 
+
     if($cart != null AND $totaalprijs != 0)
 
     {
-        print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
-        print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
-        $totaal = $totaalprijs + $hoogsteverzending;
-        print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
-        printf("<h1 style='color:black'>Testing [%s] : %d decimals </h1>", $totaalprijs, numberOfDecimals($totaalprijs));
+        if(numberOfDecimals($totaalprijs) == 1){$totaalprijs = $totaalprijs."0";}
+        print("<div id='Totaalprijs'>");
         
+        print("Totaalprijs: ");
+        
+        
+        print("<div id='Totaalprijs-prijs'>");
+        if(numberOfDecimals($totaalprijs) == 0){$totaalprijs = $totaalprijs.".00";}
+        $totaalprijs2 = str_replace(".",",",$totaalprijs);
+        print("€  ".$totaalprijs2);
+        print("</div>");
+        
+        print("<br>");
+        if($totaalprijs > 50){$hoogsteverzending=0;}
+        print("Verzendkosten: ");
+        
+        
+        print("<div id='Totaalprijs-prijs'>");
+        if($hoogsteverzending  != 0){
+            if($totaalprijs<100){
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€    ".$hoogsteverzending2);
+            }elseif($totaalprijs>999){
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€      ".$hoogsteverzending2);
+            }else{
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€     ".$hoogsteverzending2);
+            }
+        }else{
+            if($totaalprijs<99){
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€         ".$hoogsteverzending2);
+            }elseif($totaalprijs>999){
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€             ".$hoogsteverzending2);
+            }else{
+                $hoogsteverzending2 = str_replace(".",",",$hoogsteverzending);
+                print("€           ".$hoogsteverzending2);
+            }
+        }
+            
+        print("</div>");
+        
+        print("<br>");
+        $totaal = $totaalprijs + $hoogsteverzending;
+
+        print("Totaal: ");
+        
+        
+        
+        print("<div id='Totaalprijs-prijs' style='font-weight: bold;'>");
+        if(numberOfDecimals($totaal) == 1){$totaal = $totaal."0";}
+        if(numberOfDecimals($totaal) == 0){$totaal = $totaal.",00";}
+        $totaal = str_replace(".",",",$totaal);
+        print("€ ".$totaal);
+        print("</div>");
+        print("</div>");
+
     }else
     {
 

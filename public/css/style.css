@@ -28,6 +28,155 @@ body {
   background-color: #f44336;
   color: white;
 }
+.itemcartcards{
+    border: blue;
+    margin-top:10px;
+    width:100%;
+    height: 20%;
+    border-style: double;
+    border-radius: 10px;
+    padding: 7px; 
+    box-shadow: 5px 10px 18px #888888; 
+    margin-bottom: 1%; 
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%);
+}
+
+#Pricediv{
+    color: black;
+    border: blue;
+    border-style: double;
+    border-radius: 10px;
+    width: 35%;
+    height: 40%;
+    margin-left: 60%;
+    position: absolute;
+    margin-top: -30%;
+}
+#CardItems{
+    border-bottom: solid rgba(7, 0, 132, 1);
+    padding: 6px;
+    width: 80%;
+    display: inline;
+}
+#CardItemsAmount{
+    width: 20%;
+    float: right;
+}
+
+@media (min-width: 750px) {
+    #Afrekenenknop{
+        margin-top: -50px;
+    }
+} 
+
+@media(max-width: 750px) {
+    #Afrekenenknop{
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 750px) {
+    #Artikelnaam{
+        width:90%
+    }
+    #Artikelcartprijs{
+        margin-left: 3%
+    }
+    #titleCart {
+        margin-left: 1%;
+        margin-right: 0%;
+        margin-bottom: 1%;
+        margin-top: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 98%;
+        height: 20%;
+    }
+    #verderWinkelenKnop {
+        margin-left: 0%;
+        width: 190px;
+        height: 40px;
+        float: left;
+        padding: 8px;
+        margin-top: 1px;
+    }
+    #titleText {
+        margin-bottom: 1%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        color: black;
+        text-align: center;
+        margin-left: 35%;
+        margin-right: 0px;
+        width: 10px;
+        }
+    #LogoImage {
+        background-image: url(../productimghighres/nerdygadgetslogo1.png); 
+        width: 188px;
+        height: 68px; 
+        margin: 20px 20px 20px 25%; 
+    }
+    #CategoriesBar {
+        position: absolute;
+        left: 280px;
+    }
+} 
+
+@media(max-width: 750px) {
+    #Artikelnaam{
+        width:190%
+    }
+    #Artikelcartprijs{
+        margin-left: 53%
+    }
+    #titleCart {
+        margin-left: 1%;
+        margin-right: 0%;
+        margin-bottom: 1%;
+        margin-top: 30px;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 98%;
+        height: 20%;
+    }
+    
+    #verderWinkelenKnop {
+        margin-left: 0%;
+        width: 160px;
+        height: 40px;
+        float: left;
+        padding: 8px;
+        margin-top: 24px;
+    }
+    
+    #titleText {
+        margin-bottom: 6px;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-bottom: 0%;
+        color: black;
+        text-align: center;
+        margin-top: -49px;
+    }
+    
+    #Afrekenenknop {
+        width: 160px;
+    }
+    #LogoImage {
+        width: 0px;
+    }
+    #CategoriesBar {
+        position: absolute;
+        left: -25px;
+    }
+}
+
 
 .closebtn {
   margin-left: 15px;
@@ -204,7 +353,27 @@ ul#ul-class-navigation li {
 .Hovershadowbutton:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }  
-
+#Totaalprijs {
+    border: blue;
+    margin-top: 40px;
+    border-style: double;
+    padding: 1%;
+    border-radius: 10px;
+    color: black;
+    margin-right: 0px;
+    width: 350px;
+    margin-left: auto;
+    background-color: aliceblue;
+    font-size: 140%;
+    box-shadow: 5px 10px 18px #888888;
+    margin-bottom: 50px;
+}
+#Totaalprijs-prijs {
+    display: inline;
+    float: right;
+    margin-right: 3%;
+    white-space: pre;
+}
 #VideoFrame {
     width: 100%;
     height: 350px;
@@ -285,16 +454,11 @@ ul#ul-class-navigation li {
     position: absolute;
 }
 #LogoA {
-    height: 200px;
+    height: 100%;
     width: 100%;
     position: absolute;
 }
-#LogoImage {
-    background-image: url("../productimghighres/nerdygadgetslogo1.png");
-    width: 188px;
-    height: 68px;
-    margin: 20px 20px 20px 25%;
-}
+
 ul#ul-class li {
     display: inline;
     color: black;
@@ -522,10 +686,7 @@ ul#ul-class-price li {
 #ProductFrame h6 {
     color: white;
 }
-#CategoriesBar {
-    position: absolute;
-    left: 280px;
-}
+
 #PageSelector {
     text-align: center;
     margin: 20px;
@@ -553,38 +714,7 @@ ul#ul-class-price li {
     display: flex;
     flex-direction: column;
 }
-#titleCart{
-    margin-left: 1%;
-    margin-right: 0%;
-    margin-bottom: 1%;
-    margin-top: 0%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    width: 98%;
-    height: 20%;
-}
-#titleText{
-    margin-left: 0%;
-    margin-bottom: 1%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: black;
-}
-#verderWinkelenKnop{
-    margin-left: 0%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    width: 10%;
-    height: 35%;
-    float: left;
 
-}
 #AfrekenenKnop{
     margin-right: 0%;
     padding-left: 0%;

@@ -147,7 +147,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <div class="QuantityText" style="color: red; top:80%; font-size: 150%;";>
                 <?php 
         
-                    $Query = "SELECT Temperature FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
+                    $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
                     $Statement2 = mysqli_prepare($databaseConnection2, $Query);
                     mysqli_stmt_execute($Statement2);
 
@@ -155,6 +155,15 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
                     foreach ($ReturnableResult2 as $row) {
                         print("Actuele Temperatuur: ".$row["Temperature"]);
+                        try{
+                            $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ColdRoomSensorNumber, RecordedWhen, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', 1, "2021-12-12", "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
+                            $Statement2 = mysqli_prepare($databaseConnection, $Query);
+                            mysqli_stmt_execute($Statement2);
+                        }
+                        catch(Exception $e){
+                            $testtest = 1;
+                        }
+                        
                     }
 
                 ?>
