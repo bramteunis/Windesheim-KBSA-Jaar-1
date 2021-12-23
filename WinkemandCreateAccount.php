@@ -70,7 +70,7 @@ button {
 button:hover {
   opacity: 0.6;
 }
-
+<?php //welke pagina is dit? ?>
 </style>
 </head>
 <body>

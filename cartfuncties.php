@@ -82,5 +82,6 @@ function promptBoxView(){
     print("<p id='promptBoxKnop'><a href='cart.php'>ja</a></p>");
     print("</div>");
     debug_to_console("view.php test");
+
 }
 ?>

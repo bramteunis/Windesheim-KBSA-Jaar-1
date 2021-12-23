@@ -41,13 +41,9 @@ $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
-
-
-
-    
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
+//$relatedStockItem = getRelatedStockItem($_GET['id'], $databaseConnection);
 ?>
 <div id="CenteredContent">
     <?php
@@ -61,8 +57,6 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             </div>
         <?php }
         ?>
-
-
         <div id="ArticleHeader">
             <?php
             if (isset($StockItemImage)) {
@@ -183,7 +177,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
 
                             <?php if($StockItem['QuantityOnHand'] != "Voorraad: 0"){ ?>
-                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
+                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen">
                             <?php } ?>
 
                         </form>
@@ -237,11 +231,15 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <p><?php print $StockItem['CustomFields']; ?>.</p>
                 <?php
             }
-            ?>
+
             //add php foreach function
             //based on data in the database
+            ?>
         </div>
         <div id="relatedProductsOuterDiv">
+            <?php
+                //foreach ($relatedStockItem as $rsi){
+            ?>
             <div class='relatedProduct'>
                 <div class="imgRelatedProductDiv">IMG</div>
                 <div class='relatedProductsInfo'>
@@ -256,6 +254,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     </table>
                 </div>
             </div>
+            <?php //} ?>
             <div class='relatedProduct'>
                 <div class="imgRelatedProductDiv">IMG</div>
                 <div class='relatedProductsInfo'>

@@ -39,7 +39,6 @@ $databaseConnection2 = connectToDatabase();//change connectToDatabase to "connec
             <ul id="ul-class">
                 <?php
                 $HeaderStockGroups = getHeaderStockGroups($databaseConnection);
-
                 foreach ($HeaderStockGroups as $HeaderStockGroup) {
                     ?>
                     <li>

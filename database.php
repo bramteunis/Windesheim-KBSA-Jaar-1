@@ -100,4 +100,14 @@ function getStockItemImage($id, $databaseConnection) {
     return $R;
 
 }
+function getRelatedStockItem($id, $databaseConnection){
+    $Query = "";
+
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    mysqli_stmt_bind_param($Statement, "i", $id);
+    mysqli_stmt_execute($Statement);
+    $relatedStockItem = mysqli_stmt_get_result($Statement);
+
+    return $relatedStockItem;
+}
 

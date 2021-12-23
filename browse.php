@@ -14,14 +14,12 @@ function debug_to_console($data) {
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
-
 $ReturnableResult = null;
 $Sort = "SellPrice";
         $SortName = "price_low_high";
 
 $AmountOfPages = 0;
 $queryBuildResult = "";
-
 
 if (isset($_GET['category_id'])) {
     $CategoryID = $_GET['category_id'];

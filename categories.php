@@ -3,7 +3,6 @@
 
 include __DIR__ . "/header.php";
 $StockGroups = getStockGroups($databaseConnection);
-
 ?>
 <div id="Wrap">
     <?php if (isset($StockGroups)) {
