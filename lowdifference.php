@@ -10,7 +10,7 @@ $databaseConnection2 = connectToDatabase2();
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Carrier listing</title>
+  <title>Temperaturen</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
 
 </head>
