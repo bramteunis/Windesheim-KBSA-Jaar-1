@@ -264,7 +264,21 @@ function Get_information($databaseConnection,$artikelnummer){
     }
     
 
-    
+    function numberOfDecimals($value)
+    {
+        if ((int)$value == $value)
+        {
+            return 0;
+        }
+        else if (! is_numeric($value))
+        {
+            // throw new Exception('numberOfDecimals: ' . $value . ' is not a number!');
+            return false;
+        }
+
+        return strlen($value) - strrpos($value, '.') - 1;
+    }
+
 
 
     if($cart != null AND $totaalprijs != 0)
@@ -316,6 +330,7 @@ function Get_information($databaseConnection,$artikelnummer){
         
         print("<br>");
         $totaal = $totaalprijs + $hoogsteverzending;
+
         print("Totaal: ");
         
         
@@ -327,6 +342,7 @@ function Get_information($databaseConnection,$artikelnummer){
         print("€ ".$totaal);
         print("</div>");
         print("</div>");
+
     }else
     {
 
