@@ -81,7 +81,10 @@ function berekenVerkoopPrijs($adviesPrijs, $btw) {
 		return $btw * $adviesPrijs / 100 + $adviesPrijs;
 }
 function promptBoxView(){
-    print("<div id='promptBox'> wilt u doorgaan naar afrekenen? Y/N </div>");
+    print("<div id='promptBox'> wilt u doorgaan naar afrekenen?");
+    print("<p id='promptBoxKnop'><a href='cart.php'>ja</a></p>");
+    print("</div>");
     debug_to_console("view.php test");
+
 }
 ?>
