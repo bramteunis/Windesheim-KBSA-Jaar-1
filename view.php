@@ -41,13 +41,9 @@ $Statement = mysqli_prepare($databaseConnection, $Query);
 mysqli_stmt_execute($Statement);
 $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-
-
-
-
-    
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
+//$relatedStockItem = getRelatedStockItem($_GET['id'], $databaseConnection);
 ?>
 <div id="CenteredContent">
     <?php
@@ -154,7 +150,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     $ReturnableResult2 = mysqli_stmt_get_result($Statement2);
                     $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
                     foreach ($ReturnableResult2 as $row) {
-                        print("<a href='temperatures.php' style='color:red;'> Actuele Temperatuur: ".$row["Temperature"]."</a>");
+                        print("Actuele Temperatuur: ".$row["Temperature"]);
                         try{
                             $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ColdRoomSensorNumber, RecordedWhen, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', 1, "2021-12-12", "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
                             $Statement2 = mysqli_prepare($databaseConnection, $Query);
@@ -196,7 +192,9 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
                                 $stockItemID = $_POST["stockItemID"];
-                                addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+                                addProductToCart($stockItemID);
+                                promptBoxView();
+                                // maak gebruik van geïmporteerde functie uit cartfuncties.php
                                 
                             }
                         ?>
@@ -204,7 +202,6 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 </div>
             </div>
         </div>
-
         <div id="StockItemDescription">
             <h3>Artikel beschrijving</h3>
             <p><?php print $StockItem['SearchDetails']; ?></p>
@@ -245,6 +242,40 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <?php
             }
             ?>
+        </div>
+    <div id="relatedProductsOuterDiv">
+            <?php
+                //foreach ($relatedStockItem as $rsi){
+            ?>
+            <div class='relatedProduct'>
+                <div class="imgRelatedProductDiv">IMG</div>
+                <div class='relatedProductsInfo'>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="textColor">Artikelnummer</td>
+                                <td class="textColor">Titel</td>
+                                <td class="textColor">Vooraad</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <?php //} ?>
+            <div class='relatedProduct'>
+                <div class="imgRelatedProductDiv">IMG</div>
+                <div class='relatedProductsInfo'>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="textColor">Artikelnummer</td>
+                            <td class="textColor">Titel</td>
+                            <td class="textColor">Vooraad</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <?php
     } else {
