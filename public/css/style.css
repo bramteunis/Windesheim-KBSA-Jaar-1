@@ -182,8 +182,8 @@ ul#ul-class-navigation li {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    width:80%;
-    height:40%;
+    width:190px;
+    height:40px;
     margin-top: 10px;
     float: right;
 }
