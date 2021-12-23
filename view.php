@@ -157,15 +157,11 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
                         <form method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-<<<<<<< HEAD
-                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
-                        </form>
-=======
->>>>>>> 1f0bd45e880d58df7a9425b2703eadfa53bbdee8
 
                             <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
-
                         </form>
+
+
                         
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
@@ -225,3 +221,55 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
         ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php
     } ?>
 </div>
+
+<div>
+    <br> <h2 style="color:black;top:650px;left:310px;position:absolute;"> Reviews</h2> <br>
+</div>
+
+
+
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="center">
+        <div class="stars">
+            <input type="radio" id="five" name="rate" value="5">
+            <label for="five"></label>
+            <input type="radio" id="four" name="rate" value="4">
+            <label for="four"></label>
+            <input type="radio" id="three" name="rate" value="3">
+            <label for="three"></label>
+            <input type="radio" id="two" name="rate" value="2">
+            <label for="two"></label>
+            <input type="radio" id="one" name="rate" value="1">
+            <label for="one"></label>
+            <span class="result"></span>
+        </div>
+    </div>
+    </body>
+    </html>
+
+    <section id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="comment">
+                        <p v-for="items in item" v-text="items"></p>
+                    </div><!--End Comment-->
+                </div><!--End col -->
+            </div><!-- End row -->
+            <div class="row">
+                <div class="col-6">
+                    <textarea type="text" class="input" placeholder="Schrijf een review"  v-model="newItem" @keyup.enter="addItem()"></textarea>
+                    <button v-on:click="addItem()" class='primaryContained' type="submit">Plaats review</button>
+                </div><!-- End col -->
+            </div><!--End Row -->
+        </div><!--End Container -->
+    </section><!-- end App -->
+
+
+</body>
+</html>
