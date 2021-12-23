@@ -50,7 +50,7 @@ body {
     height: 40%;
     margin-left: 60%;
     position: absolute;
-    margin-top: -30%;
+    margin-top: 0px;
 }
 #CardItems{
     border-bottom: solid rgba(7, 0, 132, 1);
