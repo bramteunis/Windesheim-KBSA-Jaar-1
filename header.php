@@ -52,7 +52,7 @@ $databaseConnection = connectToDatabase();
                 </li>
             </ul>
         </div>
-<!----- code voor US3: zoeken. ----->
+<!-- code voor US3: zoeken. -->
         <ul id="ul-class-navigation">
             <li>
                 <a href="cart.php" class="HrefDecoration"><i class="fas fa-shopping-cart"></i></a>
@@ -64,7 +64,7 @@ $databaseConnection = connectToDatabase();
                 <a href="account.php" class="HrefDecoration"><i class="fas fa-user-circle"></i> Inloggen</a>
             </li>
         </ul>
-<!----- einde code voor US3 zoeken. ----->
+<!-- einde code voor US3 zoeken. -->
     </div>
     <div class="row" id="Content">
         <div class="col-12">
