@@ -150,7 +150,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     $ReturnableResult2 = mysqli_stmt_get_result($Statement2);
                     $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
                     foreach ($ReturnableResult2 as $row) {
-                        print("<a href='temperatures.php'>Actuele Temperatuur: ".$row["Temperature"]."</a>");
+                        print("<a href='temperatures.php' style='color:red;'>Actuele Temperatuur: ".$row["Temperature"]."</a>");
                         try{
                             $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ColdRoomSensorNumber, RecordedWhen, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', 1, "2021-12-12", "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
                             $Statement2 = mysqli_prepare($databaseConnection, $Query);
