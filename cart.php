@@ -134,7 +134,7 @@ function Get_information($databaseConnection,$artikelnummer){
 
                 }
             }
-            print ("<a href='https://kbs.bramteunis.nl/pull4/view.php?id=".$artikelnummer."'><h5 id='Artikelnaam' style='color:black; margin-left: 3%;margin-top:15px;height:50px'>".$StockItem['StockItemName']."</h5>");
+            print ("<a href='/view.php?id=".$artikelnummer."'><h5 id='Artikelnaam' style='color:black; margin-left: 3%;margin-top:15px;height:50px'>".$StockItem['StockItemName']."</h5>");
             print("</a><h5 id='Artikelcartprijs' style='color: black;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
             print("</div>");
             print("<div style='float:right;width:344px;height:125px;'>");
