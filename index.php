@@ -84,7 +84,7 @@ function Get_information($databaseConnection,$artikelnummer){
                     <?php print($BSTDES); ?>
                 </div>
                 <ul id="ul-class-price">
-                    <li class="HomePagePrice"><?php print("$"); print $BSTPRICE ?></li>
+                    <li class="HomePagePrice"><?php print("€"); print $BSTPRICE ?></li>
                 </ul>
         </div>
         </a>
@@ -100,7 +100,7 @@ function Get_information($databaseConnection,$artikelnummer){
                     DBA JOKE MUG<br>- IT DEPENDS (BLACK)
                 </div>
                 <ul id="ul-class-price">
-                    <li class="HomePagePrice">21.50</li>
+                    <li class="HomePagePrice">€21.50</li>
                 </ul>
         </div>
         </a>
