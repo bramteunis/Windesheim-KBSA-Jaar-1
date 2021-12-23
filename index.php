@@ -3,8 +3,10 @@
 <?php
 include __DIR__ . "/header.php";
 ?>
+
 <div class="underHeadDiv" style="
     margin-top: 30px;">
+
     <i class="fas fa-check" style="color: green"></i>
     <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen bezorgd</p>
     <i class="fas fa-check" style="color: green"></i>
@@ -51,4 +53,3 @@ include __DIR__ . "/header.php";
 <?php
 include __DIR__ . "/footer.php";
 ?>
-

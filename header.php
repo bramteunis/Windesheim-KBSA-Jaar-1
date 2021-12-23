@@ -3,6 +3,7 @@
 session_start();
 include "database.php";
 $databaseConnection = connectToDatabase();
+$databaseConnection2 = connectToDatabase2();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,20 +42,21 @@ $databaseConnection = connectToDatabase();
                 foreach ($HeaderStockGroups as $HeaderStockGroup) {
                     ?>
                     <li>
-                        <a href="browse.php?category_id=<?php print $HeaderStockGroup['StockGroupID']; ?>"
+                        <a aria-label="Winkelkar" href="browse.php?category_id=<?php print $HeaderStockGroup['StockGroupID']; ?>"
                            class="HrefDecoration"><?php print $HeaderStockGroup['StockGroupName']; ?></a>
                     </li>
                     <?php
                 }
                 ?>
                 <li>
-                    <a href="categories.php" class="HrefDecoration">Alle categorieën</a>
+                    <a href="categories.php" class="HrefDecoration" aria-label="Winkelkar">Alle categorieën</a>
                 </li>
             </ul>
         </div>
 <!-- code voor US3: zoeken. -->
         <ul id="ul-class-navigation">
             <li>
+
                 <a href="cart.php" class="HrefDecoration"><i class="fas fa-shopping-cart"></i></a>
             </li>
             <li>
@@ -62,6 +64,7 @@ $databaseConnection = connectToDatabase();
             </li>
             <li>
                 <a href="account.php" class="HrefDecoration"><i class="fas fa-user-circle"></i> Inloggen</a>
+
             </li>
         </ul>
 <!-- einde code voor US3 zoeken. -->
