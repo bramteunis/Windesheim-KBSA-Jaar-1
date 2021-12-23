@@ -17,7 +17,6 @@ function getCart()
     }
     return $cart;                               // resulterend winkelmandje terug naar aanroeper functie
 }
-
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -156,11 +155,7 @@ function getCart()
         //mysqli_stmt_execute($Statement2);
     }
     ?>
-
     </body>
     </html>
-
 <?php
-
-
 ?>

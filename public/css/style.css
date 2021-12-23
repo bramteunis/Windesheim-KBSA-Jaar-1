@@ -335,6 +335,7 @@ ul#ul-class-navigation li {
     width:190px;
     height:40px;
     margin-top: 10px;
+    float: right;
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 
@@ -383,8 +384,7 @@ ul#ul-class-navigation li {
 }
 #ArticleHeader {
     width: 100%;
-    height: 300px;
-    position: relative
+    height: 60%;
 }
 #ImageFrame {
     width: 300px;
@@ -400,24 +400,18 @@ ul#ul-class-navigation li {
 #StockItemHeaderLeft {
     float: right;
     text-align: right;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 300px;
+    height: 50%;
+    width: 100%;
 }
 
 .StockItemNameViewSize {
     font-size: 35px !important;
 }
 .CenterPriceLeft {
-    position: absolute;
-    height: 100%;
-    right: 0;
-    width: 200px;
+    height: 50%;
+    width: 100%;
 }
 .CenterPriceLeftChild {
-    position: relative;
-    top: 40%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -616,7 +610,10 @@ ul#ul-class-price li {
     font-size: 22px;
     text-transform: uppercase;
     font-weight: bold;
-    margin-top: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 10%;
+    float: left;
 }
 .StockItemPriceText:hover {
     text-decoration: none;
@@ -645,6 +642,7 @@ ul#ul-class-price li {
 #CenteredContent {
     margin: 0 auto;
     width: 70%;
+    height: 100%;
     padding-top: 10px;
 }
 .carousel-inner img {
@@ -787,26 +785,78 @@ ul#ul-class-price li {
 }
 #SubContent{
     width: 98%;
+    height: 100%;
     margin-right:2%;
 }
-
-.underHeadText {
+#promptBox{
+    border: solid 2px black;
+    height: 100%;
+    width: 50%;
+    float: left;
     color: black;
+    margin-right: 3%;
+    margin-left: 3%;
+    background-color: #d3d3d345;
+}
+#formInsideView{
+    width: 50%;
+    height: 100%;
+    float: right;
+    align-content: center;
+}
+#centerPriceLeftId{
+    width: 100%;
+    height: 50%;
+}
+#promptboxDiv{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    float: right;
+}
+#leftPriceDiv{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    float: right;
+    width: 15%;
+    height: 50%;
+}
+#promptBoxKnop{
+    width: 25%;
+    height: 25%;
+    color: black;
+    margin-left: 25%;
+}
+#relatedProductsOuterDiv{
+    width: 49%;
+    border: solid black 2px;
+    margin: 10px;
+    padding: 10px;
+    float: right;
+}
+.relatedProduct{
+    width: 98%;
+    height: 50px;
+    border: solid black 2px;
+    margin: 1%;
+}
+.imgRelatedProductDiv{
+    height: 48px;
+    width: 15%;
+    float: left;
+    color: black;
+    border: solid black 1px;
     text-align: center;
-    display: inline-block;
+    padding: 2%;
 }
-
-.underHeadDiv {
-    display: table;
-    margin: 0 auto;
-    margin-top: -45px;
+.relatedProductsInfo{
+    height: 100%;
+    width: 60%;
+    float: left;
 }
+.textColor{
+    color: black;
 
-p {
-    margin-right: 10px;
-}
-
-hr {
-    background-color: black;
-    width: 75%;
 }

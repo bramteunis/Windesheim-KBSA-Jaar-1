@@ -3,7 +3,7 @@
 session_start();
 include "database.php";
 $databaseConnection = connectToDatabase();
-$databaseConnection2 = connectToDatabase2();
+$databaseConnection2 = connectToDatabase2();//change connectToDatabase to "connectToDatabase2" for full implementation.
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +18,10 @@ $databaseConnection2 = connectToDatabase2();
     <script src="public/js/resizer.js"></script>
 
     <!-- Style sheets-->
-    <link rel="stylesheet" href="public/css/style.css" type="text/css">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/typekit.css">
+    //change the "version" of a stylesheet when it is not loading.
+    <link rel="stylesheet" href="public/css/style.css?version=4" type="text/css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css?version=3" type="text/css">
+    <link rel="stylesheet" href="public/css/typekit.css?version=3">
     <meta charset="UTF-8">
     <meta name="theme-color" content="#999999" />
     <meta name="description" content="Nerdygadgets">
@@ -38,7 +39,6 @@ $databaseConnection2 = connectToDatabase2();
             <ul id="ul-class">
                 <?php
                 $HeaderStockGroups = getHeaderStockGroups($databaseConnection);
-
                 foreach ($HeaderStockGroups as $HeaderStockGroup) {
                     ?>
                     <li>
