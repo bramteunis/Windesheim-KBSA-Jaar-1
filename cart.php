@@ -194,7 +194,7 @@ function Get_information($databaseConnection,$artikelnummer){
             }
             print('</select>
                         
-                            <input type="text" name="format" value='.$b.'>
+                            <input type="text" name="format" value='.$b.' pattern="[0-9-]">
                         
                    </form>
                </div>
