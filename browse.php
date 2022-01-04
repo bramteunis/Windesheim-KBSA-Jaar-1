@@ -202,7 +202,7 @@ if (isset($amount)) {
     <form>
         <div id="FilterOptions">
             <h4 class="FilterTopMargin"><i class="fas fa-search"></i> Zoeken</h4>
-            <input type="text" name="search_string" id="search_string"
+            <input type="text" name="search_string" id="search_string" pattern="[a-zA-Z0-9-]+.{1,}"
                    value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
                    class="form-submit">
             <h4 class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</h4>
