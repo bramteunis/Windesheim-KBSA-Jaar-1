@@ -143,7 +143,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <div class="QuantityText" style="color: red; top:80%; font-size: 150%;";>
                 <?php 
         
-                    $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
+                    $Query = "SELECT MAX(ColdRoomTemperatureID),ColdRoomSensorNumber,Temperature,ValidFrom,ValidTo  FROM coldroomtemperatures ";
                     $Statement2 = mysqli_prepare($databaseConnection2, $Query);
                     mysqli_stmt_execute($Statement2);
 
