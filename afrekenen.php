@@ -87,6 +87,16 @@ function getCart()
     }
     //print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
     if(isset($_POST["afrekenensubmit2"])){
+        $cart = getCart();
+        foreach($cart as $artikelnummer => $aantalartikel){
+            $StockItem = getStockItem($artikelnummer, $databaseConnection);
+            $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
+
+            $Query2 = "START TRANSACTION;UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
+            $Statement2 = mysqli_prepare($databaseConnection, $Query2);
+            mysqli_stmt_execute($Statement2);
+            //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
+
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
         $postcode = $_POST["postcode"];
