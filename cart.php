@@ -85,15 +85,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 </style>
                 <?php
                 
-                $cart = getCart();
-                foreach($cart as $artikelnummer => $aantalartikel){
-                    $StockItem = getStockItem($artikelnummer, $databaseConnection);
-                    $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
-
-                    $Query2 = "START TRANSACTION;UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
-                    $Statement2 = mysqli_prepare($databaseConnection, $Query2);
-                    mysqli_stmt_execute($Statement2);
-                    //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
+                //test
                 }print('<meta http-equiv="refresh" content="0.8; url=WinkemandCreateAccount.php" />');
                 //header("Refresh:0");
 
