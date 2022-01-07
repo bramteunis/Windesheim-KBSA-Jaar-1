@@ -84,7 +84,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 }
                 </style>
                 <?php
-                
+                print("test");
                 //test
                 }print('<meta http-equiv="refresh" content="0.8; url=WinkemandCreateAccount.php" />');
                 //header("Refresh:0");
