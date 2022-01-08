@@ -41,16 +41,7 @@ body {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%);
 }
 
-#CardItems{
-    border-bottom: solid rgba(7, 0, 132, 1);
-    padding: 6px;
-    width: 80%;
-    display: inline;
-}
-#CardItemsAmount{
-    width: 20%;
-    float: right;
-}
+
 
 @media (min-width: 750px) {
     #Afrekenenknop{
