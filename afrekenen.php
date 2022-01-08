@@ -140,7 +140,7 @@ function getCart()
         //$Statement = mysqli_prepare($databaseConnection, $Query4);
         //mysqli_stmt_execute($Statement);
         
-        $Query5 = "SELECT max(OrderID) OrderID AS  FROM orders";
+        $Query5 = "SELECT max(OrderID) AS OrderID FROM orders";
         $Statement = mysqli_prepare($databaseConnection, $Query5);
         mysqli_stmt_execute($Statement);
         
