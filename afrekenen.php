@@ -123,7 +123,7 @@ function getCart()
         //$Statement = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement);
         
-        $Query3 = "SELECT CustomerID FROM customers WHERE customername = '".$volledigenaam."' AND deliveryPostalCode = '".$postcode."';";
+        $Query3 = "SELECT CustomerID FROM customers WHERE customername = '".$volledigenaam."';";
         $Statement = mysqli_prepare($databaseConnection, $Query3);
         mysqli_stmt_execute($Statement);
 
