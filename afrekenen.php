@@ -63,7 +63,7 @@ function getCart()
     </div>
     <?php
     $cart = getCart();
-    print("<div id='Pricediv'>");
+    print("<div id='Pricediv' style='margin-top: -20%;'>");
         foreach($cart as $artikelnummer => $aantalartikel){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             print("<div id='CardItems'>");
@@ -152,7 +152,6 @@ function getCart()
                     '32 mm Anti stabic bubble wrap (Blue) 10m', 7, ".$aantalartikel.", 250.00, 15.000, 10, 9, '".$date."');";
         }
         $Query2=$Query2."commit;";
-        print($Query2);
         $databaseConnection->multi_query($Query2);
     }
     ?>
