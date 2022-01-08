@@ -94,9 +94,11 @@ function getCart()
             $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
             $Query2 = $Query2."UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer.";";
         }
-        debug_to_console('query2:'.$Query2);
-        $Statement2 = mysqli_prepare($databaseConnection, $Query2);
-        mysqli_stmt_execute($Statement2);
+        //debug_to_console('query2:'.$Query2);
+        //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
+        //mysqli_stmt_execute($Statement2);
+        
+        $databaseConnection->multi_query($Query2);
         
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
