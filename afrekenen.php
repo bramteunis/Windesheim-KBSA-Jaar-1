@@ -92,10 +92,9 @@ function getCart()
         foreach($cart as $artikelnummer => $aantalartikel){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
-
-            $Query2 = $Query2." UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer.";";
+            $Query2 = $Query2."UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer.";";
         }
-        debug_to_console('query2'.$Query2);
+        debug_to_console('query2:'.$Query2);
         $Statement2 = mysqli_prepare($databaseConnection, $Query2);
         mysqli_stmt_execute($Statement2);
         
