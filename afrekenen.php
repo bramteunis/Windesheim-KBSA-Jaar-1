@@ -29,7 +29,7 @@ function getCart()
     <div class="mainDiv" style="margin-left:20px; margin-top">
         <h2>Persoonlijke gegevens</h2>
         <form method="post">
-            <div class="Information" style="border: blue;border-style: double;">
+            <div class="Information" style="border: blue;border-style: double;height: 396px;border-radius: 22px;padding: 60px;width: 961px;">
                 <div class="wrapper1">
                     <label class="font">Voornaam</label>
                     <input class="no-outline" type="text" name="voornaam" required><br><br>
