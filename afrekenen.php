@@ -140,15 +140,14 @@ function getCart()
         //$Statement = mysqli_prepare($databaseConnection, $Query4);
         //mysqli_stmt_execute($Statement);
         
-        $Query5 = "SELECT OrderID FROM orders WHERE CustomerID = '".$customerID."' AND OrderDate = '".$date."'";
+        $Query5 = "SELECT max(OrderID) FROM orders";
         $Statement = mysqli_prepare($databaseConnection, $Query5);
         mysqli_stmt_execute($Statement);
         
-        debug_to_console("SELECT OrderID FROM orders WHERE CustomerID = ".$customerID." AND OrderDate = ".$date);
         $ReturnableResult = mysqli_stmt_get_result($Statement);
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         foreach ($ReturnableResult as $row) {
-            $OrderID = $row["OrderID"];
+            $OrderID = $row["OrderID"] + 1;
             debug_to_console("Order_id: ".$OrderID);
         }
         
