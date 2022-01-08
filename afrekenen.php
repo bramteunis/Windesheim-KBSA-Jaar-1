@@ -9,13 +9,12 @@ function getCart()
 {
     if(isset($_SESSION['cart']))
     {               
-      //controleren of winkelmandje (=cart) al bestaat
-      $cart = $_SESSION['cart'];                  //zo ja:  ophalen
+      $cart = $_SESSION['cart'];                  
     } else
     {
-      $cart = array();                            //zo nee: dan een nieuwe (nog lege) array
+      $cart = array();                           
     }
-    return $cart;                               // resulterend winkelmandje terug naar aanroeper functie
+    return $cart;                               
 }
 
 ?>
@@ -85,7 +84,6 @@ function getCart()
     function testinconsole(){
         debug_to_console("Test is geslaagd");
     }
-    //print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
     if(isset($_POST["afrekenensubmit2"])){
         $cart = getCart();
         $Query2="START TRANSACTION;";
@@ -120,9 +118,6 @@ function getCart()
                            0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
                            0, '".$date."', '9999-12-31');";
 
-        //$Statement = mysqli_prepare($databaseConnection, $Query2);
-        //mysqli_stmt_execute($Statement);
-        
         $Query3 = "SELECT max(CustomerID) AS CustomerID  FROM customers;";
         $Statement = mysqli_prepare($databaseConnection, $Query3);
         mysqli_stmt_execute($Statement);
@@ -135,15 +130,10 @@ function getCart()
         
         $Query2 =   $Query2."INSERT INTO nerdygadgets.orders (CustomerID, SalespersonPersonID, ContactPersonID, OrderDate, ExpectedDeliveryDate, IsUndersupplyBackordered, LastEditedBy, LastEditedWhen) 
                     VALUES (".$customerID.", 0, 0, '".$date."', '".$date."', 1, 0, '".$date."');";
-        
-        
-        //$Statement = mysqli_prepare($databaseConnection, $Query4);
-        //mysqli_stmt_execute($Statement);
-        
+       
         $Query5 = "SELECT max(OrderID) AS OrderID FROM orders";
         $Statement = mysqli_prepare($databaseConnection, $Query5);
         mysqli_stmt_execute($Statement);
-        
         $ReturnableResult = mysqli_stmt_get_result($Statement);
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         foreach ($ReturnableResult as $row) {
@@ -157,20 +147,12 @@ function getCart()
         $Query2 =   $Query2."INSERT INTO `nerdygadgets`.`orderlines` (`OrderID`, `StockItemID`, `Description`, `PackageTypeID`, `Quantity`, `UnitPrice`, `TaxRate`,
                     `PickedQuantity`, `LastEditedBy`, `LastEditedWhen`) VALUES (".$OrderID.", ".$artikelnummer.",
                     '32 mm Anti stabic bubble wrap (Blue) 10m', 7, ".$aantalartikel.", 250.00, 15.000, 10, 9, '".$date."');";
-        
-        //$Statement = mysqli_prepare($databaseConnection, $Query6);
-        //mysqli_stmt_execute($Statement);
         }
         $Query2=$Query2."commit;";
         print($Query2);
         $databaseConnection->multi_query($Query2);
-        
-        
-        //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
-        //mysqli_stmt_execute($Statement2);
     }
     ?>
-
     </body>
     </html>
 
