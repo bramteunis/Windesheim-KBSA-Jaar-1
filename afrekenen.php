@@ -123,14 +123,14 @@ function getCart()
         //$Statement = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement);
         
-        $Query3 = "SELECT CustomerID FROM customers WHERE customername = '".$volledigenaam."';";
+        $Query3 = "SELECT max(CustomerID) FROM customers;";
         $Statement = mysqli_prepare($databaseConnection, $Query3);
         mysqli_stmt_execute($Statement);
 
         $ReturnableResult = mysqli_stmt_get_result($Statement);
         $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
         foreach ($ReturnableResult as $row) {
-            $customerID = $row["CustomerID"];
+            $customerID = $row["CustomerID"] + 1;
         }
         
         $Query2 =   $Query2."INSERT INTO nerdygadgets.orders (CustomerID, SalespersonPersonID, ContactPersonID, OrderDate, ExpectedDeliveryDate, IsUndersupplyBackordered, LastEditedBy, LastEditedWhen) 
