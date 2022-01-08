@@ -88,7 +88,7 @@ function getCart()
     //print('<form method="POST" action="" onsubmit="testinconsole()"><input type="submit" name="afrekenensubmit2" value="Afrekenen"></form>');
     if(isset($_POST["afrekenensubmit2"])){
         $cart = getCart();
-        $Query2="";
+        $Query2="START TRANSACTION;";
         foreach($cart as $artikelnummer => $aantalartikel){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
@@ -161,8 +161,8 @@ function getCart()
         //$Statement = mysqli_prepare($databaseConnection, $Query6);
         //mysqli_stmt_execute($Statement);
         }
-        
-        debug_to_console('query2:'.$Query2);
+        $Query2=$Query2."commit;";
+        print($Query2);
         $databaseConnection->multi_query($Query2);
         
         
