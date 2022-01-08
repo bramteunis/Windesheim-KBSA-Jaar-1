@@ -95,10 +95,10 @@ input:focus::-webkit-input-placeholder {
         border: blue;
         border-style: double;
         border-radius: 10px;
-        width: 850px;
+        width: 967px;
         height: 40%;
-        margin-left: 13%;
+        margin-left: 20px;
         position: absolute;
-        margin-top: 12%;
+        margin-top: 175px;
     }
 }
