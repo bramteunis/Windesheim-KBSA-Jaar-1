@@ -94,11 +94,7 @@ function getCart()
             $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
             $Query2 = $Query2."UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer.";";
         }
-        //debug_to_console('query2:'.$Query2);
-        //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
-        //mysqli_stmt_execute($Statement2);
         
-        $databaseConnection->multi_query($Query2);
         
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
@@ -116,18 +112,18 @@ function getCart()
             $volledigenaam = $voornaam.' '.$tussenvoegsel.' '.$achternaam;
         }
         debug_to_console($voornaam." / ".$tussenvoegsel." / ".$achternaam." / ".$postcode." / ".$straatnaam." / ".$email." / ".$telefoonnummer." / ".$huisnummer." / ".$plaats. " / ".$date);
-        $Query2 = "INSERT INTO nerdygadgets.customers (CustomerName, BillToCustomerID, CustomerCategoryID, PrimaryContactPersonID, 
+        $Query2 = $Query2."INSERT INTO nerdygadgets.customers (CustomerName, BillToCustomerID, CustomerCategoryID, PrimaryContactPersonID, 
                            DeliveryMethodID, DeliveryCityID, PostalCityID, AccountOpenedDate, StandardDiscountPercentage, 
                            IsStatementSent, IsOnCreditHold, PaymentDays, PhoneNumber, FaxNumber, WebsiteURL, DeliveryAddressLine1, 
                            DeliveryAddressLine2, DeliveryPostalCode, PostalAddressLine1, PostalPostalCode, LastEditedBy, 
                            ValidFrom, ValidTo) VALUES ('".$volledigenaam."', 1062, 0, 0, 3, '".$postcode."', '".$postcode."', '".$date."', 0, 0, 
                            0, 7, '".$telefoonnummer."', '".$telefoonnummer."', 'null', '".$huisnummer."', '".$straatnaam."', '".$postcode."', 'null', 0, 
-                           0, '".$date."', '9999-12-31')";
+                           0, '".$date."', '9999-12-31');";
 
-        $Statement = mysqli_prepare($databaseConnection, $Query2);
-        mysqli_stmt_execute($Statement);
+        //$Statement = mysqli_prepare($databaseConnection, $Query2);
+        //mysqli_stmt_execute($Statement);
         
-        $Query3 = "SELECT CustomerID FROM customers WHERE customername = '".$volledigenaam."' AND deliveryPostalCode = '".$postcode."'";
+        $Query3 = "SELECT CustomerID FROM customers WHERE customername = '".$volledigenaam."' AND deliveryPostalCode = '".$postcode."';";
         $Statement = mysqli_prepare($databaseConnection, $Query3);
         mysqli_stmt_execute($Statement);
 
@@ -137,11 +133,12 @@ function getCart()
             $customerID = $row["CustomerID"];
         }
         
-        $Query4 =   "INSERT INTO nerdygadgets.orders (CustomerID, SalespersonPersonID, ContactPersonID, OrderDate, ExpectedDeliveryDate, IsUndersupplyBackordered, LastEditedBy, LastEditedWhen) 
-                    VALUES (".$customerID.", 0, 0, '".$date."', '".$date."', 1, 0, '".$date."')";
+        $Query2 =   $Query2."INSERT INTO nerdygadgets.orders (CustomerID, SalespersonPersonID, ContactPersonID, OrderDate, ExpectedDeliveryDate, IsUndersupplyBackordered, LastEditedBy, LastEditedWhen) 
+                    VALUES (".$customerID.", 0, 0, '".$date."', '".$date."', 1, 0, '".$date."');";
         
-        $Statement = mysqli_prepare($databaseConnection, $Query4);
-        mysqli_stmt_execute($Statement);
+        
+        //$Statement = mysqli_prepare($databaseConnection, $Query4);
+        //mysqli_stmt_execute($Statement);
         
         $Query5 = "SELECT OrderID FROM orders WHERE CustomerID = '".$customerID."' AND OrderDate = '".$date."'";
         $Statement = mysqli_prepare($databaseConnection, $Query5);
@@ -158,13 +155,18 @@ function getCart()
         $cart = getCart();
         foreach($cart as $artikelnummer => $aantalartikel)
         {
-        $Query6 =   "INSERT INTO `nerdygadgets`.`orderlines` (`OrderID`, `StockItemID`, `Description`, `PackageTypeID`, `Quantity`, `UnitPrice`, `TaxRate`,
+        $Query2 =   $Query2."INSERT INTO `nerdygadgets`.`orderlines` (`OrderID`, `StockItemID`, `Description`, `PackageTypeID`, `Quantity`, `UnitPrice`, `TaxRate`,
                     `PickedQuantity`, `LastEditedBy`, `LastEditedWhen`) VALUES (".$OrderID.", ".$artikelnummer.",
                     '32 mm Anti stabic bubble wrap (Blue) 10m', 7, ".$aantalartikel.", 250.00, 15.000, 10, 9, '".$date."');";
         
-        $Statement = mysqli_prepare($databaseConnection, $Query6);
-        mysqli_stmt_execute($Statement);
+        //$Statement = mysqli_prepare($databaseConnection, $Query6);
+        //mysqli_stmt_execute($Statement);
         }
+        
+        debug_to_console('query2:'.$Query2);
+        $databaseConnection->multi_query($Query2);
+        
+        
         //$Statement2 = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement2);
     }
