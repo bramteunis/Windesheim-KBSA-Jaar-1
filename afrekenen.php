@@ -67,7 +67,11 @@ function getCart()
         foreach($cart as $artikelnummer => $aantalartikel){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             print("<div id='CardItems'>");
-                print($StockItem['StockItemName']);
+                if(strlen($StockItem['StockItemName'])<=47){
+                    print($StockItem['StockItemName']);
+                }else{
+                    print(substr($StockItem['StockItemName'],0,47));
+                }
             print("</div>");
             print("<div id='CardItemsAmount'>");
                 print($aantalartikel."x");
