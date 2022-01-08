@@ -26,7 +26,7 @@ function getCart()
         <link rel="stylesheet" href="public/css/gegevens.css">
     </head>
     <body>
-    <div class="mainDiv">
+    <div class="mainDiv" style="margin-left:20px;">
         <h2>Persoonlijke gegevens</h2>
         <form method="post">
             <div class="wrapper1">
@@ -50,7 +50,7 @@ function getCart()
             <div class="wrapper3">
                 <label class="font">Achternaam</label>
                 <input class="no-outline" type="text" name="achternaam" required>
-                <label class="font">E-mail</label>
+                <label class="font" style="margin-top: 24px;">E-mail</label>
                 <input class="no-outline" type="email" name="email" required><br><br>
                 <label class="font">Telefoonnummer</label>
                 <input class="no-outline" type="tel" name="telefoonnummer"><br><br>
