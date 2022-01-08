@@ -123,7 +123,7 @@ function getCart()
         //$Statement = mysqli_prepare($databaseConnection, $Query2);
         //mysqli_stmt_execute($Statement);
         
-        $Query3 = "SELECT max(CustomerID) FROM customers;";
+        $Query3 = "SELECT max(CustomerID) AS CustomerID  FROM customers;";
         $Statement = mysqli_prepare($databaseConnection, $Query3);
         mysqli_stmt_execute($Statement);
 
@@ -140,7 +140,7 @@ function getCart()
         //$Statement = mysqli_prepare($databaseConnection, $Query4);
         //mysqli_stmt_execute($Statement);
         
-        $Query5 = "SELECT max(OrderID) FROM orders";
+        $Query5 = "SELECT max(OrderID) OrderID AS  FROM orders";
         $Statement = mysqli_prepare($databaseConnection, $Query5);
         mysqli_stmt_execute($Statement);
         
