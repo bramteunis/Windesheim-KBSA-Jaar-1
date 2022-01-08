@@ -24,13 +24,13 @@ $queryBuildResult = "";
 
 
 if (isset($_GET['category_id'])) {
-    $CategoryID = mysql_real_escape_string($_GET['category_id']);
+    $CategoryID = $_GET['category_id'];
 	
 } else {
     $CategoryID = "";
 }
 if (isset($_GET['products_on_page'])) {
-    $ProductsOnPage = mysql_real_escape_string($_GET['products_on_page']);
+    $ProductsOnPage = $_GET['products_on_page'];
     $_SESSION['products_on_page'] = $_GET['products_on_page'];
 } else if (isset($_SESSION['products_on_page'])) {
     $ProductsOnPage = $_SESSION['products_on_page'];
@@ -39,7 +39,7 @@ if (isset($_GET['products_on_page'])) {
     $_SESSION['products_on_page'] = 25;
 }
 if (isset($_GET['page_number'])) {
-    $PageNumber = mysql_real_escape_string($_GET['page_number']);
+    $PageNumber = $_GET['page_number'];
 } else {
     $PageNumber = 0;
 }
