@@ -81,6 +81,7 @@ input:focus::-webkit-input-placeholder {
     padding: 6px;
     width: 80%;
     display: inline;
+    padding-right: 20%;
 }
 #CardItemsAmount{
     width: 35px;
