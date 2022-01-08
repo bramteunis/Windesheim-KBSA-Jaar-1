@@ -76,17 +76,29 @@ input:focus::-webkit-input-placeholder {
     transition: all 0.5s linear;
     width: 202px;
 }
+#CardItems{
+    border-bottom: solid rgba(7, 0, 132, 1);
+    padding: 6px;
+    width: 80%;
+    display: inline;
+}
+#CardItemsAmount{
+    width: 20%;
+    float: right;
+}
+
 @media (min-width: 1615px) {
     #Pricediv {
         color: black;
         border: blue;
         border-style: double;
-        border-radius: 10px;
+        border-radius: 22px;
         width: 35%;
-        height: 40%;
-        margin-left: 60%;
+        height: 96%;
+        margin-left: 1050px;
         position: absolute;
-        margin-top: -20%;
+        margin-top: -355px;
+        padding: 10px;
     }
 }
 @media (max-width: 1615px) {
