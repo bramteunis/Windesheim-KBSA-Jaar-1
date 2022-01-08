@@ -63,7 +63,7 @@ function getCart()
     </div>
     <?php
     $cart = getCart();
-    print("<div id='Pricediv' style='margin-top: -20%;'>");
+    print("<div id='Pricediv'>");
         foreach($cart as $artikelnummer => $aantalartikel){
             $StockItem = getStockItem($artikelnummer, $databaseConnection);
             print("<div id='CardItems'>");
