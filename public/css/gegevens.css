@@ -111,7 +111,7 @@ input:focus::-webkit-input-placeholder {
         margin-bottom: 62px;
         float: left;
     }
-    .information{
+    .Information{
         border: blue;
         border-style: double;
         height: 396px;
@@ -132,5 +132,24 @@ input:focus::-webkit-input-placeholder {
         margin-left: 20px;
         position: absolute;
         margin-top: 175px;
+    }
+    .bestellingtext{
+        color: black;
+        margin-left: 150%;
+    }
+    .gegevenstext{
+        color: black;
+        margin-left: 36%;
+        margin-bottom: 62px;
+        float: left;
+    }
+    .Information{
+        border: blue;
+        border-style: double;
+        height: 396px;
+        border-radius: 22px;
+        padding: 60px;
+        width: 961px;
+        margin-top: 23px;
     }
 }
