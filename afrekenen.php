@@ -27,7 +27,7 @@ function getCart()
     </head>
     <body>
     <div class="mainDiv" style="margin-left:20px; margin-top">
-        <h2class="gegevenstext">Persoonlijke gegevens</h2>
+        <h2 class="gegevenstext">Persoonlijke gegevens</h2>
         <h2 class="bestellingtext">Bestelling</h2>
         <form method="post">
             <div class="Information">
