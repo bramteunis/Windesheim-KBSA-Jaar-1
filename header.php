@@ -3,7 +3,7 @@
 session_start();
 include "database.php";
 $databaseConnection = connectToDatabase();
-$databaseConnection2 = connectToDatabase2();//change connectToDatabase to "connectToDatabase2" for full implementation.
+//$databaseConnection2 = connectToDatabase2();//change connectToDatabase to "connectToDatabase2" for full implementation.
 ?>
 <!DOCTYPE html>
 <html lang="en">

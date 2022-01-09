@@ -252,7 +252,7 @@ $relatedStockItemNummer = getRelatedStockItemNummer($_GET['id'], $databaseConnec
             //based on data in the database
             ?>
         </div>
-        <div id="relatedProductsOuterDiv">
+        <div id="relatedProductsOuterDiv" style="color: black">Gerelateerde producten
             <?php
                 foreach ($relatedStockItem as $rsi){
             ?>
