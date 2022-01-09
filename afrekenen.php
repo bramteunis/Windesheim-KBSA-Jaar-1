@@ -33,7 +33,7 @@ function getCart()
             <div class="Information">
                 <div class="wrapper1">
                     <label class="font">Voornaam</label>
-                    <input class="no-outline" type="text" name="voornaam" place_holder="<?php print($_POST["uname2"])?>" required><br><br>
+                    <input class="no-outline" type="text" name="voornaam" value="<?php print($_POST["uname2"])?>" required><br><br>
                     <label class="font">Postcode</label>
                     <input class="no-outline" type="text" name="postcode" required><br><br>
                     <label class="font">Straatnaam</label>
