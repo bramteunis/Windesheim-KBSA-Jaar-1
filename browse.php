@@ -258,7 +258,7 @@ if (isset($amount)) {
                     <?php
                     if (isset($row['ImagePath']) AND $row['ImagePath'] != 'chocolate.jpg') { ?>
                         <div class="ImgFrame"
-                             style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
+                             style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-repeat: no-repeat; background-position: center;"></div>
                     <?php } else if (isset($row['BackupImagePath'])) { ?>
                         <div class="ImgFrame"
                              style="background-image: url('<?php print "public/stockgroupimg/" . strtolower($row['BackupImagePath']) ?>'); background-size: cover;"></div>
