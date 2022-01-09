@@ -6,9 +6,11 @@ include __DIR__ . "/header.php";
 <head>
 <style>
 table {
-  border: 3px solid black;
-  border-radius:6px;
-  padding-left:10px;
+  border-collapse: separate;
+  border: blue;
+  border-style:double;
+  border-radius:30px;
+  border-spacing: 56px;
 }
 
 table {
@@ -42,7 +44,8 @@ input[type=naam] {
 }
 
 .vl {
-  border-left: 3px solid black;
+  border-left: blue;
+  border-style:double;
   height: 86%;
   position: absolute;
   left: 29%;
@@ -51,7 +54,8 @@ input[type=naam] {
 }
 
 .vl2 {
-  border-left: 3px solid black;
+  border-left: blue;
+  border-style:double;
   height: 86%;
   position: absolute;
   left: 60%;
