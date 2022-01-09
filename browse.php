@@ -25,6 +25,7 @@ $queryBuildResult = "";
 
 if (isset($_GET['category_id'])) {
     $CategoryID = $_GET['category_id'];
+	
 } else {
     $CategoryID = "";
 }
@@ -43,8 +44,6 @@ if (isset($_GET['page_number'])) {
     $PageNumber = 0;
 }
 
-// code deel 1 van User story: Zoeken producten
-// <voeg hier de code in waarin de zoekcriteria worden opgebouwd>
 $SearchString = "";
 
 if (isset($_GET['search_string'])) {
@@ -202,7 +201,7 @@ if (isset($amount)) {
     <form>
         <div id="FilterOptions">
             <h4 class="FilterTopMargin"><i class="fas fa-search"></i> Zoeken</h4>
-            <input type="text" name="search_string" id="search_string"
+            <input type="text" name="search_string" id="search_string" pattern="[a-zA-Z0-9-]+.{1,}"
                    value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
                    class="form-submit">
             <h4 class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</h4>
@@ -259,7 +258,7 @@ if (isset($amount)) {
                     <?php
                     if (isset($row['ImagePath']) AND $row['ImagePath'] != 'chocolate.jpg') { ?>
                         <div class="ImgFrame"
-                             style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
+                             style="background-image: url('<?php print "public/stockitemimg/" . strtolower($row['ImagePath']); ?>'); background-repeat: no-repeat; background-position: center;"></div>
                     <?php } else if (isset($row['BackupImagePath'])) { ?>
                         <div class="ImgFrame"
                              style="background-image: url('<?php print "public/stockgroupimg/" . strtolower($row['BackupImagePath']) ?>'); background-size: cover;"></div>

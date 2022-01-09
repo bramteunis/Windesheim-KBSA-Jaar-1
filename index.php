@@ -7,16 +7,63 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//$bestverkocht = "SELECT StockItemID, SUM(Quantity) AS TotalQuantity FROM orderlines GROUP BY StockItemID ORDER BY SUM(Quantity) DESC LIMIT 2";
-//$Statement = mysqli_prepare($databaseConnection, $bestverkocht);
-//mysqli_stmt_execute($Statement);
-//
-//$ReturnableResult = mysqli_stmt_get_result($Statement);
-//$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
-//foreach ($ReturnableResult as $row) {
-//    debug_to_console($row["StockItemID"]);
-//    print(($row["StockItemID"]));
-//}     /* best verkopende product code */
+
+$bestverkocht = "SELECT StockItemID, SUM(Quantity) AS TotalQuantity FROM orderlines GROUP BY StockItemID ORDER BY SUM(Quantity) DESC LIMIT 1";
+$Statement = mysqli_prepare($databaseConnection, $bestverkocht);
+mysqli_stmt_execute($Statement);
+$ReturnableResult = mysqli_stmt_get_result($Statement);
+$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+foreach ($ReturnableResult as $row) {
+    $BST = ($row["StockItemID"]);
+}
+
+$BestVerkochtPrice = "SELECT UnitPrice FROM orderlines GROUP BY StockItemID ORDER BY SUM(Quantity) DESC LIMIT 1";
+$Statement = mysqli_prepare($databaseConnection, $BestVerkochtPrice);
+mysqli_stmt_execute($Statement);
+$ReturnableResult = mysqli_stmt_get_result($Statement);
+$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+foreach ($ReturnableResult as $row) {
+    $BSTPRICE = ($row["UnitPrice"]);
+}
+
+$BSTDescription = "SELECT Description FROM orderlines GROUP BY StockItemID ORDER BY SUM(Quantity) DESC LIMIT 1";
+$Statement = mysqli_prepare($databaseConnection, $BSTDescription);
+mysqli_stmt_execute($Statement);
+$ReturnableResult = mysqli_stmt_get_result($Statement);
+$ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+foreach ($ReturnableResult as $row) {
+    $BSTDES = ($row["Description"]);
+}
+
+function Get_information($databaseConnection,$artikelnummer){
+    $Query = "
+           SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
+           ROUND(SI.TaxRate * SI.RecommendedRetailPrice / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
+           QuantityOnHand,
+           (CASE WHEN (RecommendedRetailPrice*(1+(TaxRate/100))) > 50 THEN 0 ELSE 6.95 END) AS SendCosts,
+           (SELECT ImagePath FROM stockitemimages WHERE StockItemID = SI.StockItemID LIMIT 1) as ImagePath,
+           (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockItemID = SI.StockItemID LIMIT 1) as BackupImagePath
+           FROM stockitems SI
+           JOIN stockitemholdings SIH USING(stockitemid)
+           JOIN stockitemstockgroups USING(StockItemID)
+           JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
+           WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID) AND SI.StockItemID = ".$artikelnummer."
+           GROUP BY StockItemID";
+
+
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    mysqli_stmt_execute($Statement);
+
+    $ReturnableResult = mysqli_stmt_get_result($Statement);
+    $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+    foreach ($ReturnableResult as $row) {
+        debug_to_console($row["StockItemID"]);
+    }
+    return $ReturnableResult;
+    $StockItem = getStockItem($_GET['id'], $databaseConnection);
+    $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
+}
+
 ?>
 
 <div class="underHeadDiv">
@@ -31,15 +78,13 @@ error_reporting(E_ALL);
 <div class="IndexStyle">
     <div class="col-11">
         <div class="TextPrice">
-            <a href="view.php?id=138" aria-label="product 1">
-
+            <a href="view.php?id=<?php print $BST ?>" aria-label="product 1">
                 <div class="TextMain">
 
-                    FURRY ANIMAL SOCKS (PINK) S
-
+                    <?php print($BSTDES); ?>
                 </div>
                 <ul id="ul-class-price">
-                    <li class="HomePagePrice">€69.69</li>
+                    <li class="HomePagePrice"><?php print("€"); print $BSTPRICE ?></li>
                 </ul>
         </div>
         </a>
@@ -55,7 +100,7 @@ error_reporting(E_ALL);
                     DBA JOKE MUG<br>- IT DEPENDS (BLACK)
                 </div>
                 <ul id="ul-class-price">
-                    <li class="HomePagePrice">21.50</li>
+                    <li class="HomePagePrice">€21.50</li>
                 </ul>
         </div>
         </a>
@@ -66,4 +111,3 @@ error_reporting(E_ALL);
 <?php
 include __DIR__ . "/footer.php";
 ?>
-

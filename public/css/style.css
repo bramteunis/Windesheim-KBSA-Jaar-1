@@ -28,6 +28,135 @@ body {
   background-color: #f44336;
   color: white;
 }
+.itemcartcards{
+    border: blue;
+    margin-top:10px;
+    width:100%;
+    height: 20%;
+    border-style: double;
+    border-radius: 10px;
+    padding: 7px; 
+    box-shadow: 5px 10px 18px #888888; 
+    margin-bottom: 1%; 
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%);
+}
+
+
+
+@media (min-width: 750px) {
+    #Afrekenenknop{
+        margin-top: -50px;
+    }
+} 
+
+@media(max-width: 750px) {
+    #Afrekenenknop{
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 750px) {
+    #Artikelnaam{
+        width:90%
+    }
+    #Artikelcartprijs{
+        margin-left: 3%
+    }
+    #titleCart {
+        margin-left: 1%;
+        margin-right: 0%;
+        margin-bottom: 1%;
+        margin-top: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 98%;
+        height: 20%;
+    }
+    #verderWinkelenKnop {
+        margin-left: 0%;
+        width: 190px;
+        height: 40px;
+        float: left;
+        padding: 8px;
+        margin-top: 1px;
+    }
+    #titleText {
+        margin-bottom: 1%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        color: black;
+        text-align: center;
+        margin-left: 35%;
+        margin-right: 0px;
+        width: 10px;
+        }
+    #LogoImage {
+        background-image: url(../productimghighres/nerdygadgetslogo1.png); 
+        width: 188px;
+        height: 68px; 
+        margin: 20px 20px 20px 25%; 
+    }
+    #CategoriesBar {
+        position: absolute;
+        left: 280px;
+    }
+} 
+
+@media(max-width: 750px) {
+    #Artikelnaam{
+        width:190%
+    }
+    #Artikelcartprijs{
+        margin-left: 53%
+    }
+    #titleCart {
+        margin-left: 1%;
+        margin-right: 0%;
+        margin-bottom: 1%;
+        margin-top: 30px;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 98%;
+        height: 20%;
+    }
+    
+    #verderWinkelenKnop {
+        margin-left: 0%;
+        width: 160px;
+        height: 40px;
+        float: left;
+        padding: 8px;
+        margin-top: 24px;
+    }
+    
+    #titleText {
+        margin-bottom: 6px;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-bottom: 0%;
+        color: black;
+        text-align: center;
+        margin-top: -49px;
+    }
+    
+    #Afrekenenknop {
+        width: 160px;
+    }
+    #LogoImage {
+        width: 0px;
+    }
+    #CategoriesBar {
+        position: absolute;
+        left: -25px;
+    }
+}
+
 
 .closebtn {
   margin-left: 15px;
@@ -91,6 +220,7 @@ ul#ul-class-navigation li {
     display: inline;
     font-family: pt-sans, sans-serif;
     font-size: 20px;
+    margin-right: 1em;
     text-decoration: none;
     text-decoration-color: currentcolor;
 
@@ -105,42 +235,211 @@ ul#ul-class-navigation li {
     border-bottom: 3px solid rgba(7, 0, 132, 1);
 }
 #Content {
-    margin-top: 80px;
+    margin-top: 150px;
 }
-#FilterFrame {
-    position: fixed;
-    width: 19%;
-    background-color: rgba(0, 135, 255, 0.34);
-    float: left;
-    top:216px;
-    border: 1px solid #fff;
-    margin-left: 5px;
-    margin-top: 10px;
-    padding: 20px;
-    color:black;
+
+@media(max-width: 750px) {
+    #FilterFrame {
+        /* position: fixed; */
+        width: 90%;
+        background-color: rgba(0, 135, 255, 0.34);
+        float: left;
+        top: 216px;
+        border: 1px solid #fff;
+        margin-left: 10%;
+        margin-top: 10px;
+        padding: 20px;
+        color: black;
+    }
+    #ProductFrame {
+        width: 100%;
+        height: 250px;
+        margin-top: 15px;
+        position: relative;
+        padding: 1px;
+        border-bottom: 1px solid #003aff;
+    }
+    #ResultsArea.Browse  {
+        width: 100%;
+        /* margin-left: 21%; */
+        float: left;
+        position: sticky;
+    }
+    .ImgFrame {
+        width: 163px;
+        height: 230px;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-size: 125px;
+    }
+    .StockItemPriceText {
+        font-family: vortice-concept, sans-serif;
+        color: rgba(0, 135, 255, 1);
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 80px;
+        margin-right: 15px;
+    }
+    .StockItemComments {
+        font-family: pt-sans, sans-serif;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    #deknopvoorinwinkelmand{
+        margin-left: 140px;
+        margin-top: -57px;
+    }
 }
-#ResultsArea.Browse  {
-    width: 78%;
-    margin-left: 21%;
-    float: left;
-    position: sticky;
+@media(min-width: 750px) {
+    #FilterFrame {
+        position: fixed;
+        width: 19%;
+        background-color: rgba(0, 135, 255, 0.34);
+        float: left;
+        top:216px;
+        border: 1px solid #fff;
+        margin-left: 5px;
+        margin-top: 10px;
+        padding: 20px;
+        color:black;
+    }
+    #ProductFrame {
+        width: 100%;
+        height: 250px;
+        margin-top: 15px;
+        position: relative;
+        padding: 1px;
+        border-bottom: 1px solid #003aff;
+    }
+    #ResultsArea.Browse  {
+        width: 78%;
+        margin-left: 21%;
+        float: left;
+        position: sticky;
+    }
+    .ImgFrame {
+        width: 230px;
+        height: 230px;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-size: 230px;
+    }
+    .StockItemPriceText {
+        font-family: vortice-concept, sans-serif;
+        color: rgba(0, 135, 255, 1);
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 25px;
+    }
+    .StockItemComments {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 14px;
+        font-weight: bold;
+    }
 }
-#ProductFrame {
-    width: 100%;
-    height: 250px;
-    margin-top: 15px;
-    position: relative;
-    padding: 1px;
-    border-bottom: 1px solid #fff;
+
+@media(max-width: 657px) {
+    .StockItemName {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: -500px;
+    }
+    .CenterPriceLeft {
+        position: absolute;
+        /* height: 100%; */
+        right: 0;
+        width: 421px;
+        /* margin-bottom: 267px; */
+        margin-top: -113px;
+    }
+    #StockItemDescription {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-top:50px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    #StockItemSpecifications {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-left: 1%;
+        margin-top:50px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    .StockItemID {
+        font-family: vortice-concept, sans-serif;
+        color: #114e93;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 130px;
+    }
+
 }
-.ImgFrame {
-    width: 230px;
-    height: 230px;
-    float: left;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-right: 10px
+
+@media(min-width: 657px) {
+    .StockItemName {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .CenterPriceLeft {
+        position: absolute;
+        height: 100%;
+        right: 0;
+        width: 200px;
+    }
+    #StockItemDescription {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-top:10px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    #StockItemSpecifications {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-left: 1%;
+        margin-top:10px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    .StockItemID {
+        font-family: vortice-concept, sans-serif;
+        color: #114e93;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 15px;
+    }
 }
+
 .ImgFrame img {
     width: 230px;
     height: 230px;
@@ -188,12 +487,10 @@ ul#ul-class-navigation li {
 }
 .ToevoegenWinkelmandbutton1 {
     background-color: white; 
-    border: 3px solid red;
-    border-radius: 10px;
+    border: 3px solid #ffcd00;
 }
 .ToevoegenWinkelmandbutton1:hover {
-    background-color: red;
-    color: white;
+    background-color: #ffcd00;
 }
 .Hovershadowbutton {
     font-size:1.5vw;
@@ -206,7 +503,27 @@ ul#ul-class-navigation li {
 .Hovershadowbutton:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }  
-
+#Totaalprijs {
+    border: blue;
+    margin-top: 40px;
+    border-style: double;
+    padding: 1%;
+    border-radius: 10px;
+    color: black;
+    margin-right: 0px;
+    width: 350px;
+    margin-left: auto;
+    background-color: aliceblue;
+    font-size: 140%;
+    box-shadow: 5px 10px 18px #888888;
+    margin-bottom: 50px;
+}
+#Totaalprijs-prijs {
+    display: inline;
+    float: right;
+    margin-right: 3%;
+    white-space: pre;
+}
 #VideoFrame {
     width: 100%;
     height: 350px;
@@ -241,39 +558,14 @@ ul#ul-class-navigation li {
 .StockItemNameViewSize {
     font-size: 35px !important;
 }
-.CenterPriceLeft {
-    position: absolute;
-    height: 100%;
-    right: 0;
-    width: 200px;
-}
+
 .CenterPriceLeftChild {
     position: relative;
     top: 40%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-#StockItemDescription {
-    background-color: rgba(35, 40, 47, 0.8);
-    width: 49%;
-    float: left;
-    padding: 10px;
-    margin-top:10px;
-    border: 1px solid;
-    font-family: pt-sans, sans-serif;
-    font-size: 20px;
-}
-#StockItemSpecifications {
-    background-color: rgba(35, 40, 47, 0.8);
-    width: 49%;
-    float: left;
-    padding: 10px;
-    margin-left: 1%;
-    margin-top:10px;
-    border: 1px solid;
-    font-family: pt-sans, sans-serif;
-    font-size: 20px;
-}
+
 .Labels {
     margin-bottom: 0;
     padding: 10px;
@@ -287,16 +579,11 @@ ul#ul-class-navigation li {
     position: absolute;
 }
 #LogoA {
-    height: 200px;
+    height: 100%;
     width: 100%;
     position: absolute;
 }
-#LogoImage {
-    background-image: url("../productimghighres/nerdygadgetslogo1.png");
-    width: 188px;
-    height: 68px;
-    margin: 20px 20px 20px 25%;
-}
+
 ul#ul-class li {
     display: inline;
     color: black;
@@ -348,8 +635,8 @@ ul#ul-class-price li {
     margin-left: 7%;
 }
 .HomePageStockItemPicture {
-    background-image: url("../stockitemimg/dinosaur battery powered slippers.png");
-    background-size: 75% 75%;
+    background-image: url("../stockitemimg/it joke mug.png");
+    background-size: 55% 55%;
     width: 477px;
     height: 477px;
     background-repeat: no-repeat;
@@ -447,38 +734,11 @@ ul#ul-class-price li {
     color: #ccc;
     opacity: 0.9;
 }
-.StockItemPriceText {
-    font-family: vortice-concept, sans-serif;
-    color: rgba(0, 135, 255, 1);
-    font-size: 22px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 25px;
-}
+
 .StockItemPriceText:hover {
     text-decoration: none;
 }
-.StockItemID {
-    font-family: vortice-concept, sans-serif;
-    color: #114e93;
-    font-size: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 15px;
-}
-.StockItemName {
-    font-family: pt-sans, sans-serif;
-    color: black;
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-.StockItemComments {
-    font-family: pt-sans, sans-serif;
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-}
+
 #CenteredContent {
     margin: 0 auto;
     width: 70%;
@@ -524,10 +784,8 @@ ul#ul-class-price li {
 #ProductFrame h6 {
     color: white;
 }
-#CategoriesBar {
-    position: absolute;
-    left: 280px;
-}
+
+
 #PageSelector {
     text-align: center;
     margin: 20px;
@@ -554,40 +812,8 @@ ul#ul-class-price li {
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
 }
-#titleCart{
-    margin-left: 1%;
-    margin-right: 0%;
-    margin-bottom: 1%;
-    margin-top: 0%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    width: 98%;
-    height: 20%;
-}
-#titleText{
-    margin-left: 0%;
-    margin-bottom: 1%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    color: black;
-}
-#verderWinkelenKnop{
-    margin-left: 0%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    width: 10%;
-    height: 35%;
-    float: left;
 
-}
 #AfrekenenKnop{
     margin-right: 0%;
     padding-left: 0%;
@@ -670,7 +896,7 @@ ul#ul-class-price li {
 .underHeadDiv {
     display: table;
     margin: 0 auto;
-    margin-top: -85px;
+    margin-top: -45px;
 }
 
 p {
@@ -682,146 +908,34 @@ hr {
     width: 75%;
 }
 
-.Voorraad {
-    font-size: 50px;
-    width: 60%;
-    margin-left: 10%;
-}
-
-         /*css van de review*/
-
-.comment {
-    display: block;
-    transition: all 1s;
-}
-.commentClicked {
-    min-height: 0px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    padding: 5px 10px
-}
-
-.container textarea {
-    width: 50%;
-    border: none;
-    background: #23282FCC;
-    padding: 5px 20px;
-    height: 200px;
-    border-radius: 5px 5px 5px 5px;
-    border-bottom: 5px solid #676EFF;
-    transition: all 0.5s;
-    margin-top: 42%;
-    left: -130px;
-    color: #fff;
-    position: absolute;
-}
-
-button.primaryContained {
-    background:#676EFF;
-    color: #fff;
-    padding: 10px 10px;
-    border: none;
-    margin-top:1%;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
-    transition: 1s all;
-    font-size: 8px;
-    border-radius: 10px;
-    bottom: -480px;
-    position: absolute;
-    left: -130px;
-}
-
-button.primaryContained:hover {
-    background: #a8011a;
-}
-
-.center{
-    position: absolute;
-    top: 820px;
-    left: 375px;
-    transform: translate(-50%, -50%);
-}
-
-.center .stars{
-    height: 200px;
-    width: 200px;
-}
-
-.stars input{
-    display: none;
-    left: 375px;
-}
-
-.stars label{
-    font-size: 30px;
-    color: lightgrey;
-    margin: 0 5px;
-    text-shadow: 1px 1px #bbb;
-    right: 250%;
+#relatedProductsOuterDiv{
+    width: 49%;
+    border: solid black 2px;
+    margin: 10px;
+    padding: 10px;
     float: right;
 }
-
-.stars label:before{
-    content: '★';
+.relatedProduct{
+    width: 98%;
+    height: 50px;
+    border: solid black 2px;
+    margin: 1%;
 }
-
-.stars input:checked ~ label{
-    color: gold;
-    text-shadow: 1px 1px #c60;
+.imgRelatedProductDiv{
+    height: 48px;
+    width: 15%;
+    float: left;
+    color: black;
+    border: solid black 1px;
+    text-align: center;
+    padding: 2%;
 }
-
-.stars:not(:checked) > label:hover,
-.stars:not(:checked) > label:hover ~ label{
-    color: gold;
+.relatedProductsInfo{
+    height: 100%;
+    width: 60%;
+    float: left;
 }
-
-.stars input:checked > label:hover,
-.stars input:checked > label:hover ~ label{
-    color: gold;
-    text-shadow: 1px 1px goldenrod;
+.textColor{
+    color: black;
 }
-
-.stars .result:before{ /*tekst aantal sterren */
-    position: fixed;
-    content: "";
-    width: 50%;
-    left: 40%;
-    transform: translateX(-47%);
-    bottom: 60%;
-    font-size: 20px;
-    font-weight: 500;
-    color: gold;
-    font-family: 'Poppins', sans-serif;
-    display: none;
-
-}
-
-.stars input:checked ~ .result:before{
-    display: block;
-}
-.stars #five:checked ~ .result:before{
-    content: "Heel goed ";
-}
-.stars #four:checked ~ .result:before{
-    content: "Goed ";
-}
-.stars #three:checked ~ .result:before{
-    content: "Gemiddeld ";
-}
-.stars #two:checked ~ .result:before{
-    content: "Slecht ";
-}
-.stars #one:checked ~ .result:before{
-    content: "Heel slecht";
-}
-
-
-
-
-
-
-
 
