@@ -48,6 +48,7 @@ $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
     
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
+
 ?>
 <div id="CenteredContent">
     <?php
@@ -252,6 +253,13 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
     </body>
     </html>
 
+<!--<form action="view.php" method="post">-->
+<!--Name: <input type="text" name="name"><br>-->
+<!--    <textarea type="text" class="input" placeholder="Schrijf een review"></textarea><br>-->
+<!--    <input type="submit" value="Plaats review">-->
+<!--</form>-->     /* dit was om te testen naar de database. Om een input te sturen */-->
+
+
     <section id="app">
         <div class="container">
             <div class="row">
@@ -273,3 +281,59 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
 
 </body>
 </html>
+
+
+
+
+
+
+<?php
+$ReviewName = postReviewName($_POST['Naam'], $databaseConnection);
+
+if(isset($_POST['submit']))
+{
+//    $Naam = $_POST['Naam'];
+
+
+    $insert = mysqli_query($Statement,"INSERT INTO `stockItems`(Naam) VALUES($Naam)");
+
+    if(!$insert)
+    {
+        echo mysqli_error();
+
+    }
+    else
+    {
+        echo "Review added succesfully";
+    }
+
+    mysqli_close($Statement);
+
+}
+//
+//
+//function Review($Naam, $databaseConnection)
+//{
+//        $query = "INSERT INTO stockitems (Naam)
+//                VALUES ('".$Naam."')";
+//        $statement = mysqli_prepare($databaseConnection, $query);
+//        mysqli_stmt_execute($statement);
+//        print($query);
+//    }
+//if(isset($_POST['Naam'])) {
+//                    Review($_POST['Naam'], $databaseConnection);
+//                }
+?>
+
+<!--<html>-->
+<!--<body>-->
+<!---->
+<!--<form action="view.php" method="POST">-->
+<!--    <h2 style="color:black">Full Name:</h2>-->
+<!--    <input type="text" name="Naam" placeholder="Enter Full Name" Required>-->
+<!--    <br/>-->
+<!--    <input type="submit" name="submit" value="Submit">-->
+<!--</form>-->
+<!---->
+<!--</body>-->
+<!--</html>-->

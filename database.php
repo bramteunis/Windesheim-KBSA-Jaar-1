@@ -84,7 +84,8 @@ function getStockItem($id, $databaseConnection) {
     return $Result;
 }
 
-function getStockItemImage($id, $databaseConnection) {
+function getStockItemImage($id, $databaseConnection)
+{
 
     $Query = "
                 SELECT ImagePath
@@ -98,8 +99,24 @@ function getStockItemImage($id, $databaseConnection) {
     $R = mysqli_fetch_all($R, MYSQLI_ASSOC);
 
     return $R;
-
 }
+
+function postReviewName($Naam, $databaseConnection)
+{
+    $Query =
+        "INSERT INTO stockitems (Naam)
+                VALUES ('".$Naam."')";
+    print("test1");
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    print("test2");
+    mysqli_stmt_execute($Statement);
+    print($Query);
+}
+
+
+
+
+
 
 
 //<!-- dit bestand bevat alle code die verbinding maakt met de database -->//
