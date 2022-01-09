@@ -110,8 +110,8 @@ button:hover {
   </tr>
   <tr style="height:200px;">
         
-	<td style='color:black'> <button type="submit" onclick="window.location.href='inloggen.php'" name='Inloggen' style='color:black;'>Inloggen</button> </td>
-	<td style='color:black'> <button type="submit" onclick="window.location.href='registreren.php'" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
+	<td style='color:black'> <button onclick="window.location.href='inloggen.php'" name='Inloggen' style='color:black;'>Inloggen</button> </td>
+	<td style='color:black'> <button onclick="window.location.href='registreren.php'" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
 	<td style='color:black'> <button type="submit" style='color:black;'>Verder gaan</button></td>
 	
 </table>
