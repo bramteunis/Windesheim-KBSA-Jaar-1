@@ -5,13 +5,17 @@ include __DIR__ . "/header.php";
 <html>
 <head>
 <style>
-
 table {
-  border: 3px solid black;
+  border-collapse: separate;
+  border: blue;
+  border-style:double;
+  border-radius:30px;
+  border-spacing: 56px;
 }
 
 table {
-  width: 100%;
+  width: 96%;
+  margin-left:3%;
 }
 
 th, td {
@@ -40,21 +44,23 @@ input[type=naam] {
 }
 
 .vl {
-  border-left: 3px solid black;
-  height: 59%;
+  border-left: blue;
+  border-style:double;
+  height: 91%;
   position: absolute;
   left: 29%;
   margin-left: -3px;
-  top: 41%;
+  top: 9%;
 }
 
 .vl2 {
-  border-left: 3px solid black;
-  height: 59%;
+  border-left: blue;
+  border-style:double;
+  height: 91%;
   position: absolute;
   left: 60%;
   margin-left: -3px;
-  top: 41%;
+  top: 9%;
 }
 
 button {
@@ -75,39 +81,42 @@ button:hover {
 </head>
 <body>
 
-<h2 style='color:black'>Winkelmand</h2>
-<h3><button onclick="window.location.href='index.php'">Verder winkelen</button></h3>
+<h2 style='color:black;float: right;margin-right: 45%;'>Betaalgegevens</h2>
+<h3><button onclick="window.location.href='index.php'" style="font-size: large;font-family: revert;margin-left:3%;">Verder winkelen</button></h3>
+<div class="vl"></div>
+<div class="vl2"></div>
+<form action="afrekenen.php" method="post">	
 <table>
-  <tr style='color:black;'>
+  <tr style='color:black;height:150px;'>
     <th>Bestaande klant</th>
     <th>Nieuwe klant</th>
 	<th>Bestellen als gast</th>
   </tr>
   <tr>
     <td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname" required> </td>
+    <input type="text" placeholder="Email-adres" name="email1"> </td>
     <td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname" required> </td>
+    <input type="text" placeholder="Email-adres" name="email2"> </td>
 	<td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname" required> </td>
+    <input type="text" placeholder="Email-adres" name="email3"> </td>
   </tr>
   <tr>
     <td> <label for="psw"> </label>
-    <input type="password" placeholder="Wachtwoord" name="psw" required> </td>
+    <input type="password" placeholder="Wachtwoord" name="psw1"> </td>
     <td> <label for="psw"> </label>
-    <input type="naam" placeholder="Volledige naam" name="uname" required> </td>
+    <input type="text" placeholder="Volledige naam" name="uname1"> </td>
 	<td> <label for="psw"> </label>
-    <input type="naam" placeholder="Volledige naam" name="uname" required> </td>
+    <input type="text" placeholder="Voornaam" name="uname2"> </td>
   </tr>
-  <tr>
+  <tr style="height:200px;">
         
-	<td style='color:black'> <button type="submit" name='Inloggen' style='color:black;'>Inloggen</button> </td>
-	<td style='color:black'> <button type="submit" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
-	<td style='color:black'> <button onclick="window.location.href='afrekenen.php'" style='color:black;'>Verder gaan</button></td>
+	<td style='color:black'> <button onclick="window.location.href='inloggen.php'" name='Inloggen' style='color:black;'>Inloggen</button> </td>
+	<td style='color:black'> <button onclick="window.location.href='registreren.php'" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
+	<td style='color:black'> <button type="submit" style='color:black;'>Verder gaan</button></td>
 	
 </table>
-<div class="vl"></div>
-<div class="vl2"></div>
+</form>
+
 </body>
 </html>
 

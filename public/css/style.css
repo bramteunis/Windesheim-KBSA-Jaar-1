@@ -41,27 +41,7 @@ body {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,64,159,0.1) 62%, #9fd2ff 100%);
 }
 
-#Pricediv{
-    color: black;
-    border: blue;
-    border-style: double;
-    border-radius: 10px;
-    width: 35%;
-    height: 40%;
-    margin-left: 60%;
-    position: absolute;
-    margin-top: -30%;
-}
-#CardItems{
-    border-bottom: solid rgba(7, 0, 132, 1);
-    padding: 6px;
-    width: 80%;
-    display: inline;
-}
-#CardItemsAmount{
-    width: 20%;
-    float: right;
-}
+
 
 @media (min-width: 750px) {
     #Afrekenenknop{
@@ -257,40 +237,209 @@ ul#ul-class-navigation li {
 #Content {
     margin-top: 150px;
 }
-#FilterFrame {
-    position: fixed;
-    width: 19%;
-    background-color: rgba(0, 135, 255, 0.34);
-    float: left;
-    top:216px;
-    border: 1px solid #fff;
-    margin-left: 5px;
-    margin-top: 10px;
-    padding: 20px;
-    color:black;
+
+@media(max-width: 750px) {
+    #FilterFrame {
+        /* position: fixed; */
+        width: 90%;
+        background-color: rgba(0, 135, 255, 0.34);
+        float: left;
+        top: 216px;
+        border: 1px solid #fff;
+        margin-left: 10%;
+        margin-top: 10px;
+        padding: 20px;
+        color: black;
+    }
+    #ProductFrame {
+        width: 100%;
+        height: 250px;
+        margin-top: 15px;
+        position: relative;
+        padding: 1px;
+        border-bottom: 1px solid #003aff;
+    }
+    #ResultsArea.Browse  {
+        width: 100%;
+        /* margin-left: 21%; */
+        float: left;
+        position: sticky;
+    }
+    .ImgFrame {
+        width: 163px;
+        height: 230px;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-size: 125px;
+    }
+    .StockItemPriceText {
+        font-family: vortice-concept, sans-serif;
+        color: rgba(0, 135, 255, 1);
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 80px;
+        margin-right: 15px;
+    }
+    .StockItemComments {
+        font-family: pt-sans, sans-serif;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    #deknopvoorinwinkelmand{
+        margin-left: 140px;
+        margin-top: -57px;
+    }
 }
-#ResultsArea.Browse  {
-    width: 78%;
-    margin-left: 21%;
-    float: left;
-    position: sticky;
+@media(min-width: 750px) {
+    #FilterFrame {
+        position: fixed;
+        width: 19%;
+        background-color: rgba(0, 135, 255, 0.34);
+        float: left;
+        top:216px;
+        border: 1px solid #fff;
+        margin-left: 5px;
+        margin-top: 10px;
+        padding: 20px;
+        color:black;
+    }
+    #ProductFrame {
+        width: 100%;
+        height: 250px;
+        margin-top: 15px;
+        position: relative;
+        padding: 1px;
+        border-bottom: 1px solid #003aff;
+    }
+    #ResultsArea.Browse  {
+        width: 78%;
+        margin-left: 21%;
+        float: left;
+        position: sticky;
+    }
+    .ImgFrame {
+        width: 230px;
+        height: 230px;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-size: 230px;
+    }
+    .StockItemPriceText {
+        font-family: vortice-concept, sans-serif;
+        color: rgba(0, 135, 255, 1);
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 25px;
+    }
+    .StockItemComments {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 14px;
+        font-weight: bold;
+    }
 }
-#ProductFrame {
-    width: 100%;
-    height: 250px;
-    margin-top: 15px;
-    position: relative;
-    padding: 1px;
-    border-bottom: 1px solid #fff;
+
+@media(max-width: 657px) {
+    .StockItemName {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: -500px;
+    }
+    .CenterPriceLeft {
+        position: absolute;
+        /* height: 100%; */
+        right: 0;
+        width: 421px;
+        /* margin-bottom: 267px; */
+        margin-top: -113px;
+    }
+    #StockItemDescription {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-top:50px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    #StockItemSpecifications {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-left: 1%;
+        margin-top:50px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    .StockItemID {
+        font-family: vortice-concept, sans-serif;
+        color: #114e93;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 130px;
+    }
+
 }
-.ImgFrame {
-    width: 230px;
-    height: 230px;
-    float: left;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-right: 10px
+
+@media(min-width: 657px) {
+    .StockItemName {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .CenterPriceLeft {
+        position: absolute;
+        height: 100%;
+        right: 0;
+        width: 200px;
+    }
+    #StockItemDescription {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-top:10px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    #StockItemSpecifications {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-left: 1%;
+        margin-top:10px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    .StockItemID {
+        font-family: vortice-concept, sans-serif;
+        color: #114e93;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 15px;
+    }
 }
+
 .ImgFrame img {
     width: 230px;
     height: 230px;
@@ -409,39 +558,14 @@ ul#ul-class-navigation li {
 .StockItemNameViewSize {
     font-size: 35px !important;
 }
-.CenterPriceLeft {
-    position: absolute;
-    height: 100%;
-    right: 0;
-    width: 200px;
-}
+
 .CenterPriceLeftChild {
     position: relative;
     top: 40%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-#StockItemDescription {
-    background-color: rgba(35, 40, 47, 0.8);
-    width: 49%;
-    float: left;
-    padding: 10px;
-    margin-top:10px;
-    border: 1px solid;
-    font-family: pt-sans, sans-serif;
-    font-size: 20px;
-}
-#StockItemSpecifications {
-    background-color: rgba(35, 40, 47, 0.8);
-    width: 49%;
-    float: left;
-    padding: 10px;
-    margin-left: 1%;
-    margin-top:10px;
-    border: 1px solid;
-    font-family: pt-sans, sans-serif;
-    font-size: 20px;
-}
+
 .Labels {
     margin-bottom: 0;
     padding: 10px;
@@ -511,8 +635,8 @@ ul#ul-class-price li {
     margin-left: 7%;
 }
 .HomePageStockItemPicture {
-    background-image: url("../stockitemimg/dinosaur battery powered slippers.png");
-    background-size: 75% 75%;
+    background-image: url("../stockitemimg/it joke mug.png");
+    background-size: 55% 55%;
     width: 477px;
     height: 477px;
     background-repeat: no-repeat;
@@ -610,38 +734,11 @@ ul#ul-class-price li {
     color: #ccc;
     opacity: 0.9;
 }
-.StockItemPriceText {
-    font-family: vortice-concept, sans-serif;
-    color: rgba(0, 135, 255, 1);
-    font-size: 22px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 25px;
-}
+
 .StockItemPriceText:hover {
     text-decoration: none;
 }
-.StockItemID {
-    font-family: vortice-concept, sans-serif;
-    color: #114e93;
-    font-size: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 15px;
-}
-.StockItemName {
-    font-family: pt-sans, sans-serif;
-    color: black;
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-.StockItemComments {
-    font-family: pt-sans, sans-serif;
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-}
+
 #CenteredContent {
     margin: 0 auto;
     width: 70%;
@@ -809,4 +906,34 @@ p {
 hr {
     background-color: black;
     width: 75%;
+}
+#relatedProductsOuterDiv{
+    width: 49%;
+    border: solid black 2px;
+    margin: 10px;
+    padding: 10px;
+    float: right;
+}
+.relatedProduct{
+    width: 98%;
+    height: 50px;
+    border: solid black 2px;
+    margin: 1%;
+}
+.imgRelatedProductDiv{
+    height: 48px;
+    width: 15%;
+    float: left;
+    color: black;
+    border: solid black 1px;
+    text-align: center;
+    padding: 2%;
+}
+.relatedProductsInfo{
+    height: 100%;
+    width: 60%;
+    float: left;
+}
+.textColor{
+    color: black;
 }

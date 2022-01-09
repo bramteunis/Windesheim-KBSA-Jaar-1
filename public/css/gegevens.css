@@ -2,7 +2,10 @@
     font-family: pt-sans, sans-serif;
     color: #676EFF;
 }
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
 .mainDiv {
     /*border: 1px solid red;*/
     width: 850px;
@@ -75,4 +78,82 @@ input:focus::-webkit-input-placeholder {
     -webkit-transition: all 0.5s linear;
     transition: all 0.5s linear;
     width: 202px;
+}
+#CardItems{
+    border-bottom: solid rgba(7, 0, 132, 1);
+    padding: 6px;
+    width: 80%;
+    display: inline;
+    padding-right: 20%;
+}
+#CardItemsAmount{
+    width: 35px;
+    float: right;
+}
+
+@media (min-width: 1615px) {
+    #Pricediv {
+        color: black;
+        border: blue;
+        border-style: double;
+        border-radius: 22px;
+        width: 35%;
+        height: 96%;
+        margin-left: 1050px;
+        position: absolute;
+        margin-top: -341px;
+        padding: 10px;
+    }
+    .bestellingtext{
+        color: black;
+        margin-left: 150%;
+    }
+    .gegevenstext{
+        color: black;
+        margin-left: 36%;
+        margin-bottom: 62px;
+        float: left;
+    }
+    .Information{
+        border: blue;
+        border-style: double;
+        height: 396px;
+        border-radius: 22px;
+        padding: 60px;
+        width: 961px;
+        margin-top: 23px;
+    }
+}
+@media (max-width: 1615px) {
+    #Pricediv {
+        color: black;
+        border: blue;
+        border-style: double;
+        border-radius: 10px;
+        width: 967px;
+        height: 40%;
+        margin-left: 20px;
+        position: absolute;
+        margin-top: 239px;
+    }
+    .bestellingtext{
+        color: black;
+        margin-left: 396px;
+        margin-top: 520px;
+        position: absolute;
+    }
+    .gegevenstext{
+        color: black;
+        margin-left: 36%;
+        margin-bottom: 9px;
+    }
+    .Information{
+        border: blue;
+        border-style: double;
+        height: 396px;
+        border-radius: 22px;
+        padding: 60px;
+        width: 961px;
+        margin-top: 23px;
+    }
 }

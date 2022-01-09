@@ -84,17 +84,7 @@ function Get_information($databaseConnection,$artikelnummer){
                 }
                 </style>
                 <?php
-                
-                $cart = getCart();
-                foreach($cart as $artikelnummer => $aantalartikel){
-                    $StockItem = getStockItem($artikelnummer, $databaseConnection);
-                    $nieuwevoorraad = str_replace("Voorraad: ", "",$StockItem['QuantityOnHand']) - $aantalartikel;
-
-                    $Query2 = "UPDATE stockitemholdings SET quantityonhand=".$nieuwevoorraad." WHERE stockitemid=".$artikelnummer;
-                    $Statement2 = mysqli_prepare($databaseConnection, $Query2);
-                    mysqli_stmt_execute($Statement2);
-                    //debug_to_console("Nieuwevooraad van artikel: ". $artikelnummer." is: ".$nieuwevoorraad34);
-                }print('<meta http-equiv="refresh" content="0.8; url=WinkemandCreateAccount.php" />');
+                print('<meta http-equiv="refresh" content="0.8; url=WinkemandCreateAccount.php" />');
                 //header("Refresh:0");
 
             }
@@ -134,7 +124,7 @@ function Get_information($databaseConnection,$artikelnummer){
 
                 }
             }
-            print ("<a href='https://kbs.bramteunis.nl/pull4/view.php?id=".$artikelnummer."'><h5 id='Artikelnaam' style='color:black; margin-left: 3%;margin-top:15px;height:50px'>".$StockItem['StockItemName']."</h5>");
+            print ("<a href='/pull3/view.php?id=".$artikelnummer."'><h5 id='Artikelnaam' style='color:black; margin-left: 3%;margin-top:15px;height:50px'>".$StockItem['StockItemName']."</h5>");
             print("</a><h5 id='Artikelcartprijs' style='color: black;margin-top:15px;float:right;'>".$StockItem['QuantityOnHand']."</h5>");
             print("</div>");
             print("<div style='float:right;width:344px;height:125px;'>");
@@ -194,7 +184,7 @@ function Get_information($databaseConnection,$artikelnummer){
             }
             print('</select>
                         
-                            <input type="text" name="format" value='.$b.'>
+                            <input type="text" name="format" value='.$b.' pattern="[0-9-]+">
                         
                    </form>
                </div>
