@@ -43,7 +43,10 @@ $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
-//$relatedStockItem = getRelatedStockItem($_GET['id'], $databaseConnection);
+$relatedStockItem = getRelatedStockItem($_GET['id'], $databaseConnection);
+$relatedStockItemImage = getRelatedStockItemImage($_GET['id'], $databaseConnection);
+$RelatedStockItemVoorraad = getRelatedStockItemVooraad($_GET['id'], $databaseConnection);
+$relatedStockItemNummer = getRelatedStockItemNummer($_GET['id'], $databaseConnection);
 ?>
 <div id="CenteredContent">
     <?php
@@ -231,14 +234,13 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <p><?php print $StockItem['CustomFields']; ?>.</p>
                 <?php
             }
-
             //add php foreach function
             //based on data in the database
             ?>
         </div>
         <div id="relatedProductsOuterDiv">
             <?php
-                //foreach ($relatedStockItem as $rsi){
+                foreach ($relatedStockItem as $rsi){
             ?>
             <div class='relatedProduct'>
                 <div class="imgRelatedProductDiv">IMG</div>
@@ -246,30 +248,15 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     <table>
                         <tbody>
                             <tr>
-                                <td class="textColor">Artikelnummer</td>
-                                <td class="textColor">Titel</td>
-                                <td class="textColor">Vooraad</td>
+                                <td class="textColor">Artikelnummer<?php //print $relatedStockItem['StockItemID'] ?></td>
+                                <td class="textColor">Titel<?php //print $relatedStockItem['StockItemName']?> </td>
+                                <td class="textColor">Vooraad<?php //print $relatedStockItem['QuantityOnHand']?> </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <?php //} ?>
-            <div class='relatedProduct'>
-                <div class="imgRelatedProductDiv">IMG</div>
-                <div class='relatedProductsInfo'>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td class="textColor">Artikelnummer</td>
-                            <td class="textColor">Titel</td>
-                            <td class="textColor">Vooraad</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            <?php } ?>
         <?php
     } else {
         ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php

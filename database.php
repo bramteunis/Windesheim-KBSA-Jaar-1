@@ -101,7 +101,20 @@ function getStockItemImage($id, $databaseConnection) {
 
 }
 function getRelatedStockItem($id, $databaseConnection){
-    $Query = "";
+    $Query = " 
+           SELECT SI.StockItemID, 
+            (RecommendedRetailPrice*(1+(TaxRate/100))) AS SellPrice, 
+            StockItemName,
+            CONCAT('Voorraad: ',QuantityOnHand)AS QuantityOnHand,
+            SearchDetails, 
+            (CASE WHEN (RecommendedRetailPrice*(1+(TaxRate/100))) > 50 THEN 0 ELSE 6.95 END) AS SendCosts, MarketingComments, CustomFields, SI.Video,
+            (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockItemID = SI.StockItemID LIMIT 1) as BackupImagePath   
+            FROM stockitems SI 
+            JOIN stockitemholdings SIH USING(stockitemid)
+            JOIN stockitemstockgroups ON SI.StockItemID = stockitemstockgroups.StockItemID
+            JOIN stockgroups USING(StockGroupID)
+            WHERE SI.stockitemid = ?
+            GROUP BY StockItemID";
 
     $Statement = mysqli_prepare($databaseConnection, $Query);
     mysqli_stmt_bind_param($Statement, "i", $id);
@@ -109,5 +122,35 @@ function getRelatedStockItem($id, $databaseConnection){
     $relatedStockItem = mysqli_stmt_get_result($Statement);
 
     return $relatedStockItem;
+}
+function getRelatedStockItemImage($id, $databaseConnection){
+    //$Query = "";
+
+    //$Statement = mysqli_prepare($databaseConnection, $Query);
+    //mysqli_stmt_bind_param($Statement, "i", $id);
+    //mysqli_stmt_execute($Statement);
+    //$relatedStockItemImage = mysqli_stmt_get_result($Statement);
+
+    //return $relatedStockItemImage;
+}
+function getRelatedStockItemVooraad($id, $databaseConnection){
+    //$Query = "";
+
+    //$Statement = mysqli_prepare($databaseConnection, $Query);
+    //mysqli_stmt_bind_param($Statement, "i", $id);
+    //mysqli_stmt_execute($Statement);
+    //$relatedStockItemVooraad = mysqli_stmt_get_result($Statement);
+
+    //return $relatedStockItemVooraad;
+}
+function getRelatedStockItemNummer($id, $databaseConnection){
+    //$Query = "";
+
+    //$Statement = mysqli_prepare($databaseConnection, $Query);
+    //mysqli_stmt_bind_param($Statement, "i", $id);
+    //mysqli_stmt_execute($Statement);
+    //$relatedStockItemNummer = mysqli_stmt_get_result($Statement);
+
+    //return $relatedStockItemNummer;
 }
 
