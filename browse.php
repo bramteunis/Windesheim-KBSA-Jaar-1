@@ -247,7 +247,7 @@ if (isset($amount)) {
 </div>
 
 
-<div id="ResultsArea" class="Browse">
+<div id="ResultsArea" class="Browse" style="margin-top: 30px;">
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
