@@ -7,10 +7,13 @@ include __DIR__ . "/header.php";
 <style>
 table {
   border: 3px solid black;
+  border-radius:6px;
+  padding-left:10px;
 }
 
 table {
-  width: 100%;
+  width: 96%;
+  margin-left:3%;
 }
 
 th, td {
