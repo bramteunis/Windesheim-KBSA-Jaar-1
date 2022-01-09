@@ -19,7 +19,7 @@ class Gebruikers
         try {
             // De connectie met de database openen
             $dsn = "mysql:host=localhost;dbname=nerdygadgets;";
-            $pdo = new PDO($dsn, "root", "root");
+            $pdo = new PDO($dsn, "kbs", "U4i5Q;au)q{v=94>a>+A");
             return $pdo;
         } catch (Exception $e) {
             echo $e->getMessage();
