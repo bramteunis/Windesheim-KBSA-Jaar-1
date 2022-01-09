@@ -289,7 +289,10 @@ ul#ul-class-navigation li {
         font-size: 14px;
         font-weight: bold;
     }
-    
+    #deknopvoorinwinkelmand{
+        margin-left: 140px;
+        margin-top: -57px;
+    }
 }
 @media(min-width: 750px) {
     #FilterFrame {
@@ -343,8 +346,99 @@ ul#ul-class-navigation li {
     }
 }
 
+@media(max-width: 657px) {
+    .StockItemName {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: -500px;
+    }
+    .CenterPriceLeft {
+        position: absolute;
+        /* height: 100%; */
+        right: 0;
+        width: 421px;
+        /* margin-bottom: 267px; */
+        margin-top: -113px;
+    }
+    #StockItemDescription {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-top:50px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    #StockItemSpecifications {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-left: 1%;
+        margin-top:50px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    .StockItemID {
+        font-family: vortice-concept, sans-serif;
+        color: #114e93;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 130px;
+    }
 
+}
 
+@media(min-width: 657px) {
+    .StockItemName {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .CenterPriceLeft {
+        position: absolute;
+        height: 100%;
+        right: 0;
+        width: 200px;
+    }
+    #StockItemDescription {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-top:10px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    #StockItemSpecifications {
+        background-color: rgba(35, 40, 47, 0.8);
+        width: 49%;
+        float: left;
+        padding: 10px;
+        margin-left: 1%;
+        margin-top:10px;
+        border: 1px solid;
+        font-family: pt-sans, sans-serif;
+        font-size: 20px;
+    }
+    .StockItemID {
+        font-family: vortice-concept, sans-serif;
+        color: #114e93;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+}
 
 .ImgFrame img {
     width: 230px;
@@ -464,39 +558,14 @@ ul#ul-class-navigation li {
 .StockItemNameViewSize {
     font-size: 35px !important;
 }
-.CenterPriceLeft {
-    position: absolute;
-    height: 100%;
-    right: 0;
-    width: 200px;
-}
+
 .CenterPriceLeftChild {
     position: relative;
     top: 40%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-#StockItemDescription {
-    background-color: rgba(35, 40, 47, 0.8);
-    width: 49%;
-    float: left;
-    padding: 10px;
-    margin-top:10px;
-    border: 1px solid;
-    font-family: pt-sans, sans-serif;
-    font-size: 20px;
-}
-#StockItemSpecifications {
-    background-color: rgba(35, 40, 47, 0.8);
-    width: 49%;
-    float: left;
-    padding: 10px;
-    margin-left: 1%;
-    margin-top:10px;
-    border: 1px solid;
-    font-family: pt-sans, sans-serif;
-    font-size: 20px;
-}
+
 .Labels {
     margin-bottom: 0;
     padding: 10px;
@@ -668,21 +737,6 @@ ul#ul-class-price li {
 
 .StockItemPriceText:hover {
     text-decoration: none;
-}
-.StockItemID {
-    font-family: vortice-concept, sans-serif;
-    color: #114e93;
-    font-size: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 15px;
-}
-.StockItemName {
-    font-family: pt-sans, sans-serif;
-    color: black;
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
 }
 
 #CenteredContent {
