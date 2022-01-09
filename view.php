@@ -282,3 +282,118 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
         ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php
     } ?>
 </div>
+
+<div>
+    <br> <h2 style="color:black;top:650px;left:310px;position:absolute;"> Reviews</h2> <br>
+</div>
+
+
+
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="center">
+        <div class="stars">
+            <input type="radio" id="five" name="rate" value="5">
+            <label for="five"></label>
+            <input type="radio" id="four" name="rate" value="4">
+            <label for="four"></label>
+            <input type="radio" id="three" name="rate" value="3">
+            <label for="three"></label>
+            <input type="radio" id="two" name="rate" value="2">
+            <label for="two"></label>
+            <input type="radio" id="one" name="rate" value="1">
+            <label for="one"></label>
+            <span class="result"></span>
+        </div>
+    </div>
+    </body>
+    </html>
+
+<!--<form action="view.php" method="post">-->
+<!--Name: <input type="text" name="name"><br>-->
+<!--    <textarea type="text" class="input" placeholder="Schrijf een review"></textarea><br>-->
+<!--    <input type="submit" value="Plaats review">-->
+<!--</form>-->     /* dit was om te testen naar de database. Om een input te sturen */-->
+
+
+    <section id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="comment">
+                        <p v-for="items in item" v-text="items"></p>
+                    </div><!--End Comment-->
+                </div><!--End col -->
+            </div><!-- End row -->
+            <div class="row">
+                <div class="col-6">
+                    <textarea type="text" class="input" placeholder="Schrijf een review"  v-model="newItem" @keyup.enter="addItem()"></textarea>
+                    <button v-on:click="addItem()" class='primaryContained' type="submit">Plaats review</button>
+                </div><!-- End col -->
+            </div><!--End Row -->
+        </div><!--End Container -->
+    </section><!-- end App -->
+
+
+</body>
+</html>
+
+
+
+
+
+
+<?php
+$ReviewName = postReviewName($_POST['Naam'], $databaseConnection);
+
+if(isset($_POST['submit']))
+{
+//    $Naam = $_POST['Naam'];
+
+
+    $insert = mysqli_query($Statement,"INSERT INTO `stockItems`(Naam) VALUES($Naam)");
+
+    if(!$insert)
+    {
+        echo mysqli_error();
+
+    }
+    else
+    {
+        echo "Review added succesfully";
+    }
+
+    mysqli_close($Statement);
+
+}
+//
+//
+//function Review($Naam, $databaseConnection)
+//{
+//        $query = "INSERT INTO stockitems (Naam)
+//                VALUES ('".$Naam."')";
+//        $statement = mysqli_prepare($databaseConnection, $query);
+//        mysqli_stmt_execute($statement);
+//        print($query);
+//    }
+//if(isset($_POST['Naam'])) {
+//                    Review($_POST['Naam'], $databaseConnection);
+//                }
+?>
+
+<!--<html>-->
+<!--<body>-->
+<!---->
+<!--<form action="view.php" method="POST">-->
+<!--    <h2 style="color:black">Full Name:</h2>-->
+<!--    <input type="text" name="Naam" placeholder="Enter Full Name" Required>-->
+<!--    <br/>-->
+<!--    <input type="submit" name="submit" value="Submit">-->
+<!--</form>-->
+<!---->
+<!--</body>-->
+<!--</html>-->
