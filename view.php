@@ -43,7 +43,10 @@ $ReturnableResult = mysqli_stmt_get_result($Statement);
 $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
-//$relatedStockItem = getRelatedStockItem($_GET['id'], $databaseConnection);
+$relatedStockItem = getRelatedStockItem($_GET['id'], $databaseConnection);
+$relatedStockItemImage = getRelatedStockItemImage($_GET['id'], $databaseConnection);
+$RelatedStockItemVoorraad = getRelatedStockItemVooraad($_GET['id'], $databaseConnection);
+$relatedStockItemNummer = getRelatedStockItemNummer($_GET['id'], $databaseConnection);
 ?>
 <div id="CenteredContent">
     <?php
@@ -57,8 +60,6 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             </div>
         <?php }
         ?>
-
-
         <div id="ArticleHeader">
             <?php
             if (isset($StockItemImage)) {
@@ -143,14 +144,14 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <div class="QuantityText" style="color: red; top:80%; font-size: 150%;";>
                 <?php 
         
-                    $Query = "SELECT MAX(ColdRoomTemperatureID),ColdRoomSensorNumber,Temperature,ValidFrom,ValidTo  FROM coldroomtemperatures ";
+                    $Query = "SELECT * FROM coldroomtemperatures ORDER BY ColdRoomTemperatureID DESC LIMIT 1";
                     $Statement2 = mysqli_prepare($databaseConnection2, $Query);
                     mysqli_stmt_execute($Statement2);
 
                     $ReturnableResult2 = mysqli_stmt_get_result($Statement2);
                     $ReturnableResult2 = mysqli_fetch_all($ReturnableResult2, MYSQLI_ASSOC);
                     foreach ($ReturnableResult2 as $row) {
-                        print("<a href='temperatures.php' style='color:red;'>Actuele Temperatuur: ".$row["Temperature"]."</a>");
+                        print("Actuele Temperatuur: ".$row["Temperature"]);
                         try{
                             $Query = 'INSERT INTO coldroomtemperatures (ColdRoomTemperatureID, Temperature, ColdRoomSensorNumber, RecordedWhen, ValidFrom, ValidTo) VALUES ('.$row["ColdRoomTemperatureID"].','.$row["Temperature"].', 1, "2021-12-12", "'.$row['ValidFrom'].'", "'.$row['ValidTo'].'")';
                             $Statement2 = mysqli_prepare($databaseConnection, $Query);
@@ -168,8 +169,10 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
             <?php }
             ?>
             <div id="StockItemHeaderLeft">
-                <div class="CenterPriceLeft">
-                    <div class="CenterPriceLeftChild">
+
+                <div id="centerPriceLeftId" >
+                    <div id="leftPriceDiv">
+
                         <?php
                         if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
                             foreach ($ReturnableResult as $row) {
@@ -179,23 +182,28 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                             }
                         }
                         ?>
-                        <h6 style="color: black" ;=""> Inclusief BTW </h6>
+                        <h6 style="color: black; float: right;margin-top: 1%"=""> Inclusief BTW </h6>
                         <!--<button class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1">Toevoegen Winkelmand</button>
                          formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
-                        <form method="post">
+
+                    </div>
+                    <div id="promptboxDiv">
+                        <form id="formInsideView" method="post">
+
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
                             <?php if($StockItem['QuantityOnHand'] != "Voorraad: 0"){ ?>
-                            <input id="deknopvoorinwinkelmand" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
+                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen">
                             <?php } ?>
                         </form>
                         
                         <?php
                             if (isset($_POST["submit"])) {              // zelfafhandelend formulier
                                 $stockItemID = $_POST["stockItemID"];
+
                                 addProductToCart($stockItemID);
                                 promptBoxView();
-                                // maak gebruik van geïmporteerde functie uit cartfuncties.php
-                                
+                                //maak gebruik van geïmporteerde functie uit cartfuncties.php
+
                             }
                         ?>
                     </div>
@@ -237,15 +245,16 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <?php } ?>
                 </table><?php
             } else { ?>
-
                 <p><?php print $StockItem['CustomFields']; ?>.</p>
                 <?php
             }
+            //add php foreach function
+            //based on data in the database
             ?>
         </div>
-    <div id="relatedProductsOuterDiv">
+        <div id="relatedProductsOuterDiv" style="color: black">Gerelateerde producten
             <?php
-                //foreach ($relatedStockItem as $rsi){
+                foreach ($relatedStockItem as $rsi){
             ?>
             <div class='relatedProduct'>
                 <div class="imgRelatedProductDiv">IMG</div>
@@ -253,34 +262,17 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                     <table>
                         <tbody>
                             <tr>
-                                <td class="textColor">Artikelnummer</td>
-                                <td class="textColor">Titel</td>
-                                <td class="textColor">Vooraad</td>
+                                <td class="textColor">Artikelnummer<?php //print $relatedStockItem['StockItemID'] ?></td>
+                                <td class="textColor">Titel<?php //print $relatedStockItem['StockItemName']?> </td>
+                                <td class="textColor">Vooraad<?php //print $relatedStockItem['QuantityOnHand']?> </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <?php //} ?>
-            <div class='relatedProduct'>
-                <div class="imgRelatedProductDiv">IMG</div>
-                <div class='relatedProductsInfo'>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td class="textColor">Artikelnummer</td>
-                            <td class="textColor">Titel</td>
-                            <td class="textColor">Vooraad</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            <?php } ?>
         <?php
     } else {
         ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php
     } ?>
 </div>
-
-
