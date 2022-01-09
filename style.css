@@ -1,0 +1,20 @@
+body{text-align:center; margin:50px 0 0 0; background:#f1f1f1; font-family:"proxima nova", "proxima-nova";}
+
+a {background:#0bb4a6; color:#fff; display:inline-block; text-decoration:none; height:45px; line-height:48px; padding:0 25px; border-radius:2px; border-bottom:3px solid #07736a; font-size:14px; letter-spacing:0.08em; float:right;}
+a:hover{border-bottom:5px solid #07736a; position:relative; top:-2px; background:#0fbbad;}
+a:active{border-bottom:3px solid #07736a; position:relative; top:0px;}
+
+span{font-size:24px; font-weight:500; color:#444; float:left; line-height:48px; padding:0 0 0 5px; display:inline-block; width:235px;}
+
+b{float:left; line-height:48px; font-weight:600; color:#0bb4a6; font-size:28px; padding:0 0 0 50px; display:inline-block; width:50px; }
+i{font-style:normal; font-size:20px; position:relative; top:-5px; left:-4px; opacity:0.6}
+
+small{float:left; line-height:48px; font-weight:600; color:#ccc; font-size:28px; padding:0 0 0 50px; display:inline-block; width:95px;}
+small i{opacity:0.8;}
+
+strong{float:left; display:inline-block; background:#ededed; padding:4px 6px; border-radius:2px; margin:10px 0 0 0; color:#999; letter-spacing:1px; }
+.icon{color:#54afa3; font-size:14px; display:inline-block; margin:0 3px 0 0;}
+.icon-down{color:#b14739;}
+
+div{background:#fff; width:700px; margin:0 auto; text-align:left; padding:20px; box-shadow:1px 1px 1px rgba(0,0,0,0.05); height:45px; margin-bottom:3px; border-radius:1px;}
+div:nth-child(even){background:#fafafa}

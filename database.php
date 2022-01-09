@@ -2,9 +2,6 @@
 
 //<!-- dit bestand bevat alle code die verbinding maakt met de database -->//
 
-
-
-
 function connectToDatabase() {
     $Connection = null;
 

@@ -1,0 +1,127 @@
+/*------------------------Register page-----------------------------*/
+
+:root {
+    --body_gradient_left:#7200D0;
+    --body_gradient_right: #C800C1;
+    --form_bg: #ffffff;
+    --input_bg: #E5E5E5;
+    --input_hover:#eaeaea;
+    --submit_bg: #4a86e8ff;
+    --submit_hover: #78a5ed;
+    --icon_color:#6b6b6b;
+}
+
+/** {*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    box-sizing: border-box;*/
+/*    font-family: "Poppins", sans-serif;*/
+/*}*/
+
+.loginbox {
+    height: 100vh;
+    /*font-family: 'Roboto', sans-serif;*/
+    display:flex;
+}
+
+#form_wrapper {
+    width: 1000px;
+    height: 700px;
+    margin:auto;
+    background-color: var(--form_bg);
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5vw;
+    padding: 5vh 15px;
+}
+
+#form_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form_left img {
+    width: 350px;
+    height: 350px;
+}
+
+#form_right {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding: 10% 5%;
+}
+
+.input_container {
+    background-color: var(--input_bg);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.input_container:hover {
+    background-color: var(--input_hover);
+}
+
+.input_container,
+#input_submit {
+    height: 60px;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.input_field {
+    color: var(--icon_color);
+    background-color: inherit;
+    width: 90%;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+.input_field:hover,
+.input_field:focus {
+    /* remove the outline */
+    outline: none;
+}
+
+#input_submit {
+    background-color: var(--submit_bg);
+    padding-left: 0;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+#input_submit:hover {
+    background-color: var(--submit_hover);
+    transition: background-color,
+    1s;
+    cursor: pointer;
+}
+
+span {
+    text-align: center;
+}
+
+#registrerenI {
+    color: var(--icon_color);
+}
+
+/*--------------------- Responsive design ----------------------*/
+
+@media screen and (max-width:768px) {
+
+    #form_wrapper {
+        grid-template-columns: 1fr;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #form_left {
+        display: none;
+    }
+}
