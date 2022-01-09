@@ -101,6 +101,25 @@ input:focus::-webkit-input-placeholder {
         margin-top: -341px;
         padding: 10px;
     }
+    .bestellingtext{
+        color: black;
+        margin-left: 150%;
+    }
+    .gegevenstext{
+        color: black;
+        margin-left: 36%;
+        margin-bottom: 62px;
+        float: left;
+    }
+    .information{
+        border: blue;
+        border-style: double;
+        height: 396px;
+        border-radius: 22px;
+        padding: 60px;
+        width: 961px;
+        margin-top: 23px;
+    }
 }
 @media (max-width: 1615px) {
     #Pricediv {
