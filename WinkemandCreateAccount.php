@@ -40,20 +40,20 @@ input[type=naam] {
 
 .vl {
   border-left: 3px solid black;
-  height: 59%;
+  height: 86%;
   position: absolute;
   left: 29%;
   margin-left: -3px;
-  top: 41%;
+  top: 14%;
 }
 
 .vl2 {
   border-left: 3px solid black;
-  height: 59%;
+  height: 86%;
   position: absolute;
   left: 60%;
   margin-left: -3px;
-  top: 41%;
+  top: 14%;
 }
 
 button {
@@ -74,11 +74,11 @@ button:hover {
 </head>
 <body>
 
-<h2 style='color:black'>Winkelmand</h2>
-<h3><button onclick="window.location.href='index.php'">Verder winkelen</button></h3>
+<h2 style='color:black;float: right;margin-right: 45%;'>Betaalgegevens</h2>
+<h3><button onclick="window.location.href='index.php'" style="font-size: large;font-family: revert;margin-left:3%;">Verder winkelen</button></h3>
 <form action="afrekenen.php" method="post">	
 <table>
-  <tr style='color:black;'>
+  <tr style='color:black;height:150px;'>
     <th>Bestaande klant</th>
     <th>Nieuwe klant</th>
 	<th>Bestellen als gast</th>
@@ -99,7 +99,7 @@ button:hover {
 	<td> <label for="psw"> </label>
     <input type="text" placeholder="Voornaam" name="uname2"> </td>
   </tr>
-  <tr>
+  <tr style="height:200px;">
         
 	<td style='color:black'> <button type="submit" onclick="window.location.href='inloggen.php'" name='Inloggen' style='color:black;'>Inloggen</button> </td>
 	<td style='color:black'> <button type="submit" onclick="window.location.href='registreren.php'" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
