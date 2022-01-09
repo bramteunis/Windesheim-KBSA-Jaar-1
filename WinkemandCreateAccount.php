@@ -85,11 +85,11 @@ button:hover {
   </tr>
   <tr>
     <td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname1"> </td>
+    <input type="text" placeholder="Email-adres" name="email1"> </td>
     <td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname2"> </td>
+    <input type="text" placeholder="Email-adres" name="email2"> </td>
 	<td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname3"> </td>
+    <input type="text" placeholder="Email-adres" name="email3"> </td>
   </tr>
   <tr>
     <td> <label for="psw"> </label>
@@ -97,12 +97,12 @@ button:hover {
     <td> <label for="psw"> </label>
     <input type="text" placeholder="Volledige naam" name="uname1"> </td>
 	<td> <label for="psw"> </label>
-    <input type="text" placeholder="Volledige naam" name="uname2"> </td>
+    <input type="text" placeholder="Voornaam" name="uname2"> </td>
   </tr>
   <tr>
         
-	<td style='color:black'> <button type="submit" name='Inloggen' style='color:black;'>Inloggen</button> </td>
-	<td style='color:black'> <button type="submit" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
+	<td style='color:black'> <button type="submit" onclick="window.location.href='inloggen.php'" name='Inloggen' style='color:black;'>Inloggen</button> </td>
+	<td style='color:black'> <button type="submit" onclick="window.location.href='registreren.php'" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
 	<td style='color:black'> <button type="submit" style='color:black;'>Verder gaan</button></td>
 	
 </table>
