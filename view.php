@@ -185,7 +185,7 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                         <form method="post">
                             <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
                             <?php if($StockItem['QuantityOnHand'] != "Voorraad: 0"){ ?>
-                            <input class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
+                            <input id="deknopvoorinwinkelmand" class="ToevoegenWinkelmandbutton ToevoegenWinkelmandbutton1" type="submit" name="submit" value="Toevoegen winkelmand">
                             <?php } ?>
                         </form>
                         
