@@ -2,7 +2,10 @@
     font-family: pt-sans, sans-serif;
     color: #676EFF;
 }
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
 .mainDiv {
     /*border: 1px solid red;*/
     width: 850px;
