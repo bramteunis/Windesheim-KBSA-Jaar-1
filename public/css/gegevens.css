@@ -131,17 +131,18 @@ input:focus::-webkit-input-placeholder {
         height: 40%;
         margin-left: 20px;
         position: absolute;
-        margin-top: 175px;
+        margin-top: 239px;
     }
     .bestellingtext{
         color: black;
-        margin-left: 150%;
+        margin-left: 396px;
+        margin-top: 520px;
+        position: absolute;
     }
     .gegevenstext{
         color: black;
         margin-left: 36%;
-        margin-bottom: 62px;
-        float: left;
+        margin-bottom: 9px;
     }
     .Information{
         border: blue;
