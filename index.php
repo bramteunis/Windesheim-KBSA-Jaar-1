@@ -63,10 +63,10 @@ function Get_information($databaseConnection,$artikelnummer){
     $StockItem = getStockItem($_GET['id'], $databaseConnection);
     $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
 }
+
 ?>
 
-<div class="underHeadDiv" style="
-    margin-top: 50px;">
+<div class="underHeadDiv">
     <i class="fas fa-check" style="color: green"></i>
     <p class="underHeadText">&nbspVoor 23.59 uur besteld, morgen gratis bezorgd</p>
     <i class="fas fa-check" style="color: green"></i>

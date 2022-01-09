@@ -183,7 +183,7 @@ a:hover {
 a span {
     display: none;
     position: absolute;
-    color: #676EFF;
+    color: #4f4d4d;
     background: #676EFF;
     padding: 5px;
 }
@@ -907,6 +907,7 @@ hr {
     background-color: black;
     width: 75%;
 }
+
 #relatedProductsOuterDiv{
     width: 49%;
     border: solid black 2px;
@@ -937,3 +938,4 @@ hr {
 .textColor{
     color: black;
 }
+

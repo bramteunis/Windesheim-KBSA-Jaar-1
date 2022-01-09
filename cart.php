@@ -327,7 +327,24 @@ function Get_information($databaseConnection,$artikelnummer){
 
     }
 
+<<<<<<< HEAD
+//
+//if cart array is NOT empty print its content in the page
+if($cart != null)
+{
+    print("<h1 style='color:black'>Totaalprijs: €".$totaalprijs."</h1>");
+    print("<h1 style='color:black'>Verzendkosten: €".$hoogsteverzending."</h1>");
+    $totaal = int($totaalprijs) + ($hoogsteverzending);
+    print("<h1 style='color:black'>Totaal: €".$totaal."</h1>");
+}else
+{
+    print('<h1 style = "font-size:2.5vw;position:fixed; width:30%; margin-left:37%; color:Black;">Uw winkelmand is leeg</h1>');  //Tekst winkelmand is leeg, wanneer cart =0
+    print('<form style = "method="get" action="index.php"> 
+           <button style= "font-size:1vw;position:fixed; width:10%; margin-left:45%;bottom:600px;color:Black;" type="submit">Homepagina</button></form>');  //Knop die leidt naar de homepage
+}
+=======
     ?>
 </div>
 </body>
 </html>
+>>>>>>> 1f0bd45e880d58df7a9425b2703eadfa53bbdee8
