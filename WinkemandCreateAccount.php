@@ -83,6 +83,8 @@ button:hover {
 
 <h2 style='color:black;float: right;margin-right: 45%;'>Betaalgegevens</h2>
 <h3><button onclick="window.location.href='index.php'" style="font-size: large;font-family: revert;margin-left:3%;">Verder winkelen</button></h3>
+<div class="vl"></div>
+<div class="vl2"></div>
 <form action="afrekenen.php" method="post">	
 <table>
   <tr style='color:black;height:150px;'>
@@ -114,8 +116,7 @@ button:hover {
 	
 </table>
 </form>
-<div class="vl"></div>
-<div class="vl2"></div>
+
 </body>
 </html>
 
