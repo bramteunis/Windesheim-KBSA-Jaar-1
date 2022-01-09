@@ -5,7 +5,6 @@ include __DIR__ . "/header.php";
 <html>
 <head>
 <style>
-
 table {
   border: 3px solid black;
 }
@@ -77,6 +76,7 @@ button:hover {
 
 <h2 style='color:black'>Winkelmand</h2>
 <h3><button onclick="window.location.href='index.php'">Verder winkelen</button></h3>
+<form action="afrekenen.php" method="post">	
 <table>
   <tr style='color:black;'>
     <th>Bestaande klant</th>
@@ -85,27 +85,28 @@ button:hover {
   </tr>
   <tr>
     <td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname" required> </td>
+    <input type="text" placeholder="Email-adres" name="uname1"> </td>
     <td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname" required> </td>
+    <input type="text" placeholder="Email-adres" name="uname2"> </td>
 	<td> <label for="uname"> </label>
-    <input type="text" placeholder="Email-adres" name="uname" required> </td>
+    <input type="text" placeholder="Email-adres" name="uname3"> </td>
   </tr>
   <tr>
     <td> <label for="psw"> </label>
-    <input type="password" placeholder="Wachtwoord" name="psw" required> </td>
+    <input type="password" placeholder="Wachtwoord" name="psw1"> </td>
     <td> <label for="psw"> </label>
-    <input type="naam" placeholder="Volledige naam" name="uname" required> </td>
+    <input type="text" placeholder="Volledige naam" name="uname1"> </td>
 	<td> <label for="psw"> </label>
-    <input type="naam" placeholder="Volledige naam" name="uname" required> </td>
+    <input type="text" placeholder="Volledige naam" name="uname2"> </td>
   </tr>
   <tr>
         
 	<td style='color:black'> <button type="submit" name='Inloggen' style='color:black;'>Inloggen</button> </td>
 	<td style='color:black'> <button type="submit" name='Aanmelden' style='color:black;'>Aanmelden</button> </td>
-	<td style='color:black'> <button onclick="window.location.href='afrekenen.php'" style='color:black;'>Verder gaan</button></td>
+	<td style='color:black'> <button type="submit" style='color:black;'>Verder gaan</button></td>
 	
 </table>
+</form>
 <div class="vl"></div>
 <div class="vl2"></div>
 </body>
