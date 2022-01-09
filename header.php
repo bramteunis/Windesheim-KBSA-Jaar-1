@@ -3,6 +3,22 @@
 session_start();
 include "database.php";
 $databaseConnection = connectToDatabase();
+
+echo "<div class='uitloggencenter'>";
+if (isset($_SESSION['EmailAddress'])) {
+    $Gebruiker_Gebruikersnaam = $_SESSION['PreferredName'];
+//    $Gebruiker_Voornaam = $_SESSION['Gebruiker_Voornaam'];
+//    $Gebruiker_Achternaam = $_SESSION['Gebruiker_Achternaam'];
+//    $Gebruiker_Email = $_SESSION['Gebruiker_Email'];
+
+//    echo "<br>";
+//    echo $Gebruiker_Gebruikersnaam . "<br>";
+//    echo $Gebruiker_Voornaam . " " . $Gebruiker_Achternaam . "<br>";
+//    echo $Gebruiker_Email . "<br><br><br><div class='uitloggencenter'><a class='uitloggen' href='uitloggen.php'>Uitloggen</a ></div>";
+} else {
+    include "login.php";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +77,11 @@ $databaseConnection = connectToDatabase();
                 <a href="browse.php" class="HrefDecoration"><i class="fa fa-search" aria-hidden="true"></i></i></a>
             </li>
             <li>
-                <a href="account.php" class="HrefDecoration"><i class="fas fa-user-circle"></i> Inloggen</a>
+                <a href="account.php" class="HrefDecoration"><i class="fas fa-user-circle"></i> <?php if (isset($_SESSION['EmailAddress'])) {
+                    echo $Gebruiker_Gebruikersnaam;
+                    } else {
+                    echo "Inloggen";
+                    }; ?></a>
             </li>
         </ul>
 <!----- einde code voor US3 zoeken. ----->
