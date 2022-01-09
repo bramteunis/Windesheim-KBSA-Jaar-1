@@ -283,6 +283,13 @@ ul#ul-class-navigation li {
         margin-top: 80px;
         margin-right: 15px;
     }
+    .StockItemComments {
+        font-family: pt-sans, sans-serif;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
 }
 @media(min-width: 750px) {
     #FilterFrame {
@@ -327,6 +334,12 @@ ul#ul-class-navigation li {
         text-transform: uppercase;
         font-weight: bold;
         margin-top: 25px;
+    }
+    .StockItemComments {
+        font-family: pt-sans, sans-serif;
+        color: black;
+        font-size: 14px;
+        font-weight: bold;
     }
 }
 
@@ -671,12 +684,7 @@ ul#ul-class-price li {
     text-transform: uppercase;
     font-weight: bold;
 }
-.StockItemComments {
-    font-family: pt-sans, sans-serif;
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-}
+
 #CenteredContent {
     margin: 0 auto;
     width: 70%;
