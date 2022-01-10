@@ -285,6 +285,56 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
 <div>
     <br> <h2 style="color:black;top:650px;left:310px;position:absolute;"> Reviews</h2> <br>
 </div>
+    
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="center">
+    <form action='' method="POST" name="rating">
+    <div class="stars">
+        <input type="radio" onclick="select()" id="five" value="5">
+        <label for="five"></label>
+        <input type="radio" onclick="select()" id="four" value="4">
+        <label for="four"></label>
+        <input type="radio" onclick="select()" id="three" value="3">
+        <label for="three"></label>
+        <input type="radio" onclick="select()" id="two" value="2">
+        <label for="two"></label>
+        <input type="radio" onclick="select()" id="one"  value="1">
+        <label for="one"></label>
+        <span class="result"></span>
+        <button type="submit" value="submit">Review Plaatsen</button>
+    </form>
+    <?php
+    include __DIR__ . "/cartfuncties.php";
+    include __DIR__ . "/header.php";
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
+    if(isset($_POST['insert']))
+    {
+        $rating = $_POST['rating'];
+        $RatingG = "INSERT into stockitem (AantalSterren) VALUES ($rating)";
+        $Statement = mysqli_prepare($databaseConnection, $RatingG);
+        mysqli_stmt_execute($Statement);
+        $ReturnableResult = mysqli_stmt_get_result($Statement);
+        $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+        foreach ($ReturnableResult as $row) {
+        $GRating = ($row["AantalSterren"]);
+}
+    }
+    print ($GRating);
+    ?>
+
+
+
+    </div>
+</div>
+</body>
+</html>
 
 
